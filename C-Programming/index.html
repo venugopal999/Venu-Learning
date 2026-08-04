@@ -7880,72 +7880,1483 @@ int b = a++;</code></pre>
              IF ELSE
         ================================= -->
 
-        <section
-            id="if-else"
-            class="content-card">
+      <section id="decision-making" class="content-card">
 
-            <h2>
+    <h2>🔀 8. Decision Making</h2>
 
-                🔀 8. If / Else
+    <!-- INTRODUCTION -->
 
-            </h2>
+    <h3>8.1 What is Decision Making?</h3>
+
+    <p>
+        Decision making allows a program to choose
+        different actions depending on whether a
+        condition is true or false.
+    </p>
+
+    <div class="formula-box">
+
+        Input
+        <br>
+        ↓
+        <br>
+        Condition
+        <br>
+        ↓
+        <br>
+        Decision
+        <br>
+        ↓
+        <br>
+        Output
+
+    </div>
+
+    <div class="example-box">
+
+        <strong>Real-life example:</strong>
+
+        <br><br>
+
+        If it is raining → Take an umbrella.
+
+        <br>
+
+        Otherwise → Do not take an umbrella.
+
+        <br><br>
+
+        A C program can express the same idea
+        using an <strong>if-else</strong> statement.
+
+    </div>
 
 
-            <pre><code>
-if (age >= 18)
+    <!-- TYPES -->
+
+    <h3>8.2 Decision-Making Statements</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Statement</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>if</td>
+                    <td>Execute code when a condition is true</td>
+                </tr>
+
+                <tr>
+                    <td>if-else</td>
+                    <td>Choose between two alternatives</td>
+                </tr>
+
+                <tr>
+                    <td>else-if ladder</td>
+                    <td>Choose among multiple conditions</td>
+                </tr>
+
+                <tr>
+                    <td>Nested if</td>
+                    <td>Place one decision inside another</td>
+                </tr>
+
+                <tr>
+                    <td>switch</td>
+                    <td>Select among multiple constant cases</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- IF -->
+
+    <h3>8.3 if Statement</h3>
+
+    <p>
+        The <strong>if</strong> statement executes
+        a block of code only when its condition
+        evaluates to true.
+    </p>
+
+    <div class="formula-box">
+
+        if (condition)
+        <br>
+        {
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;statements;
+        <br>
+        }
+
+    </div>
+
+
+    <h4>Example</h4>
+
+    <pre><code>int age = 20;
+
+if (age &gt;= 18)
 {
     printf("Eligible");
+}</code></pre>
+
+    <div class="output-box">
+        Eligible
+    </div>
+
+
+    <h4>How it works</h4>
+
+    <div class="formula-box">
+
+        age = 20
+
+        <br>
+
+        ↓
+
+        <br>
+
+        age &gt;= 18 ?
+
+        <br>
+
+        ↓
+
+        <br>
+
+        TRUE
+
+        <br>
+
+        ↓
+
+        <br>
+
+        Print "Eligible"
+
+    </div>
+
+
+    <!-- IF ELSE -->
+
+    <h3>8.4 if-else Statement</h3>
+
+    <p>
+        The <strong>if-else</strong> statement provides
+        two possible paths.
+    </p>
+
+    <div class="formula-box">
+
+        if (condition)
+        <br>
+        {
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;statement 1;
+        <br>
+        }
+        <br>
+        else
+        <br>
+        {
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;statement 2;
+        <br>
+        }
+
+    </div>
+
+
+    <h4>Example: Pass or Fail</h4>
+
+    <pre><code>int marks = 35;
+
+if (marks &gt;= 40)
+{
+    printf("Pass");
 }
 else
 {
-    printf("Not Eligible");
+    printf("Fail");
+}</code></pre>
+
+    <div class="output-box">
+        Fail
+    </div>
+
+
+    <!-- EVEN ODD -->
+
+    <h3>8.5 Example: Even or Odd</h3>
+
+    <pre><code>int n;
+
+scanf("%d", &amp;n);
+
+if (n % 2 == 0)
+{
+    printf("Even");
 }
-            </code></pre>
+else
+{
+    printf("Odd");
+}</code></pre>
 
 
-            <p>
+    <div class="example-box">
 
-                Conditional statements are used
-                to make decisions in a program.
+        <strong>Logic:</strong>
 
-            </p>
+        <br><br>
 
-        </section>
+        If n % 2 == 0
 
+        <br>
 
+        → Even
 
-        <!-- ================================
-             SWITCH
-        ================================= -->
+        <br><br>
 
-        <section
-            id="switch"
-            class="content-card">
+        Otherwise
 
-            <h2>
+        <br>
 
-                🔀 9. Switch Statement
+        → Odd
 
-            </h2>
+    </div>
 
 
-            <pre><code>
-switch(choice)
+    <!-- POSITIVE NEGATIVE -->
+
+    <h3>8.6 Example: Positive, Negative or Zero</h3>
+
+    <pre><code>int n;
+
+scanf("%d", &amp;n);
+
+if (n &gt; 0)
+{
+    printf("Positive");
+}
+else if (n &lt; 0)
+{
+    printf("Negative");
+}
+else
+{
+    printf("Zero");
+}</code></pre>
+
+
+    <!-- ELSE IF -->
+
+    <h3>8.7 else-if Ladder</h3>
+
+    <p>
+        An else-if ladder is used when there are
+        multiple possible conditions.
+    </p>
+
+    <div class="formula-box">
+
+        if (condition1)
+
+        <br>
+        ↓
+        <br>
+
+        else if (condition2)
+
+        <br>
+        ↓
+        <br>
+
+        else if (condition3)
+
+        <br>
+        ↓
+        <br>
+
+        else
+
+    </div>
+
+
+    <h4>Example: Grade Calculation</h4>
+
+    <pre><code>int marks;
+
+scanf("%d", &amp;marks);
+
+if (marks &gt;= 90)
+{
+    printf("Grade A");
+}
+else if (marks &gt;= 75)
+{
+    printf("Grade B");
+}
+else if (marks &gt;= 60)
+{
+    printf("Grade C");
+}
+else if (marks &gt;= 40)
+{
+    printf("Grade D");
+}
+else
+{
+    printf("Fail");
+}</code></pre>
+
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Marks</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>90 - 100</td>
+                    <td>A</td>
+                </tr>
+
+                <tr>
+                    <td>75 - 89</td>
+                    <td>B</td>
+                </tr>
+
+                <tr>
+                    <td>60 - 74</td>
+                    <td>C</td>
+                </tr>
+
+                <tr>
+                    <td>40 - 59</td>
+                    <td>D</td>
+                </tr>
+
+                <tr>
+                    <td>Below 40</td>
+                    <td>Fail</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- IMPORTANT ORDER -->
+
+    <h3>8.8 Importance of Condition Order</h3>
+
+    <p>
+        In an else-if ladder, conditions are checked
+        from top to bottom. Once a condition is true,
+        its block executes and the remaining conditions
+        are skipped.
+    </p>
+
+    <h4>Correct approach</h4>
+
+    <pre><code>if (marks &gt;= 90)
+{
+    printf("A");
+}
+else if (marks &gt;= 75)
+{
+    printf("B");
+}
+else if (marks &gt;= 60)
+{
+    printf("C");
+}</code></pre>
+
+
+    <div class="tip-box">
+
+        💡 Put more restrictive or higher-range
+        conditions first when using a descending
+        grade structure.
+
+    </div>
+
+
+    <!-- NESTED IF -->
+
+    <h3>8.9 Nested if</h3>
+
+    <p>
+        A nested if is an if statement placed inside
+        another if or else block.
+    </p>
+
+    <pre><code>int age = 25;
+int hasID = 1;
+
+if (age &gt;= 18)
+{
+    if (hasID)
+    {
+        printf("Entry allowed");
+    }
+}</code></pre>
+
+
+    <div class="formula-box">
+
+        age &gt;= 18 ?
+
+        <br>
+
+        ↓
+
+        <br>
+
+        YES
+
+        <br>
+
+        ↓
+
+        <br>
+
+        hasID ?
+
+        <br>
+
+        ↓
+
+        <br>
+
+        YES
+
+        <br>
+
+        ↓
+
+        <br>
+
+        Entry allowed
+
+    </div>
+
+
+    <!-- MULTIPLE CONDITIONS -->
+
+    <h3>8.10 Multiple Conditions</h3>
+
+    <p>
+        Logical operators can be combined with
+        decision-making statements.
+    </p>
+
+    <pre><code>int age = 25;
+
+if (age &gt;= 18 &amp;&amp; age &lt;= 60)
+{
+    printf("Eligible");
+}</code></pre>
+
+
+    <h4>Using OR</h4>
+
+    <pre><code>int day = 1;
+
+if (day == 1 || day == 7)
+{
+    printf("Weekend");
+}</code></pre>
+
+
+    <h4>Using NOT</h4>
+
+    <pre><code>int available = 0;
+
+if (!available)
+{
+    printf("Not available");
+}</code></pre>
+
+
+    <!-- LARGEST TWO -->
+
+    <h3>8.11 Problem: Largest of Two Numbers</h3>
+
+    <pre><code>int a, b;
+
+scanf("%d %d", &amp;a, &amp;b);
+
+if (a &gt; b)
+{
+    printf("%d", a);
+}
+else
+{
+    printf("%d", b);
+}</code></pre>
+
+
+    <div class="example-box">
+
+        <strong>Example Input:</strong>
+
+        <br>
+
+        25 18
+
+        <br><br>
+
+        <strong>Output:</strong>
+
+        <br>
+
+        25
+
+    </div>
+
+
+    <!-- LARGEST THREE -->
+
+    <h3>8.12 Problem: Largest of Three Numbers</h3>
+
+    <pre><code>int a, b, c;
+
+scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+if (a &gt;= b &amp;&amp; a &gt;= c)
+{
+    printf("%d", a);
+}
+else if (b &gt;= a &amp;&amp; b &gt;= c)
+{
+    printf("%d", b);
+}
+else
+{
+    printf("%d", c);
+}</code></pre>
+
+
+    <div class="example-box">
+
+        <strong>Input:</strong>
+
+        <br>
+
+        10 25 18
+
+        <br><br>
+
+        <strong>Output:</strong>
+
+        <br>
+
+        25
+
+    </div>
+
+
+    <!-- LEAP YEAR -->
+
+    <h3>8.13 Problem: Leap Year</h3>
+
+    <p>
+        A year is a leap year if it is divisible by
+        400, or if it is divisible by 4 but not by 100.
+    </p>
+
+    <pre><code>int year;
+
+scanf("%d", &amp;year);
+
+if (year % 400 == 0 ||
+    (year % 4 == 0 &amp;&amp; year % 100 != 0))
+{
+    printf("Leap Year");
+}
+else
+{
+    printf("Not a Leap Year");
+}</code></pre>
+
+
+    <div class="example-box">
+
+        <strong>Example:</strong>
+
+        <br><br>
+
+        2024 → Leap Year
+
+        <br>
+
+        1900 → Not a Leap Year
+
+        <br>
+
+        2000 → Leap Year
+
+    </div>
+
+
+    <!-- SWITCH -->
+
+    <h3>8.14 switch Statement</h3>
+
+    <p>
+        The switch statement selects one block from
+        multiple cases based on the value of an
+        integer-compatible expression.
+    </p>
+
+    <div class="formula-box">
+
+        switch(expression)
+        <br>
+        {
+        <br>
+        &nbsp;&nbsp;case value1:
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;statements;
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;break;
+        <br>
+        <br>
+        &nbsp;&nbsp;case value2:
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;statements;
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;break;
+        <br>
+        <br>
+        &nbsp;&nbsp;default:
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;statements;
+        <br>
+        }
+
+    </div>
+
+
+    <!-- SWITCH EXAMPLE -->
+
+    <h3>8.15 switch Example</h3>
+
+    <pre><code>int day;
+
+scanf("%d", &amp;day);
+
+switch(day)
 {
     case 1:
-        printf("Addition");
+        printf("Monday");
         break;
 
     case 2:
-        printf("Subtraction");
+        printf("Tuesday");
+        break;
+
+    case 3:
+        printf("Wednesday");
+        break;
+
+    default:
+        printf("Invalid day");
+}</code></pre>
+
+
+    <!-- BREAK -->
+
+    <h3>8.16 Why break is Used</h3>
+
+    <p>
+        The break statement terminates the switch
+        statement and transfers control to the
+        statement after the switch.
+    </p>
+
+    <pre><code>int n = 1;
+
+switch(n)
+{
+    case 1:
+        printf("One");
+        break;
+
+    case 2:
+        printf("Two");
+        break;
+}</code></pre>
+
+    <div class="output-box">
+        One
+    </div>
+
+
+    <div class="tip-box">
+
+        ⚠️ Without break, execution can continue
+        into subsequent cases. This is called
+        <strong>fall-through</strong>.
+
+    </div>
+
+
+    <!-- DEFAULT -->
+
+    <h3>8.17 default in switch</h3>
+
+    <p>
+        The default label executes when none of the
+        case values match.
+    </p>
+
+    <pre><code>int choice = 5;
+
+switch(choice)
+{
+    case 1:
+        printf("Add");
+        break;
+
+    case 2:
+        printf("Subtract");
         break;
 
     default:
         printf("Invalid choice");
-}
-            </code></pre>
+}</code></pre>
 
-        </section>
+    <div class="output-box">
+        Invalid choice
+    </div>
+
+
+    <!-- CALCULATOR -->
+
+    <h3>8.18 Calculator Using switch</h3>
+
+    <pre><code>int a, b;
+char op;
+
+scanf("%d %c %d", &amp;a, &amp;op, &amp;b);
+
+switch(op)
+{
+    case '+':
+        printf("%d", a + b);
+        break;
+
+    case '-':
+        printf("%d", a - b);
+        break;
+
+    case '*':
+        printf("%d", a * b);
+        break;
+
+    case '/':
+        if (b != 0)
+        {
+            printf("%d", a / b);
+        }
+        else
+        {
+            printf("Division by zero is not allowed");
+        }
+        break;
+
+    default:
+        printf("Invalid operator");
+}</code></pre>
+
+
+    <!-- SWITCH VS IF -->
+
+    <h3>8.19 if-else vs switch</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>if-else</th>
+                    <th>switch</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Works well with ranges and complex conditions</td>
+                    <td>Works well with discrete case values</td>
+                </tr>
+
+                <tr>
+                    <td>Can use relational operators</td>
+                    <td>Cases use constant values</td>
+                </tr>
+
+                <tr>
+                    <td>Can combine conditions using logical operators</td>
+                    <td>Useful for menu-style choices</td>
+                </tr>
+
+                <tr>
+                    <td>Good for ranges such as marks &gt;= 90</td>
+                    <td>Good for choices such as 1, 2, 3, 4</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- MENU -->
+
+    <h3>8.20 Menu-Driven Program</h3>
+
+    <p>
+        switch is commonly used to implement
+        menu-driven programs.
+    </p>
+
+    <pre><code>int choice;
+
+printf("1. Add\n");
+printf("2. Subtract\n");
+printf("3. Multiply\n");
+printf("4. Exit\n");
+
+scanf("%d", &amp;choice);
+
+switch(choice)
+{
+    case 1:
+        printf("Addition selected");
+        break;
+
+    case 2:
+        printf("Subtraction selected");
+        break;
+
+    case 3:
+        printf("Multiplication selected");
+        break;
+
+    case 4:
+        printf("Exit");
+        break;
+
+    default:
+        printf("Invalid choice");
+}</code></pre>
+
+
+    <!-- NESTED DECISION -->
+
+    <h3>8.21 Nested Decision Example</h3>
+
+    <p>
+        Nested decisions are useful when one condition
+        depends on another.
+    </p>
+
+    <pre><code>int marks;
+
+scanf("%d", &amp;marks);
+
+if (marks &gt;= 40)
+{
+    if (marks &gt;= 75)
+    {
+        printf("Distinction");
+    }
+    else
+    {
+        printf("Pass");
+    }
+}
+else
+{
+    printf("Fail");
+}</code></pre>
+
+
+    <!-- COMMON MISTAKES -->
+
+    <h3>8.22 Common Mistakes</h3>
+
+    <ul>
+
+        <li>
+            Using <strong>=</strong> instead of
+            <strong>==</strong> in a comparison.
+        </li>
+
+        <li>
+            Forgetting braces when multiple statements
+            belong to a condition.
+        </li>
+
+        <li>
+            Writing incorrect condition order in an
+            else-if ladder.
+        </li>
+
+        <li>
+            Forgetting <strong>break</strong> in a
+            switch case when fall-through is not intended.
+        </li>
+
+        <li>
+            Forgetting the <strong>default</strong>
+            case when invalid input should be handled.
+        </li>
+
+        <li>
+            Using switch when range-based conditions
+            are required.
+        </li>
+
+        <li>
+            Forgetting to handle division by zero.
+        </li>
+
+        <li>
+            Writing overly complicated nested if statements.
+        </li>
+
+    </ul>
+
+
+    <!-- PROBLEM SOLVING -->
+
+    <h3>8.23 Problem-Solving Method</h3>
+
+    <p>
+        Before writing an if-else program, identify
+        the condition first.
+    </p>
+
+    <div class="formula-box">
+
+        Step 1 → Understand the problem
+
+        <br><br>
+
+        Step 2 → Identify the input
+
+        <br><br>
+
+        Step 3 → Identify the condition
+
+        <br><br>
+
+        Step 4 → Decide the possible outcomes
+
+        <br><br>
+
+        Step 5 → Write the condition
+
+        <br><br>
+
+        Step 6 → Test boundary cases
+
+    </div>
+
+
+    <h4>Example</h4>
+
+    <p>
+        Problem: Check whether a number is positive,
+        negative or zero.
+    </p>
+
+    <div class="formula-box">
+
+        Input → n
+
+        <br><br>
+
+        Condition 1 → n &gt; 0
+
+        <br>
+
+        Condition 2 → n &lt; 0
+
+        <br>
+
+        Otherwise → n == 0
+
+    </div>
+
+
+    <!-- BOUNDARY CASES -->
+
+    <h3>8.24 Boundary Cases</h3>
+
+    <p>
+        Boundary testing is very important in
+        programming problems.
+    </p>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Problem</th>
+                    <th>Important Test Cases</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Even/Odd</td>
+                    <td>0, positive, negative</td>
+                </tr>
+
+                <tr>
+                    <td>Positive/Negative</td>
+                    <td>Positive, negative, 0</td>
+                </tr>
+
+                <tr>
+                    <td>Pass/Fail</td>
+                    <td>39, 40, 41</td>
+                </tr>
+
+                <tr>
+                    <td>Grade</td>
+                    <td>59, 60, 74, 75, 89, 90</td>
+                </tr>
+
+                <tr>
+                    <td>Leap Year</td>
+                    <td>1900, 2000, 2024</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- QUICK REVISION -->
+
+    <h3>8.25 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 <strong>if</strong> → One condition
+
+        <br><br>
+
+        📌 <strong>if-else</strong> → Two alternatives
+
+        <br><br>
+
+        📌 <strong>else-if</strong> → Multiple conditions
+
+        <br><br>
+
+        📌 <strong>Nested if</strong> → Decision inside
+        another decision
+
+        <br><br>
+
+        📌 <strong>switch</strong> → Multiple discrete
+        choices
+
+        <br><br>
+
+        📌 <strong>break</strong> → Exit switch
+
+        <br><br>
+
+        📌 <strong>default</strong> → No case matched
+
+        <br><br>
+
+        📌 Always test boundary cases.
+
+    </div>
+
+
+    <!-- MCQs -->
+
+    <h3>8.26 Quick MCQs</h3>
+
+    <ol>
+
+        <li>
+
+            Which statement is used to make a
+            decision based on a condition?
+
+            <br><br>
+
+            A) for
+
+            <br>
+
+            B) if
+
+            <br>
+
+            C) printf
+
+            <br>
+
+            D) scanf
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which statement provides two alternatives?
+
+            <br><br>
+
+            A) if
+
+            <br>
+
+            B) if-else
+
+            <br>
+
+            C) switch only
+
+            <br>
+
+            D) for
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which keyword terminates a switch case
+            when fall-through is not intended?
+
+            <br><br>
+
+            A) stop
+
+            <br>
+
+            B) exit
+
+            <br>
+
+            C) break
+
+            <br>
+
+            D) continue
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which keyword handles unmatched switch
+            cases?
+
+            <br><br>
+
+            A) else
+
+            <br>
+
+            B) default
+
+            <br>
+
+            C) otherwise
+
+            <br>
+
+            D) none
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What is the output?
+
+            <br><br>
+
+            int n = 10;
+
+            <br>
+
+            if (n &gt; 5)
+
+            <br>
+            {
+            <br>
+            &nbsp;&nbsp;printf("Yes");
+            <br>
+            }
+
+            <br><br>
+
+            A) No
+
+            <br>
+
+            B) Yes
+
+            <br>
+
+            C) 10
+
+            <br>
+
+            D) Error
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which is best suited for checking
+            multiple fixed menu choices?
+
+            <br><br>
+
+            A) switch
+
+            <br>
+
+            B) while
+
+            <br>
+
+            C) do-while
+
+            <br>
+
+            D) continue
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+    </ol>
+
+
+    <!-- PRACTICE PROBLEMS -->
+
+    <h3>8.27 Practice Problems</h3>
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+
+        Check whether a number is positive,
+        negative or zero.
+
+        <br><br>
+
+
+        <strong>Problem 2</strong>
+
+        <br>
+
+        Check whether a number is even or odd.
+
+        <br><br>
+
+
+        <strong>Problem 3</strong>
+
+        <br>
+
+        Find the largest of two numbers.
+
+        <br><br>
+
+
+        <strong>Problem 4</strong>
+
+        <br>
+
+        Find the largest of three numbers.
+
+        <br><br>
+
+
+        <strong>Problem 5</strong>
+
+        <br>
+
+        Check whether a student has passed
+        or failed.
+
+        <br><br>
+
+
+        <strong>Problem 6</strong>
+
+        <br>
+
+        Print the grade based on marks.
+
+        <br><br>
+
+
+        <strong>Problem 7</strong>
+
+        <br>
+
+        Check whether a year is a leap year.
+
+        <br><br>
+
+
+        <strong>Problem 8</strong>
+
+        <br>
+
+        Create a calculator using switch.
+
+        <br><br>
+
+
+        <strong>Problem 9</strong>
+
+        <br>
+
+        Create a menu-driven program for
+        addition, subtraction and multiplication.
+
+        <br><br>
+
+
+        <strong>Problem 10</strong>
+
+        <br>
+
+        Check whether a person is eligible
+        based on age and another condition.
+
+        <br><br>
+
+
+        <strong>Problem 11</strong>
+
+        <br>
+
+        Find whether a character is a vowel
+        or consonant.
+
+        <br><br>
+
+
+        <strong>Problem 12</strong>
+
+        <br>
+
+        Check whether three sides can form
+        a valid triangle.
+
+    </div>
+
+
+    <!-- KEY TAKEAWAY -->
+
+    <h3>8.28 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 Decision making is the bridge between
+        understanding a problem and writing a
+        program.
+
+        <br><br>
+
+        Remember:
+
+        <br><br>
+
+        <strong>
+        Problem → Condition → Decision → Output
+        </strong>
+
+        <br><br>
+
+        Master <strong>if, if-else, else-if,
+        nested if and switch</strong> before moving
+        to loops.
+
+    </div>
+
+</section>
 
 
 
