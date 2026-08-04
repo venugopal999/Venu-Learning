@@ -585,3 +585,89 @@ body {
     }
 
 }
+
+/* ================================
+   VENU LEARNING HOME CARDS
+================================ */
+
+.home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.subject-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 25px !important;
+    width: 100%;
+}
+
+.subject-card {
+    display: block !important;
+    background: #ffffff !important;
+    border: 1px solid #dbe3ec !important;
+    border-radius: 16px !important;
+    padding: 30px !important;
+    min-height: 230px !important;
+    box-sizing: border-box !important;
+    text-decoration: none !important;
+    color: #1e293b !important;
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease !important;
+}
+
+.subject-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.10) !important;
+}
+
+.subject-icon {
+    font-size: 45px !important;
+    margin-bottom: 15px !important;
+}
+
+.subject-card h3 {
+    font-size: 22px !important;
+    margin: 0 0 12px 0 !important;
+}
+
+.subject-card p {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: #64748b !important;
+    margin: 0 !important;
+}
+
+.learn-link {
+    display: inline-block !important;
+    margin-top: 20px !important;
+    color: #2563eb !important;
+    font-weight: 600 !important;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .subject-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .subject-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .subject-card {
+        min-height: auto !important;
+    }
+
+}
