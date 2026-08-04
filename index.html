@@ -2,281 +2,370 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Venu Learning Portal</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <style>
+    <title>Venu Learning</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #222;
-        }
-
-        header {
-            background: #1e293b;
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
-
-        header p {
-            font-size: 18px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .section-title h2 {
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
-
-        .subjects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .icon {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
-
-        .card h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .card a {
-            display: inline-block;
-            margin-top: 18px;
-            padding: 10px 20px;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-        }
-
-        .card a:hover {
-            background: #1d4ed8;
-        }
-
-        footer {
-            margin-top: 50px;
-            padding: 25px;
-            text-align: center;
-            background: #1e293b;
-            color: white;
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
+
 <body>
 
-    <header>
 
-        <h1>Venu Learning Portal</h1>
+<!-- ============================
+     HEADER
+============================= -->
 
-        <p>
-            Learn • Practice • Solve • Master
-        </p>
+<header class="top-header">
 
-    </header>
+    <a href="index.html"
+       class="logo">
+
+        📚 Venu <span>Learning</span>
+
+    </a>
 
 
-    <div class="container">
+    <nav class="top-nav">
 
-        <div class="section-title">
+        <a href="index.html">
+            Home
+        </a>
 
-            <h2>Learning Subjects</h2>
+        <a href="Maths/">
+            Maths
+        </a>
+
+        <a href="C-Programming/">
+            C
+        </a>
+
+        <a href="Data-Structures/">
+            DSA
+        </a>
+
+        <a href="Python/">
+            Python
+        </a>
+
+        <a href="AI-ML/">
+            AI & ML
+        </a>
+
+        <a href="Placement/">
+            Placement
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ============================
+     HERO SECTION
+============================= -->
+
+<section class="hero">
+
+    <h1>
+        📚 Welcome to
+        <span>Venu Learning</span>
+    </h1>
+
+
+    <p>
+
+        Learn Programming, Mathematics,
+        Data Structures, AI & Machine Learning
+        and Placement Skills — step by step.
+
+    </p>
+
+
+    <a
+        href="Maths/"
+        class="primary-button">
+
+        🚀 Start Learning
+
+    </a>
+
+</section>
+
+
+
+<!-- ============================
+     SUBJECTS
+============================= -->
+
+<main class="home-container">
+
+
+    <h2 class="section-title">
+
+        🎓 Learning Areas
+
+    </h2>
+
+
+    <p class="section-description">
+
+        Choose a subject and start learning.
+
+    </p>
+
+
+
+    <div class="subject-grid">
+
+
+        <!-- MATHEMATICS -->
+
+        <a
+            href="Maths/"
+            class="subject-card">
+
+            <div class="subject-icon">
+                📐
+            </div>
+
+
+            <h3>
+                Mathematics
+            </h3>
+
 
             <p>
-                Choose a subject to start learning
+
+                Learn mathematical concepts,
+                formulas, shortcuts and
+                problem-solving techniques.
+
             </p>
 
-        </div>
+
+            <span class="learn-link">
+
+                Start Learning →
+
+            </span>
+
+        </a>
 
 
-        <div class="subjects">
 
+        <!-- C PROGRAMMING -->
 
-            <!-- Mathematics -->
+        <a
+            href="C-Programming/"
+            class="subject-card">
 
-            <div class="card">
-
-                <div class="icon">📐</div>
-
-                <h3>Mathematics</h3>
-
-                <p>
-                    Concepts, formulas, examples,
-                    aptitude and problem solving.
-                </p>
-
-                <a href="Maths/">
-                    Explore Maths
-                </a>
-
+            <div class="subject-icon">
+                💻
             </div>
 
 
-            <!-- Physics 
-
-            <div class="card">
-
-                <div class="icon">⚛️</div>
-
-                <h3>Physics</h3>
-
-                <p>
-                    Physics concepts, formulas
-                    and numerical problems.
-                </p>
-
-                <a href="Physics/">
-                    Explore Physics
-                </a>
-
-            </div>  
-
-            -->
+            <h3>
+                C Programming
+            </h3>
 
 
-            <!-- C Programming -->
+            <p>
 
-            <div class="card">
+                Learn C programming from
+                fundamentals to advanced
+                programming concepts.
 
-                <div class="icon">💻</div>
+            </p>
 
-                <h3>C Programming</h3>
 
-                <p>
-                    Learn C programming from
-                    basics to advanced concepts.
-                </p>
+            <span class="learn-link">
 
-                <a href="C-Programming/">
-                    Explore C
-                </a>
+                Start Learning →
 
+            </span>
+
+        </a>
+
+
+
+        <!-- DATA STRUCTURES -->
+
+        <a
+            href="Data-Structures/"
+            class="subject-card">
+
+            <div class="subject-icon">
+                🧠
             </div>
 
 
-            <!-- Data Structures -->
+            <h3>
+                Data Structures
+            </h3>
 
-            <div class="card">
 
-                <div class="icon">🌳</div>
+            <p>
 
-                <h3>Data Structures</h3>
+                Master Arrays, Linked Lists,
+                Stacks, Queues, Trees and Graphs.
 
-                <p>
-                    Arrays, Linked Lists, Stacks,
-                    Queues, Trees and Graphs.
-                </p>
+            </p>
 
-                <a href="Data-Structures/">
-                    Explore DSA
-                </a>
 
+            <span class="learn-link">
+
+                Start Learning →
+
+            </span>
+
+        </a>
+
+
+
+        <!-- PYTHON -->
+
+        <a
+            href="Python/"
+            class="subject-card">
+
+            <div class="subject-icon">
+                🐍
             </div>
 
 
-            <!-- Python -->
+            <h3>
+                Python
+            </h3>
 
-            <div class="card">
 
-                <div class="icon">🐍</div>
+            <p>
 
-                <h3>Python</h3>
+                Learn Python programming,
+                problem solving and
+                practical applications.
 
-                <p>
-                    Python programming,
-                    NumPy, Pandas and projects.
-                </p>
+            </p>
 
-                <a href="Python/">
-                    Explore Python
-                </a>
 
+            <span class="learn-link">
+
+                Start Learning →
+
+            </span>
+
+        </a>
+
+
+
+        <!-- AI ML -->
+
+        <a
+            href="AI-ML/"
+            class="subject-card">
+
+            <div class="subject-icon">
+                🤖
             </div>
 
 
-            <!-- AI ML -->
+            <h3>
+                AI & Machine Learning
+            </h3>
 
-            <div class="card">
 
-                <div class="icon">🤖</div>
+            <p>
 
-                <h3>AI & Machine Learning</h3>
+                Learn Machine Learning,
+                Deep Learning, Neural Networks
+                and AI concepts.
 
-                <p>
-                    Machine Learning,
-                    Deep Learning and AI concepts.
-                </p>
+            </p>
 
-                <a href="AI-ML/">
-                    Explore AI/ML
-                </a>
 
+            <span class="learn-link">
+
+                Start Learning →
+
+            </span>
+
+        </a>
+
+
+
+        <!-- PLACEMENT -->
+
+        <a
+            href="Placement/"
+            class="subject-card">
+
+            <div class="subject-icon">
+                🎯
             </div>
 
 
-        </div>
+            <h3>
+                Placement Preparation
+            </h3>
+
+
+            <p>
+
+                Prepare for placements with
+                Aptitude, Reasoning, Verbal
+                and Coding practice.
+
+            </p>
+
+
+            <span class="learn-link">
+
+                Start Learning →
+
+            </span>
+
+        </a>
+
 
     </div>
 
 
-    <footer>
+</main>
 
-        <p>
-            © 2026 Venu Learning Portal
-        </p>
 
-    </footer>
+
+<!-- ============================
+     FOOTER
+============================= -->
+
+<footer class="footer">
+
+    <p>
+
+        © 2026 Venu Learning
+
+    </p>
+
+
+    <p>
+
+        Learn • Practice • Improve • Succeed
+
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
 
 </body>
 
