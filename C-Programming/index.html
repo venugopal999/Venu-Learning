@@ -1803,45 +1803,949 @@ int main()
              VARIABLES
         ================================= -->
 
-        <section
-            id="variables"
-            class="content-card">
+       <section
+    id="variables"
+    class="content-card">
 
-            <h2>
-
-                🔤 3. Variables & Constants
-
-            </h2>
+    <h2>
+        🔤 3. Variables & Constants
+    </h2>
 
 
-            <p>
+    <!-- WHAT IS VARIABLE -->
 
-                A variable is a named memory location
-                used to store data.
+    <h3>3.1 What is a Variable?</h3>
 
-            </p>
+    <p>
+        A variable is a named object that represents
+        a storage location used by a C program.
+        Its value can generally be changed during
+        program execution.
+    </p>
+
+    <p>
+        Every variable has a type, a name and,
+        when initialized, an initial value.
+    </p>
 
 
-            <pre><code>
-int age = 20;
+    <div class="example-box">
+
+        <strong>Example:</strong>
+
+        <br><br>
+
+        int age = 25;
+
+        <br><br>
+
+        <strong>int</strong> → Data type
+
+        <br>
+
+        <strong>age</strong> → Variable name
+
+        <br>
+
+        <strong>25</strong> → Initial value
+
+    </div>
+
+
+    <!-- WHY VARIABLES -->
+
+    <h3>3.2 Why Do We Need Variables?</h3>
+
+    <p>
+        Variables allow programs to store data
+        and use that data in calculations and
+        decision making.
+    </p>
+
+
+    <pre><code>int age = 20;
+
+int nextYear = age + 1;
+
+printf("%d", nextYear);</code></pre>
+
+
+    <div class="output-box">
+
+        21
+
+    </div>
+
+
+    <!-- DECLARATION -->
+
+    <h3>3.3 Variable Declaration</h3>
+
+    <p>
+        Declaration tells the compiler about the
+        variable's type and name.
+    </p>
+
+
+    <pre><code>int age;
+
+float marks;
+
+char grade;</code></pre>
+
+
+    <p>
+        In these declarations, memory/storage
+        requirements are determined by the type
+        and implementation.
+    </p>
+
+
+    <!-- INITIALIZATION -->
+
+    <h3>3.4 Variable Initialization</h3>
+
+    <p>
+        Initialization means giving a variable
+        an initial value when it is defined.
+    </p>
+
+
+    <pre><code>int age = 20;
 
 float marks = 85.5;
 
-char grade = 'A';
-            </code></pre>
+char grade = 'A';</code></pre>
 
 
-            <div class="formula-box">
+    <!-- DECLARATION VS INITIALIZATION -->
 
-                Syntax:
+    <h3>3.5 Declaration vs Initialization</h3>
 
-                <br><br>
 
-                data_type variable_name = value;
+    <table class="comparison-table">
 
-            </div>
+        <thead>
 
-        </section>
+            <tr>
+
+                <th>Concept</th>
+
+                <th>Example</th>
+
+                <th>Meaning</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+
+                <td>Declaration</td>
+
+                <td>int age;</td>
+
+                <td>
+                    Introduces a variable with a type
+                    and name.
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Initialization</td>
+
+                <td>int age = 20;</td>
+
+                <td>
+                    Gives an initial value when
+                    the variable is defined.
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Assignment</td>
+
+                <td>age = 25;</td>
+
+                <td>
+                    Assigns a value to an already
+                    declared variable.
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+    <!-- ASSIGNMENT -->
+
+    <h3>3.6 Assigning Values</h3>
+
+    <p>
+        The assignment operator
+        <strong>=</strong>
+        is used to assign a value to a variable.
+    </p>
+
+
+    <pre><code>int age;
+
+age = 20;
+
+age = 25;</code></pre>
+
+
+    <p>
+        After the second assignment,
+        the value of age is 25.
+    </p>
+
+
+    <div class="tip-box">
+
+        💡 Remember:
+
+        <br><br>
+
+        <strong>=</strong> means assignment.
+
+        <br>
+
+        <strong>==</strong> means equality comparison.
+
+    </div>
+
+
+    <!-- NAMING RULES -->
+
+    <h3>3.7 Rules for Naming Variables</h3>
+
+    <p>
+        Variable names are identifiers and must
+        follow the rules of the C language.
+    </p>
+
+
+    <ul>
+
+        <li>
+            A name may contain letters,
+            digits and underscores.
+        </li>
+
+        <li>
+            A name must not begin with a digit.
+        </li>
+
+        <li>
+            Spaces are not allowed.
+        </li>
+
+        <li>
+            C is case-sensitive.
+        </li>
+
+        <li>
+            Keywords cannot be used as variable names.
+        </li>
+
+        <li>
+            Choose meaningful names whenever possible.
+        </li>
+
+    </ul>
+
+
+    <!-- VALID INVALID -->
+
+    <h3>3.8 Valid and Invalid Identifiers</h3>
+
+
+    <table class="comparison-table">
+
+        <thead>
+
+            <tr>
+
+                <th>Identifier</th>
+
+                <th>Valid?</th>
+
+                <th>Reason</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+
+                <td>age</td>
+
+                <td>✔ Yes</td>
+
+                <td>Valid identifier</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>student_name</td>
+
+                <td>✔ Yes</td>
+
+                <td>Underscore is allowed</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>marks2</td>
+
+                <td>✔ Yes</td>
+
+                <td>Digits can appear after the first character</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>2marks</td>
+
+                <td>❌ No</td>
+
+                <td>Cannot begin with a digit</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>student name</td>
+
+                <td>❌ No</td>
+
+                <td>Spaces are not allowed</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>float</td>
+
+                <td>❌ No</td>
+
+                <td>float is a C keyword</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>total-marks</td>
+
+                <td>❌ No</td>
+
+                <td>Hyphen is not allowed in an identifier</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+    <!-- CASE SENSITIVE -->
+
+    <h3>3.9 C is Case-Sensitive</h3>
+
+    <p>
+        C treats uppercase and lowercase letters
+        as different characters.
+    </p>
+
+
+    <pre><code>int age = 20;
+
+int Age = 30;
+
+int AGE = 40;</code></pre>
+
+
+    <p>
+        These are three different identifiers.
+    </p>
+
+
+    <div class="tip-box">
+
+        💡
+
+        <strong>age</strong>,
+        <strong>Age</strong> and
+        <strong>AGE</strong>
+        are different names in C.
+
+    </div>
+
+
+    <!-- CONSTANTS -->
+
+    <h3>3.10 What is a Constant?</h3>
+
+    <p>
+        A constant is a value that is intended
+        not to change during the relevant part
+        of a program.
+    </p>
+
+
+    <div class="example-box">
+
+        Examples:
+
+        <br><br>
+
+        10
+
+        <br>
+
+        3.14
+
+        <br>
+
+        'A'
+
+        <br>
+
+        "Hello"
+
+    </div>
+
+
+    <!-- CONST -->
+
+    <h3>3.11 const Keyword</h3>
+
+    <p>
+        The <strong>const</strong> qualifier can
+        be used to make an object read-only through
+        that particular identifier.
+    </p>
+
+
+    <pre><code>const int MAX = 100;</code></pre>
+
+
+    <p>
+        After initialization, you should not assign
+        a new value to MAX through that identifier.
+    </p>
+
+
+    <pre><code>const int MAX = 100;
+
+/* MAX = 200;  invalid modification */</code></pre>
+
+
+    <div class="tip-box">
+
+        💡 Use <strong>const</strong> when a value
+        should not be modified through that variable.
+
+    </div>
+
+
+    <!-- DEFINE -->
+
+    <h3>3.12 #define Constants</h3>
+
+    <p>
+        The preprocessor directive
+        <strong>#define</strong>
+        can be used to create a macro.
+    </p>
+
+
+    <pre><code>#define PI 3.14159
+
+int main()
+{
+    printf("%f", PI);
+
+    return 0;
+}</code></pre>
+
+
+    <p>
+        The preprocessor replaces occurrences
+        of the macro name according to the
+        macro definition before compilation.
+    </p>
+
+
+    <!-- MEMORY -->
+
+    <h3>3.13 Variables and Memory</h3>
+
+    <p>
+        A variable is associated with a storage
+        location in memory. The exact address and
+        size depend on the type and the implementation.
+    </p>
+
+
+    <pre><code>int age = 25;</code></pre>
+
+
+    <div class="formula-box">
+
+        Variable
+
+        <br><br>
+
+        ┌─────────────────────┐
+        <br>
+        │ name : age          │
+        <br>
+        ├─────────────────────┤
+        <br>
+        │ value : 25          │
+        <br>
+        └─────────────────────┘
+
+    </div>
+
+
+    <p>
+        Later, when we learn pointers, we will
+        see how a program can work with the
+        address of such an object.
+    </p>
+
+
+    <!-- MULTIPLE VARIABLES -->
+
+    <h3>3.14 Multiple Variables</h3>
+
+    <p>
+        Multiple variables of the same type can
+        be declared in one declaration.
+    </p>
+
+
+    <pre><code>int a, b, c;</code></pre>
+
+
+    <p>
+        They can also be initialized together.
+    </p>
+
+
+    <pre><code>int a = 10, b = 20, c = 30;</code></pre>
+
+
+    <div class="tip-box">
+
+        💡 For readability, separate declarations
+        are often easier to understand in larger programs.
+
+    </div>
+
+
+    <!-- EXAMPLE -->
+
+    <h3>3.15 Complete Example</h3>
+
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int age = 20;
+    float marks = 85.5;
+    char grade = 'A';
+
+    printf("Age = %d\n", age);
+
+    printf("Marks = %.2f\n", marks);
+
+    printf("Grade = %c\n", grade);
+
+    return 0;
+}</code></pre>
+
+
+    <h3>Output</h3>
+
+
+    <div class="output-box">
+
+        Age = 20
+
+        <br>
+
+        Marks = 85.50
+
+        <br>
+
+        Grade = A
+
+    </div>
+
+
+    <!-- COMMON MISTAKES -->
+
+    <h3>3.16 Common Mistakes</h3>
+
+
+    <ul>
+
+        <li>
+            Using a variable before defining it
+            when a definition is required.
+        </li>
+
+        <li>
+            Using a keyword as a variable name.
+        </li>
+
+        <li>
+            Starting a variable name with a digit.
+        </li>
+
+        <li>
+            Using spaces in variable names.
+        </li>
+
+        <li>
+            Confusing <strong>=</strong>
+            with <strong>==</strong>.
+        </li>
+
+        <li>
+            Trying to modify an object declared
+            with <strong>const</strong>.
+        </li>
+
+        <li>
+            Using unclear variable names in
+            larger programs.
+        </li>
+
+    </ul>
+
+
+    <!-- QUICK REVISION -->
+
+    <h3>3.17 Quick Revision</h3>
+
+
+    <div class="tip-box">
+
+        📌 A variable represents a storage location
+        used by a program.
+
+        <br><br>
+
+        📌 Declaration introduces a variable
+        with its type and name.
+
+        <br><br>
+
+        📌 Initialization gives an initial value
+        when an object is defined.
+
+        <br><br>
+
+        📌 Assignment changes the stored value
+        when the object is modifiable.
+
+        <br><br>
+
+        📌 C identifiers are case-sensitive.
+
+        <br><br>
+
+        📌 Keywords cannot be used as identifiers.
+
+        <br><br>
+
+        📌 <strong>const</strong> can make an object
+        read-only through that identifier.
+
+        <br><br>
+
+        📌 <strong>#define</strong> creates a
+        preprocessor macro.
+
+    </div>
+
+
+    <!-- MCQS -->
+
+    <h3>3.18 Quick MCQs</h3>
+
+
+    <ol>
+
+        <li>
+            Which symbol is used for assignment?
+
+            <br><br>
+
+            A) ==
+
+            <br>
+
+            B) =
+
+            <br>
+
+            C) !=
+
+            <br>
+
+            D) &gt;
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+        </li>
+
+
+        <br>
+
+
+        <li>
+            Which is a valid identifier?
+
+            <br><br>
+
+            A) 2value
+
+            <br>
+
+            B) student name
+
+            <br>
+
+            C) student_name
+
+            <br>
+
+            D) float
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+        </li>
+
+
+        <br>
+
+
+        <li>
+            Which keyword can be used to qualify
+            an object as read-only?
+
+            <br><br>
+
+            A) fixed
+
+            <br>
+
+            B) constant
+
+            <br>
+
+            C) const
+
+            <br>
+
+            D) readonly
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+        </li>
+
+
+        <br>
+
+
+        <li>
+            Which of the following is case-sensitive
+            in C?
+
+            <br><br>
+
+            A) Identifiers
+
+            <br>
+
+            B) Spaces
+
+            <br>
+
+            C) Comments
+
+            <br>
+
+            D) Output
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+        </li>
+
+
+        <br>
+
+
+        <li>
+            Which is a valid declaration?
+
+            <br><br>
+
+            A) int 2age;
+
+            <br>
+
+            B) int age;
+
+            <br>
+
+            C) integer age;
+
+            <br>
+
+            D) number age;
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+        </li>
+
+    </ol>
+
+
+    <!-- PROGRAMMING PROBLEMS -->
+
+    <h3>3.19 Programming Problems</h3>
+
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+
+        Declare variables to store a student's
+        age, marks and grade and print them.
+
+        <br><br>
+
+
+        <strong>Problem 2</strong>
+
+        <br>
+
+        Write a C program to exchange the values
+        of two variables using a third variable.
+
+        <br><br>
+
+
+        <strong>Problem 3</strong>
+
+        <br>
+
+        Write a C program to calculate the
+        total and average of three marks.
+
+        <br><br>
+
+
+        <strong>Problem 4</strong>
+
+        <br>
+
+        Create a constant for PI and calculate
+        the area of a circle.
+
+        <br><br>
+
+
+        <strong>Problem 5</strong>
+
+        <br>
+
+        Write a program to calculate the
+        total price of three products.
+
+    </div>
+
+
+    <!-- KEY TAKEAWAY -->
+
+    <h3>3.20 Key Takeaway</h3>
+
+
+    <div class="tip-box">
+
+        🎯 Before writing a C program, ask:
+
+        <br><br>
+
+        <strong>
+        What data do I need?
+        </strong>
+
+        <br><br>
+
+        <strong>
+        What type should each data item have?
+        </strong>
+
+        <br><br>
+
+        <strong>
+        Which values can change?
+        </strong>
+
+        <br><br>
+
+        <strong>
+        Which values should remain unchanged?
+        </strong>
+
+        <br><br>
+
+        Choosing appropriate variables and constants
+        is one of the first steps toward writing
+        clear and reliable programs.
+
+    </div>
+
+</section>
 
 
 
