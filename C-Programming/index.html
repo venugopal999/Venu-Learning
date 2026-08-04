@@ -2754,47 +2754,1200 @@ int main()
         ================================= -->
 
         <section
-            id="datatypes"
-            class="content-card">
+    id="datatypes"
+    class="content-card">
 
-            <h2>
-
-                📦 4. Data Types
-
-            </h2>
+    <h2>
+        📦 4. Data Types
+    </h2>
 
 
-            <p>
+    <!-- INTRODUCTION -->
 
-                Data types specify what type of
-                data a variable can store.
+    <h3>4.1 What is a Data Type?</h3>
 
-            </p>
+    <p>
+        A data type tells the compiler what kind
+        of value an object can represent and helps
+        determine how that object is stored and
+        interpreted.
+    </p>
+
+    <p>
+        Choosing the correct data type is important
+        because different types are designed for
+        different kinds of data.
+    </p>
 
 
-            <div class="example-box">
+    <div class="example-box">
 
-                <strong>Common C Data Types</strong>
+        <strong>Examples:</strong>
 
-                <br><br>
+        <br><br>
 
-                int → Integer numbers
+        int → Whole numbers
 
-                <br>
+        <br>
 
-                float → Decimal numbers
+        float → Decimal numbers
 
-                <br>
+        <br>
 
-                double → Large decimal values
+        double → Double-precision floating-point values
 
-                <br>
+        <br>
 
-                char → Single character
+        char → Character values
 
-            </div>
+    </div>
 
-        </section>
+
+    <!-- TYPES -->
+
+    <h3>4.2 Main Categories of C Data Types</h3>
+
+
+    <div class="formula-box">
+
+        C Data Types
+
+        <br><br>
+
+        ├── Basic / Fundamental Types
+
+        <br>
+        │     ├── char
+        <br>
+        │     ├── int
+        <br>
+        │     ├── float
+        <br>
+        │     └── double
+        <br><br>
+
+        ├── void
+
+        <br><br>
+
+        ├── Derived Types
+
+        <br>
+        │     ├── Arrays
+        <br>
+        │     ├── Pointers
+        <br>
+        │     └── Functions
+        <br><br>
+
+        └── User-defined Types
+
+        <br>
+              ├── struct
+        <br>
+              ├── union
+        <br>
+              └── enum
+
+    </div>
+
+
+    <!-- BASIC TABLE -->
+
+    <h3>4.3 Basic Data Types</h3>
+
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Type</th>
+
+                    <th>Used For</th>
+
+                    <th>Example</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        char
+                    </td>
+
+                    <td>
+                        Character values
+                    </td>
+
+                    <td>
+                        'A'
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        int
+                    </td>
+
+                    <td>
+                        Integer values
+                    </td>
+
+                    <td>
+                        25
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        float
+                    </td>
+
+                    <td>
+                        Single-precision
+                        floating-point values
+                    </td>
+
+                    <td>
+                        25.5f
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        double
+                    </td>
+
+                    <td>
+                        Double-precision
+                        floating-point values
+                    </td>
+
+                    <td>
+                        25.5678
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        void
+                    </td>
+
+                    <td>
+                        Represents absence
+                        of a value
+                    </td>
+
+                    <td>
+                        void function
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- CHAR -->
+
+    <h3>4.4 char Data Type</h3>
+
+    <p>
+        The <strong>char</strong> type is used to
+        store a character value.
+    </p>
+
+
+    <pre><code>char grade = 'A';
+
+printf("%c", grade);</code></pre>
+
+
+    <div class="output-box">
+
+        A
+
+    </div>
+
+
+    <p>
+        Character constants are written using
+        single quotes.
+    </p>
+
+
+    <pre><code>'A'
+
+'B'
+
+'7'
+
+'@'</code></pre>
+
+
+    <div class="tip-box">
+
+        💡 A character such as
+        <strong>'5'</strong>
+        is not the same as the integer
+        <strong>5</strong>.
+
+    </div>
+
+
+    <!-- INT -->
+
+    <h3>4.5 int Data Type</h3>
+
+    <p>
+        The <strong>int</strong> type is commonly
+        used to represent integer values.
+    </p>
+
+
+    <pre><code>int age = 25;
+
+int marks = 90;
+
+printf("%d", age);</code></pre>
+
+
+    <p>
+        Integer values do not contain a fractional
+        part.
+    </p>
+
+
+    <div class="example-box">
+
+        Examples:
+
+        <br><br>
+
+        10
+
+        <br>
+
+        -25
+
+        <br>
+
+        0
+
+        <br>
+
+        1000
+
+    </div>
+
+
+    <!-- FLOAT -->
+
+    <h3>4.6 float Data Type</h3>
+
+    <p>
+        The <strong>float</strong> type represents
+        single-precision floating-point values.
+    </p>
+
+
+    <pre><code>float temperature = 36.5f;
+
+printf("%.2f", temperature);</code></pre>
+
+
+    <div class="output-box">
+
+        36.50
+
+    </div>
+
+
+    <p>
+        The suffix <strong>f</strong> can be used
+        to indicate a floating constant of type
+        float.
+    </p>
+
+
+    <!-- DOUBLE -->
+
+    <h3>4.7 double Data Type</h3>
+
+    <p>
+        The <strong>double</strong> type provides
+        double-precision floating-point values
+        and is commonly preferred when more
+        precision than float is useful.
+    </p>
+
+
+    <pre><code>double pi = 3.141592653589793;
+
+printf("%.15f", pi);</code></pre>
+
+
+    <div class="output-box">
+
+        3.141592653589793
+
+    </div>
+
+
+    <!-- VOID -->
+
+    <h3>4.8 void Data Type</h3>
+
+    <p>
+        The <strong>void</strong> type represents
+        the absence of a value in certain contexts.
+    </p>
+
+
+    <h4>Example: Function with no return value</h4>
+
+
+    <pre><code>void display()
+{
+    printf("Hello");
+}</code></pre>
+
+
+    <p>
+        A function declared with void return type
+        does not return a value to its caller.
+    </p>
+
+
+    <!-- MODIFIERS -->
+
+    <h3>4.9 Type Modifiers</h3>
+
+    <p>
+        C provides type specifiers and modifiers
+        that can be combined with integer types
+        to change their range and representation.
+    </p>
+
+
+    <div class="example-box">
+
+        <strong>Common keywords:</strong>
+
+        <br><br>
+
+        signed
+
+        <br>
+
+        unsigned
+
+        <br>
+
+        short
+
+        <br>
+
+        long
+
+    </div>
+
+
+    <!-- UNSIGNED -->
+
+    <h3>4.10 signed and unsigned</h3>
+
+    <p>
+        Integer types can be signed or unsigned.
+        A signed type can represent negative and
+        non-negative values, while an unsigned type
+        represents only non-negative values.
+    </p>
+
+
+    <pre><code>signed int temperature = -10;
+
+unsigned int count = 100;</code></pre>
+
+
+    <div class="tip-box">
+
+        💡 An unsigned integer type cannot represent
+        negative values.
+
+    </div>
+
+
+    <!-- SHORT LONG -->
+
+    <h3>4.11 short and long</h3>
+
+    <p>
+        The keywords <strong>short</strong> and
+        <strong>long</strong> can be used to request
+        different integer ranges.
+    </p>
+
+
+    <pre><code>short int a;
+
+long int b;
+
+long long int c;</code></pre>
+
+
+    <p>
+        The exact size of integer types is
+        implementation-dependent, so portable
+        programs should not assume a particular
+        byte size unless the implementation
+        guarantees it.
+    </p>
+
+
+    <!-- SIZEOF -->
+
+    <h3>4.12 sizeof() Operator</h3>
+
+    <p>
+        The <strong>sizeof</strong> operator gives
+        the size in bytes of a type or object.
+    </p>
+
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf("%zu\n", sizeof(char));
+
+    printf("%zu\n", sizeof(int));
+
+    printf("%zu\n", sizeof(float));
+
+    printf("%zu\n", sizeof(double));
+
+    return 0;
+}</code></pre>
+
+
+    <p>
+        The result can vary between systems,
+        especially for some integer types.
+        Use sizeof() when your program needs
+        the actual size on the current implementation.
+    </p>
+
+
+    <!-- FORMAT SPECIFIERS -->
+
+    <h3>4.13 Common Format Specifiers</h3>
+
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Data</th>
+
+                    <th>Common printf() Specifier</th>
+
+                    <th>Example</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>int</td>
+
+                    <td>%d</td>
+
+                    <td>printf("%d", age);</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>unsigned int</td>
+
+                    <td>%u</td>
+
+                    <td>printf("%u", count);</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>char</td>
+
+                    <td>%c</td>
+
+                    <td>printf("%c", grade);</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>float</td>
+
+                    <td>%f</td>
+
+                    <td>printf("%f", value);</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>double</td>
+
+                    <td>%f</td>
+
+                    <td>printf("%f", value);</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>string</td>
+
+                    <td>%s</td>
+
+                    <td>printf("%s", name);</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- CHAR AND INTEGER -->
+
+    <h3>4.14 Character vs Integer</h3>
+
+    <p>
+        A character constant such as 'A' and an
+        integer constant such as 65 are different
+        expressions, even though a character can
+        be represented by an integer value in
+        appropriate contexts.
+    </p>
+
+
+    <pre><code>char ch = 'A';
+
+int number = 65;
+
+printf("%c\n", ch);
+
+printf("%d\n", number);</code></pre>
+
+
+    <p>
+        The numerical value associated with a
+        character depends on the execution
+        character set used by the implementation.
+    </p>
+
+
+    <!-- PRECISION -->
+
+    <h3>4.15 float vs double</h3>
+
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Feature</th>
+
+                    <th>float</th>
+
+                    <th>double</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>Precision</td>
+
+                    <td>Single precision</td>
+
+                    <td>Double precision</td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>Typical Use</td>
+
+                    <td>
+                        When lower precision or
+                        lower storage is appropriate
+                    </td>
+
+                    <td>
+                        When greater precision is needed
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>Common Literal</td>
+
+                    <td>3.14f</td>
+
+                    <td>3.14</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="tip-box">
+
+        💡 For many general-purpose calculations,
+        double is preferred when extra precision
+        is useful. The actual representation and
+        precision are implementation-dependent.
+
+    </div>
+
+
+    <!-- TYPE CONVERSION -->
+
+    <h3>4.16 Type Conversion</h3>
+
+    <p>
+        Type conversion happens when a value of
+        one type is converted to another type.
+    </p>
+
+
+    <h4>Implicit Conversion</h4>
+
+
+    <p>
+        The compiler may automatically convert
+        one type to another according to the
+        rules of the C language.
+    </p>
+
+
+    <pre><code>int a = 10;
+
+double b = a;
+
+printf("%f", b);</code></pre>
+
+
+    <h4>Explicit Conversion</h4>
+
+
+    <p>
+        A programmer can explicitly request a
+        conversion using a cast.
+    </p>
+
+
+    <pre><code>int a = 5;
+
+int b = 2;
+
+double result = (double)a / b;
+
+printf("%f", result);</code></pre>
+
+
+    <div class="output-box">
+
+        2.500000
+
+    </div>
+
+
+    <!-- INTEGER DIVISION -->
+
+    <h3>4.17 Important: Integer Division</h3>
+
+
+    <p>
+        When both operands of division are integers,
+        integer division is performed.
+    </p>
+
+
+    <pre><code>int a = 5;
+
+int b = 2;
+
+printf("%d", a / b);</code></pre>
+
+
+    <div class="output-box">
+
+        2
+
+    </div>
+
+
+    <p>
+        If a fractional result is required,
+        convert at least one operand to a
+        floating-point type.
+    </p>
+
+
+    <pre><code>printf("%f", (double)a / b);</code></pre>
+
+
+    <div class="output-box">
+
+        2.500000
+
+    </div>
+
+
+    <!-- EXAMPLE -->
+
+    <h3>4.18 Complete Example</h3>
+
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int age = 20;
+
+    float marks = 85.5f;
+
+    double pi = 3.141592653589793;
+
+    char grade = 'A';
+
+    printf("Age = %d\n", age);
+
+    printf("Marks = %.2f\n", marks);
+
+    printf("Pi = %.15f\n", pi);
+
+    printf("Grade = %c\n", grade);
+
+    printf("Size of int = %zu bytes\n",
+           sizeof(int));
+
+    return 0;
+}</code></pre>
+
+
+    <!-- COMMON MISTAKES -->
+
+    <h3>4.19 Common Mistakes</h3>
+
+
+    <ul>
+
+        <li>
+            Assuming every int is exactly 4 bytes
+            on every C implementation.
+        </li>
+
+        <li>
+            Confusing <strong>'A'</strong> with
+            <strong>"A"</strong>.
+        </li>
+
+        <li>
+            Forgetting the <strong>f</strong> suffix
+            when you specifically want a float
+            literal such as 3.14f.
+        </li>
+
+        <li>
+            Expecting integer division to produce
+            a fractional result.
+        </li>
+
+        <li>
+            Using the wrong format specifier.
+        </li>
+
+        <li>
+            Assuming float and double have the
+            same precision.
+        </li>
+
+        <li>
+            Assuming data type sizes are identical
+            on every compiler and platform.
+        </li>
+
+    </ul>
+
+
+    <!-- QUICK REVISION -->
+
+    <h3>4.20 Quick Revision</h3>
+
+
+    <div class="tip-box">
+
+        📌 <strong>char</strong> is used for
+        character values.
+
+        <br><br>
+
+        📌 <strong>int</strong> is commonly used
+        for integer values.
+
+        <br><br>
+
+        📌 <strong>float</strong> represents
+        single-precision floating-point values.
+
+        <br><br>
+
+        📌 <strong>double</strong> represents
+        double-precision floating-point values.
+
+        <br><br>
+
+        📌 <strong>void</strong> represents the
+        absence of a value in certain contexts.
+
+        <br><br>
+
+        📌 <strong>sizeof</strong> reports size
+        in bytes.
+
+        <br><br>
+
+        📌 Use <strong>sizeof()</strong> when you
+        need the actual size on your system.
+
+        <br><br>
+
+        📌 Integer division discards the fractional
+        part of the result.
+
+    </div>
+
+
+    <!-- MCQs -->
+
+    <h3>4.21 Quick MCQs</h3>
+
+
+    <ol>
+
+        <li>
+
+            Which data type is commonly used
+            to store an integer?
+
+            <br><br>
+
+            A) float
+
+            <br>
+
+            B) int
+
+            <br>
+
+            C) char
+
+            <br>
+
+            D) void
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+
+        <br>
+
+
+        <li>
+
+            Which operator gives the size of
+            a type or object?
+
+            <br><br>
+
+            A) size
+
+            <br>
+
+            B) length
+
+            <br>
+
+            C) sizeof
+
+            <br>
+
+            D) bytes
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+
+        <br>
+
+
+        <li>
+
+            Which is a character constant?
+
+            <br><br>
+
+            A) "A"
+
+            <br>
+
+            B) 'A'
+
+            <br>
+
+            C) A
+
+            <br>
+
+            D) `A`
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+
+        <br>
+
+
+        <li>
+
+            What is the result of 5 / 2 when
+            both operands are int?
+
+            <br><br>
+
+            A) 2.5
+
+            <br>
+
+            B) 3
+
+            <br>
+
+            C) 2
+
+            <br>
+
+            D) 0
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+
+        <br>
+
+
+        <li>
+
+            Which type generally provides more
+            precision than float?
+
+            <br><br>
+
+            A) char
+
+            <br>
+
+            B) int
+
+            <br>
+
+            C) double
+
+            <br>
+
+            D) void
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+    </ol>
+
+
+    <!-- PROGRAMMING PROBLEMS -->
+
+    <h3>4.22 Programming Problems</h3>
+
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+
+        Declare variables of type int, float,
+        double and char and print their values.
+
+        <br><br>
+
+
+        <strong>Problem 2</strong>
+
+        <br>
+
+        Write a program to print the size of
+        char, int, float and double using sizeof.
+
+        <br><br>
+
+
+        <strong>Problem 3</strong>
+
+        <br>
+
+        Write a program to calculate the average
+        of two integers and display the result
+        with decimal precision.
+
+        <br><br>
+
+
+        <strong>Problem 4</strong>
+
+        <br>
+
+        Write a program demonstrating the
+        difference between integer division
+        and floating-point division.
+
+        <br><br>
+
+
+        <strong>Problem 5</strong>
+
+        <br>
+
+        Write a program that reads an integer
+        and displays its value as a double.
+    </div>
+
+
+    <!-- KEY TAKEAWAY -->
+
+    <h3>4.23 Key Takeaway</h3>
+
+
+    <div class="tip-box">
+
+        🎯 Don't simply memorize data types.
+
+        <br><br>
+
+        Understand three things:
+
+        <br><br>
+
+        <strong>
+        1. What kind of value do I need?
+        </strong>
+
+        <br><br>
+
+        <strong>
+        2. What type is appropriate?
+        </strong>
+
+        <br><br>
+
+        <strong>
+        3. What happens when different types
+        are used together?
+        </strong>
+
+        <br><br>
+
+        These ideas become extremely important
+        when we learn operators, expressions,
+        arrays, pointers and functions.
+
+    </div>
+
+</section>
 
 
 
