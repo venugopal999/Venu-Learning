@@ -8,118 +8,9 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Mathematics - Venu Learning</title>
+    <title>Mathematics | Venu Learning</title>
 
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #222;
-        }
-
-        header {
-            background: #1e293b;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 18px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .back {
-            margin-bottom: 25px;
-        }
-
-        .back a {
-            text-decoration: none;
-            color: #2563eb;
-            font-weight: bold;
-        }
-
-        .topics {
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(250px, 1fr));
-
-            gap: 20px;
-
-            margin-top: 30px;
-        }
-
-        .topic {
-            background: white;
-            padding: 25px;
-
-            border-radius: 12px;
-
-            box-shadow:
-                0 4px 12px rgba(0,0,0,0.08);
-
-            transition: 0.3s;
-        }
-
-        .topic:hover {
-            transform: translateY(-4px);
-        }
-
-        .topic h3 {
-            margin-bottom: 12px;
-        }
-
-        .topic p {
-            color: #666;
-            line-height: 1.5;
-        }
-
-        .topic a {
-            display: inline-block;
-
-            margin-top: 15px;
-
-            background: #2563eb;
-
-            color: white;
-
-            text-decoration: none;
-
-            padding: 9px 16px;
-
-            border-radius: 7px;
-        }
-
-        footer {
-            margin-top: 50px;
-
-            background: #1e293b;
-
-            color: white;
-
-            text-align: center;
-
-            padding: 25px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="../style.css">
 
 </head>
 
@@ -127,181 +18,473 @@
 <body>
 
 
-<header>
+<!-- TOP NAVIGATION -->
 
-    <h1>📐 Mathematics</h1>
+<header class="top-header">
 
-    <p>
-        Learn • Practice • Solve • Master
-    </p>
+    <a href="../index.html"
+       class="logo">
+
+        📚 Venu <span>Learning</span>
+
+    </a>
+
+
+    <nav class="top-nav">
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="index.html">
+            Maths
+        </a>
+
+        <a href="../Physics/">
+            Physics
+        </a>
+
+        <a href="../C-Programming/">
+            C
+        </a>
+
+        <a href="../Data-Structures/">
+            DSA
+        </a>
+
+    </nav>
 
 </header>
 
 
-<div class="container">
+
+<!-- DOCUMENTATION LAYOUT -->
+
+<div class="docs-layout">
 
 
-    <div class="back">
+    <!-- SIDEBAR -->
 
-        <a href="../index.html">
-            ← Back to Home
+    <aside class="sidebar">
+
+
+        <div class="sidebar-title">
+            Mathematics
+        </div>
+
+
+        <input
+            type="text"
+            id="topicSearch"
+            class="search-box"
+            placeholder="🔍 Search topics..."
+            onkeyup="searchTopics()"
+        >
+
+
+        <div class="sidebar-title">
+            Part A
+        </div>
+
+
+        <a href="number-system.html">
+            🔢 Number System
         </a>
 
-    </div>
+
+        <a href="percentages.html">
+            📊 Percentages
+        </a>
 
 
-    <h2>Mathematics – Part A</h2>
-
-    <p style="margin-top:10px;">
-        Important mathematical concepts and
-        problem-solving techniques.
-    </p>
+        <a href="averages.html">
+            📈 Averages
+        </a>
 
 
-    <div class="topics">
+        <a href="ratio-proportion.html">
+            ⚖️ Ratio & Proportion
+        </a>
 
 
-        <div class="topic">
+        <a href="profit-loss.html">
+            💰 Profit & Loss
+        </a>
 
-            <h3>🔢 Number System</h3>
 
-            <p>
-                Natural numbers, integers,
-                rational numbers and number properties.
-            </p>
+        <a href="time-work.html">
+            ⏱️ Time & Work
+        </a>
 
-            <a href="number-system.html">
-                Learn
-            </a>
 
+        <a href="time-speed-distance.html">
+            🚗 Time, Speed & Distance
+        </a>
+
+
+        <a href="probability.html">
+            🎲 Probability
+        </a>
+
+
+        <br>
+
+
+        <div class="sidebar-title">
+            Part B
         </div>
 
 
-        <div class="topic">
+        <a href="#">
+            📘 Advanced Problem Solving
+        </a>
 
-            <h3>📊 Percentages</h3>
+
+    </aside>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <h1 class="page-title">
+
+            📐 Mathematics
+
+        </h1>
+
+
+        <p class="page-description">
+
+            Learn mathematical concepts,
+            formulas, shortcuts and problem-solving
+            techniques step by step.
+
+        </p>
+
+
+
+        <!-- INTRODUCTION -->
+
+        <section class="content-card">
+
+            <h2>
+                📚 Welcome to Mathematics
+            </h2>
+
 
             <p>
-                Percentage concepts, formulas
-                and problem-solving methods.
+
+                This section is designed to help
+                students develop strong mathematical
+                problem-solving skills.
+
             </p>
 
-            <a href="percentages.html">
-                Learn
-            </a>
-
-        </div>
-
-
-        <div class="topic">
-
-            <h3>📈 Averages</h3>
 
             <p>
-                Mean, weighted average and
-                average-based problems.
+
+                Each topic contains concepts,
+                important formulas, solved examples,
+                shortcuts, practice questions and
+                detailed solutions.
+
             </p>
 
-            <a href="averages.html">
-                Learn
-            </a>
-
-        </div>
+        </section>
 
 
-        <div class="topic">
 
-            <h3>⚖️ Ratio & Proportion</h3>
+        <!-- PART A -->
+
+        <section class="content-card">
+
+            <h2>
+                📘 Part A – Fundamental Concepts
+            </h2>
+
 
             <p>
-                Ratios, proportions and
-                real-world applications.
+
+                Start with these fundamental topics.
+
             </p>
 
-            <a href="ratio-proportion.html">
-                Learn
-            </a>
 
-        </div>
+            <br>
 
 
-        <div class="topic">
+            <h3>
+                🔢 Number System
+            </h3>
 
-            <h3>💰 Profit & Loss</h3>
 
             <p>
-                Cost price, selling price,
+
+                Understand natural numbers,
+                integers, rational numbers and
+                number properties.
+
+            </p>
+
+
+            <a
+                href="number-system.html"
+                class="primary-button">
+
+                Start Learning
+
+            </a>
+
+
+            <br><br>
+
+
+            <h3>
+                📊 Percentages
+            </h3>
+
+
+            <p>
+
+                Learn percentage concepts,
+                formulas, shortcuts and
+                problem-solving techniques.
+
+            </p>
+
+
+            <a
+                href="percentages.html"
+                class="primary-button">
+
+                Start Learning
+
+            </a>
+
+
+            <br><br>
+
+
+            <h3>
+                📈 Averages
+            </h3>
+
+
+            <p>
+
+                Learn mean, weighted averages
+                and average-based problems.
+
+            </p>
+
+
+            <a
+                href="averages.html"
+                class="primary-button">
+
+                Start Learning
+
+            </a>
+
+
+            <br><br>
+
+
+            <h3>
+                ⚖️ Ratio & Proportion
+            </h3>
+
+
+            <p>
+
+                Understand ratios, proportions
+                and their applications.
+
+            </p>
+
+
+            <a
+                href="ratio-proportion.html"
+                class="primary-button">
+
+                Start Learning
+
+            </a>
+
+
+            <br><br>
+
+
+            <h3>
+                💰 Profit & Loss
+            </h3>
+
+
+            <p>
+
+                Learn cost price, selling price,
                 profit, loss and discounts.
+
             </p>
 
-            <a href="profit-loss.html">
-                Learn
+
+            <a
+                href="profit-loss.html"
+                class="primary-button">
+
+                Start Learning
+
             </a>
 
-        </div>
+
+            <br><br>
 
 
-        <div class="topic">
+            <h3>
+                ⏱️ Time & Work
+            </h3>
 
-            <h3>⏱️ Time & Work</h3>
 
             <p>
-                Work efficiency, combined work
-                and work-rate problems.
+
+                Learn work efficiency,
+                combined work and work-rate
+                problems.
+
             </p>
 
-            <a href="time-work.html">
-                Learn
+
+            <a
+                href="time-work.html"
+                class="primary-button">
+
+                Start Learning
+
             </a>
 
-        </div>
+
+            <br><br>
 
 
-        <div class="topic">
+            <h3>
+                🚗 Time, Speed & Distance
+            </h3>
 
-            <h3>🚗 Time, Speed & Distance</h3>
 
             <p>
-                Speed, distance, time,
+
+                Learn speed, distance, time,
                 trains and relative speed.
+
             </p>
 
-            <a href="time-speed-distance.html">
-                Learn
+
+            <a
+                href="time-speed-distance.html"
+                class="primary-button">
+
+                Start Learning
+
             </a>
 
-        </div>
+
+            <br><br>
 
 
-        <div class="topic">
+            <h3>
+                🎲 Probability
+            </h3>
 
-            <h3>🎲 Probability</h3>
 
             <p>
-                Basic probability concepts
-                and problem solving.
+
+                Learn basic probability concepts
+                and problem-solving methods.
+
             </p>
 
-            <a href="probability.html">
-                Learn
+
+            <a
+                href="probability.html"
+                class="primary-button">
+
+                Start Learning
+
             </a>
 
-        </div>
+        </section>
 
 
-    </div>
 
+        <!-- LEARNING METHOD -->
+
+        <section class="content-card">
+
+            <h2>
+                🧠 How to Learn
+            </h2>
+
+
+            <div class="tip-box">
+
+                <strong>Step 1:</strong>
+                Understand the concept.
+
+            </div>
+
+
+            <div class="tip-box">
+
+                <strong>Step 2:</strong>
+                Learn the important formulas.
+
+            </div>
+
+
+            <div class="tip-box">
+
+                <strong>Step 3:</strong>
+                Study solved examples.
+
+            </div>
+
+
+            <div class="tip-box">
+
+                <strong>Step 4:</strong>
+                Try practice problems yourself.
+
+            </div>
+
+
+            <div class="tip-box">
+
+                <strong>Step 5:</strong>
+                Check the detailed solution.
+
+            </div>
+
+        </section>
+
+
+    </main>
 
 </div>
 
 
-<footer>
 
-    <p>
-        © 2026 Venu Learning Portal
-    </p>
+<footer class="footer">
+
+    © 2026 Venu Learning Portal
 
 </footer>
+
+
+
+<script src="../script.js"></script>
 
 
 </body>
