@@ -671,3 +671,35 @@ body {
     }
 
 }
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid #dbe3ec;
+    padding: 12px;
+    text-align: left;
+}
+
+.comparison-table th {
+    background: #f1f5f9;
+    font-weight: 700;
+}
+
+.comparison-table tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.output-box {
+    background: #0f172a;
+    color: #ffffff;
+    padding: 18px;
+    border-radius: 8px;
+    font-family: monospace;
+    margin: 15px 0;
+}
