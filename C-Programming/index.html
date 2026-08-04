@@ -3955,47 +3955,1037 @@ int main()
              INPUT OUTPUT
         ================================= -->
 
-        <section
-            id="input-output"
-            class="content-card">
+       <section id="input-output" class="content-card">
 
-            <h2>
-
-                ⌨️ 5. Input & Output
-
-            </h2>
+    <h2>⌨️ 5. Input &amp; Output</h2>
 
 
-            <h3>Output</h3>
+    <!-- INTRODUCTION -->
+
+    <h3>5.1 What is Input and Output?</h3>
+
+    <p>
+        A program often needs to receive data from
+        the user, process that data and display the
+        result.
+    </p>
+
+    <div class="formula-box">
+
+        INPUT
+
+        <br>
+        ↓
+        <br><br>
+
+        PROCESSING
+
+        <br>
+        ↓
+        <br><br>
+
+        OUTPUT
+
+    </div>
+
+    <div class="example-box">
+
+        <strong>Example:</strong>
+
+        <br><br>
+
+        Input → 10 and 20
+
+        <br>
+
+        Processing → 10 + 20
+
+        <br>
+
+        Output → 30
+
+    </div>
 
 
-            <pre><code>
-printf("Hello");
-            </code></pre>
+    <!-- PRINTF -->
+
+    <h3>5.2 printf() Function</h3>
+
+    <p>
+        The <strong>printf()</strong> function is
+        commonly used to display formatted output
+        on the standard output stream.
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf("Hello World");
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        Hello World
+    </div>
 
 
-            <h3>Input</h3>
+    <!-- PRINT TEXT -->
+
+    <h3>5.3 Printing Text</h3>
+
+    <p>
+        Text written inside double quotation marks
+        is printed as a string.
+    </p>
+
+    <pre><code>printf("Welcome to C Programming");</code></pre>
+
+    <div class="output-box">
+        Welcome to C Programming
+    </div>
 
 
-            <pre><code>
-int age;
+    <!-- PRINT VARIABLES -->
 
-scanf("%d", &age);
-            </code></pre>
+    <h3>5.4 Printing Variables</h3>
+
+    <p>
+        Format specifiers are used to display
+        values stored in variables.
+    </p>
+
+    <pre><code>int age = 25;
+
+printf("%d", age);</code></pre>
+
+    <div class="output-box">
+        25
+    </div>
 
 
-            <div class="tip-box">
+    <!-- FORMAT SPECIFIERS -->
 
-                💡 Remember:
+    <h3>5.5 Common Format Specifiers</h3>
 
-                <br><br>
+    <div class="comparison-table-wrapper">
 
-                scanf() is generally used
-                to read input from the user.
+        <table class="comparison-table">
 
-            </div>
+            <thead>
+                <tr>
+                    <th>Specifier</th>
+                    <th>Common Use</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
 
-        </section>
+            <tbody>
+
+                <tr>
+                    <td>%d</td>
+                    <td>int</td>
+                    <td>printf("%d", age);</td>
+                </tr>
+
+                <tr>
+                    <td>%u</td>
+                    <td>unsigned int</td>
+                    <td>printf("%u", count);</td>
+                </tr>
+
+                <tr>
+                    <td>%c</td>
+                    <td>char</td>
+                    <td>printf("%c", grade);</td>
+                </tr>
+
+                <tr>
+                    <td>%f</td>
+                    <td>floating-point output</td>
+                    <td>printf("%f", value);</td>
+                </tr>
+
+                <tr>
+                    <td>%s</td>
+                    <td>string</td>
+                    <td>printf("%s", name);</td>
+                </tr>
+
+                <tr>
+                    <td>%zu</td>
+                    <td>sizeof result</td>
+                    <td>printf("%zu", sizeof(int));</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- INTEGER -->
+
+    <h3>5.6 Printing Integers</h3>
+
+    <pre><code>int a = 100;
+
+printf("%d", a);</code></pre>
+
+    <div class="output-box">
+        100
+    </div>
+
+
+    <!-- CHARACTER -->
+
+    <h3>5.7 Printing Characters</h3>
+
+    <pre><code>char grade = 'A';
+
+printf("%c", grade);</code></pre>
+
+    <div class="output-box">
+        A
+    </div>
+
+    <div class="tip-box">
+
+        💡 Character constants use single quotes:
+
+        <br><br>
+
+        <strong>'A'</strong>
+
+        <br><br>
+
+        Strings use double quotes:
+
+        <br><br>
+
+        <strong>"A"</strong>
+
+    </div>
+
+
+    <!-- FLOAT -->
+
+    <h3>5.8 Printing Floating-Point Values</h3>
+
+    <pre><code>float marks = 85.5f;
+
+printf("%f", marks);</code></pre>
+
+    <div class="output-box">
+        85.500000
+    </div>
+
+
+    <!-- PRECISION -->
+
+    <h3>5.9 Controlling Decimal Places</h3>
+
+    <p>
+        A precision such as <strong>%.2f</strong>
+        can be used to display two digits after
+        the decimal point.
+    </p>
+
+    <pre><code>float marks = 85.5678f;
+
+printf("%.2f", marks);</code></pre>
+
+    <div class="output-box">
+        85.57
+    </div>
+
+    <p>
+        Similarly:
+    </p>
+
+    <pre><code>printf("%.1f", marks);
+
+printf("%.3f", marks);</code></pre>
+
+
+    <!-- NEW LINE -->
+
+    <h3>5.10 Escape Sequences</h3>
+
+    <p>
+        Escape sequences represent special
+        characters inside strings and character
+        constants.
+    </p>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Escape Sequence</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>\n</td>
+                    <td>New line</td>
+                </tr>
+
+                <tr>
+                    <td>\t</td>
+                    <td>Horizontal tab</td>
+                </tr>
+
+                <tr>
+                    <td>\\</td>
+                    <td>Backslash</td>
+                </tr>
+
+                <tr>
+                    <td>\"</td>
+                    <td>Double quotation mark</td>
+                </tr>
+
+                <tr>
+                    <td>\'</td>
+                    <td>Single quotation mark</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <h4>Example</h4>
+
+    <pre><code>printf("Hello\nWorld");</code></pre>
+
+    <div class="output-box">
+        Hello
+        <br>
+        World
+    </div>
+
+
+    <!-- SCANF -->
+
+    <h3>5.11 scanf() Function</h3>
+
+    <p>
+        The <strong>scanf()</strong> function is
+        commonly used to read formatted input from
+        the standard input stream.
+    </p>
+
+    <pre><code>int age;
+
+scanf("%d", &amp;age);</code></pre>
+
+
+    <!-- ADDRESS -->
+
+    <h3>5.12 Why Do We Use &amp; in scanf()?</h3>
+
+    <p>
+        For most ordinary scalar variables,
+        scanf() needs the address of the object
+        where the input value should be stored.
+    </p>
+
+    <pre><code>int age;
+
+scanf("%d", &amp;age);</code></pre>
+
+    <div class="formula-box">
+
+        age
+
+        <br>
+        ↓
+        <br>
+        Memory location
+
+        <br><br>
+
+        &amp;age
+
+        <br>
+        ↓
+        <br>
+        Address of age
+
+    </div>
+
+    <div class="tip-box">
+
+        💡 For a normal integer variable:
+
+        <br><br>
+
+        <strong>scanf("%d", &amp;age);</strong>
+
+        <br><br>
+
+        The <strong>&amp;</strong> is important.
+
+    </div>
+
+
+    <!-- MULTIPLE INPUT -->
+
+    <h3>5.13 Reading Multiple Values</h3>
+
+    <pre><code>int a, b;
+
+scanf("%d %d", &amp;a, &amp;b);</code></pre>
+
+    <p>
+        If the input is:
+    </p>
+
+    <div class="output-box">
+        10 20
+    </div>
+
+    <p>
+        then:
+    </p>
+
+    <div class="example-box">
+
+        a = 10
+
+        <br>
+
+        b = 20
+
+    </div>
+
+
+    <!-- DIFFERENT TYPES -->
+
+    <h3>5.14 Reading Different Data Types</h3>
+
+    <pre><code>int age;
+float marks;
+char grade;
+
+scanf("%d", &amp;age);
+
+scanf("%f", &amp;marks);
+
+scanf(" %c", &amp;grade);</code></pre>
+
+    <div class="tip-box">
+
+        Notice the space before
+        <strong>%c</strong>:
+
+        <br><br>
+
+        <strong>scanf(" %c", &amp;grade);</strong>
+
+        <br><br>
+
+        This can help skip leading whitespace
+        such as a leftover newline.
+
+    </div>
+
+
+    <!-- DOUBLE INPUT -->
+
+    <h3>5.15 Reading a double</h3>
+
+    <p>
+        For scanf(), the conversion specifier
+        for a double is <strong>%lf</strong>.
+    </p>
+
+    <pre><code>double price;
+
+scanf("%lf", &amp;price);</code></pre>
+
+    <div class="tip-box">
+
+        📌 Remember:
+
+        <br><br>
+
+        printf() → double → <strong>%f</strong>
+
+        <br>
+
+        scanf() → double → <strong>%lf</strong>
+
+    </div>
+
+
+    <!-- CHAR INPUT -->
+
+    <h3>5.16 Reading a Character</h3>
+
+    <pre><code>char ch;
+
+scanf(" %c", &amp;ch);
+
+printf("%c", ch);</code></pre>
+
+    <p>
+        The leading space in the format string
+        tells scanf() to skip leading whitespace
+        before reading the character.
+    </p>
+
+
+    <!-- STRING -->
+
+    <h3>5.17 Reading a String</h3>
+
+    <p>
+        A character array can be used to store a
+        string. When using scanf() with %s, the
+        array name is passed without &amp;.
+    </p>
+
+    <pre><code>char name[30];
+
+scanf("%29s", name);
+
+printf("%s", name);</code></pre>
+
+    <p>
+        The width limit helps prevent writing more
+        characters than the array can hold.
+    </p>
+
+    <div class="tip-box">
+
+        ⚠️ <strong>%s</strong> with scanf() stops
+        reading at whitespace.
+
+        <br><br>
+
+        For example, entering:
+
+        <br>
+
+        <strong>Ravi Kumar</strong>
+
+        <br><br>
+
+        reads only <strong>Ravi</strong> with
+        a normal %s conversion.
+
+    </div>
+
+
+    <!-- PRINTF VS SCANF -->
+
+    <h3>5.18 printf() vs scanf()</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>printf()</th>
+                    <th>scanf()</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Purpose</td>
+                    <td>Output</td>
+                    <td>Input</td>
+                </tr>
+
+                <tr>
+                    <td>Common int specifier</td>
+                    <td>%d</td>
+                    <td>%d</td>
+                </tr>
+
+                <tr>
+                    <td>Common char specifier</td>
+                    <td>%c</td>
+                    <td>%c</td>
+                </tr>
+
+                <tr>
+                    <td>double</td>
+                    <td>%f</td>
+                    <td>%lf</td>
+                </tr>
+
+                <tr>
+                    <td>Normal int variable</td>
+                    <td>age</td>
+                    <td>&amp;age</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- COMPLETE PROGRAM -->
+
+    <h3>5.19 Complete Example</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int age;
+    float marks;
+
+    printf("Enter your age: ");
+    scanf("%d", &amp;age);
+
+    printf("Enter your marks: ");
+    scanf("%f", &amp;marks);
+
+    printf("\nAge = %d\n", age);
+
+    printf("Marks = %.2f\n", marks);
+
+    return 0;
+}</code></pre>
+
+
+    <h3>Sample Input</h3>
+
+    <div class="output-box">
+        20
+        <br>
+        85.5
+    </div>
+
+
+    <h3>Sample Output</h3>
+
+    <div class="output-box">
+
+        Age = 20
+
+        <br>
+
+        Marks = 85.50
+
+    </div>
+
+
+    <!-- MULTIPLE INPUT PROGRAM -->
+
+    <h3>5.20 Multiple Input Example</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("Sum = %d", a + b);
+
+    return 0;
+}</code></pre>
+
+    <h3>Input</h3>
+
+    <div class="output-box">
+        10 20
+    </div>
+
+    <h3>Output</h3>
+
+    <div class="output-box">
+        Sum = 30
+    </div>
+
+
+    <!-- COMMON MISTAKES -->
+
+    <h3>5.21 Common Input/Output Mistakes</h3>
+
+    <ul>
+
+        <li>
+            Forgetting <strong>&amp;</strong> for
+            ordinary scalar variables in scanf().
+        </li>
+
+        <li>
+            Using the wrong format specifier.
+        </li>
+
+        <li>
+            Using <strong>%f</strong> instead of
+            <strong>%lf</strong> for a double
+            argument in scanf().
+        </li>
+
+        <li>
+            Using <strong>%d</strong> for a float
+            or double input.
+        </li>
+
+        <li>
+            Forgetting the newline escape sequence
+            when separate output lines are needed.
+        </li>
+
+        <li>
+            Using %s when the input can contain spaces.
+        </li>
+
+        <li>
+            Forgetting the width limit when reading
+            a string with scanf().
+        </li>
+
+        <li>
+            Forgetting the leading space in a
+            character input format when whitespace
+            needs to be skipped.
+        </li>
+
+    </ul>
+
+
+    <!-- QUICK REVISION -->
+
+    <h3>5.22 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 <strong>printf()</strong> is commonly
+        used for formatted output.
+
+        <br><br>
+
+        📌 <strong>scanf()</strong> is commonly
+        used for formatted input.
+
+        <br><br>
+
+        📌 <strong>%d</strong> → int
+
+        <br>
+
+        📌 <strong>%u</strong> → unsigned int
+
+        <br>
+
+        📌 <strong>%c</strong> → char
+
+        <br>
+
+        📌 <strong>%f</strong> → floating-point
+        output
+
+        <br>
+
+        📌 <strong>%lf</strong> → double input
+        with scanf()
+
+        <br>
+
+        📌 <strong>%s</strong> → string
+
+        <br>
+
+        📌 <strong>\n</strong> → new line
+
+        <br>
+
+        📌 <strong>&amp;variable</strong> gives
+        the address of a variable.
+
+    </div>
+
+
+    <!-- MCQS -->
+
+    <h3>5.23 Quick MCQs</h3>
+
+    <ol>
+
+        <li>
+
+            Which function is commonly used to
+            display formatted output?
+
+            <br><br>
+
+            A) scanf()
+
+            <br>
+
+            B) printf()
+
+            <br>
+
+            C) input()
+
+            <br>
+
+            D) read()
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which function is commonly used to
+            read formatted input?
+
+            <br><br>
+
+            A) printf()
+
+            <br>
+
+            B) display()
+
+            <br>
+
+            C) scanf()
+
+            <br>
+
+            D) output()
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which format specifier is commonly
+            used for an int?
+
+            <br><br>
+
+            A) %f
+
+            <br>
+
+            B) %c
+
+            <br>
+
+            C) %d
+
+            <br>
+
+            D) %s
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which specifier is used to read a
+            double using scanf()?
+
+            <br><br>
+
+            A) %d
+
+            <br>
+
+            B) %f
+
+            <br>
+
+            C) %lf
+
+            <br>
+
+            D) %c
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which escape sequence moves the cursor
+            to the next line?
+
+            <br><br>
+
+            A) \t
+
+            <br>
+
+            B) \n
+
+            <br>
+
+            C) \\
+
+            <br>
+
+            D) \a
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+    </ol>
+
+
+    <!-- PROGRAMMING PROBLEMS -->
+
+    <h3>5.24 Programming Problems</h3>
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+
+        Read two integers and print their sum.
+
+        <br><br>
+
+
+        <strong>Problem 2</strong>
+
+        <br>
+
+        Read three integers and print their
+        average with decimal precision.
+
+        <br><br>
+
+
+        <strong>Problem 3</strong>
+
+        <br>
+
+        Read a student's name, age and marks
+        and display them.
+
+        <br><br>
+
+
+        <strong>Problem 4</strong>
+
+        <br>
+
+        Read the radius of a circle and print
+        its area up to two decimal places.
+
+        <br><br>
+
+
+        <strong>Problem 5</strong>
+
+        <br>
+
+        Read two numbers and print their sum,
+        difference, product and quotient.
+
+        <br><br>
+
+
+        <strong>Problem 6</strong>
+
+        <br>
+
+        Read a character and print the character
+        entered by the user.
+
+    </div>
+
+
+    <!-- KEY TAKEAWAY -->
+
+    <h3>5.25 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 For every input/output problem,
+        remember:
+
+        <br><br>
+
+        <strong>
+        1. Identify the input data.
+        </strong>
+
+        <br><br>
+
+        <strong>
+        2. Choose the correct data type.
+        </strong>
+
+        <br><br>
+
+        <strong>
+        3. Use the correct scanf() format.
+        </strong>
+
+        <br><br>
+
+        <strong>
+        4. Process the data.
+        </strong>
+
+        <br><br>
+
+        <strong>
+        5. Use the correct printf() format.
+        </strong>
+
+        <br><br>
+
+        This pattern is the foundation of almost
+        every beginner coding-platform problem.
+
+    </div>
+
+</section>
 
 
 
