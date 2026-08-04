@@ -6492,41 +6492,1387 @@ printf("%d", x &gt;&gt; 1);</code></pre>
              EXPRESSIONS
         ================================= -->
 
-        <section
-            id="expressions"
-            class="content-card">
+     <section id="expressions" class="content-card">
 
-            <h2>
+    <h2>🧮 7. Expressions</h2>
 
-                🧮 7. Expressions
+    <!-- INTRODUCTION -->
 
-            </h2>
+    <h3>7.1 What is an Expression?</h3>
+
+    <p>
+        An expression is a combination of constants,
+        variables, operators and function calls that
+        represents a value.
+    </p>
+
+    <div class="example-box">
+
+        <strong>Example:</strong>
+
+        <br><br>
+
+        a + b
+
+        <br><br>
+
+        Here:
+
+        <br>
+
+        a and b → Operands
+
+        <br>
+
+        + → Operator
+
+        <br>
+
+        a + b → Expression
+
+    </div>
 
 
-            <p>
+    <!-- SIMPLE EXPRESSIONS -->
 
-                An expression is a combination
-                of operands and operators that
-                produces a value.
+    <h3>7.2 Simple Expressions</h3>
 
-            </p>
+    <pre><code>int a = 10;
+int b = 20;
+
+int result = a + b;</code></pre>
+
+    <p>
+        The expression <strong>a + b</strong>
+        produces the value 30.
+    </p>
+
+    <div class="output-box">
+        result = 30
+    </div>
 
 
-            <pre><code>
-int result;
+    <!-- TYPES -->
 
-result = a + b * 2;
-            </code></pre>
+    <h3>7.3 Types of Expressions</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Example</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Arithmetic</td>
+                    <td>a + b</td>
+                    <td>Mathematical calculation</td>
+                </tr>
+
+                <tr>
+                    <td>Relational</td>
+                    <td>a &gt; b</td>
+                    <td>Comparison</td>
+                </tr>
+
+                <tr>
+                    <td>Logical</td>
+                    <td>a &gt; 0 &amp;&amp; b &gt; 0</td>
+                    <td>Combine conditions</td>
+                </tr>
+
+                <tr>
+                    <td>Assignment</td>
+                    <td>a = 10</td>
+                    <td>Assign a value</td>
+                </tr>
+
+                <tr>
+                    <td>Conditional</td>
+                    <td>a &gt; b ? a : b</td>
+                    <td>Select a value</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
 
 
-            <div class="tip-box">
+    <!-- ARITHMETIC -->
 
-                💡 Operator precedence determines
-                which operation is performed first.
+    <h3>7.4 Arithmetic Expressions</h3>
 
-            </div>
+    <pre><code>int a = 10;
+int b = 3;
 
-        </section>
+int x = a + b;
+int y = a - b;
+int z = a * b;
+int p = a / b;
+int q = a % b;</code></pre>
+
+    <div class="formula-box">
+
+        a + b = 13
+
+        <br>
+
+        a - b = 7
+
+        <br>
+
+        a * b = 30
+
+        <br>
+
+        a / b = 3
+
+        <br>
+
+        a % b = 1
+
+    </div>
+
+
+    <!-- RELATIONAL -->
+
+    <h3>7.5 Relational Expressions</h3>
+
+    <p>
+        A relational expression compares two values.
+    </p>
+
+    <pre><code>int a = 10;
+int b = 20;
+
+printf("%d", a &lt; b);</code></pre>
+
+    <div class="output-box">
+        1
+    </div>
+
+    <p>
+        The expression <strong>a &lt; b</strong> is true,
+        so the result is nonzero; for this simple
+        comparison it is 1.
+    </p>
+
+
+    <!-- LOGICAL -->
+
+    <h3>7.6 Logical Expressions</h3>
+
+    <pre><code>int age = 25;
+
+int result = age &gt;= 18 &amp;&amp; age &lt;= 60;
+
+printf("%d", result);</code></pre>
+
+    <div class="output-box">
+        1
+    </div>
+
+    <p>
+        Both conditions are true, so the logical
+        AND expression evaluates to true.
+    </p>
+
+
+    <!-- ASSIGNMENT -->
+
+    <h3>7.7 Assignment Expressions</h3>
+
+    <pre><code>int a;
+
+a = 10;</code></pre>
+
+    <p>
+        The expression <strong>a = 10</strong>
+        assigns the value 10 to <strong>a</strong>.
+    </p>
+
+    <div class="tip-box">
+
+        💡 Assignment itself is an expression in C,
+        and its value is the value assigned.
+
+    </div>
+
+
+    <!-- MIXED -->
+
+    <h3>7.8 Mixed Expressions</h3>
+
+    <p>
+        An expression may contain several different
+        operators.
+    </p>
+
+    <pre><code>int result = 10 + 5 * 2;</code></pre>
+
+    <p>
+        Multiplication has higher precedence than
+        addition.
+    </p>
+
+    <div class="formula-box">
+
+        10 + (5 × 2)
+
+        <br>
+
+        = 10 + 10
+
+        <br>
+
+        = 20
+
+    </div>
+
+
+    <!-- PRECEDENCE -->
+
+    <h3>7.9 Operator Precedence</h3>
+
+    <p>
+        Operator precedence determines which operators
+        are grouped first when an expression contains
+        multiple operators.
+    </p>
+
+    <h4>Important Precedence Order</h4>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Priority</th>
+                    <th>Operators</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>1</td>
+                    <td>()</td>
+                    <td>Parentheses / Function call</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>++ -- + - ! ~</td>
+                    <td>Unary operators</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>* / %</td>
+                    <td>Multiplication, division, remainder</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>+ -</td>
+                    <td>Addition, subtraction</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>&lt;&lt; &gt;&gt;</td>
+                    <td>Shift</td>
+                </tr>
+
+                <tr>
+                    <td>6</td>
+                    <td>&lt; &lt;= &gt; &gt;=</td>
+                    <td>Relational</td>
+                </tr>
+
+                <tr>
+                    <td>7</td>
+                    <td>== !=</td>
+                    <td>Equality</td>
+                </tr>
+
+                <tr>
+                    <td>8</td>
+                    <td>&amp;</td>
+                    <td>Bitwise AND</td>
+                </tr>
+
+                <tr>
+                    <td>9</td>
+                    <td>^</td>
+                    <td>Bitwise XOR</td>
+                </tr>
+
+                <tr>
+                    <td>10</td>
+                    <td>|</td>
+                    <td>Bitwise OR</td>
+                </tr>
+
+                <tr>
+                    <td>11</td>
+                    <td>&amp;&amp;</td>
+                    <td>Logical AND</td>
+                </tr>
+
+                <tr>
+                    <td>12</td>
+                    <td>||</td>
+                    <td>Logical OR</td>
+                </tr>
+
+                <tr>
+                    <td>13</td>
+                    <td>?:</td>
+                    <td>Conditional</td>
+                </tr>
+
+                <tr>
+                    <td>14</td>
+                    <td>= += -= *= /= %=</td>
+                    <td>Assignment</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- EXAMPLE -->
+
+    <h3>7.10 Precedence Example 1</h3>
+
+    <pre><code>int result = 10 + 5 * 2;</code></pre>
+
+    <div class="formula-box">
+
+        Step 1:
+
+        <br>
+
+        5 × 2 = 10
+
+        <br><br>
+
+        Step 2:
+
+        <br>
+
+        10 + 10 = 20
+
+    </div>
+
+    <div class="output-box">
+        result = 20
+    </div>
+
+
+    <!-- PARENTHESES -->
+
+    <h3>7.11 Parentheses Change the Result</h3>
+
+    <pre><code>int result = (10 + 5) * 2;</code></pre>
+
+    <div class="formula-box">
+
+        Step 1:
+
+        <br>
+
+        (10 + 5) = 15
+
+        <br><br>
+
+        Step 2:
+
+        <br>
+
+        15 × 2 = 30
+
+    </div>
+
+    <div class="output-box">
+        result = 30
+    </div>
+
+
+    <div class="tip-box">
+
+        💡 Parentheses have very high precedence
+        and are the best way to make the intended
+        grouping obvious.
+
+    </div>
+
+
+    <!-- ASSOCIATIVITY -->
+
+    <h3>7.12 Associativity</h3>
+
+    <p>
+        Associativity determines how operators with
+        the same precedence are grouped.
+    </p>
+
+    <h4>Left-to-Right Example</h4>
+
+    <pre><code>int result = 20 - 5 - 3;</code></pre>
+
+    <div class="formula-box">
+
+        (20 - 5) - 3
+
+        <br>
+
+        = 15 - 3
+
+        <br>
+
+        = 12
+
+    </div>
+
+
+    <h4>Multiplication and Division</h4>
+
+    <pre><code>int result = 20 / 5 * 2;</code></pre>
+
+    <div class="formula-box">
+
+        (20 / 5) × 2
+
+        <br>
+
+        = 4 × 2
+
+        <br>
+
+        = 8
+
+    </div>
+
+
+    <!-- INTEGER DIVISION -->
+
+    <h3>7.13 Integer Expression</h3>
+
+    <pre><code>int a = 5;
+int b = 2;
+
+int result = a / b;</code></pre>
+
+    <div class="output-box">
+        result = 2
+    </div>
+
+    <p>
+        Both operands are integers, so integer
+        division is performed.
+    </p>
+
+
+    <!-- FLOATING -->
+
+    <h3>7.14 Floating-Point Expression</h3>
+
+    <pre><code>int a = 5;
+int b = 2;
+
+float result = (float)a / b;
+
+printf("%.2f", result);</code></pre>
+
+    <div class="output-box">
+        2.50
+    </div>
+
+
+    <div class="tip-box">
+
+        📌 Important:
+
+        <br><br>
+
+        <strong>
+        float result = a / b;
+        </strong>
+
+        <br><br>
+
+        performs integer division first because
+        both operands are int.
+
+        <br><br>
+
+        <strong>
+        float result = (float)a / b;
+        </strong>
+
+        <br><br>
+
+        converts one operand to float before
+        division.
+
+    </div>
+
+
+    <!-- TYPE CONVERSION -->
+
+    <h3>7.15 Type Conversion</h3>
+
+    <p>
+        Type conversion occurs when a value is
+        converted from one data type to another.
+    </p>
+
+
+    <h4>Implicit Conversion</h4>
+
+    <p>
+        The compiler performs the conversion
+        automatically when appropriate.
+    </p>
+
+    <pre><code>int a = 10;
+double b = 2.5;
+
+double result = a + b;</code></pre>
+
+    <p>
+        Here, <strong>a</strong> is converted to a
+        compatible floating-point type for the
+        calculation.
+    </p>
+
+
+    <h4>Explicit Conversion</h4>
+
+    <p>
+        The programmer explicitly requests a
+        conversion using a cast.
+    </p>
+
+    <pre><code>int a = 5;
+int b = 2;
+
+double result = (double)a / b;</code></pre>
+
+    <div class="output-box">
+        2.500000
+    </div>
+
+
+    <!-- CASTING -->
+
+    <h3>7.16 Type Casting</h3>
+
+    <p>
+        A cast has the form:
+    </p>
+
+    <div class="formula-box">
+
+        (data_type) expression
+
+    </div>
+
+    <h4>Example</h4>
+
+    <pre><code>int marks = 85;
+int total = 100;
+
+float percentage =
+    (float)marks / total * 100;
+
+printf("%.2f", percentage);</code></pre>
+
+    <div class="output-box">
+        85.00
+    </div>
+
+
+    <!-- CHARACTER ARITHMETIC -->
+
+    <h3>7.17 Character Expressions</h3>
+
+    <p>
+        In C, a character constant such as
+        <strong>'A'</strong> has an integer value
+        associated with its character code.
+    </p>
+
+    <pre><code>char ch = 'A';
+
+printf("%d", ch);</code></pre>
+
+    <p>
+        The exact numeric value depends on the
+        execution character set. On systems using
+        ASCII, <strong>'A'</strong> is 65.
+    </p>
+
+
+    <!-- BOOLEAN -->
+
+    <h3>7.18 Truth Values in C</h3>
+
+    <p>
+        In conditions, zero represents false and
+        any nonzero value represents true.
+    </p>
+
+    <pre><code>int a = 10;
+
+if (a)
+{
+    printf("True");
+}</code></pre>
+
+    <div class="output-box">
+        True
+    </div>
+
+
+    <pre><code>int a = 0;
+
+if (a)
+{
+    printf("True");
+}
+else
+{
+    printf("False");
+}</code></pre>
+
+    <div class="output-box">
+        False
+    </div>
+
+
+    <!-- LOGICAL EXPRESSION -->
+
+    <h3>7.19 Logical Expression Evaluation</h3>
+
+    <pre><code>int a = 10;
+int b = 20;
+
+int result = (a &lt; b) &amp;&amp; (b &gt; 15);</code></pre>
+
+    <div class="formula-box">
+
+        a &lt; b → TRUE
+
+        <br>
+
+        b &gt; 15 → TRUE
+
+        <br><br>
+
+        TRUE &amp;&amp; TRUE
+
+        <br>
+
+        = TRUE
+
+    </div>
+
+
+    <!-- CONDITIONAL -->
+
+    <h3>7.20 Conditional Expression</h3>
+
+    <pre><code>int a = 10;
+int b = 20;
+
+int max = (a &gt; b) ? a : b;</code></pre>
+
+    <div class="formula-box">
+
+        a &gt; b ?
+
+        <br>
+
+        FALSE
+
+        <br><br>
+
+        Therefore choose b
+
+        <br>
+
+        max = 20
+
+    </div>
+
+
+    <!-- COMPLEX EXPRESSION -->
+
+    <h3>7.21 Step-by-Step Expression Evaluation</h3>
+
+    <pre><code>int result = 10 + 20 / 5 * 2 - 3;</code></pre>
+
+    <p>
+        Evaluate according to precedence and
+        associativity.
+    </p>
+
+    <div class="formula-box">
+
+        20 / 5 = 4
+
+        <br><br>
+
+        4 × 2 = 8
+
+        <br><br>
+
+        10 + 8 - 3
+
+        <br><br>
+
+        18 - 3
+
+        <br><br>
+
+        <strong>Result = 15</strong>
+
+    </div>
+
+
+    <!-- ANOTHER -->
+
+    <h3>7.22 Tricky Expression Example</h3>
+
+    <pre><code>int a = 5;
+int b = 10;
+
+int result = a + b * 2;</code></pre>
+
+    <div class="formula-box">
+
+        b × 2
+
+        <br>
+
+        = 20
+
+        <br><br>
+
+        a + 20
+
+        <br>
+
+        = 25
+
+    </div>
+
+
+    <!-- INCREMENT -->
+
+    <h3>7.23 Increment Expressions</h3>
+
+    <h4>Pre-Increment</h4>
+
+    <pre><code>int a = 5;
+
+int b = ++a;</code></pre>
+
+    <div class="formula-box">
+
+        First:
+
+        <br>
+
+        a = 6
+
+        <br><br>
+
+        Then:
+
+        <br>
+
+        b = 6
+
+        <br><br>
+
+        Final:
+
+        <br>
+
+        a = 6, b = 6
+
+    </div>
+
+
+    <h4>Post-Increment</h4>
+
+    <pre><code>int a = 5;
+
+int b = a++;</code></pre>
+
+    <div class="formula-box">
+
+        First:
+
+        <br>
+
+        b = 5
+
+        <br><br>
+
+        Then:
+
+        <br>
+
+        a = 6
+
+        <br><br>
+
+        Final:
+
+        <br>
+
+        a = 6, b = 5
+
+    </div>
+
+
+    <!-- IMPORTANT WARNING -->
+
+    <h3>7.24 ⚠️ Avoid Dangerous Expressions</h3>
+
+    <p>
+        Do not write complicated expressions that
+        modify the same scalar object multiple times
+        when the evaluation order is not clearly
+        defined.
+    </p>
+
+    <p>
+        For example, avoid expressions such as:
+    </p>
+
+    <pre><code>i++ + ++i</code></pre>
+
+    <div class="tip-box">
+
+        ⚠️ Such expressions can lead to undefined
+        behavior in C.
+
+        <br><br>
+
+        Prefer separate statements:
+
+        <br><br>
+
+        <strong>
+        i++;
+        </strong>
+
+        <br>
+
+        <strong>
+        i++;
+        </strong>
+
+        <br><br>
+
+        Clear code is safer code.
+
+    </div>
+
+
+    <!-- COMMON MISTAKES -->
+
+    <h3>7.25 Common Mistakes</h3>
+
+    <ul>
+
+        <li>
+            Forgetting operator precedence.
+        </li>
+
+        <li>
+            Assuming all operators are evaluated
+            from left to right.
+        </li>
+
+        <li>
+            Confusing integer division with
+            floating-point division.
+        </li>
+
+        <li>
+            Forgetting to cast before division.
+        </li>
+
+        <li>
+            Confusing <strong>=</strong> with
+            <strong>==</strong>.
+        </li>
+
+        <li>
+            Confusing <strong>&amp;</strong> with
+            <strong>&amp;&amp;</strong>.
+        </li>
+
+        <li>
+            Confusing <strong>|</strong> with
+            <strong>||</strong>.
+        </li>
+
+        <li>
+            Writing overly complicated expressions.
+        </li>
+
+    </ul>
+
+
+    <!-- QUICK REVISION -->
+
+    <h3>7.26 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 Expression → Combination of operands
+        and operators that produces a value.
+
+        <br><br>
+
+        📌 Parentheses can explicitly control
+        grouping.
+
+        <br><br>
+
+        📌 <strong>* / %</strong> generally have
+        higher precedence than <strong>+ -</strong>.
+
+        <br><br>
+
+        📌 Operators with equal precedence follow
+        their specified associativity.
+
+        <br><br>
+
+        📌 Integer ÷ Integer → Integer division.
+
+        <br><br>
+
+        📌 Cast one operand when floating-point
+        division is required.
+
+        <br><br>
+
+        📌 Zero → false.
+
+        <br>
+
+        📌 Nonzero → true.
+
+    </div>
+
+
+    <!-- MCQs -->
+
+    <h3>7.27 Quick MCQs</h3>
+
+    <ol>
+
+        <li>
+
+            What is the result of:
+
+            <br><br>
+
+            <strong>10 + 5 * 2</strong>
+
+            <br><br>
+
+            A) 30
+
+            <br>
+
+            B) 20
+
+            <br>
+
+            C) 25
+
+            <br>
+
+            D) 15
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What is the result of:
+
+            <br><br>
+
+            <strong>5 / 2</strong>
+
+            <br><br>
+
+            when both operands are int?
+
+            <br><br>
+
+            A) 2.5
+
+            <br>
+
+            B) 3
+
+            <br>
+
+            C) 2
+
+            <br>
+
+            D) 1
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which operator has higher precedence?
+
+            <br><br>
+
+            A) +
+
+            <br>
+
+            B) *
+
+            <br>
+
+            C) =
+
+            <br>
+
+            D) ||
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What is the result of:
+
+            <br><br>
+
+            <strong>(10 + 5) * 2</strong>
+
+            <br><br>
+
+            A) 20
+
+            <br>
+
+            B) 25
+
+            <br>
+
+            C) 30
+
+            <br>
+
+            D) 15
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What is the value of b?
+
+            <br><br>
+
+            int a = 5;
+
+            <br>
+
+            int b = a++;
+
+            <br><br>
+
+            A) 4
+
+            <br>
+
+            B) 5
+
+            <br>
+
+            C) 6
+
+            <br>
+
+            D) Undefined
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What is the result of:
+
+            <br><br>
+
+            <strong>(double)5 / 2</strong>
+
+            <br><br>
+
+            A) 2
+
+            <br>
+
+            B) 2.0
+
+            <br>
+
+            C) 2.5
+
+            <br>
+
+            D) 3
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+    </ol>
+
+
+    <!-- PRACTICE -->
+
+    <h3>7.28 Practice Problems</h3>
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+
+        Evaluate:
+
+        <br>
+
+        10 + 5 * 2
+
+        <br><br>
+
+
+        <strong>Problem 2</strong>
+
+        <br>
+
+        Evaluate:
+
+        <br>
+
+        (10 + 5) * 2
+
+        <br><br>
+
+
+        <strong>Problem 3</strong>
+
+        <br>
+
+        Evaluate:
+
+        <br>
+
+        20 / 5 * 2
+
+        <br><br>
+
+
+        <strong>Problem 4</strong>
+
+        <br>
+
+        Read two integers and calculate their
+        average as a floating-point value.
+
+        <br><br>
+
+
+        <strong>Problem 5</strong>
+
+        <br>
+
+        Find the percentage of marks obtained
+        using explicit type casting.
+
+        <br><br>
+
+
+        <strong>Problem 6</strong>
+
+        <br>
+
+        Predict the values of a and b:
+
+        <br>
+
+        int a = 5;
+
+        <br>
+
+        int b = ++a;
+
+        <br><br>
+
+
+        <strong>Problem 7</strong>
+
+        <br>
+
+        Predict the values of a and b:
+
+        <br>
+
+        int a = 5;
+
+        <br>
+
+        int b = a++;
+
+        <br><br>
+
+
+        <strong>Problem 8</strong>
+
+        <br>
+
+        Find the largest of two numbers using
+        a conditional expression.
+
+        <br><br>
+
+
+        <strong>Problem 9</strong>
+
+        <br>
+
+        Evaluate:
+
+        <br>
+
+        10 + 20 / 5 * 2 - 3
+
+        <br><br>
+
+
+        <strong>Problem 10</strong>
+
+        <br>
+
+        Write a program to demonstrate the
+        difference between integer division and
+        floating-point division.
+
+    </div>
+
+
+    <!-- KEY TAKEAWAY -->
+
+    <h3>7.29 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 Before evaluating any C expression:
+
+        <br><br>
+
+        <strong>Step 1:</strong>
+        Check parentheses.
+
+        <br><br>
+
+        <strong>Step 2:</strong>
+        Identify operator precedence.
+
+        <br><br>
+
+        <strong>Step 3:</strong>
+        Apply associativity where necessary.
+
+        <br><br>
+
+        <strong>Step 4:</strong>
+        Check data types.
+
+        <br><br>
+
+        <strong>Step 5:</strong>
+        Check whether integer or floating-point
+        arithmetic is being performed.
+
+        <br><br>
+
+        <strong>Step 6:</strong>
+        Evaluate the expression step by step.
+
+        <br><br>
+
+        This method is extremely useful for
+        C programming exams and coding interviews.
+
+    </div>
+
+</section>
 
 
 
