@@ -672,13 +672,73 @@ body {
 
 }
 
-.comparison-table {
+/* =================================
+   COMPARISON TABLE
+================================= */
+
+.comparison-table-wrapper {
     width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    overflow: hidden;
+    overflow-x: auto;
+    margin: 25px 0;
+    border-radius: 10px;
+    -webkit-overflow-scrolling: touch;
 }
 
+.comparison-table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    background: #ffffff;
+    font-size: 15px;
+}
+
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid #dbe3ec;
+    padding: 14px 16px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.comparison-table th {
+    background: #f1f5f9;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.comparison-table td {
+    color: #475569;
+    line-height: 1.5;
+}
+
+.comparison-table tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.comparison-table tr:hover {
+    background: #eff6ff;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .comparison-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .comparison-table {
+        min-width: 650px;
+        font-size: 14px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 11px 12px;
+    }
+
+}
 .comparison-table th,
 .comparison-table td {
     border: 1px solid #dbe3ec;
