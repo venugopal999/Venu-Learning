@@ -4993,71 +4993,1498 @@ int main()
              OPERATORS
         ================================= -->
 
-        <section
-            id="operators"
-            class="content-card">
+        <section id="operators" class="content-card">
 
-            <h2>
-
-                ➕ 6. Operators
-
-            </h2>
+    <h2>➕ 6. Operators</h2>
 
 
-            <ul>
+    <!-- INTRODUCTION -->
 
-                <li>Arithmetic Operators</li>
+    <h3>6.1 What is an Operator?</h3>
 
-                <li>Relational Operators</li>
+    <p>
+        An operator is a symbol that tells the
+        compiler to perform an operation on one
+        or more operands.
+    </p>
 
-                <li>Logical Operators</li>
+    <div class="example-box">
 
-                <li>Assignment Operators</li>
+        <strong>Example:</strong>
 
-                <li>Increment / Decrement</li>
+        <br><br>
 
-                <li>Bitwise Operators</li>
+        a + b
 
-                <li>Conditional Operator</li>
+        <br><br>
 
-            </ul>
+        <strong>+</strong> → Operator
+
+        <br>
+
+        <strong>a, b</strong> → Operands
+
+    </div>
 
 
-            <div class="example-box">
+    <!-- TYPES -->
 
-                <strong>Example:</strong>
+    <h3>6.2 Types of Operators in C</h3>
 
-                <br><br>
+    <div class="formula-box">
 
-                int a = 10;
+        Operators
 
-                <br>
+        <br><br>
 
-                int b = 3;
+        ├── Arithmetic
 
-                <br><br>
+        <br>
 
-                a + b = 13
+        ├── Relational
 
-                <br>
+        <br>
 
-                a - b = 7
+        ├── Logical
 
-                <br>
+        <br>
 
-                a * b = 30
+        ├── Assignment
 
-                <br>
+        <br>
 
-                a / b = 3
+        ├── Increment / Decrement
 
-                <br>
+        <br>
 
-                a % b = 1
+        ├── Conditional
 
-            </div>
+        <br>
 
-        </section>
+        ├── Bitwise
+
+        <br>
+
+        └── Other / Special Operators
+
+    </div>
+
+
+    <!-- ARITHMETIC -->
+
+    <h3>6.3 Arithmetic Operators</h3>
+
+    <p>
+        Arithmetic operators are used to perform
+        mathematical calculations.
+    </p>
+
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+                    <th>Operator</th>
+                    <th>Meaning</th>
+                    <th>Example</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>+</td>
+                    <td>Addition</td>
+                    <td>a + b</td>
+                </tr>
+
+                <tr>
+                    <td>-</td>
+                    <td>Subtraction</td>
+                    <td>a - b</td>
+                </tr>
+
+                <tr>
+                    <td>*</td>
+                    <td>Multiplication</td>
+                    <td>a * b</td>
+                </tr>
+
+                <tr>
+                    <td>/</td>
+                    <td>Division</td>
+                    <td>a / b</td>
+                </tr>
+
+                <tr>
+                    <td>%</td>
+                    <td>Remainder</td>
+                    <td>a % b</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- EXAMPLE -->
+
+    <h3>6.4 Arithmetic Example</h3>
+
+    <pre><code>int a = 10;
+int b = 3;
+
+printf("%d\n", a + b);
+printf("%d\n", a - b);
+printf("%d\n", a * b);
+printf("%d\n", a / b);
+printf("%d\n", a % b);</code></pre>
+
+
+    <div class="output-box">
+
+        13
+        <br>
+        7
+        <br>
+        30
+        <br>
+        3
+        <br>
+        1
+
+    </div>
+
+
+    <!-- MODULUS -->
+
+    <h3>6.5 Modulus Operator %</h3>
+
+    <p>
+        The modulus operator gives the remainder
+        of an integer division.
+    </p>
+
+    <pre><code>10 % 3</code></pre>
+
+    <div class="formula-box">
+
+        10 ÷ 3
+
+        <br><br>
+
+        Quotient = 3
+
+        <br>
+
+        Remainder = 1
+
+        <br><br>
+
+        Therefore:
+
+        <br>
+
+        <strong>10 % 3 = 1</strong>
+
+    </div>
+
+
+    <h4>Common Uses</h4>
+
+    <ul>
+
+        <li>Checking whether a number is even or odd.</li>
+
+        <li>Finding remainders.</li>
+
+        <li>Working with repeating patterns.</li>
+
+        <li>Extracting digits from integers.</li>
+
+    </ul>
+
+
+    <pre><code>int n = 25;
+
+if (n % 2 == 0)
+{
+    printf("Even");
+}
+else
+{
+    printf("Odd");
+}</code></pre>
+
+
+    <!-- DIVISION -->
+
+    <h3>6.6 Integer Division</h3>
+
+    <p>
+        When both operands are integers, division
+        produces an integer result.
+    </p>
+
+    <pre><code>int a = 5;
+int b = 2;
+
+printf("%d", a / b);</code></pre>
+
+    <div class="output-box">
+        2
+    </div>
+
+
+    <p>
+        If you need a fractional result, use a
+        floating-point operand.
+    </p>
+
+    <pre><code>printf("%f", (double)a / b);</code></pre>
+
+    <div class="output-box">
+        2.500000
+    </div>
+
+
+    <!-- RELATIONAL -->
+
+    <h3>6.7 Relational Operators</h3>
+
+    <p>
+        Relational operators compare two values.
+        The result is an integer value of 0 or 1
+        in the usual conditional-expression context:
+        0 means false and nonzero means true.
+    </p>
+
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+                    <th>Operator</th>
+                    <th>Meaning</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&gt;</td>
+                    <td>Greater than</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;</td>
+                    <td>Less than</td>
+                </tr>
+
+                <tr>
+                    <td>&gt;=</td>
+                    <td>Greater than or equal to</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;=</td>
+                    <td>Less than or equal to</td>
+                </tr>
+
+                <tr>
+                    <td>==</td>
+                    <td>Equal to</td>
+                </tr>
+
+                <tr>
+                    <td>!=</td>
+                    <td>Not equal to</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <h4>Example</h4>
+
+    <pre><code>int a = 10;
+int b = 20;
+
+printf("%d\n", a &gt; b);
+printf("%d\n", a &lt; b);
+printf("%d\n", a == b);</code></pre>
+
+    <div class="output-box">
+
+        0
+        <br>
+        1
+        <br>
+        0
+
+    </div>
+
+
+    <!-- ASSIGNMENT -->
+
+    <h3>6.8 Assignment Operators</h3>
+
+    <p>
+        Assignment operators store a value in a
+        modifiable object.
+    </p>
+
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+                    <th>Operator</th>
+                    <th>Meaning</th>
+                    <th>Equivalent Form</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>=</td>
+                    <td>Assignment</td>
+                    <td>a = b</td>
+                </tr>
+
+                <tr>
+                    <td>+=</td>
+                    <td>Add and assign</td>
+                    <td>a = a + b</td>
+                </tr>
+
+                <tr>
+                    <td>-=</td>
+                    <td>Subtract and assign</td>
+                    <td>a = a - b</td>
+                </tr>
+
+                <tr>
+                    <td>*=</td>
+                    <td>Multiply and assign</td>
+                    <td>a = a * b</td>
+                </tr>
+
+                <tr>
+                    <td>/=</td>
+                    <td>Divide and assign</td>
+                    <td>a = a / b</td>
+                </tr>
+
+                <tr>
+                    <td>%=</td>
+                    <td>Modulus and assign</td>
+                    <td>a = a % b</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <h4>Example</h4>
+
+    <pre><code>int a = 10;
+
+a += 5;
+
+printf("%d", a);</code></pre>
+
+    <div class="output-box">
+        15
+    </div>
+
+
+    <!-- LOGICAL -->
+
+    <h3>6.9 Logical Operators</h3>
+
+    <p>
+        Logical operators are commonly used to
+        combine or negate conditions.
+    </p>
+
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+                    <th>Operator</th>
+                    <th>Meaning</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&amp;&amp;</td>
+                    <td>Logical AND</td>
+                </tr>
+
+                <tr>
+                    <td>||</td>
+                    <td>Logical OR</td>
+                </tr>
+
+                <tr>
+                    <td>!</td>
+                    <td>Logical NOT</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- AND -->
+
+    <h3>6.10 Logical AND &amp;&amp;</h3>
+
+    <p>
+        AND is true only when both conditions
+        evaluate to true.
+    </p>
+
+    <pre><code>int age = 20;
+
+if (age &gt;= 18 &amp;&amp; age &lt;= 60)
+{
+    printf("Eligible");
+}</code></pre>
+
+
+    <div class="formula-box">
+
+        TRUE &amp;&amp; TRUE → TRUE
+
+        <br>
+
+        TRUE &amp;&amp; FALSE → FALSE
+
+        <br>
+
+        FALSE &amp;&amp; TRUE → FALSE
+
+        <br>
+
+        FALSE &amp;&amp; FALSE → FALSE
+
+    </div>
+
+
+    <!-- OR -->
+
+    <h3>6.11 Logical OR ||</h3>
+
+    <p>
+        OR is true when at least one condition
+        evaluates to true.
+    </p>
+
+    <div class="formula-box">
+
+        TRUE || TRUE → TRUE
+
+        <br>
+
+        TRUE || FALSE → TRUE
+
+        <br>
+
+        FALSE || TRUE → TRUE
+
+        <br>
+
+        FALSE || FALSE → FALSE
+
+    </div>
+
+
+    <!-- NOT -->
+
+    <h3>6.12 Logical NOT !</h3>
+
+    <p>
+        NOT reverses the logical truth value of
+        its operand.
+    </p>
+
+    <pre><code>int x = 0;
+
+if (!x)
+{
+    printf("Condition is true");
+}</code></pre>
+
+
+    <!-- SHORT CIRCUIT -->
+
+    <h3>6.13 Short-Circuit Evaluation</h3>
+
+    <p>
+        C evaluates logical AND and OR from left
+        to right and may skip the remaining
+        operands when the result is already known.
+    </p>
+
+
+    <h4>AND Example</h4>
+
+    <pre><code>if (x != 0 &amp;&amp; 10 / x &gt; 2)
+{
+    printf("Valid");
+}</code></pre>
+
+    <p>
+        If x is 0, the second condition is not
+        evaluated because the left side is already
+        false.
+    </p>
+
+
+    <h4>OR Example</h4>
+
+    <pre><code>if (x == 0 || y &gt; 10)
+{
+    printf("Condition satisfied");
+}</code></pre>
+
+
+    <!-- INCREMENT -->
+
+    <h3>6.14 Increment Operator ++</h3>
+
+    <p>
+        The increment operator increases a
+        modifiable integer object by one.
+    </p>
+
+
+    <pre><code>int a = 5;
+
+a++;
+
+printf("%d", a);</code></pre>
+
+    <div class="output-box">
+        6
+    </div>
+
+
+    <!-- DECREMENT -->
+
+    <h3>6.15 Decrement Operator --</h3>
+
+    <p>
+        The decrement operator decreases a
+        modifiable integer object by one.
+    </p>
+
+
+    <pre><code>int a = 5;
+
+a--;
+
+printf("%d", a);</code></pre>
+
+    <div class="output-box">
+        4
+    </div>
+
+
+    <!-- PRE VS POST -->
+
+    <h3>6.16 Pre-Increment vs Post-Increment</h3>
+
+
+    <h4>Pre-Increment</h4>
+
+    <pre><code>int a = 5;
+
+int b = ++a;</code></pre>
+
+    <div class="formula-box">
+
+        First increase a
+
+        <br>
+
+        a = 6
+
+        <br>
+
+        Then assign 6 to b
+
+        <br><br>
+
+        a = 6
+
+        <br>
+
+        b = 6
+
+    </div>
+
+
+    <h4>Post-Increment</h4>
+
+    <pre><code>int a = 5;
+
+int b = a++;</code></pre>
+
+    <div class="formula-box">
+
+        First use old value
+
+        <br>
+
+        b = 5
+
+        <br>
+
+        Then increase a
+
+        <br>
+
+        a = 6
+
+    </div>
+
+
+    <div class="tip-box">
+
+        💡 Easy memory trick:
+
+        <br><br>
+
+        <strong>++a</strong> → Change first, use later
+
+        <br>
+
+        <strong>a++</strong> → Use first, change later
+
+    </div>
+
+
+    <!-- CONDITIONAL -->
+
+    <h3>6.17 Conditional Operator ?:</h3>
+
+    <p>
+        The conditional operator is a compact
+        expression for choosing between two values.
+    </p>
+
+
+    <pre><code>int a = 10;
+int b = 20;
+
+int max = (a &gt; b) ? a : b;
+
+printf("%d", max);</code></pre>
+
+    <div class="output-box">
+        20
+    </div>
+
+
+    <div class="formula-box">
+
+        condition ? value_if_true : value_if_false
+
+    </div>
+
+
+    <!-- BITWISE -->
+
+    <h3>6.18 Bitwise Operators</h3>
+
+    <p>
+        Bitwise operators operate on the individual
+        bits of integer operands.
+    </p>
+
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+                    <th>Operator</th>
+                    <th>Meaning</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&amp;</td>
+                    <td>Bitwise AND</td>
+                </tr>
+
+                <tr>
+                    <td>|</td>
+                    <td>Bitwise OR</td>
+                </tr>
+
+                <tr>
+                    <td>^</td>
+                    <td>Bitwise XOR</td>
+                </tr>
+
+                <tr>
+                    <td>~</td>
+                    <td>Bitwise NOT</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;&lt;</td>
+                    <td>Left shift</td>
+                </tr>
+
+                <tr>
+                    <td>&gt;&gt;</td>
+                    <td>Right shift</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- BITWISE EXAMPLE -->
+
+    <h3>6.19 Bitwise Example</h3>
+
+    <p>
+        Consider:
+    </p>
+
+    <pre><code>int a = 5;
+int b = 3;</code></pre>
+
+    <p>
+        In binary representation:
+    </p>
+
+    <div class="formula-box">
+
+        5 → 0101
+
+        <br>
+
+        3 → 0011
+
+    </div>
+
+
+    <pre><code>printf("%d", a &amp; b);</code></pre>
+
+    <div class="output-box">
+        1
+    </div>
+
+
+    <p>
+        Bitwise AND compares corresponding bits.
+    </p>
+
+
+    <!-- BITWISE XOR -->
+
+    <h3>6.20 Bitwise XOR</h3>
+
+    <p>
+        XOR produces 1 when the corresponding
+        bits are different.
+    </p>
+
+
+    <pre><code>int a = 5;
+int b = 3;
+
+printf("%d", a ^ b);</code></pre>
+
+    <div class="output-box">
+        6
+    </div>
+
+
+    <div class="formula-box">
+
+        5 → 0101
+
+        <br>
+
+        3 → 0011
+
+        <br>
+
+        XOR
+
+        <br>
+
+        0110 → 6
+
+    </div>
+
+
+    <!-- SHIFT -->
+
+    <h3>6.21 Shift Operators</h3>
+
+
+    <h4>Left Shift</h4>
+
+    <pre><code>int x = 5;
+
+printf("%d", x &lt;&lt; 1);</code></pre>
+
+    <div class="output-box">
+        10
+    </div>
+
+
+    <h4>Right Shift</h4>
+
+    <pre><code>int x = 8;
+
+printf("%d", x &gt;&gt; 1);</code></pre>
+
+    <div class="output-box">
+        4
+    </div>
+
+
+    <p>
+        The exact behavior of shifts can depend
+        on the signedness and value of the operand,
+        especially for negative values. The simple
+        examples above use positive integers.
+    </p>
+
+
+    <!-- OPERATOR SUMMARY -->
+
+    <h3>6.22 Operator Summary</h3>
+
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+                    <th>Category</th>
+                    <th>Operators</th>
+                    <th>Purpose</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Arithmetic</td>
+                    <td>+ - * / %</td>
+                    <td>Mathematical operations</td>
+                </tr>
+
+                <tr>
+                    <td>Relational</td>
+                    <td>&gt; &lt; &gt;= &lt;= == !=</td>
+                    <td>Compare values</td>
+                </tr>
+
+                <tr>
+                    <td>Logical</td>
+                    <td>&amp;&amp; || !</td>
+                    <td>Combine or negate conditions</td>
+                </tr>
+
+                <tr>
+                    <td>Assignment</td>
+                    <td>= += -= *= /= %=</td>
+                    <td>Assign values</td>
+                </tr>
+
+                <tr>
+                    <td>Increment / Decrement</td>
+                    <td>++ --</td>
+                    <td>Increase or decrease by one</td>
+                </tr>
+
+                <tr>
+                    <td>Conditional</td>
+                    <td>?:</td>
+                    <td>Select one of two expressions</td>
+                </tr>
+
+                <tr>
+                    <td>Bitwise</td>
+                    <td>&amp; | ^ ~ &lt;&lt; &gt;&gt;</td>
+                    <td>Operate on integer bits</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- PRECEDENCE -->
+
+    <h3>6.23 Operator Precedence</h3>
+
+    <p>
+        When an expression contains multiple
+        operators, precedence determines which
+        operators are grouped first.
+    </p>
+
+
+    <pre><code>int result = 10 + 5 * 2;</code></pre>
+
+    <p>
+        Multiplication has higher precedence
+        than addition.
+    </p>
+
+    <div class="formula-box">
+
+        10 + (5 × 2)
+
+        <br>
+
+        = 10 + 10
+
+        <br>
+
+        = 20
+
+    </div>
+
+
+    <h4>Use Parentheses for Clarity</h4>
+
+    <pre><code>int result = (10 + 5) * 2;</code></pre>
+
+    <div class="output-box">
+        30
+    </div>
+
+
+    <div class="tip-box">
+
+        💡 When an expression is difficult to read,
+        use parentheses to make the intended
+        grouping explicit.
+
+    </div>
+
+
+    <!-- ASSOCIATIVITY -->
+
+    <h3>6.24 Associativity</h3>
+
+    <p>
+        When operators of the same precedence
+        occur together, associativity determines
+        how they are grouped.
+    </p>
+
+    <p>
+        For example, subtraction is generally
+        left-associative.
+    </p>
+
+    <pre><code>20 - 5 - 3</code></pre>
+
+    <div class="formula-box">
+
+        (20 - 5) - 3
+
+        <br>
+
+        = 12
+
+    </div>
+
+
+    <!-- COMMON MISTAKES -->
+
+    <h3>6.25 Common Mistakes</h3>
+
+    <ul>
+
+        <li>
+            Confusing <strong>=</strong> with
+            <strong>==</strong>.
+        </li>
+
+        <li>
+            Forgetting that integer division
+            discards the fractional part.
+        </li>
+
+        <li>
+            Confusing <strong>%</strong> with
+            percentage.
+        </li>
+
+        <li>
+            Confusing <strong>&amp;&amp;</strong>
+            with bitwise <strong>&amp;</strong>.
+        </li>
+
+        <li>
+            Confusing <strong>||</strong>
+            with bitwise <strong>|</strong>.
+        </li>
+
+        <li>
+            Confusing <strong>++a</strong> with
+            <strong>a++</strong>.
+        </li>
+
+        <li>
+            Writing complicated expressions
+            without parentheses.
+        </li>
+
+        <li>
+            Assuming bitwise operations are the
+            same as logical operations.
+        </li>
+
+    </ul>
+
+
+    <!-- QUICK REVISION -->
+
+    <h3>6.26 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 <strong>+</strong> → Addition
+
+        <br><br>
+
+        📌 <strong>-</strong> → Subtraction
+
+        <br><br>
+
+        📌 <strong>*</strong> → Multiplication
+
+        <br><br>
+
+        📌 <strong>/</strong> → Division
+
+        <br><br>
+
+        📌 <strong>%</strong> → Remainder
+
+        <br><br>
+
+        📌 <strong>==</strong> → Equality comparison
+
+        <br><br>
+
+        📌 <strong>=</strong> → Assignment
+
+        <br><br>
+
+        📌 <strong>&amp;&amp;</strong> → Logical AND
+
+        <br><br>
+
+        📌 <strong>||</strong> → Logical OR
+
+        <br><br>
+
+        📌 <strong>!</strong> → Logical NOT
+
+        <br><br>
+
+        📌 <strong>++</strong> → Increment
+
+        <br><br>
+
+        📌 <strong>--</strong> → Decrement
+
+        <br><br>
+
+        📌 <strong>?:</strong> → Conditional operator
+
+        <br><br>
+
+        📌 <strong>&amp; | ^ ~ &lt;&lt; &gt;&gt;</strong>
+        → Bitwise operators
+
+    </div>
+
+
+    <!-- MCQS -->
+
+    <h3>6.27 Quick MCQs</h3>
+
+    <ol>
+
+        <li>
+
+            What is the result of 10 % 3?
+
+            <br><br>
+
+            A) 0
+
+            <br>
+
+            B) 1
+
+            <br>
+
+            C) 3
+
+            <br>
+
+            D) 10
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+
+        <li>
+
+            Which operator is used for equality
+            comparison?
+
+            <br><br>
+
+            A) =
+
+            <br>
+
+            B) ==
+
+            <br>
+
+            C) !=
+
+            <br>
+
+            D) &gt;=
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+
+        <li>
+
+            What is the result of 5 / 2 when
+            both operands are integers?
+
+            <br><br>
+
+            A) 2.5
+
+            <br>
+
+            B) 3
+
+            <br>
+
+            C) 2
+
+            <br>
+
+            D) 1
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+
+        <li>
+
+            Which operator means logical AND?
+
+            <br><br>
+
+            A) &amp;
+
+            <br>
+
+            B) &amp;&amp;
+
+            <br>
+
+            C) |
+
+            <br>
+
+            D) ||
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+
+        <li>
+
+            What is the value of a after:
+
+            <br><br>
+
+            int a = 5;
+
+            <br>
+
+            ++a;
+
+            <br><br>
+
+            A) 4
+
+            <br>
+
+            B) 5
+
+            <br>
+
+            C) 6
+
+            <br>
+
+            D) 7
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+
+        <li>
+
+            Which operator is used for bitwise XOR?
+
+            <br><br>
+
+            A) &amp;
+
+            <br>
+
+            B) |
+
+            <br>
+
+            C) ^
+
+            <br>
+
+            D) ~
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+    </ol>
+
+
+    <!-- PROGRAMMING PROBLEMS -->
+
+    <h3>6.28 Programming Problems</h3>
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+
+        Read two integers and print their sum,
+        difference, product, quotient and remainder.
+
+        <br><br>
+
+
+        <strong>Problem 2</strong>
+
+        <br>
+
+        Check whether a given integer is even
+        or odd using the modulus operator.
+
+        <br><br>
+
+
+        <strong>Problem 3</strong>
+
+        <br>
+
+        Read three numbers and find the largest
+        using relational and logical operators.
+
+        <br><br>
+
+
+        <strong>Problem 4</strong>
+
+        <br>
+
+        Demonstrate the difference between
+        pre-increment and post-increment.
+
+        <br><br>
+
+
+        <strong>Problem 5</strong>
+
+        <br>
+
+        Check whether a number lies between
+        10 and 100 using logical operators.
+
+        <br><br>
+
+
+        <strong>Problem 6</strong>
+
+        <br>
+
+        Find the larger of two numbers using
+        the conditional operator.
+
+        <br><br>
+
+
+        <strong>Problem 7</strong>
+
+        <br>
+
+        Perform AND, OR and XOR operations
+        on two integers.
+
+        <br><br>
+
+
+        <strong>Problem 8</strong>
+
+        <br>
+
+        Demonstrate left-shift and right-shift
+        operations using positive integers.
+
+    </div>
+
+
+    <!-- KEY TAKEAWAY -->
+
+    <h3>6.29 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 Operators are the building blocks of
+        expressions and conditions.
+
+        <br><br>
+
+        Before solving a coding problem, identify:
+
+        <br><br>
+
+        <strong>
+        What calculation is required?
+        </strong>
+
+        <br><br>
+
+        <strong>
+        What comparison is required?
+        </strong>
+
+        <br><br>
+
+        <strong>
+        Are multiple conditions involved?
+        </strong>
+
+        <br><br>
+
+        <strong>
+        Is integer or floating-point arithmetic
+        required?
+        </strong>
+
+        <br><br>
+
+        Once you understand operators well,
+        decision-making and loops become much
+        easier.
+
+    </div>
+
+</section>
 
 
 
