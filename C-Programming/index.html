@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>C Programming | Venu Learning</title>
+
+    <link rel="stylesheet"
+          href="../style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================================
+     TOP HEADER
+================================ -->
+
+<header class="top-header">
+
+    <a href="../index.html"
+       class="logo">
+
+        📚 Venu <span>Learning</span>
+
+    </a>
+
+
+    <nav class="top-nav">
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="../Maths/">
+            Maths
+        </a>
+
+        <a href="index.html">
+            C
+        </a>
+
+        <a href="../Data-Structures/">
+            DSA
+        </a>
+
+        <a href="../Python/">
+            Python
+        </a>
+
+        <a href="../AI-ML/">
+            AI & ML
+        </a>
+
+        <a href="../Placement/">
+            Placement
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ================================
+     PAGE LAYOUT
+================================ -->
+
+<div class="docs-layout">
+
+
+    <!-- ================================
+         SIDEBAR
+    ================================= -->
+
+    <aside class="sidebar">
+
+
+        <div class="sidebar-title">
+
+            💻 C Programming
+
+        </div>
+
+
+        <input
+            type="text"
+            id="topicSearch"
+            class="search-box"
+            placeholder="🔍 Search topics..."
+            onkeyup="searchTopics()"
+        >
+
+
+        <div class="sidebar-title">
+
+            Fundamentals
+
+        </div>
+
+
+        <a href="#introduction">
+            📖 Introduction to C
+        </a>
+
+
+        <a href="#structure">
+            🏗️ Structure of C Program
+        </a>
+
+
+        <a href="#variables">
+            🔤 Variables & Constants
+        </a>
+
+
+        <a href="#datatypes">
+            📦 Data Types
+        </a>
+
+
+        <a href="#input-output">
+            ⌨️ Input & Output
+        </a>
+
+
+
+        <div class="sidebar-title">
+
+            Operators & Control
+
+        </div>
+
+
+        <a href="#operators">
+            ➕ Operators
+        </a>
+
+
+        <a href="#expressions">
+            🧮 Expressions
+        </a>
+
+
+        <a href="#if-else">
+            🔀 If / Else
+        </a>
+
+
+        <a href="#switch">
+            🔀 Switch
+        </a>
+
+
+        <a href="#loops">
+            🔁 Loops
+        </a>
+
+
+
+        <div class="sidebar-title">
+
+            Programming Concepts
+
+        </div>
+
+
+        <a href="#arrays">
+            📊 Arrays
+        </a>
+
+
+        <a href="#strings">
+            🔤 Strings
+        </a>
+
+
+        <a href="#functions">
+            🧩 Functions
+        </a>
+
+
+        <a href="#pointers">
+            👉 Pointers
+        </a>
+
+
+        <a href="#structures">
+            🏗️ Structures & Unions
+        </a>
+
+
+        <a href="#files">
+            📁 File Handling
+        </a>
+
+
+        <div class="sidebar-title">
+
+            Practice
+
+        </div>
+
+
+        <a href="#practice">
+            ✍️ C Practice
+        </a>
+
+
+    </aside>
+
+
+
+    <!-- ================================
+         MAIN CONTENT
+    ================================= -->
+
+    <main class="main-content">
+
+
+        <!-- PAGE TITLE -->
+
+        <h1 class="page-title">
+
+            💻 C Programming
+
+        </h1>
+
+
+        <p class="page-description">
+
+            Learn C programming from the fundamentals
+            to advanced concepts with examples,
+            programs, explanations and practice.
+
+        </p>
+
+
+
+        <!-- ================================
+             INTRODUCTION
+        ================================= -->
+
+        <section
+            id="introduction"
+            class="content-card">
+
+            <h2>
+
+                📖 1. Introduction to C
+
+            </h2>
+
+
+            <p>
+
+                C is a general-purpose programming
+                language developed by Dennis Ritchie
+                at Bell Labs.
+
+            </p>
+
+
+            <p>
+
+                C is widely used for system programming,
+                embedded systems, operating systems and
+                learning programming fundamentals.
+
+            </p>
+
+
+            <div class="tip-box">
+
+                💡 <strong>Why learn C?</strong>
+
+                <br><br>
+
+                C helps you understand memory,
+                pointers, arrays, functions and
+                the fundamental concepts required
+                for Data Structures and Algorithms.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             STRUCTURE
+        ================================= -->
+
+        <section
+            id="structure"
+            class="content-card">
+
+            <h2>
+
+                🏗️ 2. Structure of a C Program
+
+            </h2>
+
+
+            <p>
+
+                A basic C program contains
+                header files, the main function
+                and program statements.
+
+            </p>
+
+
+            <pre><code>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf("Hello World");
+
+    return 0;
+}
+            </code></pre>
+
+
+            <h3>Explanation</h3>
+
+
+            <ul>
+
+                <li>
+                    <strong>#include</strong>
+                    includes a header file.
+                </li>
+
+                <li>
+                    <strong>main()</strong>
+                    is the starting point of execution.
+                </li>
+
+                <li>
+                    <strong>printf()</strong>
+                    displays output.
+                </li>
+
+                <li>
+                    <strong>return 0</strong>
+                    indicates successful execution.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- ================================
+             VARIABLES
+        ================================= -->
+
+        <section
+            id="variables"
+            class="content-card">
+
+            <h2>
+
+                🔤 3. Variables & Constants
+
+            </h2>
+
+
+            <p>
+
+                A variable is a named memory location
+                used to store data.
+
+            </p>
+
+
+            <pre><code>
+int age = 20;
+
+float marks = 85.5;
+
+char grade = 'A';
+            </code></pre>
+
+
+            <div class="formula-box">
+
+                Syntax:
+
+                <br><br>
+
+                data_type variable_name = value;
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             DATA TYPES
+        ================================= -->
+
+        <section
+            id="datatypes"
+            class="content-card">
+
+            <h2>
+
+                📦 4. Data Types
+
+            </h2>
+
+
+            <p>
+
+                Data types specify what type of
+                data a variable can store.
+
+            </p>
+
+
+            <div class="example-box">
+
+                <strong>Common C Data Types</strong>
+
+                <br><br>
+
+                int → Integer numbers
+
+                <br>
+
+                float → Decimal numbers
+
+                <br>
+
+                double → Large decimal values
+
+                <br>
+
+                char → Single character
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             INPUT OUTPUT
+        ================================= -->
+
+        <section
+            id="input-output"
+            class="content-card">
+
+            <h2>
+
+                ⌨️ 5. Input & Output
+
+            </h2>
+
+
+            <h3>Output</h3>
+
+
+            <pre><code>
+printf("Hello");
+            </code></pre>
+
+
+            <h3>Input</h3>
+
+
+            <pre><code>
+int age;
+
+scanf("%d", &age);
+            </code></pre>
+
+
+            <div class="tip-box">
+
+                💡 Remember:
+
+                <br><br>
+
+                scanf() is generally used
+                to read input from the user.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             OPERATORS
+        ================================= -->
+
+        <section
+            id="operators"
+            class="content-card">
+
+            <h2>
+
+                ➕ 6. Operators
+
+            </h2>
+
+
+            <ul>
+
+                <li>Arithmetic Operators</li>
+
+                <li>Relational Operators</li>
+
+                <li>Logical Operators</li>
+
+                <li>Assignment Operators</li>
+
+                <li>Increment / Decrement</li>
+
+                <li>Bitwise Operators</li>
+
+                <li>Conditional Operator</li>
+
+            </ul>
+
+
+            <div class="example-box">
+
+                <strong>Example:</strong>
+
+                <br><br>
+
+                int a = 10;
+
+                <br>
+
+                int b = 3;
+
+                <br><br>
+
+                a + b = 13
+
+                <br>
+
+                a - b = 7
+
+                <br>
+
+                a * b = 30
+
+                <br>
+
+                a / b = 3
+
+                <br>
+
+                a % b = 1
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             EXPRESSIONS
+        ================================= -->
+
+        <section
+            id="expressions"
+            class="content-card">
+
+            <h2>
+
+                🧮 7. Expressions
+
+            </h2>
+
+
+            <p>
+
+                An expression is a combination
+                of operands and operators that
+                produces a value.
+
+            </p>
+
+
+            <pre><code>
+int result;
+
+result = a + b * 2;
+            </code></pre>
+
+
+            <div class="tip-box">
+
+                💡 Operator precedence determines
+                which operation is performed first.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             IF ELSE
+        ================================= -->
+
+        <section
+            id="if-else"
+            class="content-card">
+
+            <h2>
+
+                🔀 8. If / Else
+
+            </h2>
+
+
+            <pre><code>
+if (age >= 18)
+{
+    printf("Eligible");
+}
+else
+{
+    printf("Not Eligible");
+}
+            </code></pre>
+
+
+            <p>
+
+                Conditional statements are used
+                to make decisions in a program.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- ================================
+             SWITCH
+        ================================= -->
+
+        <section
+            id="switch"
+            class="content-card">
+
+            <h2>
+
+                🔀 9. Switch Statement
+
+            </h2>
+
+
+            <pre><code>
+switch(choice)
+{
+    case 1:
+        printf("Addition");
+        break;
+
+    case 2:
+        printf("Subtraction");
+        break;
+
+    default:
+        printf("Invalid choice");
+}
+            </code></pre>
+
+        </section>
+
+
+
+        <!-- ================================
+             LOOPS
+        ================================= -->
+
+        <section
+            id="loops"
+            class="content-card">
+
+            <h2>
+
+                🔁 10. Loops
+
+            </h2>
+
+
+            <p>
+
+                Loops are used to execute a block
+                of code repeatedly.
+
+            </p>
+
+
+            <h3>for loop</h3>
+
+
+            <pre><code>
+for(int i = 1; i <= 5; i++)
+{
+    printf("%d ", i);
+}
+            </code></pre>
+
+
+            <h3>while loop</h3>
+
+
+            <pre><code>
+int i = 1;
+
+while(i <= 5)
+{
+    printf("%d ", i);
+
+    i++;
+}
+            </code></pre>
+
+
+            <h3>do-while loop</h3>
+
+
+            <pre><code>
+int i = 1;
+
+do
+{
+    printf("%d ", i);
+
+    i++;
+
+} while(i <= 5);
+            </code></pre>
+
+        </section>
+
+
+
+        <!-- ================================
+             ARRAYS
+        ================================= -->
+
+        <section
+            id="arrays"
+            class="content-card">
+
+            <h2>
+
+                📊 11. Arrays
+
+            </h2>
+
+
+            <p>
+
+                An array stores multiple values
+                of the same data type in
+                contiguous memory locations.
+
+            </p>
+
+
+            <pre><code>
+int numbers[5];
+
+numbers[0] = 10;
+numbers[1] = 20;
+numbers[2] = 30;
+            </code></pre>
+
+        </section>
+
+
+
+        <!-- ================================
+             STRINGS
+        ================================= -->
+
+        <section
+            id="strings"
+            class="content-card">
+
+            <h2>
+
+                🔤 12. Strings
+
+            </h2>
+
+
+            <p>
+
+                A string is a sequence of characters
+                terminated by the null character
+                '\0'.
+
+            </p>
+
+
+            <pre><code>
+char name[20];
+
+scanf("%s", name);
+
+printf("%s", name);
+            </code></pre>
+
+        </section>
+
+
+
+        <!-- ================================
+             FUNCTIONS
+        ================================= -->
+
+        <section
+            id="functions"
+            class="content-card">
+
+            <h2>
+
+                🧩 13. Functions
+
+            </h2>
+
+
+            <p>
+
+                Functions are reusable blocks of
+                code designed to perform a
+                particular task.
+
+            </p>
+
+
+            <pre><code>
+int add(int a, int b)
+{
+    return a + b;
+}
+
+
+int main()
+{
+    int result;
+
+    result = add(10, 20);
+
+    printf("%d", result);
+
+    return 0;
+}
+            </code></pre>
+
+        </section>
+
+
+
+        <!-- ================================
+             POINTERS
+        ================================= -->
+
+        <section
+            id="pointers"
+            class="content-card">
+
+            <h2>
+
+                👉 14. Pointers
+
+            </h2>
+
+
+            <p>
+
+                A pointer is a variable that stores
+                the memory address of another variable.
+
+            </p>
+
+
+            <pre><code>
+int x = 10;
+
+int *p = &x;
+
+printf("%d", *p);
+            </code></pre>
+
+
+            <div class="tip-box">
+
+                💡 Pointers are one of the most
+                important concepts in C and
+                Data Structures.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             STRUCTURES
+        ================================= -->
+
+        <section
+            id="structures"
+            class="content-card">
+
+            <h2>
+
+                🏗️ 15. Structures & Unions
+
+            </h2>
+
+
+            <p>
+
+                Structures allow us to group
+                different types of data under
+                one name.
+
+            </p>
+
+
+            <pre><code>
+struct Student
+{
+    int rollNo;
+
+    char name[30];
+
+    float marks;
+};
+            </code></pre>
+
+        </section>
+
+
+
+        <!-- ================================
+             FILE HANDLING
+        ================================= -->
+
+        <section
+            id="files"
+            class="content-card">
+
+            <h2>
+
+                📁 16. File Handling
+
+            </h2>
+
+
+            <p>
+
+                File handling allows programs
+                to store and retrieve data
+                from files.
+
+            </p>
+
+
+            <pre><code>
+FILE *fp;
+
+fp = fopen("data.txt", "w");
+
+fprintf(fp, "Hello");
+
+fclose(fp);
+            </code></pre>
+
+        </section>
+
+
+
+        <!-- ================================
+             PRACTICE
+        ================================= -->
+
+        <section
+            id="practice"
+            class="content-card">
+
+            <h2>
+
+                ✍️ C Programming Practice
+
+            </h2>
+
+
+            <p>
+
+                Practice C programming problems
+                from basic to advanced levels.
+
+            </p>
+
+
+            <div class="tip-box">
+
+                🚀 Practice section will contain
+                coding problems, MCQs and
+                programming challenges.
+
+            </div>
+
+
+            <br>
+
+
+            <button
+                class="primary-button"
+                onclick="alert('C Practice section is coming next!')">
+
+                🚀 Start C Practice
+
+            </button>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    © 2026 Venu Learning
+
+</footer>
+
+
+
+<script src="../script.js"></script>
+
+
+</body>
+
+</html>
