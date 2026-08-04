@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Number System | Venu Learning</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================================
+     TOP NAVIGATION
+================================ -->
+
+<header class="top-header">
+
+    <a href="../index.html" class="logo">
+        📚 Venu <span>Learning</span>
+    </a>
+
+
+    <nav class="top-nav">
+
+        <a href="../index.html">Home</a>
+
+        <a href="index.html">Maths</a>
+
+        <a href="../Physics/">Physics</a>
+
+        <a href="../C-Programming/">C</a>
+
+        <a href="../Data-Structures/">DSA</a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ================================
+     DOCUMENTATION LAYOUT
+================================ -->
+
+<div class="docs-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-title">
+            Mathematics
+        </div>
+
+
+        <input
+            type="text"
+            id="topicSearch"
+            class="search-box"
+            placeholder="🔍 Search topics..."
+            onkeyup="searchTopics()"
+        >
+
+
+        <div class="sidebar-title">
+            Part A
+        </div>
+
+
+        <a href="number-system.html"
+           class="active">
+
+            🔢 Number System
+
+        </a>
+
+
+        <a href="percentages.html">
+
+            📊 Percentages
+
+        </a>
+
+
+        <a href="averages.html">
+
+            📈 Averages
+
+        </a>
+
+
+        <a href="ratio-proportion.html">
+
+            ⚖️ Ratio & Proportion
+
+        </a>
+
+
+        <a href="profit-loss.html">
+
+            💰 Profit & Loss
+
+        </a>
+
+
+        <a href="time-work.html">
+
+            ⏱️ Time & Work
+
+        </a>
+
+
+        <a href="time-speed-distance.html">
+
+            🚗 Time, Speed & Distance
+
+        </a>
+
+
+        <a href="probability.html">
+
+            🎲 Probability
+
+        </a>
+
+
+    </aside>
+
+
+
+    <!-- ================================
+         MAIN CONTENT
+    ================================= -->
+
+    <main class="main-content">
+
+
+        <h1 class="page-title">
+
+            🔢 Number System
+
+        </h1>
+
+
+        <p class="page-description">
+
+            Learn the different types of numbers,
+            their properties, divisibility rules,
+            factors, multiples, HCF and LCM.
+
+        </p>
+
+
+
+        <!-- ================================
+             LEARNING OBJECTIVES
+        ================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                🎯 Learning Objectives
+            </h2>
+
+
+            <p>
+                After completing this topic,
+                you should be able to:
+            </p>
+
+
+            <ul>
+
+                <li>
+                    Identify different types of numbers.
+                </li>
+
+                <li>
+                    Understand number properties.
+                </li>
+
+                <li>
+                    Apply divisibility rules.
+                </li>
+
+                <li>
+                    Find factors and multiples.
+                </li>
+
+                <li>
+                    Calculate HCF and LCM.
+                </li>
+
+                <li>
+                    Solve number-system problems quickly.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+
+        <!-- ================================
+             CONCEPT
+        ================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                📖 1. What is a Number System?
+            </h2>
+
+
+            <p>
+
+                A number system is a method of
+                representing and classifying numbers.
+
+            </p>
+
+
+            <p>
+
+                In mathematics, numbers are classified
+                into different categories based on
+                their properties.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- ================================
+             TYPES OF NUMBERS
+        ================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                🔢 2. Types of Numbers
+            </h2>
+
+
+            <h3>Natural Numbers</h3>
+
+            <p>
+
+                Natural numbers are positive counting
+                numbers.
+
+            </p>
+
+
+            <div class="formula-box">
+
+                N = {1, 2, 3, 4, 5, ...}
+
+            </div>
+
+
+
+            <h3>Whole Numbers</h3>
+
+            <p>
+
+                Whole numbers include zero and
+                all natural numbers.
+
+            </p>
+
+
+            <div class="formula-box">
+
+                W = {0, 1, 2, 3, 4, ...}
+
+            </div>
+
+
+
+            <h3>Integers</h3>
+
+            <p>
+
+                Integers include positive numbers,
+                negative numbers and zero.
+
+            </p>
+
+
+            <div class="formula-box">
+
+                Z = {..., -3, -2, -1, 0, 1, 2, 3, ...}
+
+            </div>
+
+
+
+            <h3>Rational Numbers</h3>
+
+            <p>
+
+                A number that can be expressed in
+                the form p/q, where q ≠ 0.
+
+            </p>
+
+
+            <div class="formula-box">
+
+                Rational Number = p / q
+
+            </div>
+
+
+
+            <h3>Irrational Numbers</h3>
+
+            <p>
+
+                Numbers that cannot be expressed
+                as p/q are called irrational numbers.
+
+            </p>
+
+
+            <div class="formula-box">
+
+                Examples:
+                √2, √3, π
+
+            </div>
+
+
+
+            <h3>Real Numbers</h3>
+
+            <p>
+
+                Real numbers include both rational
+                and irrational numbers.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- ================================
+             PRIME NUMBERS
+        ================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                🔐 3. Prime and Composite Numbers
+            </h2>
+
+
+            <h3>Prime Number</h3>
+
+            <p>
+
+                A number having exactly two positive
+                factors: 1 and itself.
+
+            </p>
+
+
+            <div class="example-box">
+
+                <strong>Example:</strong>
+
+                <br><br>
+
+                7 has factors:
+
+                1 and 7
+
+                <p class="answer">
+
+                    Therefore, 7 is prime.
+
+                </p>
+
+            </div>
+
+
+
+            <h3>Composite Number</h3>
+
+            <p>
+
+                A number having more than two
+                positive factors is called composite.
+
+            </p>
+
+
+            <div class="example-box">
+
+                <strong>Example:</strong>
+
+                <br><br>
+
+                12 has factors:
+
+                1, 2, 3, 4, 6, 12
+
+                <p class="answer">
+
+                    Therefore, 12 is composite.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="tip-box">
+
+                <strong>Important:</strong>
+
+                1 is neither prime nor composite.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             DIVISIBILITY RULES
+        ================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                📌 4. Divisibility Rules
+            </h2>
+
+
+            <div class="formula-box">
+
+                Divisibility by 2
+
+                <br>
+
+                Last digit must be even:
+                0, 2, 4, 6 or 8.
+
+            </div>
+
+
+            <div class="formula-box">
+
+                Divisibility by 3
+
+                <br>
+
+                Sum of digits must be divisible by 3.
+
+            </div>
+
+
+            <div class="formula-box">
+
+                Divisibility by 5
+
+                <br>
+
+                Last digit must be 0 or 5.
+
+            </div>
+
+
+            <div class="formula-box">
+
+                Divisibility by 9
+
+                <br>
+
+                Sum of digits must be divisible by 9.
+
+            </div>
+
+
+            <div class="formula-box">
+
+                Divisibility by 10
+
+                <br>
+
+                Last digit must be 0.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             FACTORS AND MULTIPLES
+        ================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                🔗 5. Factors and Multiples
+            </h2>
+
+
+            <h3>Factors</h3>
+
+            <p>
+
+                Factors are numbers that divide another
+                number exactly without leaving a remainder.
+
+            </p>
+
+
+            <div class="example-box">
+
+                Factors of 12:
+
+                <br><br>
+
+                1, 2, 3, 4, 6, 12
+
+            </div>
+
+
+
+            <h3>Multiples</h3>
+
+            <p>
+
+                Multiples are obtained by multiplying
+                a number by 1, 2, 3, ...
+
+            </p>
+
+
+            <div class="example-box">
+
+                Multiples of 5:
+
+                <br><br>
+
+                5, 10, 15, 20, 25, ...
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             HCF
+        ================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                🔵 6. HCF
+            </h2>
+
+
+            <p>
+
+                HCF means Highest Common Factor.
+
+            </p>
+
+
+            <div class="formula-box">
+
+                HCF = Greatest number
+                that divides all given numbers.
+
+            </div>
+
+
+            <div class="example-box">
+
+                <h3>Example</h3>
+
+
+                <p>
+
+                    Find HCF of 12 and 18.
+
+                </p>
+
+
+                <p>
+
+                    Factors of 12:
+
+                    1, 2, 3, 4, 6, 12
+
+                </p>
+
+
+                <p>
+
+                    Factors of 18:
+
+                    1, 2, 3, 6, 9, 18
+
+                </p>
+
+
+                <p class="answer">
+
+                    HCF = 6
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             LCM
+        ================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                🟢 7. LCM
+            </h2>
+
+
+            <p>
+
+                LCM means Least Common Multiple.
+
+            </p>
+
+
+            <div class="formula-box">
+
+                LCM = Smallest positive number
+                divisible by all given numbers.
+
+            </div>
+
+
+            <div class="example-box">
+
+                <h3>Example</h3>
+
+
+                <p>
+
+                    Find LCM of 4 and 6.
+
+                </p>
+
+
+                <p>
+
+                    Multiples of 4:
+
+                    4, 8, 12, 16, ...
+
+                </p>
+
+
+                <p>
+
+                    Multiples of 6:
+
+                    6, 12, 18, ...
+
+                </p>
+
+
+                <p class="answer">
+
+                    LCM = 12
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             IMPORTANT RELATIONSHIP
+        ================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                📐 8. Important Relationship
+            </h2>
+
+
+            <div class="formula-box">
+
+                HCF × LCM = Product of
+                the two numbers
+
+            </div>
+
+
+            <div class="example-box">
+
+                For 12 and 18:
+
+                <br><br>
+
+                HCF = 6
+
+                <br>
+
+                LCM = 36
+
+                <br><br>
+
+                6 × 36 = 216
+
+                <br>
+
+                12 × 18 = 216
+
+                <p class="answer">
+
+                    Therefore, the relationship
+                    is verified.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             SOLVED PROBLEMS
+        ================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                🧮 9. Solved Problems
+            </h2>
+
+
+            <div class="example-box">
+
+                <h3>Problem 1</h3>
+
+                <p>
+
+                    Is 135 divisible by 5?
+
+                </p>
+
+
+                <p>
+
+                    The last digit is 5.
+
+                    Therefore, it is divisible by 5.
+
+                </p>
+
+
+                <p class="answer">
+
+                    Answer: Yes
+
+                </p>
+
+            </div>
+
+
+
+            <div class="example-box">
+
+                <h3>Problem 2</h3>
+
+                <p>
+
+                    Is 729 divisible by 9?
+
+                </p>
+
+
+                <p>
+
+                    Sum of digits:
+
+                    7 + 2 + 9 = 18
+
+                </p>
+
+
+                <p>
+
+                    18 is divisible by 9.
+
+                </p>
+
+
+                <p class="answer">
+
+                    Answer: Yes
+
+                </p>
+
+            </div>
+
+
+
+            <div class="example-box">
+
+                <h3>Problem 3</h3>
+
+                <p>
+
+                    Find the HCF of 24 and 36.
+
+                </p>
+
+
+                <p>
+
+                    Factors of 24:
+
+                    1, 2, 3, 4, 6, 8, 12, 24
+
+                </p>
+
+
+                <p>
+
+                    Factors of 36:
+
+                    1, 2, 3, 4, 6, 9, 12, 18, 36
+
+                </p>
+
+
+                <p class="answer">
+
+                    HCF = 12
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             SHORTCUTS
+        ================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                ⚡ 10. Quick Tricks
+            </h2>
+
+
+            <div class="tip-box">
+
+                For divisibility by 2,
+                check only the last digit.
+
+            </div>
+
+
+            <div class="tip-box">
+
+                For divisibility by 5,
+                last digit must be 0 or 5.
+
+            </div>
+
+
+            <div class="tip-box">
+
+                For divisibility by 9,
+                add all digits.
+
+            </div>
+
+
+            <div class="tip-box">
+
+                If a number is divisible by both
+                2 and 3, it is divisible by 6.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             PRACTICE
+        ================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                ✍️ 11. Practice Problems
+            </h2>
+
+
+            <div class="practice-question">
+
+                <strong>
+                    1. Is 246 divisible by 2?
+                </strong>
+
+
+                <br>
+
+
+                <button
+                    class="solution-button"
+                    onclick="toggleSolution('ns1')">
+
+                    Show Solution
+
+                </button>
+
+
+                <div id="ns1"
+                     class="solution">
+
+                    Last digit = 6.
+
+                    <br>
+
+                    6 is even.
+
+                    <br>
+
+                    <strong>
+                        Answer: Yes
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="practice-question">
+
+                <strong>
+                    2. Is 345 divisible by 5?
+                </strong>
+
+
+                <br>
+
+
+                <button
+                    class="solution-button"
+                    onclick="toggleSolution('ns2')">
+
+                    Show Solution
+
+                </button>
+
+
+                <div id="ns2"
+                     class="solution">
+
+                    Last digit = 5.
+
+                    <br>
+
+                    Therefore it is divisible by 5.
+
+                    <br>
+
+                    <strong>
+                        Answer: Yes
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="practice-question">
+
+                <strong>
+                    3. Find HCF of 18 and 24.
+                </strong>
+
+
+                <br>
+
+
+                <button
+                    class="solution-button"
+                    onclick="toggleSolution('ns3')">
+
+                    Show Solution
+
+                </button>
+
+
+                <div id="ns3"
+                     class="solution">
+
+                    Factors of 18:
+
+                    1, 2, 3, 6, 9, 18
+
+                    <br>
+
+                    Factors of 24:
+
+                    1, 2, 3, 4, 6, 8, 12, 24
+
+                    <br>
+
+                    <strong>
+                        HCF = 6
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="practice-question">
+
+                <strong>
+                    4. Find LCM of 8 and 12.
+                </strong>
+
+
+                <br>
+
+
+                <button
+                    class="solution-button"
+                    onclick="toggleSolution('ns4')">
+
+                    Show Solution
+
+                </button>
+
+
+                <div id="ns4"
+                     class="solution">
+
+                    Multiples of 8:
+
+                    8, 16, 24, 32, ...
+
+                    <br>
+
+                    Multiples of 12:
+
+                    12, 24, 36, ...
+
+                    <br>
+
+                    <strong>
+                        LCM = 24
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="practice-question">
+
+                <strong>
+                    5. Is 729 divisible by 9?
+                </strong>
+
+
+                <br>
+
+
+                <button
+                    class="solution-button"
+                    onclick="toggleSolution('ns5')">
+
+                    Show Solution
+
+                </button>
+
+
+                <div id="ns5"
+                     class="solution">
+
+                    Sum of digits:
+
+                    7 + 2 + 9 = 18
+
+                    <br>
+
+                    18 is divisible by 9.
+
+                    <br>
+
+                    <strong>
+                        Answer: Yes
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             SUMMARY
+        ================================= -->
+
+        <section class="content-card">
+
+            <h2>
+                📝 Quick Revision
+            </h2>
+
+
+            <ul>
+
+                <li>
+                    Natural numbers start from 1.
+                </li>
+
+                <li>
+                    Whole numbers include 0.
+                </li>
+
+                <li>
+                    Integers include positive,
+                    negative and zero.
+                </li>
+
+                <li>
+                    Prime numbers have exactly
+                    two factors.
+                </li>
+
+                <li>
+                    1 is neither prime nor composite.
+                </li>
+
+                <li>
+                    HCF means Highest Common Factor.
+                </li>
+
+                <li>
+                    LCM means Least Common Multiple.
+                </li>
+
+                <li>
+                    HCF × LCM = Product of two numbers.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<footer class="footer">
+
+    © 2026 Venu Learning Portal
+
+</footer>
+
+
+
+<script src="../script.js"></script>
+
+
+</body>
+
+</html>
