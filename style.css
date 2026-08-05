@@ -1014,9 +1014,10 @@ body {
 ================================= */
 
 .practice-level-button {
-    width: 100%;
-    margin: 8px 0;
+    width: 70%;
+    margin: 8px auto;
     padding: 14px 18px;
+    display: block;
     text-align: left;
     font-size: 16px;
     font-weight: 600;
