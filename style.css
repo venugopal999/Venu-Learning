@@ -900,3 +900,40 @@ body {
     }
 
 }
+
+/* Dynamic Memory Diagrams */
+
+.memory-diagram {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.memory-section {
+    border: 2px solid currentColor;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+.memory-section strong {
+    font-size: 18px;
+}
+
+.memory-section span {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+
+    .memory-diagram {
+        width: 95%;
+    }
+
+}
