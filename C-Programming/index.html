@@ -16184,58 +16184,69 @@ printf("%d", x);</code></pre>
 
     <h3>13.10 Pointer Memory Diagram</h3>
 
-    <div class="formula-box">
+   <h3>13.10 Pointer Memory Diagram</h3>
 
-        x
+<div class="pointer-diagram">
 
-        <br>
+    <div class="memory-item">
+        <div class="memory-label">x</div>
 
-        ┌──────────────┐
+        <div class="memory-box">
+            <span>10</span>
+        </div>
 
-        <br>
-
-        │      10      │
-
-        <br>
-
-        └──────────────┘
-
-        <br>
-
-        Address: 1000
-
-        <br><br>
-
-        p
-
-        <br>
-
-        ┌──────────────┐
-
-        <br>
-
-        │     1000     │
-
-        <br>
-
-        └──────────────┘
-
-        <br>
-
-        Address: 2000
-
-        <br><br>
-
-        p → x
-
+        <div class="memory-address">
+            Address: 1000
+        </div>
     </div>
 
-    <p>
-        The actual addresses are only illustrative.
-        The important concept is that <strong>p stores
-        the address of x</strong>.
-    </p>
 
+    <div class="pointer-arrow">
+        ▲
+        <span>p points to x</span>
+    </div>
+
+
+    <div class="memory-item">
+        <div class="memory-label">p</div>
+
+        <div class="memory-box">
+            <span>1000</span>
+        </div>
+
+        <div class="memory-address">
+            Address: 2000
+        </div>
+    </div>
+
+</div>
+
+<div class="tip-box">
+
+    <strong>Important:</strong>
+
+    <br><br>
+
+    <strong>x</strong> stores the value <strong>10</strong>.
+
+    <br>
+
+    <strong>p</strong> stores the address of <strong>x</strong>.
+
+    <br>
+
+    <strong>*p</strong> gives the value stored at that address → <strong>10</strong>.
+
+    <br>
+
+    <strong>&amp;x</strong> gives the address of <strong>x</strong>.
+
+    <br><br>
+
+    The addresses <strong>1000</strong> and <strong>2000</strong>
+    are only examples. Actual memory addresses will be different.
+
+</div>
 
     <!-- 13.11 POINTER TYPES -->
 
