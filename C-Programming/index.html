@@ -212,6 +212,8 @@
 
         <a href="#storage-classes">💾 Storage Classes</a>
 
+        <a href="#advanced-preprocessor">🛠️ Advanced C Preprocessor</a>
+
 
         <div class="sidebar-title">
 
@@ -30494,7 +30496,1552 @@ int main()
 
     </div>
 
-</section>     
+</section>   
+
+        ## 23. Advanced C Preprocessor
+
+### 23.1 What is the C Preprocessor?
+
+The C preprocessor processes source code before the actual compilation takes place.
+
+It handles preprocessing directives such as:
+
+```c
+#include
+#define
+#ifdef
+#ifndef
+#if
+#elif
+#else
+#endif
+#undef
+```
+
+The preprocessor is especially useful for **header files, macros, conditional compilation, debugging, and portable programs**.
+
+---
+
+### 23.2 Header Files
+
+Header files usually contain declarations, macros, type definitions, and function prototypes that can be shared between source files.
+
+Example:
+
+```c
+#include <stdio.h>
+```
+
+Here, `stdio.h` is a standard library header.
+
+A user-defined header can be included using:
+
+```c
+#include "myheader.h"
+```
+
+---
+
+### 23.3 System Header vs User Header
+
+```c
+#include <stdio.h>
+```
+
+The angle brackets are normally used for system/library headers.
+
+```c
+#include "student.h"
+```
+
+Double quotes are commonly used for headers belonging to your own project.
+
+| Syntax     | Typical Use                 |
+| ---------- | --------------------------- |
+| `<file.h>` | System/library header       |
+| `"file.h"` | User-defined/project header |
+
+---
+
+### 23.4 Object-Like Macros
+
+A macro without parameters is called an object-like macro.
+
+```c
+#define PI 3.14159
+```
+
+Example:
+
+```c
+#include <stdio.h>
+
+#define PI 3.14159
+
+int main()
+{
+    printf("%f", PI);
+
+    return 0;
+}
+```
+
+The preprocessor replaces `PI` with its replacement text before compilation.
+
+---
+
+### 23.5 Function-Like Macros
+
+A macro can also accept arguments.
+
+```c
+#define SQUARE(x) ((x) * (x))
+```
+
+Example:
+
+```c
+#include <stdio.h>
+
+#define SQUARE(x) ((x) * (x))
+
+int main()
+{
+    printf("%d", SQUARE(5));
+
+    return 0;
+}
+```
+
+Output:
+
+```text
+25
+```
+
+---
+
+### 23.6 Why Parentheses Matter in Macros
+
+Consider:
+
+```c
+#define SQUARE(x) x * x
+```
+
+Now:
+
+```c
+SQUARE(2 + 3)
+```
+
+can expand to:
+
+```c
+2 + 3 * 2 + 3
+```
+
+which produces:
+
+```text
+11
+```
+
+A safer version is:
+
+```c
+#define SQUARE(x) ((x) * (x))
+```
+
+Now:
+
+```c
+SQUARE(2 + 3)
+```
+
+expands correctly to:
+
+```c
+((2 + 3) * (2 + 3))
+```
+
+Result:
+
+```text
+25
+```
+
+---
+
+### 23.7 Macro Arguments May Be Evaluated More Than Once
+
+Consider:
+
+```c
+#define SQUARE(x) ((x) * (x))
+```
+
+Now:
+
+```c
+int i = 5;
+
+int result = SQUARE(i++);
+```
+
+The argument `i++` appears twice after macro expansion.
+
+Therefore, this is unsafe and should be avoided.
+
+A normal function is preferable when an argument may have side effects.
+
+---
+
+### 23.8 Macro vs Function
+
+| Feature                | Macro                   | Function                                |
+| ---------------------- | ----------------------- | --------------------------------------- |
+| Processed by           | Preprocessor            | Compiler                                |
+| Type checking          | No direct type checking | Yes                                     |
+| Arguments evaluated    | Text substitution       | Normally once per parameter use         |
+| Debugging              | Can be harder           | Usually easier                          |
+| Generic behavior       | Easy with macros        | Requires types/overloading alternatives |
+| Function call overhead | No actual function call | Function call semantics apply           |
+
+Example macro:
+
+```c
+#define MAX(a,b) ((a) > (b) ? (a) : (b))
+```
+
+---
+
+### 23.9 `#` Stringizing Operator
+
+The `#` operator converts a macro argument into a string literal.
+
+Example:
+
+```c
+#define STRINGIFY(x) #x
+```
+
+Then:
+
+```c
+printf("%s", STRINGIFY(Hello));
+```
+
+Output:
+
+```text
+Hello
+```
+
+Another example:
+
+```c
+#define SHOW(x) printf("%s = %d\n", #x, x)
+```
+
+Usage:
+
+```c
+int age = 20;
+
+SHOW(age);
+```
+
+Output:
+
+```text
+age = 20
+```
+
+---
+
+### 23.10 `##` Token-Pasting Operator
+
+The `##` operator combines two tokens into one token.
+
+Example:
+
+```c
+#define CONCAT(a,b) a##b
+```
+
+Then:
+
+```c
+int CONCAT(num,1) = 100;
+```
+
+becomes:
+
+```c
+int num1 = 100;
+```
+
+Example:
+
+```c
+#define CREATE_VAR(name) int variable_##name
+
+CREATE_VAR(1) = 50;
+```
+
+The resulting identifier is:
+
+```c
+variable_1
+```
+
+---
+
+### 23.11 Multi-Line Macro
+
+A macro can contain multiple statements using the backslash character.
+
+Example:
+
+```c
+#define PRINT_NUMBERS() \
+    printf("10\n");    \
+    printf("20\n");    \
+    printf("30\n");
+```
+
+A safer statement-style macro is usually written using `do { ... } while (0)`:
+
+```c
+#define PRINT_NUMBERS()       \
+do                            \
+{                             \
+    printf("10\n");           \
+    printf("20\n");           \
+    printf("30\n");           \
+} while (0)
+```
+
+This behaves more like a single statement.
+
+---
+
+### 23.12 Why `do { } while (0)` is Used
+
+Consider:
+
+```c
+#define SET_VALUES() \
+    x = 10;          \
+    y = 20;
+```
+
+Using it inside:
+
+```c
+if(condition)
+    SET_VALUES();
+else
+    printf("No");
+```
+
+can create syntactic problems.
+
+A safer form is:
+
+```c
+#define SET_VALUES()       \
+do                         \
+{                          \
+    x = 10;                \
+    y = 20;                \
+} while (0)
+```
+
+Now the macro behaves like one statement.
+
+---
+
+### 23.13 Conditional Compilation
+
+Conditional compilation allows selected sections of source code to be compiled depending on conditions.
+
+Example:
+
+```c
+#ifdef DEBUG
+
+printf("Debug mode");
+
+#endif
+```
+
+If `DEBUG` is defined, the statement is included in preprocessing output.
+
+---
+
+### 23.14 `#ifdef`
+
+`#ifdef` checks whether a macro has been defined.
+
+```c
+#define DEBUG
+
+#ifdef DEBUG
+
+printf("Debug mode enabled");
+
+#endif
+```
+
+Output:
+
+```text
+Debug mode enabled
+```
+
+---
+
+### 23.15 `#ifndef`
+
+`#ifndef` means "if not defined".
+
+Example:
+
+```c
+#ifndef MAX_SIZE
+
+#define MAX_SIZE 100
+
+#endif
+```
+
+This is commonly used in header guards.
+
+---
+
+### 23.16 Include Guards
+
+Suppose a header is included multiple times.
+
+Include guards prevent its contents from being processed repeatedly.
+
+Example:
+
+```c
+#ifndef STUDENT_H
+#define STUDENT_H
+
+void displayStudent();
+
+#endif
+```
+
+This is one of the most important techniques for writing reusable C headers.
+
+---
+
+### 23.17 Header Guard Flow
+
+```text
+        Include student.h
+               |
+               v
+       Is STUDENT_H defined?
+          /           \
+        Yes            No
+         |              |
+         v              v
+       Skip       Define STUDENT_H
+                        |
+                        v
+                 Process header
+                        |
+                        v
+                      End
+```
+
+---
+
+### 23.18 `#if`
+
+The `#if` directive allows conditional compilation based on a preprocessing expression.
+
+Example:
+
+```c
+#define VERSION 2
+
+#if VERSION == 2
+
+printf("Version 2");
+
+#endif
+```
+
+---
+
+### 23.19 `#elif`
+
+Multiple preprocessing conditions can be checked using `#elif`.
+
+```c
+#define VERSION 2
+
+#if VERSION == 1
+
+printf("Version 1");
+
+#elif VERSION == 2
+
+printf("Version 2");
+
+#else
+
+printf("Unknown version");
+
+#endif
+```
+
+Output:
+
+```text
+Version 2
+```
+
+---
+
+### 23.20 `#else`
+
+Example:
+
+```c
+#define DEBUG 0
+
+#if DEBUG
+
+printf("Debug mode");
+
+#else
+
+printf("Normal mode");
+
+#endif
+```
+
+Output:
+
+```text
+Normal mode
+```
+
+---
+
+### 23.21 `#undef`
+
+The `#undef` directive removes a macro definition.
+
+Example:
+
+```c
+#define VALUE 100
+
+#undef VALUE
+```
+
+After `#undef`, the macro `VALUE` is no longer defined.
+
+---
+
+### 23.22 Predefined Macros
+
+C provides several predefined macros.
+
+Common examples include:
+
+```c
+__FILE__
+__LINE__
+__DATE__
+__TIME__
+```
+
+Example:
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    printf("File: %s\n", __FILE__);
+    printf("Line: %d\n", __LINE__);
+    printf("Date: %s\n", __DATE__);
+    printf("Time: %s\n", __TIME__);
+
+    return 0;
+}
+```
+
+These values are supplied by the implementation/preprocessor.
+
+---
+
+### 23.23 `__FILE__`
+
+`__FILE__` expands to the name of the current source file as a string literal.
+
+Example:
+
+```c
+printf("Current file: %s", __FILE__);
+```
+
+---
+
+### 23.24 `__LINE__`
+
+`__LINE__` expands to the current source line number.
+
+Example:
+
+```c
+printf("Current line: %d", __LINE__);
+```
+
+This can be useful for debugging.
+
+---
+
+### 23.25 `__DATE__`
+
+`__DATE__` provides the compilation date as a string literal.
+
+Example:
+
+```c
+printf("Compiled on: %s", __DATE__);
+```
+
+---
+
+### 23.26 `__TIME__`
+
+`__TIME__` provides the compilation time as a string literal.
+
+Example:
+
+```c
+printf("Compiled at: %s", __TIME__);
+```
+
+---
+
+### 23.27 Debugging with Predefined Macros
+
+A simple debugging macro can be created:
+
+```c
+#define DEBUG_PRINT(x) \
+    printf("[%s:%d] %s = %d\n", __FILE__, __LINE__, #x, x)
+```
+
+Example:
+
+```c
+int value = 50;
+
+DEBUG_PRINT(value);
+```
+
+This can provide useful debugging information.
+
+---
+
+### 23.28 Debug and Release Versions
+
+A common technique is to enable debugging messages only in debug builds.
+
+```c
+#ifdef DEBUG
+
+#define LOG(x) printf("DEBUG: %s\n", x)
+
+#else
+
+#define LOG(x)
+
+#endif
+```
+
+When `DEBUG` is defined:
+
+```c
+#define DEBUG
+```
+
+the logging code is enabled.
+
+Otherwise, the `LOG()` macro expands to nothing.
+
+---
+
+### 23.29 Platform-Specific Compilation
+
+Conditional compilation can help support different platforms.
+
+Example:
+
+```c
+#ifdef _WIN32
+
+printf("Windows");
+
+#elif defined(__linux__)
+
+printf("Linux");
+
+#else
+
+printf("Other platform");
+
+#endif
+```
+
+The exact predefined platform macros depend on the compiler/toolchain.
+
+---
+
+### 23.30 Feature Selection
+
+Conditional compilation can enable or disable features.
+
+```c
+#define ENABLE_AUDIO
+
+#ifdef ENABLE_AUDIO
+
+void playAudio()
+{
+    printf("Audio enabled");
+}
+
+#endif
+```
+
+This technique can be useful in larger projects.
+
+---
+
+### 23.31 Macro Constants
+
+Example:
+
+```c
+#define MAX_STUDENTS 100
+#define PASS_MARK 40
+#define COLLEGE_NAME "ABC College"
+```
+
+Use:
+
+```c
+printf("%d", MAX_STUDENTS);
+```
+
+Macros are replaced during preprocessing.
+
+---
+
+### 23.32 Macro Function for Maximum
+
+```c
+#define MAX(a,b) ((a) > (b) ? (a) : (b))
+```
+
+Example:
+
+```c
+int x = 10;
+int y = 20;
+
+printf("%d", MAX(x, y));
+```
+
+Output:
+
+```text
+20
+```
+
+---
+
+### 23.33 Macro Function for Minimum
+
+```c
+#define MIN(a,b) ((a) < (b) ? (a) : (b))
+```
+
+Example:
+
+```c
+printf("%d", MIN(10, 20));
+```
+
+Output:
+
+```text
+10
+```
+
+---
+
+### 23.34 Macro for Swapping
+
+```c
+#define SWAP(a,b,temp) \
+do                      \
+{                       \
+    temp = a;           \
+    a = b;              \
+    b = temp;           \
+} while (0)
+```
+
+Example:
+
+```c
+int a = 10;
+int b = 20;
+int temp;
+
+SWAP(a, b, temp);
+```
+
+After execution:
+
+```text
+a = 20
+b = 10
+```
+
+---
+
+### 23.35 Macro Pitfall: Operator Precedence
+
+Bad macro:
+
+```c
+#define DOUBLE(x) x + x
+```
+
+Expression:
+
+```c
+3 * DOUBLE(4)
+```
+
+expands to:
+
+```c
+3 * 4 + 4
+```
+
+Result:
+
+```text
+16
+```
+
+But the intended result may be:
+
+```text
+24
+```
+
+Better:
+
+```c
+#define DOUBLE(x) ((x) + (x))
+```
+
+Now:
+
+```c
+3 * DOUBLE(4)
+```
+
+becomes:
+
+```c
+3 * ((4) + (4))
+```
+
+Result:
+
+```text
+24
+```
+
+---
+
+### 23.36 Macro Pitfall: Side Effects
+
+Consider:
+
+```c
+#define SQUARE(x) ((x) * (x))
+```
+
+Avoid:
+
+```c
+SQUARE(i++);
+```
+
+because the argument may be evaluated more than once.
+
+Prefer a function when appropriate:
+
+```c
+int square(int x)
+{
+    return x * x;
+}
+```
+
+Then:
+
+```c
+square(i++);
+```
+
+evaluates the argument once as part of the function call.
+
+---
+
+### 23.37 Macro Pitfall: Missing Parentheses
+
+Bad:
+
+```c
+#define ADD(a,b) a + b
+```
+
+Expression:
+
+```c
+10 * ADD(2,3)
+```
+
+Expansion:
+
+```c
+10 * 2 + 3
+```
+
+Result:
+
+```text
+23
+```
+
+Better:
+
+```c
+#define ADD(a,b) ((a) + (b))
+```
+
+Now:
+
+```c
+10 * ADD(2,3)
+```
+
+becomes:
+
+```c
+10 * ((2) + (3))
+```
+
+Result:
+
+```text
+50
+```
+
+---
+
+### 23.38 Macro vs const
+
+Instead of:
+
+```c
+#define MAX_SIZE 100
+```
+
+C can also use:
+
+```c
+const int max_size = 100;
+```
+
+These are not identical.
+
+A macro is handled by preprocessing, while `const` creates a typed object.
+
+Use the appropriate mechanism based on the requirement.
+
+---
+
+### 23.39 Macro vs enum
+
+For integer constants, an enumeration can sometimes be more appropriate:
+
+```c
+enum
+{
+    RED = 1,
+    GREEN = 2,
+    BLUE = 3
+};
+```
+
+Macros and enumerations have different language semantics, so they should not be treated as interchangeable in every situation.
+
+---
+
+### 23.40 Practical Include Guard Example
+
+**student.h**
+
+```c
+#ifndef STUDENT_H
+#define STUDENT_H
+
+typedef struct
+{
+    int id;
+    char name[50];
+} Student;
+
+void displayStudent(Student s);
+
+#endif
+```
+
+**student.c**
+
+```c
+#include <stdio.h>
+#include "student.h"
+
+void displayStudent(Student s)
+{
+    printf("ID: %d\n", s.id);
+    printf("Name: %s\n", s.name);
+}
+```
+
+**main.c**
+
+```c
+#include "student.h"
+
+int main()
+{
+    Student s = {101, "Venu"};
+
+    displayStudent(s);
+
+    return 0;
+}
+```
+
+This demonstrates how a header, implementation file and main file can work together.
+
+---
+
+### 23.41 Preprocessing Flow
+
+```text
+C Source Code
+      |
+      v
+Preprocessor
+      |
+      +---- #include
+      |
+      +---- #define
+      |
+      +---- Conditional compilation
+      |
+      +---- Macro expansion
+      |
+      v
+Preprocessed Source
+      |
+      v
+Compiler
+      |
+      v
+Object Code
+      |
+      v
+Linker
+      |
+      v
+Executable Program
+```
+
+---
+
+### 23.42 Common Mistakes
+
+* Forgetting parentheses in function-like macros.
+* Using macros with arguments that have side effects.
+* Confusing macro expansion with function calls.
+* Forgetting include guards in reusable headers.
+* Using `#ifdef` when a numeric condition with `#if` is actually needed.
+* Forgetting that `#undef` removes a macro definition.
+* Assuming `__DATE__` and `__TIME__` represent program execution time.
+* Writing multi-statement macros without `do { } while (0)`.
+* Using macros where a normal function would be clearer.
+* Forgetting that macro replacement is essentially textual preprocessing.
+
+---
+
+### 23.43 Quick Revision
+
+<div class="tip-box">
+
+📌 `#define` → defines a macro.
+
+<br><br>
+
+📌 `#undef` → removes a macro definition.
+
+<br><br>
+
+📌 `#include` → includes header contents.
+
+<br><br>
+
+📌 `#ifdef` → checks whether a macro is defined.
+
+<br><br>
+
+📌 `#ifndef` → checks whether a macro is not defined.
+
+<br><br>
+
+📌 `#if` → conditional compilation based on a preprocessing expression.
+
+<br><br>
+
+📌 `#elif` → additional preprocessing condition.
+
+<br><br>
+
+📌 `#else` → alternative preprocessing branch.
+
+<br><br>
+
+📌 `#endif` → ends a conditional preprocessing block.
+
+<br><br>
+
+📌 `#` → stringizes a macro argument.
+
+<br><br>
+
+📌 `##` → joins two preprocessing tokens.
+
+<br><br>
+
+📌 Include guards → prevent repeated inclusion of a header's contents.
+
+<br><br>
+
+📌 `__FILE__` → current source file.
+
+<br><br>
+
+📌 `__LINE__` → current source line.
+
+<br><br>
+
+📌 `__DATE__` → compilation date.
+
+<br><br>
+
+📌 `__TIME__` → compilation time.
+
+</div>
+
+---
+
+### 23.44 Quick MCQs
+
+1. Which directive defines a macro?
+
+A) `#include`
+B) `#define`
+C) `#ifdef`
+D) `#undef`
+
+**Answer: B**
+
+---
+
+2. Which directive removes a macro definition?
+
+A) `#delete`
+B) `#remove`
+C) `#undef`
+D) `#clear`
+
+**Answer: C**
+
+---
+
+3. Which operator stringizes a macro argument?
+
+A) `##`
+B) `#`
+C) `@`
+D) `$`
+
+**Answer: B**
+
+---
+
+4. Which operator performs token pasting?
+
+A) `#`
+B) `##`
+C) `&&`
+D) `::`
+
+**Answer: B**
+
+---
+
+5. Which directive is commonly used for include guards?
+
+A) `#ifndef`
+B) `#include`
+C) `#pragma`
+D) `#undef`
+
+**Answer: A**
+
+---
+
+6. What does `__LINE__` represent?
+
+A) File name
+B) Compilation date
+C) Current source line number
+D) Program size
+
+**Answer: C**
+
+---
+
+7. What does `__FILE__` provide?
+
+A) Current source file name
+B) Current function name
+C) Current line number
+D) Current date
+
+**Answer: A**
+
+---
+
+8. Which is generally safer for a multi-statement macro?
+
+A) `if`
+B) `do { } while (0)`
+C) `switch`
+D) `goto`
+
+**Answer: B**
+
+---
+
+9. Which stage processes `#define`?
+
+A) Linker
+B) Loader
+C) Preprocessor
+D) CPU
+
+**Answer: C**
+
+---
+
+10. Which is a common problem with function-like macros?
+
+A) They cannot accept arguments
+B) Their arguments can have unexpected repeated evaluation
+C) They always require dynamic memory
+D) They cannot be used with integers
+
+**Answer: B**
+
+---
+
+### 23.45 Practice Problems
+
+**Problem 1**
+
+Define a macro named `PI` with an appropriate value and use it to calculate the area of a circle.
+
+---
+
+**Problem 2**
+
+Create a function-like macro `SQUARE(x)`.
+
+Test it with:
+
+```c
+SQUARE(5)
+```
+
+---
+
+**Problem 3**
+
+Explain why this macro is unsafe:
+
+```c
+#define SQUARE(x) x * x
+```
+
+Create a corrected version.
+
+---
+
+**Problem 4**
+
+Create a macro named `MAX(a,b)`.
+
+---
+
+**Problem 5**
+
+Create a macro named `MIN(a,b)`.
+
+---
+
+**Problem 6**
+
+Write a macro that prints the name and value of a variable using the `#` operator.
+
+---
+
+**Problem 7**
+
+Write a macro that combines two tokens using `##`.
+
+---
+
+**Problem 8**
+
+Create a multi-statement macro using `do { } while (0)`.
+
+---
+
+**Problem 9**
+
+Create an include guard for:
+
+```text
+college.h
+```
+
+---
+
+**Problem 10**
+
+Write a program using `#ifdef DEBUG` to display debugging information.
+
+---
+
+**Problem 11**
+
+Write a program using `#if`, `#elif` and `#else` to select between three versions.
+
+---
+
+**Problem 12**
+
+Write a program that prints `__FILE__`.
+
+---
+
+**Problem 13**
+
+Write a program that prints `__LINE__`.
+
+---
+
+**Problem 14**
+
+Write a program that prints `__DATE__` and `__TIME__`.
+
+---
+
+**Problem 15**
+
+Create a macro `DOUBLE(x)` that correctly handles:
+
+```c
+DOUBLE(2 + 3)
+```
+
+---
+
+**Problem 16**
+
+Explain why this expression is dangerous:
+
+```c
+SQUARE(i++)
+```
+
+---
+
+**Problem 17**
+
+Create a project containing:
+
+```text
+main.c
+student.c
+student.h
+```
+
+and use an include guard in the header.
+
+---
+
+**Problem 18**
+
+Write a macro that prints:
+
+```text
+DEBUG: variable = value
+```
+
+using `__FILE__`, `__LINE__` and `#`.
+
+---
+
+**Problem 19**
+
+Explain the difference between a macro and a function with an example.
+
+---
+
+**Problem 20**
+
+Create a small C program demonstrating:
+
+```text
+#define
+#undef
+#ifdef
+#ifndef
+#if
+#elif
+#else
+#
+##
+__FILE__
+__LINE__
+```
+
+---
+
+### 23.46 Interview Questions
+
+**Q1.** What is the C preprocessor?
+
+**Q2.** What is the difference between a macro and a function?
+
+**Q3.** What is an object-like macro?
+
+**Q4.** What is a function-like macro?
+
+**Q5.** Why should macro arguments normally be parenthesized?
+
+**Q6.** What is the purpose of the `#` operator?
+
+**Q7.** What is the purpose of `##`?
+
+**Q8.** What are include guards?
+
+**Q9.** Why is `do { } while (0)` commonly used in multi-statement macros?
+
+**Q10.** What is conditional compilation?
+
+**Q11.** What is the difference between `#ifdef` and `#if`?
+
+**Q12.** What does `#undef` do?
+
+**Q13.** What are predefined macros?
+
+**Q14.** What is the difference between `#define` and `const`?
+
+**Q15.** Why can macros be dangerous when arguments have side effects?
+
+---
+
+### 23.47 Key Takeaway
+
+<div class="tip-box">
+
+🎯 The preprocessor is executed before compilation.
+
+<br><br>
+
+🎯 Use macros carefully and parenthesize macro parameters.
+
+<br><br>
+
+🎯 Avoid passing expressions with side effects to macros that may
+evaluate their arguments more than once.
+
+<br><br>
+
+🎯 Use `#ifndef`, `#define` and `#endif` for traditional include guards.
+
+<br><br>
+
+🎯 `#` converts a macro argument into a string.
+
+<br><br>
+
+🎯 `##` combines preprocessing tokens.
+
+<br><br>
+
+🎯 Conditional compilation is useful for debugging,
+platform-specific code and optional features.
+
+<br><br>
+
+🎯 Prefer functions when they provide clearer and safer behavior
+than macros.
+
+</div>
+
+</section>
+
 
         
         <!-- ================================
