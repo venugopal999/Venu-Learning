@@ -212,7 +212,7 @@
 
         <a href="#storage-classes">💾 Storage Classes</a>
 
-        <a href="#advanced-preprocessor">🛠️ Advanced C Preprocessor</a>
+        <a href="#advanced-preprocessor">🛠️ Advanced C Preprocessor</a>  
 
 
         <div class="sidebar-title">
@@ -30497,6 +30497,1284 @@ int main()
     </div>
 
 </section>   
+
+        ```html
+<!-- ========================================================= -->
+<!-- 23. ADVANCED C PREPROCESSOR -->
+<!-- ========================================================= -->
+
+<section id="advanced-preprocessor" class="content-card">
+
+    <h2>🛠️ 23. Advanced C Preprocessor</h2>
+
+    <p>
+        Since the basic <strong>Preprocessor</strong> section is already covered,
+        this section focuses on advanced concepts such as macros, conditional
+        compilation, header guards, stringizing, token pasting, and predefined
+        macros.
+    </p>
+
+    <!-- 23.1 -->
+    <h3>23.1 What is the C Preprocessor?</h3>
+
+    <p>
+        The C preprocessor processes source code before the actual compilation
+        takes place.
+    </p>
+
+    <p>Important preprocessing directives include:</p>
+
+    <pre><code>#include
+#define
+#ifdef
+#ifndef
+#if
+#elif
+#else
+#endif
+#undef</code></pre>
+
+
+    <!-- 23.2 -->
+    <h3>23.2 Header Files</h3>
+
+    <p>
+        Header files usually contain declarations, macros, type definitions,
+        and function prototypes that can be shared between source files.
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;</code></pre>
+
+    <p>
+        A user-defined header can be included using:
+    </p>
+
+    <pre><code>#include "myheader.h"</code></pre>
+
+
+    <!-- 23.3 -->
+    <h3>23.3 System Header vs User Header</h3>
+
+    <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Syntax</th>
+                    <th>Typical Use</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><code>#include &lt;file.h&gt;</code></td>
+                    <td>System / library header</td>
+                </tr>
+
+                <tr>
+                    <td><code>#include "file.h"</code></td>
+                    <td>User-defined / project header</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+
+    <!-- 23.4 -->
+    <h3>23.4 Object-Like Macros</h3>
+
+    <p>
+        A macro without parameters is called an
+        <strong>object-like macro</strong>.
+    </p>
+
+    <pre><code>#define PI 3.14159</code></pre>
+
+    <p>Example:</p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+#define PI 3.14159
+
+int main()
+{
+    printf("%f", PI);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        3.141590
+    </div>
+
+
+    <!-- 23.5 -->
+    <h3>23.5 Function-Like Macros</h3>
+
+    <p>
+        A macro can accept arguments. Such a macro is called a
+        <strong>function-like macro</strong>.
+    </p>
+
+    <pre><code>#define SQUARE(x) ((x) * (x))</code></pre>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+#define SQUARE(x) ((x) * (x))
+
+int main()
+{
+    printf("%d", SQUARE(5));
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        25
+    </div>
+
+
+    <!-- 23.6 -->
+    <h3>23.6 Why Parentheses Matter in Macros</h3>
+
+    <p>Unsafe macro:</p>
+
+    <pre><code>#define SQUARE(x) x * x</code></pre>
+
+    <p>Consider:</p>
+
+    <pre><code>SQUARE(2 + 3)</code></pre>
+
+    <p>Expansion:</p>
+
+    <pre><code>2 + 3 * 2 + 3</code></pre>
+
+    <div class="warning-box">
+        ⚠️ Result = <strong>11</strong>, not 25.
+    </div>
+
+    <p>Correct version:</p>
+
+    <pre><code>#define SQUARE(x) ((x) * (x))</code></pre>
+
+    <p>Now:</p>
+
+    <pre><code>SQUARE(2 + 3)</code></pre>
+
+    <p>becomes:</p>
+
+    <pre><code>((2 + 3) * (2 + 3))</code></pre>
+
+    <div class="output-box">
+        25
+    </div>
+
+
+    <!-- 23.7 -->
+    <h3>23.7 Macro Arguments and Side Effects</h3>
+
+    <p>Consider:</p>
+
+    <pre><code>#define SQUARE(x) ((x) * (x))
+
+int i = 5;
+
+int result = SQUARE(i++);</code></pre>
+
+    <div class="warning-box">
+        ⚠️ The argument <code>i++</code> appears more than once after
+        macro expansion. Avoid using expressions with side effects
+        as arguments to macros that may evaluate them multiple times.
+    </div>
+
+    <p>
+        A normal function is usually safer in this situation.
+    </p>
+
+
+    <!-- 23.8 -->
+    <h3>23.8 Macro vs Function</h3>
+
+    <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Macro</th>
+                    <th>Function</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Processed by</td>
+                    <td>Preprocessor</td>
+                    <td>Compiler</td>
+                </tr>
+
+                <tr>
+                    <td>Type checking</td>
+                    <td>No direct type checking</td>
+                    <td>Yes</td>
+                </tr>
+
+                <tr>
+                    <td>Arguments</td>
+                    <td>Text substitution</td>
+                    <td>Function parameters</td>
+                </tr>
+
+                <tr>
+                    <td>Debugging</td>
+                    <td>Can be harder</td>
+                    <td>Usually easier</td>
+                </tr>
+
+                <tr>
+                    <td>Side effects</td>
+                    <td>Can cause repeated evaluation</td>
+                    <td>Parameters are evaluated for the call</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+
+    <!-- 23.9 -->
+    <h3>23.9 # Stringizing Operator</h3>
+
+    <p>
+        The <code>#</code> operator converts a macro argument into a
+        string literal.
+    </p>
+
+    <pre><code>#define STRINGIFY(x) #x</code></pre>
+
+    <pre><code>printf("%s", STRINGIFY(Hello));</code></pre>
+
+    <div class="output-box">
+        Hello
+    </div>
+
+    <h4>Practical Example</h4>
+
+    <pre><code>#define SHOW(x) printf("%s = %d\n", #x, x)
+
+int age = 20;
+
+SHOW(age);</code></pre>
+
+    <div class="output-box">
+        age = 20
+    </div>
+
+
+    <!-- 23.10 -->
+    <h3>23.10 ## Token-Pasting Operator</h3>
+
+    <p>
+        The <code>##</code> operator combines two preprocessing tokens
+        into one token.
+    </p>
+
+    <pre><code>#define CONCAT(a,b) a##b</code></pre>
+
+    <p>Example:</p>
+
+    <pre><code>int CONCAT(num,1) = 100;</code></pre>
+
+    <p>After preprocessing, this produces:</p>
+
+    <pre><code>int num1 = 100;</code></pre>
+
+
+    <!-- 23.11 -->
+    <h3>23.11 Multi-Line Macro</h3>
+
+    <p>
+        A backslash <code>\</code> can be used to continue a macro
+        definition onto the next line.
+    </p>
+
+    <pre><code>#define PRINT_NUMBERS() \
+do                       \
+{                        \
+    printf("10\n");      \
+    printf("20\n");      \
+    printf("30\n");      \
+} while (0)</code></pre>
+
+    <p>
+        The <code>do { } while (0)</code> technique makes a
+        multi-statement macro behave more like a single statement.
+    </p>
+
+
+    <!-- 23.12 -->
+    <h3>23.12 Why Use do { } while (0)?</h3>
+
+    <p>Consider a multi-statement macro:</p>
+
+    <pre><code>#define SET_VALUES() \
+    x = 10;           \
+    y = 20;</code></pre>
+
+    <p>
+        Such a macro can cause problems when used inside an
+        <code>if-else</code> statement.
+    </p>
+
+    <p>Safer version:</p>
+
+    <pre><code>#define SET_VALUES() \
+do                    \
+{                     \
+    x = 10;            \
+    y = 20;            \
+} while (0)</code></pre>
+
+
+    <!-- 23.13 -->
+    <h3>23.13 Conditional Compilation</h3>
+
+    <p>
+        Conditional compilation allows selected sections of source
+        code to be included or excluded before compilation.
+    </p>
+
+    <pre><code>#ifdef DEBUG
+
+printf("Debug mode");
+
+#endif</code></pre>
+
+
+    <!-- 23.14 -->
+    <h3>23.14 #ifdef</h3>
+
+    <p>
+        <code>#ifdef</code> checks whether a macro has been defined.
+    </p>
+
+    <pre><code>#define DEBUG
+
+#ifdef DEBUG
+
+printf("Debug mode enabled");
+
+#endif</code></pre>
+
+    <div class="output-box">
+        Debug mode enabled
+    </div>
+
+
+    <!-- 23.15 -->
+    <h3>23.15 #ifndef</h3>
+
+    <p>
+        <code>#ifndef</code> means "if not defined".
+    </p>
+
+    <pre><code>#ifndef MAX_SIZE
+
+#define MAX_SIZE 100
+
+#endif</code></pre>
+
+
+    <!-- 23.16 -->
+    <h3>23.16 Include Guards</h3>
+
+    <p>
+        Include guards prevent the contents of a header file from
+        being processed repeatedly.
+    </p>
+
+    <pre><code>#ifndef STUDENT_H
+#define STUDENT_H
+
+void displayStudent();
+
+#endif</code></pre>
+
+    <div class="tip-box">
+        💡 Include guards are commonly used in reusable C header files.
+    </div>
+
+
+    <!-- 23.17 -->
+    <h3>23.17 Include Guard Flow</h3>
+
+    <pre><code>
+        Include student.h
+                |
+                v
+       Is STUDENT_H defined?
+          /           \
+        Yes            No
+         |              |
+         v              v
+       Skip       Define STUDENT_H
+                        |
+                        v
+                 Process header
+                        |
+                        v
+                      End
+    </code></pre>
+
+
+    <!-- 23.18 -->
+    <h3>23.18 #if</h3>
+
+    <p>
+        <code>#if</code> allows conditional compilation based on a
+        preprocessing expression.
+    </p>
+
+    <pre><code>#define VERSION 2
+
+#if VERSION == 2
+
+printf("Version 2");
+
+#endif</code></pre>
+
+
+    <!-- 23.19 -->
+    <h3>23.19 #elif</h3>
+
+    <pre><code>#define VERSION 2
+
+#if VERSION == 1
+
+printf("Version 1");
+
+#elif VERSION == 2
+
+printf("Version 2");
+
+#else
+
+printf("Unknown version");
+
+#endif</code></pre>
+
+    <div class="output-box">
+        Version 2
+    </div>
+
+
+    <!-- 23.20 -->
+    <h3>23.20 #else</h3>
+
+    <pre><code>#define DEBUG 0
+
+#if DEBUG
+
+printf("Debug mode");
+
+#else
+
+printf("Normal mode");
+
+#endif</code></pre>
+
+    <div class="output-box">
+        Normal mode
+    </div>
+
+
+    <!-- 23.21 -->
+    <h3>23.21 #undef</h3>
+
+    <p>
+        The <code>#undef</code> directive removes a macro definition.
+    </p>
+
+    <pre><code>#define VALUE 100
+
+#undef VALUE</code></pre>
+
+    <p>
+        After <code>#undef</code>, the macro <code>VALUE</code> is no
+        longer defined.
+    </p>
+
+
+    <!-- 23.22 -->
+    <h3>23.22 Predefined Macros</h3>
+
+    <p>Common predefined macros include:</p>
+
+    <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Macro</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><code>__FILE__</code></td>
+                    <td>Current source file name</td>
+                </tr>
+
+                <tr>
+                    <td><code>__LINE__</code></td>
+                    <td>Current source line number</td>
+                </tr>
+
+                <tr>
+                    <td><code>__DATE__</code></td>
+                    <td>Compilation date</td>
+                </tr>
+
+                <tr>
+                    <td><code>__TIME__</code></td>
+                    <td>Compilation time</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+
+    <!-- 23.23 -->
+    <h3>23.23 __FILE__</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf("File: %s", __FILE__);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 23.24 -->
+    <h3>23.24 __LINE__</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf("Current line: %d", __LINE__);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 23.25 -->
+    <h3>23.25 __DATE__</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf("Compiled on: %s", __DATE__);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 23.26 -->
+    <h3>23.26 __TIME__</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf("Compiled at: %s", __TIME__);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 23.27 -->
+    <h3>23.27 Debugging with Predefined Macros</h3>
+
+    <pre><code>#define DEBUG_PRINT(x) \
+printf("[%s:%d] %s = %d\n", __FILE__, __LINE__, #x, x)</code></pre>
+
+    <p>Example:</p>
+
+    <pre><code>int value = 50;
+
+DEBUG_PRINT(value);</code></pre>
+
+    <p>
+        This can display the source file, line number, variable name,
+        and variable value.
+    </p>
+
+
+    <!-- 23.28 -->
+    <h3>23.28 Debug and Release Versions</h3>
+
+    <pre><code>#ifdef DEBUG
+
+#define LOG(x) printf("DEBUG: %s\n", x)
+
+#else
+
+#define LOG(x)
+
+#endif</code></pre>
+
+    <p>
+        This allows debugging messages to be enabled or disabled
+        through conditional compilation.
+    </p>
+
+
+    <!-- 23.29 -->
+    <h3>23.29 Platform-Specific Compilation</h3>
+
+    <pre><code>#ifdef _WIN32
+
+printf("Windows");
+
+#elif defined(__linux__)
+
+printf("Linux");
+
+#else
+
+printf("Other platform");
+
+#endif</code></pre>
+
+    <p>
+        The exact predefined platform macros depend on the compiler
+        and toolchain.
+    </p>
+
+
+    <!-- 23.30 -->
+    <h3>23.30 Feature Selection</h3>
+
+    <pre><code>#define ENABLE_AUDIO
+
+#ifdef ENABLE_AUDIO
+
+void playAudio()
+{
+    printf("Audio enabled");
+}
+
+#endif</code></pre>
+
+
+    <!-- 23.31 -->
+    <h3>23.31 Macro Constants</h3>
+
+    <pre><code>#define MAX_STUDENTS 100
+#define PASS_MARK 40
+#define COLLEGE_NAME "ABC College"</code></pre>
+
+    <pre><code>printf("%d", MAX_STUDENTS);</code></pre>
+
+
+    <!-- 23.32 -->
+    <h3>23.32 Macro Function for Maximum</h3>
+
+    <pre><code>#define MAX(a,b) ((a) &gt; (b) ? (a) : (b))</code></pre>
+
+    <pre><code>int x = 10;
+int y = 20;
+
+printf("%d", MAX(x, y));</code></pre>
+
+    <div class="output-box">
+        20
+    </div>
+
+
+    <!-- 23.33 -->
+    <h3>23.33 Macro Function for Minimum</h3>
+
+    <pre><code>#define MIN(a,b) ((a) &lt; (b) ? (a) : (b))</code></pre>
+
+    <pre><code>printf("%d", MIN(10, 20));</code></pre>
+
+    <div class="output-box">
+        10
+    </div>
+
+
+    <!-- 23.34 -->
+    <h3>23.34 Macro for Swapping</h3>
+
+    <pre><code>#define SWAP(a,b,temp) \
+do                      \
+{                       \
+    temp = a;           \
+    a = b;              \
+    b = temp;           \
+} while (0)</code></pre>
+
+    <pre><code>int a = 10;
+int b = 20;
+int temp;
+
+SWAP(a, b, temp);</code></pre>
+
+    <div class="output-box">
+        a = 20<br>
+        b = 10
+    </div>
+
+
+    <!-- 23.35 -->
+    <h3>23.35 Macro Pitfall: Operator Precedence</h3>
+
+    <p>Bad macro:</p>
+
+    <pre><code>#define DOUBLE(x) x + x</code></pre>
+
+    <p>Consider:</p>
+
+    <pre><code>3 * DOUBLE(4)</code></pre>
+
+    <p>Expansion:</p>
+
+    <pre><code>3 * 4 + 4</code></pre>
+
+    <div class="warning-box">
+        ⚠️ Result = <strong>16</strong>
+    </div>
+
+    <p>Correct macro:</p>
+
+    <pre><code>#define DOUBLE(x) ((x) + (x))</code></pre>
+
+    <div class="output-box">
+        3 * DOUBLE(4) → 24
+    </div>
+
+
+    <!-- 23.36 -->
+    <h3>23.36 Macro Pitfall: Side Effects</h3>
+
+    <pre><code>#define SQUARE(x) ((x) * (x))</code></pre>
+
+    <p>Avoid:</p>
+
+    <pre><code>SQUARE(i++);</code></pre>
+
+    <div class="warning-box">
+        ⚠️ The expression may be evaluated more than once.
+        Prefer a normal function when appropriate.
+    </div>
+
+
+    <!-- 23.37 -->
+    <h3>23.37 Macro Pitfall: Missing Parentheses</h3>
+
+    <p>Bad:</p>
+
+    <pre><code>#define ADD(a,b) a + b</code></pre>
+
+    <pre><code>10 * ADD(2,3)</code></pre>
+
+    <p>Expansion:</p>
+
+    <pre><code>10 * 2 + 3</code></pre>
+
+    <div class="warning-box">
+        ⚠️ Result = <strong>23</strong>
+    </div>
+
+    <p>Correct:</p>
+
+    <pre><code>#define ADD(a,b) ((a) + (b))</code></pre>
+
+    <div class="output-box">
+        10 * ADD(2,3) → 50
+    </div>
+
+
+    <!-- 23.38 -->
+    <h3>23.38 Macro vs const</h3>
+
+    <p>Macro:</p>
+
+    <pre><code>#define MAX_SIZE 100</code></pre>
+
+    <p>Constant object:</p>
+
+    <pre><code>const int max_size = 100;</code></pre>
+
+    <p>
+        A macro is handled during preprocessing, whereas
+        <code>const</code> is part of the C language type system.
+    </p>
+
+
+    <!-- 23.39 -->
+    <h3>23.39 Macro vs enum</h3>
+
+    <pre><code>enum
+{
+    RED = 1,
+    GREEN = 2,
+    BLUE = 3
+};</code></pre>
+
+    <p>
+        Enumerations are typed language constructs with their own
+        semantics, while macros are preprocessing substitutions.
+    </p>
+
+
+    <!-- 23.40 -->
+    <h3>23.40 Practical Include Guard Example</h3>
+
+    <p><strong>student.h</strong></p>
+
+    <pre><code>#ifndef STUDENT_H
+#define STUDENT_H
+
+typedef struct
+{
+    int id;
+    char name[50];
+} Student;
+
+void displayStudent(Student s);
+
+#endif</code></pre>
+
+    <p><strong>student.c</strong></p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include "student.h"
+
+void displayStudent(Student s)
+{
+    printf("ID: %d\n", s.id);
+    printf("Name: %s\n", s.name);
+}</code></pre>
+
+    <p><strong>main.c</strong></p>
+
+    <pre><code>#include "student.h"
+
+int main()
+{
+    Student s = {101, "Venu"};
+
+    displayStudent(s);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        ID: 101<br>
+        Name: Venu
+    </div>
+
+
+    <!-- 23.41 -->
+    <h3>23.41 Preprocessing Flow</h3>
+
+    <div class="diagram-box">
+        <pre><code>
+        C Source Code
+              |
+              v
+        Preprocessor
+              |
+      +-------+-------+
+      |       |       |
+   #include #define Conditional
+                      compilation
+              |
+              v
+       Macro Expansion
+              |
+              v
+      Preprocessed Source
+              |
+              v
+           Compiler
+              |
+              v
+          Object Code
+              |
+              v
+            Linker
+              |
+              v
+        Executable Program
+        </code></pre>
+    </div>
+
+
+    <!-- 23.42 -->
+    <h3>23.42 Common Mistakes</h3>
+
+    <ul>
+        <li>Forgetting parentheses in function-like macros.</li>
+        <li>Using macros with arguments that have side effects.</li>
+        <li>Confusing macro expansion with function calls.</li>
+        <li>Forgetting include guards in reusable headers.</li>
+        <li>Misusing <code>#ifdef</code> instead of <code>#if</code>.</li>
+        <li>Forgetting that <code>#undef</code> removes a macro.</li>
+        <li>Using <code>__DATE__</code> and <code>__TIME__</code> as runtime values.</li>
+        <li>Writing multi-statement macros without <code>do { } while (0)</code>.</li>
+        <li>Using macros where a normal function would be clearer.</li>
+    </ul>
+
+
+    <!-- 23.43 -->
+    <h3>23.43 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 <code>#define</code> → Defines a macro.
+
+        <br><br>
+
+        📌 <code>#undef</code> → Removes a macro definition.
+
+        <br><br>
+
+        📌 <code>#include</code> → Includes a header.
+
+        <br><br>
+
+        📌 <code>#ifdef</code> → Checks whether a macro is defined.
+
+        <br><br>
+
+        📌 <code>#ifndef</code> → Checks whether a macro is not defined.
+
+        <br><br>
+
+        📌 <code>#if</code> → Conditional preprocessing expression.
+
+        <br><br>
+
+        📌 <code>#elif</code> → Additional condition.
+
+        <br><br>
+
+        📌 <code>#else</code> → Alternative branch.
+
+        <br><br>
+
+        📌 <code>#endif</code> → Ends conditional compilation.
+
+        <br><br>
+
+        📌 <code>#</code> → Stringizes a macro argument.
+
+        <br><br>
+
+        📌 <code>##</code> → Joins preprocessing tokens.
+
+        <br><br>
+
+        📌 <code>__FILE__</code> → Current source file.
+
+        <br><br>
+
+        📌 <code>__LINE__</code> → Current source line.
+
+        <br><br>
+
+        📌 <code>__DATE__</code> → Compilation date.
+
+        <br><br>
+
+        📌 <code>__TIME__</code> → Compilation time.
+
+    </div>
+
+
+    <!-- 23.44 -->
+    <h3>23.44 Quick MCQs</h3>
+
+    <div class="quiz-question">
+        <p><strong>1. Which directive defines a macro?</strong></p>
+
+        <p>A) #include</p>
+        <p>B) #define</p>
+        <p>C) #ifdef</p>
+        <p>D) #undef</p>
+
+        <p><strong>Answer: B</strong></p>
+    </div>
+
+    <div class="quiz-question">
+        <p><strong>2. Which directive removes a macro definition?</strong></p>
+
+        <p>A) #delete</p>
+        <p>B) #remove</p>
+        <p>C) #undef</p>
+        <p>D) #clear</p>
+
+        <p><strong>Answer: C</strong></p>
+    </div>
+
+    <div class="quiz-question">
+        <p><strong>3. Which operator stringizes a macro argument?</strong></p>
+
+        <p>A) ##</p>
+        <p>B) #</p>
+        <p>C) @</p>
+        <p>D) $</p>
+
+        <p><strong>Answer: B</strong></p>
+    </div>
+
+    <div class="quiz-question">
+        <p><strong>4. Which operator performs token pasting?</strong></p>
+
+        <p>A) #</p>
+        <p>B) ##</p>
+        <p>C) &amp;&amp;</p>
+        <p>D) ::</p>
+
+        <p><strong>Answer: B</strong></p>
+    </div>
+
+    <div class="quiz-question">
+        <p><strong>5. Which directive is commonly used for include guards?</strong></p>
+
+        <p>A) #ifndef</p>
+        <p>B) #include</p>
+        <p>C) #pragma</p>
+        <p>D) #undef</p>
+
+        <p><strong>Answer: A</strong></p>
+    </div>
+
+    <div class="quiz-question">
+        <p><strong>6. What does __LINE__ represent?</strong></p>
+
+        <p>A) File name</p>
+        <p>B) Compilation date</p>
+        <p>C) Current source line number</p>
+        <p>D) Program size</p>
+
+        <p><strong>Answer: C</strong></p>
+    </div>
+
+    <div class="quiz-question">
+        <p><strong>7. What does __FILE__ provide?</strong></p>
+
+        <p>A) Current source file name</p>
+        <p>B) Current function name</p>
+        <p>C) Current line number</p>
+        <p>D) Current date</p>
+
+        <p><strong>Answer: A</strong></p>
+    </div>
+
+    <div class="quiz-question">
+        <p><strong>8. Which technique is commonly used for multi-statement macros?</strong></p>
+
+        <p>A) if</p>
+        <p>B) do { } while (0)</p>
+        <p>C) switch</p>
+        <p>D) goto</p>
+
+        <p><strong>Answer: B</strong></p>
+    </div>
+
+    <div class="quiz-question">
+        <p><strong>9. Which stage processes #define?</strong></p>
+
+        <p>A) Linker</p>
+        <p>B) Loader</p>
+        <p>C) Preprocessor</p>
+        <p>D) CPU</p>
+
+        <p><strong>Answer: C</strong></p>
+    </div>
+
+    <div class="quiz-question">
+        <p><strong>10. What is a common problem with function-like macros?</strong></p>
+
+        <p>A) They cannot accept arguments</p>
+        <p>B) Arguments can be evaluated more than once</p>
+        <p>C) They always require dynamic memory</p>
+        <p>D) They cannot work with integers</p>
+
+        <p><strong>Answer: B</strong></p>
+    </div>
+
+
+    <!-- 23.45 -->
+    <h3>23.45 Practice Problems</h3>
+
+    <div class="practice-box">
+
+        <p><strong>Problem 1:</strong>
+        Define a macro named <code>PI</code> and use it to calculate
+        the area of a circle.</p>
+
+        <p><strong>Problem 2:</strong>
+        Create a function-like macro <code>SQUARE(x)</code>.</p>
+
+        <p><strong>Problem 3:</strong>
+        Explain why <code>#define SQUARE(x) x * x</code> is unsafe.</p>
+
+        <p><strong>Problem 4:</strong>
+        Create a macro named <code>MAX(a,b)</code>.</p>
+
+        <p><strong>Problem 5:</strong>
+        Create a macro named <code>MIN(a,b)</code>.</p>
+
+        <p><strong>Problem 6:</strong>
+        Write a macro that prints the name and value of a variable
+        using the <code>#</code> operator.</p>
+
+        <p><strong>Problem 7:</strong>
+        Write a macro that combines two tokens using <code>##</code>.</p>
+
+        <p><strong>Problem 8:</strong>
+        Create a multi-statement macro using <code>do { } while (0)</code>.</p>
+
+        <p><strong>Problem 9:</strong>
+        Create an include guard for <code>college.h</code>.</p>
+
+        <p><strong>Problem 10:</strong>
+        Write a program using <code>#ifdef DEBUG</code>.</p>
+
+        <p><strong>Problem 11:</strong>
+        Write a program using <code>#if</code>, <code>#elif</code>
+        and <code>#else</code>.</p>
+
+        <p><strong>Problem 12:</strong>
+        Write a program that prints <code>__FILE__</code>.</p>
+
+        <p><strong>Problem 13:</strong>
+        Write a program that prints <code>__LINE__</code>.</p>
+
+        <p><strong>Problem 14:</strong>
+        Write a program that prints <code>__DATE__</code> and
+        <code>__TIME__</code>.</p>
+
+        <p><strong>Problem 15:</strong>
+        Create a macro <code>DOUBLE(x)</code> that correctly handles
+        <code>DOUBLE(2 + 3)</code>.</p>
+
+        <p><strong>Problem 16:</strong>
+        Explain why <code>SQUARE(i++)</code> can be dangerous.</p>
+
+        <p><strong>Problem 17:</strong>
+        Create a project containing <code>main.c</code>,
+        <code>student.c</code> and <code>student.h</code>.</p>
+
+        <p><strong>Problem 18:</strong>
+        Create a debugging macro using <code>__FILE__</code>,
+        <code>__LINE__</code> and <code>#</code>.</p>
+
+        <p><strong>Problem 19:</strong>
+        Explain the difference between a macro and a function.</p>
+
+        <p><strong>Problem 20:</strong>
+        Create a small program demonstrating
+        <code>#define</code>, <code>#undef</code>, conditional
+        compilation, <code>#</code>, <code>##</code>,
+        <code>__FILE__</code> and <code>__LINE__</code>.</p>
+
+    </div>
+
+
+    <!-- 23.46 -->
+    <h3>23.46 Interview Questions</h3>
+
+    <div class="interview-box">
+
+        <p><strong>Q1.</strong> What is the C preprocessor?</p>
+
+        <p><strong>Q2.</strong> What is the difference between a macro and a function?</p>
+
+        <p><strong>Q3.</strong> What is an object-like macro?</p>
+
+        <p><strong>Q4.</strong> What is a function-like macro?</p>
+
+        <p><strong>Q5.</strong> Why should macro arguments normally be parenthesized?</p>
+
+        <p><strong>Q6.</strong> What is the purpose of the <code>#</code> operator?</p>
+
+        <p><strong>Q7.</strong> What is the purpose of <code>##</code>?</p>
+
+        <p><strong>Q8.</strong> What are include guards?</p>
+
+        <p><strong>Q9.</strong> Why is <code>do { } while (0)</code> used in multi-statement macros?</p>
+
+        <p><strong>Q10.</strong> What is conditional compilation?</p>
+
+        <p><strong>Q11.</strong> What is the difference between <code>#ifdef</code> and <code>#if</code>?</p>
+
+        <p><strong>Q12.</strong> What does <code>#undef</code> do?</p>
+
+        <p><strong>Q13.</strong> What are predefined macros?</p>
+
+        <p><strong>Q14.</strong> What is the difference between <code>#define</code> and <code>const</code>?</p>
+
+        <p><strong>Q15.</strong> Why can macros be dangerous when arguments have side effects?</p>
+
+    </div>
+
+
+    <!-- 23.47 -->
+    <h3>23.47 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 The preprocessor runs before compilation.
+
+        <br><br>
+
+        🎯 Use parentheses carefully in function-like macros.
+
+        <br><br>
+
+        🎯 Avoid expressions with side effects as macro arguments
+        when they may be evaluated multiple times.
+
+        <br><br>
+
+        🎯 Use include guards in reusable header files.
+
+        <br><br>
+
+        🎯 <code>#</code> converts a macro argument into a string.
+
+        <br><br>
+
+        🎯 <code>##</code> combines preprocessing tokens.
+
+        <br><br>
+
+        🎯 Conditional compilation is useful for debugging,
+        platform-specific code and optional features.
+
+        <br><br>
+
+        🎯 Prefer normal functions when they provide clearer
+        and safer behavior than macros.
+
+    </div>
+
+</section>
+```
+
 
 
         
