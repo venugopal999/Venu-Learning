@@ -763,3 +763,77 @@ body {
     font-family: monospace;
     margin: 15px 0;
 }
+
+/* Pointer Memory Diagram */
+
+.pointer-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    margin: 30px auto;
+    padding: 25px;
+    flex-wrap: wrap;
+}
+
+.memory-item {
+    text-align: center;
+    min-width: 140px;
+}
+
+.memory-label {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.memory-box {
+    width: 120px;
+    height: 65px;
+    margin: auto;
+    border: 3px solid currentColor;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    background: transparent;
+}
+
+.memory-address {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.pointer-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.pointer-arrow span {
+    font-size: 14px;
+    margin-top: 5px;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+
+    .pointer-diagram {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .pointer-arrow {
+        transform: rotate(90deg);
+    }
+
+    .pointer-arrow span {
+        transform: rotate(-90deg);
+    }
+
+}
