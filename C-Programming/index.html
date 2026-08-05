@@ -31778,55 +31778,1132 @@ int main()
 
 
         
-        <!-- ================================
-             PRACTICE
-        ================================= -->
+```html
+<!-- ================================
+     PRACTICE
+================================= -->
 
-        <section
-            id="practice"
-            class="content-card">
+<section id="practice" class="content-card">
 
-            <h2>
+    <h2>
+        ✍️ C Programming Practice
+    </h2>
 
-                ✍️ C Programming Practice
+    <p>
+        Practice C programming problems
+        from basic to advanced levels.
+    </p>
 
-            </h2>
+    <div class="tip-box">
 
+        🚀 Welcome to C Programming Practice!
+
+        <br><br>
+
+        Start with <strong>Level 1 — Basic C Programs</strong>
+        and gradually move towards placement-level problems.
+
+    </div>
+
+    <br>
+
+    <button
+        class="primary-button"
+        onclick="showPracticeLevel1()">
+
+        🚀 Start C Practice
+
+    </button>
+
+
+    <!-- =================================
+         LEVEL 1
+    ================================== -->
+
+    <div id="practice-level-1" style="display:none;">
+
+        <hr>
+
+        <h2>🟢 Level 1 — Basic C Programs</h2>
+
+        <p>
+            These problems help you practice the fundamental concepts
+            of C programming.
+        </p>
+
+
+        <!-- Problem 1 -->
+
+        <div class="tip-box">
+
+            <h3>1️⃣ Hello World</h3>
 
             <p>
-
-                Practice C programming problems
-                from basic to advanced levels.
-
+                Write a C program to print:
             </p>
 
+            <pre><code>Hello World</code></pre>
 
-            <div class="tip-box">
+            <p><strong>Expected Output:</strong></p>
 
-                🚀 Practice section will contain
-                coding problems, MCQs and
-                programming challenges.
+            <pre><code>Hello World</code></pre>
 
-            </div>
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Use the <code>printf()</code> function.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf("Hello World");
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
 
 
-            <br>
+        <!-- Problem 2 -->
+
+        <div class="tip-box">
+
+            <h3>2️⃣ Print Your Name</h3>
+
+            <p>
+                Write a C program to print your name.
+            </p>
+
+            <p><strong>Example Output:</strong></p>
+
+            <pre><code>Venu</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Use <code>printf()</code>.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf("Venu");
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
 
 
-            <button
-                class="primary-button"
-                onclick="alert('C Practice section is coming next!')">
+        <!-- Problem 3 -->
 
-                🚀 Start C Practice
+        <div class="tip-box">
 
-            </button>
+            <h3>3️⃣ Read and Print an Integer</h3>
 
-        </section>
+            <p>
+                Read an integer from the user and print it.
+            </p>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>25</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>25</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Use <code>scanf()</code> to read the number.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("%d", n);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
 
 
-    </main>
+        <!-- Problem 4 -->
 
-</div>
+        <div class="tip-box">
+
+            <h3>4️⃣ Add Two Numbers</h3>
+
+            <p>
+                Write a C program to find the sum of two integers.
+            </p>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>10 20</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>30</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Read two integers and add them using
+                    the <code>+</code> operator.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("%d", a + b);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 5 -->
+
+        <div class="tip-box">
+
+            <h3>5️⃣ Subtract Two Numbers</h3>
+
+            <p>
+                Find the difference between two integers.
+            </p>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>20 8</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>12</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Use the subtraction operator <code>-</code>.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("%d", a - b);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 6 -->
+
+        <div class="tip-box">
+
+            <h3>6️⃣ Multiply Two Numbers</h3>
+
+            <p>
+                Find the product of two integers.
+            </p>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>5 6</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>30</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Use the multiplication operator <code>*</code>.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("%d", a * b);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 7 -->
+
+        <div class="tip-box">
+
+            <h3>7️⃣ Divide Two Numbers</h3>
+
+            <p>
+                Read two integers and find their integer quotient.
+            </p>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>20 4</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>5</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Use the division operator <code>/</code>.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("%d", a / b);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 8 -->
+
+        <div class="tip-box">
+
+            <h3>8️⃣ Quotient and Remainder</h3>
+
+            <p>
+                Find the quotient and remainder when one integer
+                is divided by another.
+            </p>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>17 5</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>Quotient = 3
+Remainder = 2</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Use <code>/</code> for quotient and
+                    <code>%</code> for remainder.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("Quotient = %d\n", a / b);
+    printf("Remainder = %d", a % b);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 9 -->
+
+        <div class="tip-box">
+
+            <h3>9️⃣ Average of Three Numbers</h3>
+
+            <p>
+                Find the average of three numbers.
+            </p>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>10 20 30</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>20.00</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Add all three numbers and divide by <code>3.0</code>.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    float a, b, c;
+
+    scanf("%f %f %f", &amp;a, &amp;b, &amp;c);
+
+    printf("%.2f", (a + b + c) / 3);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 10 -->
+
+        <div class="tip-box">
+
+            <h3>🔟 Area of a Circle</h3>
+
+            <p>
+                Calculate the area of a circle using:
+            </p>
+
+            <pre><code>Area = π × r × r</code></pre>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>5</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>78.50</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Use π = 3.14.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    float r;
+    float pi = 3.14;
+
+    scanf("%f", &amp;r);
+
+    printf("%.2f", pi * r * r);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 11 -->
+
+        <div class="tip-box">
+
+            <h3>1️⃣1️⃣ Area of a Rectangle</h3>
+
+            <p>
+                Calculate the area of a rectangle.
+            </p>
+
+            <p><strong>Formula:</strong></p>
+
+            <pre><code>Area = length × width</code></pre>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>10 5</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>50</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Multiply length and width.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int length, width;
+
+    scanf("%d %d", &amp;length, &amp;width);
+
+    printf("%d", length * width);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 12 -->
+
+        <div class="tip-box">
+
+            <h3>1️⃣2️⃣ Simple Interest</h3>
+
+            <p>
+                Calculate simple interest using:
+            </p>
+
+            <pre><code>SI = (P × R × T) / 100</code></pre>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>10000 5 2</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>1000.00</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    P = Principal, R = Rate, T = Time.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    float p, r, t;
+
+    scanf("%f %f %f", &amp;p, &amp;r, &amp;t);
+
+    printf("%.2f", (p * r * t) / 100);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 13 -->
+
+        <div class="tip-box">
+
+            <h3>1️⃣3️⃣ Celsius to Fahrenheit</h3>
+
+            <p>
+                Convert temperature from Celsius to Fahrenheit.
+            </p>
+
+            <p><strong>Formula:</strong></p>
+
+            <pre><code>F = (C × 9 / 5) + 32</code></pre>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>25</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>77.00</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Use <code>9.0 / 5.0</code> to perform floating-point division.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    float c;
+
+    scanf("%f", &amp;c);
+
+    printf("%.2f", (c * 9.0 / 5.0) + 32);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 14 -->
+
+        <div class="tip-box">
+
+            <h3>1️⃣4️⃣ Fahrenheit to Celsius</h3>
+
+            <p>
+                Convert Fahrenheit to Celsius.
+            </p>
+
+            <p><strong>Formula:</strong></p>
+
+            <pre><code>C = (F - 32) × 5 / 9</code></pre>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>77</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>25.00</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Use floating-point arithmetic.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    float f;
+
+    scanf("%f", &amp;f);
+
+    printf("%.2f", (f - 32) * 5.0 / 9.0);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 15 -->
+
+        <div class="tip-box">
+
+            <h3>1️⃣5️⃣ Swap Using Third Variable</h3>
+
+            <p>
+                Swap two integers using a third variable.
+            </p>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>10 20</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>20 10</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Use a temporary variable.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b, temp;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    temp = a;
+    a = b;
+    b = temp;
+
+    printf("%d %d", a, b);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 16 -->
+
+        <div class="tip-box">
+
+            <h3>1️⃣6️⃣ Swap Without Third Variable</h3>
+
+            <p>
+                Swap two integers without using a third variable.
+            </p>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>10 20</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>20 10</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Try using arithmetic operations.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    a = a + b;
+    b = a - b;
+    a = a - b;
+
+    printf("%d %d", a, b);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 17 -->
+
+        <div class="tip-box">
+
+            <h3>1️⃣7️⃣ Square and Cube</h3>
+
+            <p>
+                Find the square and cube of a number.
+            </p>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>5</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>Square = 25
+Cube = 125</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Use multiplication.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("Square = %d\n", n * n);
+    printf("Cube = %d", n * n * n);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 18 -->
+
+        <div class="tip-box">
+
+            <h3>1️⃣8️⃣ Convert Seconds</h3>
+
+            <p>
+                Convert a given number of seconds into
+                hours, minutes and seconds.
+            </p>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>3665</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>Hours = 1
+Minutes = 1
+Seconds = 5</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    One hour = 3600 seconds and one minute = 60 seconds.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int total, hours, minutes, seconds;
+
+    scanf("%d", &amp;total);
+
+    hours = total / 3600;
+
+    total = total % 3600;
+
+    minutes = total / 60;
+
+    seconds = total % 60;
+
+    printf("Hours = %d\n", hours);
+    printf("Minutes = %d\n", minutes);
+    printf("Seconds = %d", seconds);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 19 -->
+
+        <div class="tip-box">
+
+            <h3>1️⃣9️⃣ Total and Percentage</h3>
+
+            <p>
+                Read marks of five subjects and calculate
+                total and percentage.
+            </p>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>80 75 90 85 70</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>Total = 400
+Percentage = 80.00</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Add all five marks. Assume each subject is
+                    out of 100.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    float a, b, c, d, e;
+    float total, percentage;
+
+    scanf("%f %f %f %f %f",
+          &amp;a, &amp;b, &amp;c, &amp;d, &amp;e);
+
+    total = a + b + c + d + e;
+
+    percentage = total / 5;
+
+    printf("Total = %.0f\n", total);
+    printf("Percentage = %.2f", percentage);
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- Problem 20 -->
+
+        <div class="tip-box">
+
+            <h3>2️⃣0️⃣ Simple Calculator</h3>
+
+            <p>
+                Write a program to perform addition, subtraction,
+                multiplication and division.
+            </p>
+
+            <p>
+                Read two numbers and an operator.
+            </p>
+
+            <p><strong>Input:</strong></p>
+
+            <pre><code>10 + 5</code></pre>
+
+            <p><strong>Output:</strong></p>
+
+            <pre><code>15</code></pre>
+
+            <details>
+                <summary>💡 Hint</summary>
+
+                <p>
+                    Use <code>switch</code> to select the operation.
+                </p>
+
+            </details>
+
+            <details>
+                <summary>✅ Solution</summary>
+
+                <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    float a, b;
+    char op;
+
+    scanf("%f %c %f", &amp;a, &amp;op, &amp;b);
+
+    switch(op)
+    {
+        case '+':
+            printf("%.2f", a + b);
+            break;
+
+        case '-':
+            printf("%.2f", a - b);
+            break;
+
+        case '*':
+            printf("%.2f", a * b);
+            break;
+
+        case '/':
+            if(b != 0)
+                printf("%.2f", a / b);
+            else
+                printf("Division by zero is not allowed");
+            break;
+
+        default:
+            printf("Invalid operator");
+    }
+
+    return 0;
+}</code></pre>
+
+            </details>
+
+        </div>
+
+
+        <!-- LEVEL 1 COMPLETE -->
+
+        <div class="tip-box">
+
+            <h3>🎉 Level 1 Complete!</h3>
+
+            <p>
+                Excellent! You have completed the
+                <strong>Basic C Programs</strong> practice level.
+            </p>
+
+            <p>
+                Next:
+                <strong>🟢 Level 2 — Operators &amp; Conditions</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+function showPracticeLevel1()
+{
+    const level1 = document.getElementById("practice-level-1");
+
+    if (level1.style.display === "none")
+    {
+        level1.style.display = "block";
+    }
+    else
+    {
+        level1.style.display = "none";
+    }
+}
+
+</script>
+```
+
 
 
 
