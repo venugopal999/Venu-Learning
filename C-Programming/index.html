@@ -9362,67 +9362,1681 @@ else
              LOOPS
         ================================= -->
 
-        <section
-            id="loops"
-            class="content-card">
+   <section id="loops" class="content-card">
 
-            <h2>
+    <h2>🔁 9. Loops</h2>
 
-                🔁 9. Loops
+    <!-- INTRODUCTION -->
 
-            </h2>
+    <h3>9.1 What is a Loop?</h3>
+
+    <p>
+        A loop is a control structure that repeatedly
+        executes a block of statements while a specified
+        condition is satisfied.
+    </p>
+
+    <div class="example-box">
+
+        <strong>Real-life example:</strong>
+
+        <br><br>
+
+        Suppose you want to print:
+
+        <br>
+
+        Hello
+
+        <br>
+        Hello
+
+        <br>
+        Hello
+
+        <br>
+        Hello
+
+        <br>
+        Hello
+
+        <br><br>
+
+        Instead of writing <strong>printf()</strong>
+        five times, we can use a loop.
+
+    </div>
 
 
-            <p>
+    <!-- WHY LOOPS -->
 
-                Loops are used to execute a block
-                of code repeatedly.
+    <h3>9.2 Why Do We Need Loops?</h3>
 
-            </p>
+    <p>
+        Loops reduce repetitive code and make programs
+        shorter, easier to maintain and easier to
+        understand.
+    </p>
 
+    <pre><code>printf("Hello\n");
+printf("Hello\n");
+printf("Hello\n");
+printf("Hello\n");
+printf("Hello\n");</code></pre>
 
-            <h3>for loop</h3>
+    <p>
+        The same task can be performed using:
+    </p>
 
-
-            <pre><code>
-for(int i = 1; i <= 5; i++)
+    <pre><code>for(int i = 1; i &lt;= 5; i++)
 {
-    printf("%d ", i);
-}
-            </code></pre>
+    printf("Hello\n");
+}</code></pre>
 
 
-            <h3>while loop</h3>
+    <!-- TYPES -->
+
+    <h3>9.3 Types of Loops in C</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Loop</th>
+                    <th>Condition Checked</th>
+                    <th>Typical Use</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>for</td>
+                    <td>Before each iteration</td>
+                    <td>Known/reasonable iteration count</td>
+                </tr>
+
+                <tr>
+                    <td>while</td>
+                    <td>Before each iteration</td>
+                    <td>Condition-controlled repetition</td>
+                </tr>
+
+                <tr>
+                    <td>do-while</td>
+                    <td>After each iteration</td>
+                    <td>Execute body at least once</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
 
 
-            <pre><code>
-int i = 1;
+    <!-- FOR -->
 
-while(i <= 5)
+    <h3>9.4 for Loop</h3>
+
+    <p>
+        The for loop is commonly used when the number
+        of iterations is known or can be expressed
+        conveniently.
+    </p>
+
+    <div class="formula-box">
+
+        for(initialization; condition; update)
+        <br>
+        {
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;statements;
+        <br>
+        }
+
+    </div>
+
+
+    <h4>Example</h4>
+
+    <pre><code>for(int i = 1; i &lt;= 5; i++)
 {
-    printf("%d ", i);
+    printf("%d\n", i);
+}</code></pre>
 
+    <div class="output-box">
+
+        1
+        <br>
+        2
+        <br>
+        3
+        <br>
+        4
+        <br>
+        5
+
+    </div>
+
+
+    <!-- FOR WORKING -->
+
+    <h3>9.5 How for Loop Works</h3>
+
+    <div class="formula-box">
+
+        Initialization
+
+        <br>
+        ↓
+        <br>
+
+        Condition
+
+        <br>
+        ↓
+        <br>
+
+        Execute Body
+
+        <br>
+        ↓
+        <br>
+
+        Update
+
+        <br>
+        ↓
+        <br>
+
+        Condition
+
+        <br>
+        ↓
+        <br>
+
+        Repeat
+
+    </div>
+
+
+    <h4>Example: i = 1</h4>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Iteration</th>
+                    <th>i</th>
+                    <th>Condition</th>
+                    <th>Output</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1 &lt;= 5 → True</td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2 &lt;= 5 → True</td>
+                    <td>2</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>3 &lt;= 5 → True</td>
+                    <td>3</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>4 &lt;= 5 → True</td>
+                    <td>4</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>5 &lt;= 5 → True</td>
+                    <td>5</td>
+                </tr>
+
+                <tr>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>6 &lt;= 5 → False</td>
+                    <td>Stop</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- WHILE -->
+
+    <h3>9.6 while Loop</h3>
+
+    <p>
+        The while loop repeatedly executes a block
+        while its condition remains true.
+    </p>
+
+    <div class="formula-box">
+
+        while(condition)
+        <br>
+        {
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;statements;
+        <br>
+        }
+
+    </div>
+
+
+    <h4>Example</h4>
+
+    <pre><code>int i = 1;
+
+while(i &lt;= 5)
+{
+    printf("%d\n", i);
     i++;
-}
-            </code></pre>
+}</code></pre>
 
 
-            <h3>do-while loop</h3>
+    <div class="output-box">
+
+        1
+        <br>
+        2
+        <br>
+        3
+        <br>
+        4
+        <br>
+        5
+
+    </div>
 
 
-            <pre><code>
-int i = 1;
+    <!-- WHILE WORKING -->
+
+    <h3>9.7 How while Loop Works</h3>
+
+    <div class="formula-box">
+
+        Initialize
+
+        <br>
+        ↓
+        <br>
+
+        Check Condition
+
+        <br>
+        ↓
+        <br>
+
+        True?
+
+        <br>
+        ↓
+
+        <br>
+
+        Execute Body
+
+        <br>
+        ↓
+
+        <br>
+
+        Update
+
+        <br>
+        ↓
+
+        <br>
+
+        Check Again
+
+    </div>
+
+
+    <!-- DO WHILE -->
+
+    <h3>9.8 do-while Loop</h3>
+
+    <p>
+        The do-while loop executes its body first
+        and checks the condition afterward.
+    </p>
+
+    <div class="formula-box">
+
+        do
+        <br>
+        {
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;statements;
+        <br>
+        }
+        <br>
+        while(condition);
+
+    </div>
+
+
+    <h4>Example</h4>
+
+    <pre><code>int i = 1;
 
 do
 {
-    printf("%d ", i);
-
+    printf("%d\n", i);
     i++;
+}
+while(i &lt;= 5);</code></pre>
 
-} while(i <= 5);
-            </code></pre>
 
-        </section>
+    <div class="output-box">
+
+        1
+        <br>
+        2
+        <br>
+        3
+        <br>
+        4
+        <br>
+        5
+
+    </div>
+
+
+    <!-- DO WHILE DIFFERENCE -->
+
+    <h3>9.9 Important Difference: while vs do-while</h3>
+
+    <p>
+        The key difference is when the condition
+        is checked.
+    </p>
+
+    <pre><code>int i = 10;
+
+while(i &lt; 5)
+{
+    printf("Hello");
+}</code></pre>
+
+    <div class="output-box">
+
+        No output
+
+    </div>
+
+
+    <pre><code>int i = 10;
+
+do
+{
+    printf("Hello");
+}
+while(i &lt; 5);</code></pre>
+
+    <div class="output-box">
+
+        Hello
+
+    </div>
+
+
+    <div class="tip-box">
+
+        💡 Remember:
+
+        <br><br>
+
+        <strong>while</strong> → May execute zero times.
+
+        <br><br>
+
+        <strong>do-while</strong> → Executes at least once.
+
+    </div>
+
+
+    <!-- COUNTING -->
+
+    <h3>9.10 Counting with Loops</h3>
+
+    <p>
+        A common use of loops is counting from one
+        number to another.
+    </p>
+
+    <pre><code>for(int i = 1; i &lt;= 10; i++)
+{
+    printf("%d ", i);
+}</code></pre>
+
+    <div class="output-box">
+
+        1 2 3 4 5 6 7 8 9 10
+
+    </div>
+
+
+    <!-- REVERSE -->
+
+    <h3>9.11 Counting in Reverse</h3>
+
+    <pre><code>for(int i = 10; i &gt;= 1; i--)
+{
+    printf("%d ", i);
+}</code></pre>
+
+    <div class="output-box">
+
+        10 9 8 7 6 5 4 3 2 1
+
+    </div>
+
+
+    <!-- EVEN -->
+
+    <h3>9.12 Print Even Numbers</h3>
+
+    <pre><code>for(int i = 2; i &lt;= 20; i += 2)
+{
+    printf("%d ", i);
+}</code></pre>
+
+    <div class="output-box">
+
+        2 4 6 8 10 12 14 16 18 20
+
+    </div>
+
+
+    <!-- ODD -->
+
+    <h3>9.13 Print Odd Numbers</h3>
+
+    <pre><code>for(int i = 1; i &lt;= 20; i += 2)
+{
+    printf("%d ", i);
+}</code></pre>
+
+    <div class="output-box">
+
+        1 3 5 7 9 11 13 15 17 19
+
+    </div>
+
+
+    <!-- SUM -->
+
+    <h3>9.14 Sum of First N Numbers</h3>
+
+    <p>
+        We can use a loop to calculate the sum
+        from 1 to N.
+    </p>
+
+    <pre><code>int n;
+int sum = 0;
+
+scanf("%d", &amp;n);
+
+for(int i = 1; i &lt;= n; i++)
+{
+    sum = sum + i;
+}
+
+printf("%d", sum);</code></pre>
+
+
+    <div class="example-box">
+
+        <strong>Input:</strong>
+
+        <br>
+
+        5
+
+        <br><br>
+
+        <strong>Calculation:</strong>
+
+        <br>
+
+        1 + 2 + 3 + 4 + 5
+
+        <br><br>
+
+        <strong>Output:</strong>
+
+        <br>
+
+        15
+
+    </div>
+
+
+    <!-- FACTORIAL -->
+
+    <h3>9.15 Factorial</h3>
+
+    <p>
+        The factorial of a non-negative integer n
+        is the product of all positive integers
+        from 1 to n.
+    </p>
+
+    <div class="formula-box">
+
+        5! = 5 × 4 × 3 × 2 × 1
+
+        <br>
+
+        = 120
+
+    </div>
+
+    <pre><code>int n;
+long long fact = 1;
+
+scanf("%d", &amp;n);
+
+for(int i = 1; i &lt;= n; i++)
+{
+    fact = fact * i;
+}
+
+printf("%lld", fact);</code></pre>
+
+
+    <!-- MULTIPLICATION TABLE -->
+
+    <h3>9.16 Multiplication Table</h3>
+
+    <pre><code>int n;
+
+scanf("%d", &amp;n);
+
+for(int i = 1; i &lt;= 10; i++)
+{
+    printf("%d x %d = %d\n",
+           n, i, n * i);
+}</code></pre>
+
+
+    <div class="example-box">
+
+        <strong>Input:</strong>
+
+        <br>
+
+        5
+
+        <br><br>
+
+        <strong>Output:</strong>
+
+        <br>
+
+        5 x 1 = 5
+
+        <br>
+
+        5 x 2 = 10
+
+        <br>
+
+        5 x 3 = 15
+
+        <br>
+
+        ...
+
+        <br>
+
+        5 x 10 = 50
+
+    </div>
+
+
+    <!-- DIGITS -->
+
+    <h3>9.17 Number of Digits</h3>
+
+    <p>
+        We can repeatedly divide an integer by 10
+        to remove its last digit.
+    </p>
+
+    <pre><code>int n;
+int count = 0;
+
+scanf("%d", &amp;n);
+
+if(n == 0)
+{
+    count = 1;
+}
+else
+{
+    if(n &lt; 0)
+        n = -n;
+
+    while(n != 0)
+    {
+        n = n / 10;
+        count++;
+    }
+}
+
+printf("%d", count);</code></pre>
+
+
+    <div class="example-box">
+
+        <strong>Input:</strong> 5832
+
+        <br><br>
+
+        <strong>Output:</strong> 4
+
+    </div>
+
+
+    <!-- REVERSE -->
+
+    <h3>9.18 Reverse a Number</h3>
+
+    <p>
+        To reverse a number, repeatedly extract the
+        last digit using the modulus operator.
+    </p>
+
+    <pre><code>int n;
+int reverse = 0;
+
+scanf("%d", &amp;n);
+
+while(n != 0)
+{
+    int digit = n % 10;
+
+    reverse = reverse * 10 + digit;
+
+    n = n / 10;
+}
+
+printf("%d", reverse);</code></pre>
+
+
+    <div class="example-box">
+
+        <strong>Input:</strong>
+
+        <br>
+
+        1234
+
+        <br><br>
+
+        <strong>Output:</strong>
+
+        <br>
+
+        4321
+
+    </div>
+
+
+    <!-- PALINDROME -->
+
+    <h3>9.19 Palindrome Number</h3>
+
+    <p>
+        A number is a palindrome if it reads the same
+        from left to right and right to left.
+    </p>
+
+    <div class="formula-box">
+
+        121 → Palindrome
+
+        <br>
+
+        123 → Not Palindrome
+
+    </div>
+
+    <pre><code>int n;
+int original;
+int reverse = 0;
+
+scanf("%d", &amp;n);
+
+original = n;
+
+while(n != 0)
+{
+    int digit = n % 10;
+
+    reverse = reverse * 10 + digit;
+
+    n = n / 10;
+}
+
+if(original == reverse)
+{
+    printf("Palindrome");
+}
+else
+{
+    printf("Not Palindrome");
+}</code></pre>
+
+
+    <!-- PRIME -->
+
+    <h3>9.20 Prime Number</h3>
+
+    <p>
+        A prime number is an integer greater than 1
+        that has exactly two positive divisors:
+        1 and itself.
+    </p>
+
+    <div class="formula-box">
+
+        2 → Prime
+
+        <br>
+
+        3 → Prime
+
+        <br>
+
+        4 → Not Prime
+
+        <br>
+
+        5 → Prime
+
+    </div>
+
+
+    <pre><code>int n;
+int isPrime = 1;
+
+scanf("%d", &amp;n);
+
+if(n &lt; 2)
+{
+    isPrime = 0;
+}
+else
+{
+    for(int i = 2; i * i &lt;= n; i++)
+    {
+        if(n % i == 0)
+        {
+            isPrime = 0;
+            break;
+        }
+    }
+}
+
+if(isPrime)
+{
+    printf("Prime");
+}
+else
+{
+    printf("Not Prime");
+}</code></pre>
+
+
+    <!-- BREAK -->
+
+    <h3>9.21 break Statement</h3>
+
+    <p>
+        The break statement immediately terminates
+        the nearest enclosing loop.
+    </p>
+
+    <pre><code>for(int i = 1; i &lt;= 10; i++)
+{
+    if(i == 5)
+    {
+        break;
+    }
+
+    printf("%d ", i);
+}</code></pre>
+
+    <div class="output-box">
+
+        1 2 3 4
+
+    </div>
+
+
+    <!-- CONTINUE -->
+
+    <h3>9.22 continue Statement</h3>
+
+    <p>
+        The continue statement skips the remaining
+        statements in the current iteration and
+        proceeds with the next iteration.
+    </p>
+
+    <pre><code>for(int i = 1; i &lt;= 5; i++)
+{
+    if(i == 3)
+    {
+        continue;
+    }
+
+    printf("%d ", i);
+}</code></pre>
+
+    <div class="output-box">
+
+        1 2 4 5
+
+    </div>
+
+
+    <!-- BREAK VS CONTINUE -->
+
+    <h3>9.23 break vs continue</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>break</th>
+                    <th>continue</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Terminates the loop</td>
+                    <td>Skips current iteration</td>
+                </tr>
+
+                <tr>
+                    <td>Control exits the loop</td>
+                    <td>Control moves to next iteration</td>
+                </tr>
+
+                <tr>
+                    <td>Used when further repetition is unnecessary</td>
+                    <td>Used when one iteration should be skipped</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- NESTED LOOPS -->
+
+    <h3>9.24 Nested Loops</h3>
+
+    <p>
+        A loop inside another loop is called a
+        nested loop.
+    </p>
+
+    <pre><code>for(int i = 1; i &lt;= 3; i++)
+{
+    for(int j = 1; j &lt;= 3; j++)
+    {
+        printf("* ");
+    }
+
+    printf("\n");
+}</code></pre>
+
+    <div class="output-box">
+
+        * * *
+        <br>
+        * * *
+        <br>
+        * * *
+
+    </div>
+
+
+    <!-- PATTERN -->
+
+    <h3>9.25 Pattern Printing</h3>
+
+    <pre><code>for(int i = 1; i &lt;= 5; i++)
+{
+    for(int j = 1; j &lt;= i; j++)
+    {
+        printf("* ");
+    }
+
+    printf("\n");
+}</code></pre>
+
+    <div class="output-box">
+
+        *
+        <br>
+        * *
+        <br>
+        * * *
+        <br>
+        * * * *
+        <br>
+        * * * * *
+
+    </div>
+
+
+    <!-- MULTIPLE VARIABLES -->
+
+    <h3>9.26 Multiple Variables in for Loop</h3>
+
+    <p>
+        A for loop can contain more than one
+        initialization or update expression.
+    </p>
+
+    <pre><code>for(int i = 1, j = 5;
+    i &lt;= 5;
+    i++, j--)
+{
+    printf("%d %d\n", i, j);
+}</code></pre>
+
+
+    <div class="output-box">
+
+        1 5
+        <br>
+        2 4
+        <br>
+        3 3
+        <br>
+        4 2
+        <br>
+        5 1
+
+    </div>
+
+
+    <!-- INFINITE LOOP -->
+
+    <h3>9.27 Infinite Loop</h3>
+
+    <p>
+        A loop that never becomes false is called
+        an infinite loop.
+    </p>
+
+    <pre><code>while(1)
+{
+    printf("Hello\n");
+}</code></pre>
+
+    <div class="tip-box">
+
+        ⚠️ Be careful with infinite loops.
+
+        <br><br>
+
+        Always make sure that the loop condition
+        can eventually become false unless an
+        intentionally infinite loop is required.
+
+    </div>
+
+
+    <!-- COMMON LOOP MISTAKES -->
+
+    <h3>9.28 Common Loop Mistakes</h3>
+
+    <ul>
+
+        <li>
+            Forgetting to initialize the loop variable.
+        </li>
+
+        <li>
+            Forgetting to update the loop variable.
+        </li>
+
+        <li>
+            Using the wrong loop condition.
+        </li>
+
+        <li>
+            Creating an unintended infinite loop.
+        </li>
+
+        <li>
+            Using <strong>i &lt; n</strong> when
+            <strong>i &lt;= n</strong> is required,
+            or vice versa.
+        </li>
+
+        <li>
+            Incorrectly placing break or continue.
+        </li>
+
+        <li>
+            Using the wrong variable inside nested loops.
+        </li>
+
+        <li>
+            Forgetting that integer division removes
+            the fractional part.
+        </li>
+
+    </ul>
+
+
+    <!-- LOOP SELECTION -->
+
+    <h3>9.29 Which Loop Should I Use?</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Situation</th>
+                    <th>Recommended Loop</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Known number of repetitions</td>
+                    <td>for</td>
+                </tr>
+
+                <tr>
+                    <td>Condition-controlled repetition</td>
+                    <td>while</td>
+                </tr>
+
+                <tr>
+                    <td>Body must execute at least once</td>
+                    <td>do-while</td>
+                </tr>
+
+                <tr>
+                    <td>Pattern printing</td>
+                    <td>Nested for</td>
+                </tr>
+
+                <tr>
+                    <td>Searching until found</td>
+                    <td>for / while with break</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- PROBLEM SOLVING -->
+
+    <h3>9.30 Problem-Solving Method for Loops</h3>
+
+    <div class="formula-box">
+
+        Step 1 → Identify what must repeat.
+
+        <br><br>
+
+        Step 2 → Identify the starting value.
+
+        <br><br>
+
+        Step 3 → Identify the stopping condition.
+
+        <br><br>
+
+        Step 4 → Identify how the value changes.
+
+        <br><br>
+
+        Step 5 → Decide whether for, while
+        or do-while is appropriate.
+
+        <br><br>
+
+        Step 6 → Test small values.
+
+    </div>
+
+
+    <h4>Example: Sum from 1 to N</h4>
+
+    <div class="formula-box">
+
+        Start → i = 1
+
+        <br>
+
+        Stop → i &lt;= N
+
+        <br>
+
+        Change → i++
+
+        <br>
+
+        Operation → sum = sum + i
+
+    </div>
+
+
+    <!-- QUICK REVISION -->
+
+    <h3>9.31 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 <strong>for</strong> → Commonly used when
+        iteration count is known.
+
+        <br><br>
+
+        📌 <strong>while</strong> → Condition checked
+        before each iteration.
+
+        <br><br>
+
+        📌 <strong>do-while</strong> → Body executes
+        before condition check.
+
+        <br><br>
+
+        📌 <strong>break</strong> → Exit loop.
+
+        <br><br>
+
+        📌 <strong>continue</strong> → Skip current
+        iteration.
+
+        <br><br>
+
+        📌 Nested loops → Loop inside another loop.
+
+        <br><br>
+
+        📌 Always check initialization,
+        condition and update.
+
+    </div>
+
+
+    <!-- MCQs -->
+
+    <h3>9.32 Quick MCQs</h3>
+
+    <ol>
+
+        <li>
+
+            Which loop is commonly used when the
+            number of iterations is known?
+
+            <br><br>
+
+            A) if
+
+            <br>
+
+            B) for
+
+            <br>
+
+            C) switch
+
+            <br>
+
+            D) goto
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which loop executes its body at least
+            once?
+
+            <br><br>
+
+            A) for
+
+            <br>
+
+            B) while
+
+            <br>
+
+            C) do-while
+
+            <br>
+
+            D) if
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which keyword terminates a loop?
+
+            <br><br>
+
+            A) continue
+
+            <br>
+
+            B) break
+
+            <br>
+
+            C) stop
+
+            <br>
+
+            D) exitloop
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which keyword skips the current iteration?
+
+            <br><br>
+
+            A) break
+
+            <br>
+
+            B) skip
+
+            <br>
+
+            C) continue
+
+            <br>
+
+            D) next
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What is the output?
+
+            <br><br>
+
+            for(int i = 1; i &lt;= 3; i++)
+
+            <br>
+            {
+            <br>
+            &nbsp;&nbsp;printf("%d ", i);
+            <br>
+            }
+
+            <br><br>
+
+            A) 0 1 2
+
+            <br>
+
+            B) 1 2 3
+
+            <br>
+
+            C) 1 2
+
+            <br>
+
+            D) 2 3 4
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            How many times does this loop execute?
+
+            <br><br>
+
+            for(int i = 1; i &lt;= 5; i++)
+
+            <br>
+            {
+            <br>
+            &nbsp;&nbsp;printf("*");
+            <br>
+            }
+
+            <br><br>
+
+            A) 4
+
+            <br>
+
+            B) 5
+
+            <br>
+
+            C) 6
+
+            <br>
+
+            D) Infinite
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+    </ol>
+
+
+    <!-- PRACTICE PROBLEMS -->
+
+    <h3>9.33 Practice Problems</h3>
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+
+        Print numbers from 1 to N.
+
+        <br><br>
+
+
+        <strong>Problem 2</strong>
+
+        <br>
+
+        Print numbers from N to 1.
+
+        <br><br>
+
+
+        <strong>Problem 3</strong>
+
+        <br>
+
+        Print all even numbers from 1 to N.
+
+        <br><br>
+
+
+        <strong>Problem 4</strong>
+
+        <br>
+
+        Print all odd numbers from 1 to N.
+
+        <br><br>
+
+
+        <strong>Problem 5</strong>
+
+        <br>
+
+        Find the sum of the first N natural numbers.
+
+        <br><br>
+
+
+        <strong>Problem 6</strong>
+
+        <br>
+
+        Find the factorial of a number.
+
+        <br><br>
+
+
+        <strong>Problem 7</strong>
+
+        <br>
+
+        Print the multiplication table of a number.
+
+        <br><br>
+
+
+        <strong>Problem 8</strong>
+
+        <br>
+
+        Count the number of digits in an integer.
+
+        <br><br>
+
+
+        <strong>Problem 9</strong>
+
+        <br>
+
+        Reverse a number.
+
+        <br><br>
+
+
+        <strong>Problem 10</strong>
+
+        <br>
+
+        Check whether a number is a palindrome.
+
+        <br><br>
+
+
+        <strong>Problem 11</strong>
+
+        <br>
+
+        Check whether a number is prime.
+
+        <br><br>
+
+
+        <strong>Problem 12</strong>
+
+        <br>
+
+        Print all prime numbers from 1 to N.
+
+        <br><br>
+
+
+        <strong>Problem 13</strong>
+
+        <br>
+
+        Find the sum of digits of a number.
+
+        <br><br>
+
+
+        <strong>Problem 14</strong>
+
+        <br>
+
+        Find the largest digit in a number.
+
+        <br><br>
+
+
+        <strong>Problem 15</strong>
+
+        <br>
+
+        Count even and odd digits in a number.
+
+        <br><br>
+
+
+        <strong>Problem 16</strong>
+
+        <br>
+
+        Print the following pattern:
+
+        <br><br>
+
+        *
+
+        <br>
+
+        * *
+
+        <br>
+
+        * * *
+
+        <br>
+
+        * * * *
+
+        <br>
+
+        * * * * *
+
+    </div>
+
+
+    <!-- KEY TAKEAWAY -->
+
+    <h3>9.34 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 Every loop has three important ideas:
+
+        <br><br>
+
+        <strong>1. Initialization</strong>
+
+        <br>
+
+        Where does the loop start?
+
+        <br><br>
+
+        <strong>2. Condition</strong>
+
+        <br>
+
+        When should the loop continue?
+
+        <br><br>
+
+        <strong>3. Update</strong>
+
+        <br>
+
+        How does the loop variable change?
+
+        <br><br>
+
+        Remember:
+
+        <br><br>
+
+        <strong>
+        Start → Check → Execute → Update → Repeat
+        </strong>
+
+        <br><br>
+
+        Mastering loops is essential for solving
+        programming problems involving numbers,
+        digits, patterns, arrays and algorithms.
+
+    </div>
+
+</section>
 
 
 
