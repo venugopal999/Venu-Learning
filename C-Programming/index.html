@@ -35140,19 +35140,1197 @@ int main()
     </button>
 
 
-    <div id="practice-level-4" style="display:none;">
 
-        <hr>
+<!-- =================================
+     LEVEL 4 — PATTERN PROGRAMS
+================================== -->
 
-        <h2>🟡 Level 4 — Pattern Programs</h2>
+<div id="practice-level-4" style="display:none;">
 
-        <div class="tip-box">
-            🚧 <strong>Coming Next</strong>
-            <br><br>
-            Star, number and character pattern problems.
-        </div>
+    <hr>
+
+    <h2>🟡 Level 4 — Pattern Programs</h2>
+
+    <p>
+        Practice nested loops by solving star, number,
+        alphabet and special pattern problems.
+    </p>
+
+
+    <!-- 1 -->
+    <div class="tip-box">
+
+        <h3>1️⃣ Square Star Pattern</h3>
+
+        <p>
+            Print a square pattern of stars with N rows and N columns.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>4</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>* * * *
+* * * *
+* * * *
+* * * *</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use two nested loops. The outer loop controls rows
+                and the inner loop controls columns.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        for(int j = 1; j &lt;= n; j++)
+        {
+            printf("* ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
 
     </div>
+
+
+    <!-- 2 -->
+    <div class="tip-box">
+
+        <h3>2️⃣ Rectangle Star Pattern</h3>
+
+        <p>
+            Print a rectangle with R rows and C columns.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>3 5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>* * * * *
+* * * * *
+* * * * *</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use the first loop for rows and the second loop
+                for columns.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int rows, cols;
+
+    scanf("%d %d", &amp;rows, &amp;cols);
+
+    for(int i = 1; i &lt;= rows; i++)
+    {
+        for(int j = 1; j &lt;= cols; j++)
+        {
+            printf("* ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 3 -->
+    <div class="tip-box">
+
+        <h3>3️⃣ Right Triangle Star Pattern</h3>
+
+        <p>
+            Print a right triangle using stars.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>*
+* *
+* * *
+* * * *
+* * * * *</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                In row i, print i stars.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        for(int j = 1; j &lt;= i; j++)
+        {
+            printf("* ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 4 -->
+    <div class="tip-box">
+
+        <h3>4️⃣ Inverted Right Triangle</h3>
+
+        <p>
+            Print an inverted right triangle using stars.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>* * * * *
+* * * *
+* * *
+* *
+*</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Start with N stars and reduce the number of stars
+                in every row.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = n; i &gt;= 1; i--)
+    {
+        for(int j = 1; j &lt;= i; j++)
+        {
+            printf("* ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 5 -->
+    <div class="tip-box">
+
+        <h3>5️⃣ Left-Aligned Triangle</h3>
+
+        <p>
+            Print a left-aligned triangle with spaces and stars.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>4</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>      *
+    * *
+  * * *
+* * * *</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Print spaces before printing stars.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        for(int j = 1; j &lt;= n - i; j++)
+        {
+            printf("  ");
+        }
+
+        for(int j = 1; j &lt;= i; j++)
+        {
+            printf("* ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 6 -->
+    <div class="tip-box">
+
+        <h3>6️⃣ Inverted Left Triangle</h3>
+
+        <p>
+            Print an inverted left-aligned triangle.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>4</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>* * * *
+  * * *
+    * *
+      *</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Increase spaces while decreasing stars.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = n; i &gt;= 1; i--)
+    {
+        for(int j = 1; j &lt;= n - i; j++)
+        {
+            printf("  ");
+        }
+
+        for(int j = 1; j &lt;= i; j++)
+        {
+            printf("* ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 7 -->
+    <div class="tip-box">
+
+        <h3>7️⃣ Pyramid Pattern</h3>
+
+        <p>
+            Print a centered pyramid using stars.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>4</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>      *
+    * * *
+  * * * * *
+* * * * * * *</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Print spaces first, then print
+                <code>2 * i - 1</code> stars.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        for(int j = 1; j &lt;= n - i; j++)
+        {
+            printf("  ");
+        }
+
+        for(int j = 1; j &lt;= 2 * i - 1; j++)
+        {
+            printf("* ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 8 -->
+    <div class="tip-box">
+
+        <h3>8️⃣ Inverted Pyramid</h3>
+
+        <p>
+            Print an inverted centered pyramid.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>4</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>* * * * * * *
+  * * * * *
+    * * *
+      *</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Reduce the number of stars in every row
+                and increase spaces.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = n; i &gt;= 1; i--)
+    {
+        for(int j = 1; j &lt;= n - i; j++)
+        {
+            printf("  ");
+        }
+
+        for(int j = 1; j &lt;= 2 * i - 1; j++)
+        {
+            printf("* ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 9 -->
+    <div class="tip-box">
+
+        <h3>9️⃣ Diamond Pattern</h3>
+
+        <p>
+            Print a diamond pattern using stars.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>3</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>    *
+  * * *
+* * * * *
+  * * *
+    *</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Combine a pyramid and an inverted pyramid.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        for(int j = 1; j &lt;= n - i; j++)
+            printf("  ");
+
+        for(int j = 1; j &lt;= 2 * i - 1; j++)
+            printf("* ");
+
+        printf("\n");
+    }
+
+    for(int i = n - 1; i &gt;= 1; i--)
+    {
+        for(int j = 1; j &lt;= n - i; j++)
+            printf("  ");
+
+        for(int j = 1; j &lt;= 2 * i - 1; j++)
+            printf("* ");
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 10 -->
+    <div class="tip-box">
+
+        <h3>🔟 Hollow Square</h3>
+
+        <p>
+            Print a hollow square using stars.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>* * * * *
+*       *
+*       *
+*       *
+* * * * *</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Print stars on the first row, last row,
+                first column and last column.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        for(int j = 1; j &lt;= n; j++)
+        {
+            if(i == 1 || i == n || j == 1 || j == n)
+                printf("* ");
+            else
+                printf("  ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 11 -->
+    <div class="tip-box">
+
+        <h3>1️⃣1️⃣ Hollow Rectangle</h3>
+
+        <p>
+            Print a hollow rectangle.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>4 6</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>* * * * * *
+*         *
+*         *
+* * * * * *</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Print stars only at the boundary.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int rows, cols;
+
+    scanf("%d %d", &amp;rows, &amp;cols);
+
+    for(int i = 1; i &lt;= rows; i++)
+    {
+        for(int j = 1; j &lt;= cols; j++)
+        {
+            if(i == 1 || i == rows ||
+               j == 1 || j == cols)
+                printf("* ");
+            else
+                printf("  ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 12 -->
+    <div class="tip-box">
+
+        <h3>1️⃣2️⃣ Hollow Triangle</h3>
+
+        <p>
+            Print a hollow right triangle.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>*
+* *
+*   *
+*     *
+* * * * *</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Print stars at the first column, diagonal
+                and last row.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        for(int j = 1; j &lt;= i; j++)
+        {
+            if(j == 1 || j == i || i == n)
+                printf("* ");
+            else
+                printf("  ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 13 -->
+    <div class="tip-box">
+
+        <h3>1️⃣3️⃣ Number Triangle</h3>
+
+        <p>
+            Print numbers from 1 to the row number.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                The inner loop runs from 1 to i.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        for(int j = 1; j &lt;= i; j++)
+        {
+            printf("%d ", j);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 14 -->
+    <div class="tip-box">
+
+        <h3>1️⃣4️⃣ Inverted Number Triangle</h3>
+
+        <p>
+            Print an inverted number triangle.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2
+1</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Start from N and decrease the number
+                of columns in every row.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = n; i &gt;= 1; i--)
+    {
+        for(int j = 1; j &lt;= i; j++)
+        {
+            printf("%d ", j);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 15 -->
+    <div class="tip-box">
+
+        <h3>1️⃣5️⃣ Continuous Number Triangle</h3>
+
+        <p>
+            Print consecutive numbers in triangle form.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>4</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>1
+2 3
+4 5 6
+7 8 9 10</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Maintain a variable that increases after
+                every number printed.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, num = 1;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        for(int j = 1; j &lt;= i; j++)
+        {
+            printf("%d ", num);
+            num++;
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 16 -->
+    <div class="tip-box">
+
+        <h3>1️⃣6️⃣ Floyd's Triangle</h3>
+
+        <p>
+            Print Floyd's triangle.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>1
+2 3
+4 5 6
+7 8 9 10
+11 12 13 14 15</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Floyd's triangle uses consecutive numbers
+                arranged in increasing rows.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, num = 1;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        for(int j = 1; j &lt;= i; j++)
+        {
+            printf("%d ", num++);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 17 -->
+    <div class="tip-box">
+
+        <h3>1️⃣7️⃣ Alphabet Triangle</h3>
+
+        <p>
+            Print alphabets in triangle form.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>4</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>A
+A B
+A B C
+A B C D</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Start with character A and use
+                character arithmetic.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        for(int j = 0; j &lt; i; j++)
+        {
+            printf("%c ", 'A' + j);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 18 -->
+    <div class="tip-box">
+
+        <h3>1️⃣8️⃣ Repeated Number Pattern</h3>
+
+        <p>
+            Print the row number repeatedly in each row.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>1
+2 2
+3 3 3
+4 4 4 4
+5 5 5 5 5</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Print <code>i</code> exactly i times.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        for(int j = 1; j &lt;= i; j++)
+        {
+            printf("%d ", i);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 19 -->
+    <div class="tip-box">
+
+        <h3>1️⃣9️⃣ 0-1 Triangle</h3>
+
+        <p>
+            Print a triangle using alternating 0 and 1.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>1
+0 1
+1 0 1
+0 1 0 1
+1 0 1 0 1</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use <code>(i + j) % 2</code> to alternate
+                between 0 and 1.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        for(int j = 1; j &lt;= i; j++)
+        {
+            printf("%d ", (i + j) % 2);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 20 -->
+    <div class="tip-box">
+
+        <h3>2️⃣0️⃣ Pascal's Triangle</h3>
+
+        <p>
+            Print Pascal's triangle for N rows.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>1
+1 1
+1 2 1
+1 3 3 1
+1 4 6 4 1</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Each value can be calculated using the
+                previous value in the same row.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        long long value = 1;
+
+        for(int space = 0; space &lt; n - i - 1; space++)
+        {
+            printf("  ");
+        }
+
+        for(int j = 0; j &lt;= i; j++)
+        {
+            printf("%lld ", value);
+
+            value = value * (i - j) / (j + 1);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <div class="tip-box">
+
+        <h3>🎉 Level 4 Complete!</h3>
+
+        <p>
+            Excellent! You have completed
+            <strong>Level 4 — Pattern Programs</strong>.
+        </p>
+
+        <p>
+            Next:
+            <strong>Level 5 — Arrays</strong>.
+        </p>
+
+    </div>
+
+</div>
+
+
 
     <button
        class="primary-button practice-level-button"
@@ -35163,20 +36341,1215 @@ int main()
     </button>
 
 
-    <div id="practice-level-5" style="display:none;">
+<!-- =================================
+     LEVEL 5 — ARRAYS
+================================== -->
 
-        <hr>
+<div id="practice-level-5" style="display:none;">
 
-        <h2>🟡 Level 5 — Arrays</h2>
+    <hr>
 
-        <div class="tip-box">
-            🚧 <strong>Coming Next</strong>
-            <br><br>
-            Array-based coding problems.
-        </div>
+    <h2>🟡 Level 5 — Arrays</h2>
+
+    <p>
+        Practice array traversal, searching, counting,
+        reversing, duplicates, merging and rotation.
+    </p>
+
+
+    <!-- 1 -->
+    <div class="tip-box">
+
+        <h3>1️⃣ Read and Print an Array</h3>
+
+        <p>
+            Read N elements into an array and print them.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+10 20 30 40 50</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>10 20 30 40 50</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Use a loop to read and another loop to print.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    for(int i = 0; i &lt; n; i++)
+        printf("%d ", arr[i]);
+
+    return 0;
+}</code></pre>
+
+        </details>
 
     </div>
 
+
+    <!-- 2 -->
+    <div class="tip-box">
+
+        <h3>2️⃣ Sum of Array Elements</h3>
+
+        <p>
+            Find the sum of all elements in an array.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+10 20 30 40 50</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>150</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Initialize sum to 0 and add every element.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, sum = 0;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+        sum += arr[i];
+    }
+
+    printf("%d", sum);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 3 -->
+    <div class="tip-box">
+
+        <h3>3️⃣ Average of Array Elements</h3>
+
+        <p>
+            Find the average of all elements in an array.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>4
+10 20 30 40</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>25.00</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Find the sum and divide it by N.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, sum = 0;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+        sum += arr[i];
+    }
+
+    printf("%.2f", (float)sum / n);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 4 -->
+    <div class="tip-box">
+
+        <h3>4️⃣ Find Maximum Element</h3>
+
+        <p>
+            Find the largest element in an array.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+10 45 23 67 12</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>67</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Assume the first element is maximum and compare the rest.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    int max = arr[0];
+
+    for(int i = 1; i &lt; n; i++)
+    {
+        if(arr[i] &gt; max)
+            max = arr[i];
+    }
+
+    printf("%d", max);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 5 -->
+    <div class="tip-box">
+
+        <h3>5️⃣ Find Minimum Element</h3>
+
+        <p>
+            Find the smallest element in an array.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+10 45 23 67 12</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>10</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Assume the first element is minimum.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    int min = arr[0];
+
+    for(int i = 1; i &lt; n; i++)
+    {
+        if(arr[i] &lt; min)
+            min = arr[i];
+    }
+
+    printf("%d", min);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 6 -->
+    <div class="tip-box">
+
+        <h3>6️⃣ Count Even Elements</h3>
+
+        <p>
+            Count how many even numbers are present in an array.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>6
+1 2 4 7 8 9</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>3</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Check <code>arr[i] % 2 == 0</code>.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, count = 0;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        if(arr[i] % 2 == 0)
+            count++;
+    }
+
+    printf("%d", count);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 7 -->
+    <div class="tip-box">
+
+        <h3>7️⃣ Count Odd Elements</h3>
+
+        <p>
+            Count how many odd numbers are present in an array.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>6
+1 2 4 7 8 9</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>3</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Check <code>arr[i] % 2 != 0</code>.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, count = 0;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        if(arr[i] % 2 != 0)
+            count++;
+    }
+
+    printf("%d", count);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 8 -->
+    <div class="tip-box">
+
+        <h3>8️⃣ Count Positive and Negative Elements</h3>
+
+        <p>
+            Count positive, negative and zero elements.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>6
+10 -5 0 8 -2 7</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Positive = 3
+Negative = 2
+Zero = 1</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Use if, else-if and else.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+    int positive = 0, negative = 0, zero = 0;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        if(arr[i] &gt; 0)
+            positive++;
+        else if(arr[i] &lt; 0)
+            negative++;
+        else
+            zero++;
+    }
+
+    printf("Positive = %d\n", positive);
+    printf("Negative = %d\n", negative);
+    printf("Zero = %d", zero);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 9 -->
+    <div class="tip-box">
+
+        <h3>9️⃣ Reverse an Array</h3>
+
+        <p>
+            Print the elements of an array in reverse order.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+10 20 30 40 50</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>50 40 30 20 10</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Traverse the array from N-1 down to 0.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    for(int i = n - 1; i &gt;= 0; i--)
+        printf("%d ", arr[i]);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 10 -->
+    <div class="tip-box">
+
+        <h3>🔟 Copy One Array into Another</h3>
+
+        <p>
+            Copy all elements from one array into another.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>4
+10 20 30 40</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>10 20 30 40</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Use a loop to assign each element.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    int a[n], b[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;a[i]);
+
+    for(int i = 0; i &lt; n; i++)
+        b[i] = a[i];
+
+    for(int i = 0; i &lt; n; i++)
+        printf("%d ", b[i]);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 11 -->
+    <div class="tip-box">
+
+        <h3>1️⃣1️⃣ Linear Search</h3>
+
+        <p>
+            Search for an element in an array using linear search.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+10 20 30 40 50
+30</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Element found at index 2</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Compare the target with every element.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, target, found = -1;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    scanf("%d", &amp;target);
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        if(arr[i] == target)
+        {
+            found = i;
+            break;
+        }
+    }
+
+    if(found != -1)
+        printf("Element found at index %d", found);
+    else
+        printf("Element not found");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 12 -->
+    <div class="tip-box">
+
+        <h3>1️⃣2️⃣ Second Largest Element</h3>
+
+        <p>
+            Find the second largest distinct element.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+10 50 20 40 30</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>40</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Maintain both largest and second largest values.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;limits.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    int largest = INT_MIN;
+    int second = INT_MIN;
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        if(arr[i] &gt; largest)
+        {
+            second = largest;
+            largest = arr[i];
+        }
+        else if(arr[i] &gt; second &amp;&amp; arr[i] != largest)
+        {
+            second = arr[i];
+        }
+    }
+
+    if(second == INT_MIN)
+        printf("No second largest");
+    else
+        printf("%d", second);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 13 -->
+    <div class="tip-box">
+
+        <h3>1️⃣3️⃣ Second Smallest Element</h3>
+
+        <p>
+            Find the second smallest distinct element.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+10 50 20 40 30</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>20</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Maintain the smallest and second smallest values.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;limits.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    int smallest = INT_MAX;
+    int second = INT_MAX;
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        if(arr[i] &lt; smallest)
+        {
+            second = smallest;
+            smallest = arr[i];
+        }
+        else if(arr[i] &lt; second &amp;&amp; arr[i] != smallest)
+        {
+            second = arr[i];
+        }
+    }
+
+    if(second == INT_MAX)
+        printf("No second smallest");
+    else
+        printf("%d", second);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 14 -->
+    <div class="tip-box">
+
+        <h3>1️⃣4️⃣ Remove Duplicate Elements</h3>
+
+        <p>
+            Remove duplicate values from an array and print
+            only distinct elements.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>7
+10 20 10 30 20 40 10</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>10 20 30 40</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                For each element, check whether it appeared
+                earlier in the array.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        int duplicate = 0;
+
+        for(int j = 0; j &lt; i; j++)
+        {
+            if(arr[i] == arr[j])
+            {
+                duplicate = 1;
+                break;
+            }
+        }
+
+        if(!duplicate)
+            printf("%d ", arr[i]);
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 15 -->
+    <div class="tip-box">
+
+        <h3>1️⃣5️⃣ Frequency of Each Element</h3>
+
+        <p>
+            Count the frequency of every distinct element.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>6
+10 20 10 30 20 10</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>10 = 3
+20 = 2
+30 = 1</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Count each value only once and then count
+                its occurrences.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        int already = 0;
+
+        for(int j = 0; j &lt; i; j++)
+        {
+            if(arr[i] == arr[j])
+            {
+                already = 1;
+                break;
+            }
+        }
+
+        if(already)
+            continue;
+
+        int count = 0;
+
+        for(int j = 0; j &lt; n; j++)
+        {
+            if(arr[i] == arr[j])
+                count++;
+        }
+
+        printf("%d = %d\n", arr[i], count);
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 16 -->
+    <div class="tip-box">
+
+        <h3>1️⃣6️⃣ Find Missing Number</h3>
+
+        <p>
+            An array contains numbers from 1 to N with one
+            number missing. Find the missing number.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+1 2 4 5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>3</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Find the expected sum from 1 to N and subtract
+                the array sum.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, sum = 0;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt; n; i++)
+    {
+        int x;
+        scanf("%d", &amp;x);
+        sum += x;
+    }
+
+    int expected = n * (n + 1) / 2;
+
+    printf("%d", expected - sum);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 17 -->
+    <div class="tip-box">
+
+        <h3>1️⃣7️⃣ Merge Two Arrays</h3>
+
+        <p>
+            Merge two arrays into a single array.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>3
+1 2 3
+2
+4 5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>1 2 3 4 5</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Store the first array and then append the second array.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, m;
+
+    scanf("%d", &amp;n);
+
+    int a[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;a[i]);
+
+    scanf("%d", &amp;m);
+
+    int b[m];
+
+    for(int i = 0; i &lt; m; i++)
+        scanf("%d", &amp;b[i]);
+
+    for(int i = 0; i &lt; n; i++)
+        printf("%d ", a[i]);
+
+    for(int i = 0; i &lt; m; i++)
+        printf("%d ", b[i]);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 18 -->
+    <div class="tip-box">
+
+        <h3>1️⃣8️⃣ Merge Two Sorted Arrays</h3>
+
+        <p>
+            Merge two sorted arrays into one sorted array.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>3
+1 3 5
+3
+2 4 6</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>1 2 3 4 5 6</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use two indexes and always select the smaller
+                current element.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, m;
+
+    scanf("%d", &amp;n);
+
+    int a[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;a[i]);
+
+    scanf("%d", &amp;m);
+
+    int b[m];
+
+    for(int i = 0; i &lt; m; i++)
+        scanf("%d", &amp;b[i]);
+
+    int i = 0, j = 0;
+
+    while(i &lt; n &amp;&amp; j &lt; m)
+    {
+        if(a[i] &lt;= b[j])
+            printf("%d ", a[i++]);
+        else
+            printf("%d ", b[j++]);
+    }
+
+    while(i &lt; n)
+        printf("%d ", a[i++]);
+
+    while(j &lt; m)
+        printf("%d ", b[j++]);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 19 -->
+    <div class="tip-box">
+
+        <h3>1️⃣9️⃣ Left Rotate an Array</h3>
+
+        <p>
+            Rotate an array to the left by one position.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+1 2 3 4 5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>2 3 4 5 1</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Save the first element, shift the remaining
+                elements left, then place the first element at the end.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    int first = arr[0];
+
+    for(int i = 0; i &lt; n - 1; i++)
+        arr[i] = arr[i + 1];
+
+    arr[n - 1] = first;
+
+    for(int i = 0; i &lt; n; i++)
+        printf("%d ", arr[i]);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 20 -->
+    <div class="tip-box">
+
+        <h3>2️⃣0️⃣ Right Rotate an Array</h3>
+
+        <p>
+            Rotate an array to the right by one position.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+1 2 3 4 5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>5 1 2 3 4</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Save the last element and shift the other elements
+                one position to the right.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    int arr[n];
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    int last = arr[n - 1];
+
+    for(int i = n - 1; i &gt; 0; i--)
+        arr[i] = arr[i - 1];
+
+    arr[0] = last;
+
+    for(int i = 0; i &lt; n; i++)
+        printf("%d ", arr[i]);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <div class="tip-box">
+
+        <h3>🎉 Level 5 Complete!</h3>
+
+        <p>
+            Excellent! You have completed
+            <strong>Level 5 — Arrays</strong>.
+        </p>
+
+        <p>
+            Next:
+            <strong>Level 6 — Strings</strong>.
+        </p>
+
+    </div>
+
+</div>
+
+    
     <button
         class="primary-button practice-level-button"
         onclick="togglePracticeLevel('practice-level-6')">
@@ -35186,19 +37559,1122 @@ int main()
     </button>
 
 
-    <div id="practice-level-6" style="display:none;">
+<!-- =================================
+     LEVEL 6 — STRINGS
+================================== -->
 
-        <hr>
+<div id="practice-level-6" style="display:none;">
 
-        <h2>🟡 Level 6 — Strings</h2>
+    <hr>
 
-        <div class="tip-box">
-            🚧 <strong>Coming Next</strong>
-            <br><br>
-            String manipulation and problem-solving.
-        </div>
+    <h2>🟡 Level 6 — Strings</h2>
+
+    <p>
+        Practice string input, traversal, searching,
+        comparison, reversal, frequency and anagram problems.
+    </p>
+
+
+    <!-- 1 -->
+    <div class="tip-box">
+
+        <h3>1️⃣ Read and Print a String</h3>
+
+        <p>
+            Read a string and print it.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>Hello</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Hello</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use <code>scanf("%s", str)</code> for a single word.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+
+    scanf("%99s", str);
+
+    printf("%s", str);
+
+    return 0;
+}</code></pre>
+
+        </details>
 
     </div>
+
+
+    <!-- 2 -->
+    <div class="tip-box">
+
+        <h3>2️⃣ Find String Length</h3>
+
+        <p>
+            Find the length of a string without using
+            <code>strlen()</code>.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>Hello</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>5</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Traverse until the null character <code>'\0'</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    int length = 0;
+
+    scanf("%99s", str);
+
+    while(str[length] != '\0')
+    {
+        length++;
+    }
+
+    printf("%d", length);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 3 -->
+    <div class="tip-box">
+
+        <h3>3️⃣ Count Characters</h3>
+
+        <p>
+            Count the number of characters in a string
+            without using <code>strlen()</code>.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>Programming</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>11</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Count until <code>'\0'</code>.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    int count = 0;
+
+    scanf("%99s", str);
+
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        count++;
+    }
+
+    printf("%d", count);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 4 -->
+    <div class="tip-box">
+
+        <h3>4️⃣ Count Vowels</h3>
+
+        <p>
+            Count the vowels in a string.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>education</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>5</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Check for <code>a, e, i, o, u</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    int count = 0;
+
+    scanf("%99s", str);
+
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        if(str[i] == 'a' || str[i] == 'e' ||
+           str[i] == 'i' || str[i] == 'o' ||
+           str[i] == 'u')
+        {
+            count++;
+        }
+    }
+
+    printf("%d", count);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 5 -->
+    <div class="tip-box">
+
+        <h3>5️⃣ Count Consonants</h3>
+
+        <p>
+            Count consonants in a string containing alphabets.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>hello</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>3</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                An alphabet that is not a vowel is a consonant.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    int count = 0;
+
+    scanf("%99s", str);
+
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        char ch = str[i];
+
+        if((ch &gt;= 'a' &amp;&amp; ch &lt;= 'z') ||
+           (ch &gt;= 'A' &amp;&amp; ch &lt;= 'Z'))
+        {
+            if(!(ch == 'a' || ch == 'e' ||
+                 ch == 'i' || ch == 'o' ||
+                 ch == 'u' || ch == 'A' ||
+                 ch == 'E' || ch == 'I' ||
+                 ch == 'O' || ch == 'U'))
+            {
+                count++;
+            }
+        }
+    }
+
+    printf("%d", count);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 6 -->
+    <div class="tip-box">
+
+        <h3>6️⃣ Count Digits in a String</h3>
+
+        <p>
+            Count how many numeric digits are present in a string.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>abc123xyz45</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>5</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Check whether each character is between
+                <code>'0'</code> and <code>'9'</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    int count = 0;
+
+    scanf("%99s", str);
+
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        if(str[i] &gt;= '0' &amp;&amp; str[i] &lt;= '9')
+            count++;
+    }
+
+    printf("%d", count);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 7 -->
+    <div class="tip-box">
+
+        <h3>7️⃣ Count Spaces</h3>
+
+        <p>
+            Count the spaces in a sentence.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>C programming is easy</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>3</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use <code>fgets()</code> so that spaces are read.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[200];
+    int count = 0;
+
+    fgets(str, sizeof(str), stdin);
+
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        if(str[i] == ' ')
+            count++;
+    }
+
+    printf("%d", count);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 8 -->
+    <div class="tip-box">
+
+        <h3>8️⃣ Convert Lowercase to Uppercase</h3>
+
+        <p>
+            Convert all lowercase letters to uppercase
+            without using <code>strupr()</code>.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>hello</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>HELLO</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                For lowercase letters, subtract
+                <code>'a' - 'A'</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+
+    scanf("%99s", str);
+
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        if(str[i] &gt;= 'a' &amp;&amp; str[i] &lt;= 'z')
+            str[i] = str[i] - 'a' + 'A';
+    }
+
+    printf("%s", str);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 9 -->
+    <div class="tip-box">
+
+        <h3>9️⃣ Convert Uppercase to Lowercase</h3>
+
+        <p>
+            Convert uppercase letters to lowercase.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>HELLO</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>hello</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Add <code>'a' - 'A'</code> to uppercase letters.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+
+    scanf("%99s", str);
+
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        if(str[i] &gt;= 'A' &amp;&amp; str[i] &lt;= 'Z')
+            str[i] = str[i] - 'A' + 'a';
+    }
+
+    printf("%s", str);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 10 -->
+    <div class="tip-box">
+
+        <h3>🔟 Reverse a String</h3>
+
+        <p>
+            Reverse a string without using <code>strrev()</code>.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>hello</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>olleh</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                First find the length, then traverse backwards.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    int length = 0;
+
+    scanf("%99s", str);
+
+    while(str[length] != '\0')
+        length++;
+
+    for(int i = length - 1; i &gt;= 0; i--)
+        printf("%c", str[i]);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 11 -->
+    <div class="tip-box">
+
+        <h3>1️⃣1️⃣ Palindrome String</h3>
+
+        <p>
+            Check whether a string is a palindrome.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>madam</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Palindrome</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Compare characters from the beginning and end.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    int length = 0;
+    int palindrome = 1;
+
+    scanf("%99s", str);
+
+    while(str[length] != '\0')
+        length++;
+
+    for(int i = 0; i &lt; length / 2; i++)
+    {
+        if(str[i] != str[length - i - 1])
+        {
+            palindrome = 0;
+            break;
+        }
+    }
+
+    if(palindrome)
+        printf("Palindrome");
+    else
+        printf("Not Palindrome");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 12 -->
+    <div class="tip-box">
+
+        <h3>1️⃣2️⃣ Copy a String</h3>
+
+        <p>
+            Copy one string into another without using
+            <code>strcpy()</code>.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>Hello</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Hello</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Copy each character including the null character.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char source[100], destination[100];
+    int i = 0;
+
+    scanf("%99s", source);
+
+    while(source[i] != '\0')
+    {
+        destination[i] = source[i];
+        i++;
+    }
+
+    destination[i] = '\0';
+
+    printf("%s", destination);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 13 -->
+    <div class="tip-box">
+
+        <h3>1️⃣3️⃣ Compare Two Strings</h3>
+
+        <p>
+            Compare two strings without using <code>strcmp()</code>.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>hello
+hello</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Equal</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Compare corresponding characters until one differs.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char a[100], b[100];
+    int i = 0, equal = 1;
+
+    scanf("%99s", a);
+    scanf("%99s", b);
+
+    while(a[i] != '\0' || b[i] != '\0')
+    {
+        if(a[i] != b[i])
+        {
+            equal = 0;
+            break;
+        }
+
+        i++;
+    }
+
+    if(equal)
+        printf("Equal");
+    else
+        printf("Not Equal");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 14 -->
+    <div class="tip-box">
+
+        <h3>1️⃣4️⃣ Concatenate Two Strings</h3>
+
+        <p>
+            Concatenate two strings without using <code>strcat()</code>.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>Hello
+World</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>HelloWorld</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Find the end of the first string and copy the
+                second string from there.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char a[200], b[100];
+    int i = 0, j = 0;
+
+    scanf("%99s", a);
+    scanf("%99s", b);
+
+    while(a[i] != '\0')
+        i++;
+
+    while(b[j] != '\0')
+    {
+        a[i] = b[j];
+        i++;
+        j++;
+    }
+
+    a[i] = '\0';
+
+    printf("%s", a);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 15 -->
+    <div class="tip-box">
+
+        <h3>1️⃣5️⃣ Frequency of a Character</h3>
+
+        <p>
+            Count how many times a character occurs in a string.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>programming
+g</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>2</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Traverse the string and increment the count
+                whenever the character matches.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100], ch;
+    int count = 0;
+
+    scanf("%99s", str);
+    scanf(" %c", &amp;ch);
+
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        if(str[i] == ch)
+            count++;
+    }
+
+    printf("%d", count);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 16 -->
+    <div class="tip-box">
+
+        <h3>1️⃣6️⃣ Remove Spaces</h3>
+
+        <p>
+            Remove all spaces from a sentence.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>C programming is easy</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Cprogrammingiseasy</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Print only characters that are not spaces.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[200];
+
+    fgets(str, sizeof(str), stdin);
+
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        if(str[i] != ' ')
+            printf("%c", str[i]);
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 17 -->
+    <div class="tip-box">
+
+        <h3>1️⃣7️⃣ Remove Duplicate Characters</h3>
+
+        <p>
+            Remove duplicate characters from a string.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>programming</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>progamin</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Print a character only if it has not appeared earlier.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+
+    scanf("%99s", str);
+
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        int duplicate = 0;
+
+        for(int j = 0; j &lt; i; j++)
+        {
+            if(str[i] == str[j])
+            {
+                duplicate = 1;
+                break;
+            }
+        }
+
+        if(!duplicate)
+            printf("%c", str[i]);
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 18 -->
+    <div class="tip-box">
+
+        <h3>1️⃣8️⃣ First Non-Repeating Character</h3>
+
+        <p>
+            Find the first character that occurs only once.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>aabbcdde</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>c</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Count the frequency of each character and
+                return the first character with frequency 1.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+
+    scanf("%99s", str);
+
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        int count = 0;
+
+        for(int j = 0; str[j] != '\0'; j++)
+        {
+            if(str[i] == str[j])
+                count++;
+        }
+
+        if(count == 1)
+        {
+            printf("%c", str[i]);
+            return 0;
+        }
+    }
+
+    printf("No non-repeating character");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 19 -->
+    <div class="tip-box">
+
+        <h3>1️⃣9️⃣ Check Anagram</h3>
+
+        <p>
+            Check whether two strings are anagrams.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>listen
+silent</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Anagram</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Count the frequency of each character in both strings.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char a[100], b[100];
+    int countA[256] = {0};
+    int countB[256] = {0};
+
+    scanf("%99s", a);
+    scanf("%99s", b);
+
+    for(int i = 0; a[i] != '\0'; i++)
+        countA[(unsigned char)a[i]]++;
+
+    for(int i = 0; b[i] != '\0'; i++)
+        countB[(unsigned char)b[i]]++;
+
+    for(int i = 0; i &lt; 256; i++)
+    {
+        if(countA[i] != countB[i])
+        {
+            printf("Not Anagram");
+            return 0;
+        }
+    }
+
+    printf("Anagram");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 20 -->
+    <div class="tip-box">
+
+        <h3>2️⃣0️⃣ Count Words in a Sentence</h3>
+
+        <p>
+            Count the number of words in a sentence.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>C programming is easy</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>4</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Count transitions from whitespace to a non-whitespace
+                character.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+
+int main()
+{
+    char str[200];
+    int words = 0;
+    int inWord = 0;
+
+    fgets(str, sizeof(str), stdin);
+
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        if(!isspace((unsigned char)str[i]))
+        {
+            if(!inWord)
+            {
+                words++;
+                inWord = 1;
+            }
+        }
+        else
+        {
+            inWord = 0;
+        }
+    }
+
+    printf("%d", words);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <div class="tip-box">
+
+        <h3>🎉 Level 6 Complete!</h3>
+
+        <p>
+            Excellent! You have completed
+            <strong>Level 6 — Strings</strong>.
+        </p>
+
+        <p>
+            Next:
+            <strong>Level 7 — Functions &amp; Recursion</strong>.
+        </p>
+
+    </div>
+
+</div>
+
 
     <button
         class="primary-button practice-level-button"
