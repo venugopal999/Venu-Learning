@@ -18118,32 +18118,44 @@ int main()
 
     <!-- 14.23 UNION MEMORY -->
 
-    <h3>14.23 Union Memory</h3>
+   <h3>14.23 Union Memory</h3>
 
-    <p>
-        In a union, members share the same storage.
-    </p>
+<p>
+    In a union, all members share the same memory location.
+    Only one member's value is normally stored at a time.
+</p>
 
-    <div class="formula-box">
+<div class="union-memory-diagram">
 
-        Union
+    <div class="union-title">
+        union Data
+    </div>
 
-        <br><br>
+    <div class="union-memory-box">
 
-        ┌──────────────────────┐
-        <br>
-        │ Shared Memory        │
-        <br>
-        │                      │
-        <br>
-        │ int / float / char   │
-        <br>
-        │                      │
-        <br>
-        └──────────────────────┘
+        <div class="union-shared-label">
+            Shared Memory
+        </div>
+
+        <div class="union-member">
+            int
+        </div>
+
+        <div class="union-member">
+            float
+        </div>
+
+        <div class="union-member">
+            char
+        </div>
 
     </div>
 
+    <div class="union-note">
+        All members use the same memory location
+    </div>
+
+</div>
 
     <!-- 14.24 STRUCTURE VS UNION -->
 
