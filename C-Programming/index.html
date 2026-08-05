@@ -206,6 +206,8 @@
 
         <a href="#bitwise">🔢 Bitwise Programming</a>
 
+        <a href="#enum-typedef">🔤 Enumerations & typedef</a>
+
 
         <div class="sidebar-title">
 
@@ -26106,6 +26108,1423 @@ int main()
         <br><br>
 
         <strong>1u &lt;&lt; k → Create a mask for bit k</strong>
+
+    </div>
+
+</section>
+
+        <!-- ================================
+             Enumerations (enum) and typedef
+        ================================= -->
+
+        <section id="enum-typedef" class="content-card">
+
+    <h2>🔤 20. Enumerations (enum) and typedef</h2>
+
+    <!-- 20.1 ENUM INTRODUCTION -->
+
+    <h3>20.1 What is an enum?</h3>
+
+    <p>
+        An <strong>enum</strong> (enumeration) is a user-defined
+        type in C that gives meaningful names to a set of
+        integer constants.
+    </p>
+
+    <p>
+        It improves the readability of programs when a variable
+        can have one value from a fixed set of choices.
+    </p>
+
+    <pre><code>enum Day
+{
+    SUNDAY,
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY
+};</code></pre>
+
+    <p>
+        By default, the first enumerator has value <strong>0</strong>,
+        the next has value <strong>1</strong>, and so on.
+    </p>
+
+
+    <!-- 20.2 ENUM VALUES -->
+
+    <h3>20.2 Default enum Values</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Enumerator</th>
+                    <th>Default Value</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>SUNDAY</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td>MONDAY</td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+                    <td>TUESDAY</td>
+                    <td>2</td>
+                </tr>
+
+                <tr>
+                    <td>WEDNESDAY</td>
+                    <td>3</td>
+                </tr>
+
+                <tr>
+                    <td>THURSDAY</td>
+                    <td>4</td>
+                </tr>
+
+                <tr>
+                    <td>FRIDAY</td>
+                    <td>5</td>
+                </tr>
+
+                <tr>
+                    <td>SATURDAY</td>
+                    <td>6</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 20.3 DECLARATION -->
+
+    <h3>20.3 Declaring an enum Variable</h3>
+
+    <pre><code>enum Day today;
+
+today = MONDAY;</code></pre>
+
+    <p>
+        A variable declared as <strong>enum Day</strong> can store
+        an enumeration value.
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+enum Day
+{
+    SUNDAY,
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY
+};
+
+int main()
+{
+    enum Day today = MONDAY;
+
+    printf("%d", today);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        1
+    </div>
+
+
+    <!-- 20.4 CUSTOM VALUES -->
+
+    <h3>20.4 Custom enum Values</h3>
+
+    <p>
+        You can explicitly assign values to enumerators.
+    </p>
+
+    <pre><code>enum Status
+{
+    SUCCESS = 1,
+    FAILURE = 0
+};</code></pre>
+
+    <p>
+        Example:
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+enum Status
+{
+    FAILURE = 0,
+    SUCCESS = 1
+};
+
+int main()
+{
+    enum Status result = SUCCESS;
+
+    printf("%d", result);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        1
+    </div>
+
+
+    <!-- 20.5 MIXED VALUES -->
+
+    <h3>20.5 Mixed enum Values</h3>
+
+    <p>
+        When one enumerator is explicitly assigned a value,
+        subsequent enumerators continue from that value.
+    </p>
+
+    <pre><code>enum Numbers
+{
+    A = 10,
+    B,
+    C,
+    D = 20,
+    E
+};</code></pre>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Enumerator</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>A</td>
+                    <td>10</td>
+                </tr>
+
+                <tr>
+                    <td>B</td>
+                    <td>11</td>
+                </tr>
+
+                <tr>
+                    <td>C</td>
+                    <td>12</td>
+                </tr>
+
+                <tr>
+                    <td>D</td>
+                    <td>20</td>
+                </tr>
+
+                <tr>
+                    <td>E</td>
+                    <td>21</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 20.6 ENUM SWITCH -->
+
+    <h3>20.6 enum with switch</h3>
+
+    <p>
+        Enums are especially useful with switch statements.
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+enum Day
+{
+    SUNDAY,
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY
+};
+
+int main()
+{
+    enum Day day = WEDNESDAY;
+
+    switch(day)
+    {
+        case SUNDAY:
+            printf("Sunday");
+            break;
+
+        case MONDAY:
+            printf("Monday");
+            break;
+
+        case TUESDAY:
+            printf("Tuesday");
+            break;
+
+        case WEDNESDAY:
+            printf("Wednesday");
+            break;
+
+        case THURSDAY:
+            printf("Thursday");
+            break;
+
+        case FRIDAY:
+            printf("Friday");
+            break;
+
+        case SATURDAY:
+            printf("Saturday");
+            break;
+    }
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        Wednesday
+    </div>
+
+
+    <!-- 20.7 ENUM BENEFITS -->
+
+    <h3>20.7 Advantages of enum</h3>
+
+    <ul>
+
+        <li>Makes code easier to read.</li>
+
+        <li>Provides meaningful names for integer constants.</li>
+
+        <li>Useful when a variable has a fixed set of logical choices.</li>
+
+        <li>Works naturally with switch statements.</li>
+
+        <li>Reduces the use of unexplained numeric constants.</li>
+
+    </ul>
+
+
+    <!-- 20.8 REAL LIFE ENUM -->
+
+    <h3>20.8 Real-Life Example: Traffic Light</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+enum TrafficLight
+{
+    RED,
+    YELLOW,
+    GREEN
+};
+
+int main()
+{
+    enum TrafficLight light = GREEN;
+
+    if(light == RED)
+    {
+        printf("STOP");
+    }
+    else if(light == YELLOW)
+    {
+        printf("READY");
+    }
+    else
+    {
+        printf("GO");
+    }
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        GO
+    </div>
+
+
+    <!-- 20.9 ENUM SIZE -->
+
+    <h3>20.9 Size of an enum</h3>
+
+    <p>
+        The size of an enum is implementation-defined. It is
+        commonly the size of an integer type, but portable C code
+        should not assume a specific size.
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+enum Color
+{
+    RED,
+    GREEN,
+    BLUE
+};
+
+int main()
+{
+    printf("%zu", sizeof(enum Color));
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 20.10 ENUM IMPORTANT POINT -->
+
+    <h3>20.10 Important Point About enum</h3>
+
+    <div class="tip-box">
+
+        📌 The names declared inside an enum are integer constants.
+
+        <br><br>
+
+        📌 The exact underlying representation of an enum is
+        implementation-defined.
+
+        <br><br>
+
+        📌 Do not assume every enum object must occupy exactly
+        4 bytes.
+
+    </div>
+
+
+    <!-- TYPEDEF -->
+
+    <h3>20.11 What is typedef?</h3>
+
+    <p>
+        <strong>typedef</strong> creates an alternative name
+        (alias) for an existing type.
+    </p>
+
+    <p>
+        It does not create a completely new type.
+    </p>
+
+    <pre><code>typedef int Number;</code></pre>
+
+    <p>
+        Now both of the following declare an integer:
+    </p>
+
+    <pre><code>int a;
+
+Number b;</code></pre>
+
+
+    <!-- 20.12 BASIC TYPEDEF -->
+
+    <h3>20.12 Basic typedef Example</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+typedef int Number;
+
+int main()
+{
+    Number x = 100;
+
+    printf("%d", x);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        100
+    </div>
+
+
+    <!-- 20.13 TYPEDEF MULTIPLE -->
+
+    <h3>20.13 typedef with Multiple Variables</h3>
+
+    <pre><code>typedef unsigned int UINT;
+
+UINT a = 10;
+UINT b = 20;</code></pre>
+
+    <p>
+        This can make declarations shorter and easier to read.
+    </p>
+
+
+    <!-- 20.14 TYPEDEF STRUCTURE -->
+
+    <h3>20.14 typedef with Structure</h3>
+
+    <p>
+        Without typedef:
+    </p>
+
+    <pre><code>struct Student
+{
+    int id;
+    char name[50];
+};
+
+struct Student s1;</code></pre>
+
+    <p>
+        With typedef:
+    </p>
+
+    <pre><code>typedef struct
+{
+    int id;
+    char name[50];
+} Student;
+
+Student s1;</code></pre>
+
+    <p>
+        This is one of the most common uses of typedef in C.
+    </p>
+
+
+    <!-- 20.15 COMPLETE STRUCTURE -->
+
+    <h3>20.15 Complete typedef Structure Example</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+typedef struct
+{
+    int id;
+    char name[50];
+    float marks;
+} Student;
+
+int main()
+{
+    Student s;
+
+    s.id = 101;
+    s.marks = 85.5;
+
+    printf("ID = %d\n", s.id);
+    printf("Marks = %.2f\n", s.marks);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        ID = 101
+        <br>
+        Marks = 85.50
+
+    </div>
+
+
+    <!-- 20.16 TYPEDEF ENUM -->
+
+    <h3>20.16 typedef with enum</h3>
+
+    <p>
+        typedef can also be used with enum.
+    </p>
+
+    <pre><code>typedef enum
+{
+    LOW,
+    MEDIUM,
+    HIGH
+} Level;</code></pre>
+
+    <p>
+        Now you can simply write:
+    </p>
+
+    <pre><code>Level current = HIGH;</code></pre>
+
+
+    <!-- 20.17 TYPEDEF POINTER -->
+
+    <h3>20.17 typedef with Pointer</h3>
+
+    <pre><code>typedef int* IntPtr;
+
+int x = 10;
+
+IntPtr p = &amp;x;</code></pre>
+
+    <p>
+        Here <strong>IntPtr</strong> is an alias for
+        <strong>int *</strong>.
+    </p>
+
+
+    <!-- 20.18 POINTER TYPEDEF CAUTION -->
+
+    <h3>20.18 Important typedef Pointer Example</h3>
+
+    <pre><code>typedef int* IntPtr;
+
+IntPtr p1, p2;</code></pre>
+
+    <p>
+        Both <strong>p1</strong> and <strong>p2</strong> are
+        pointers to int.
+    </p>
+
+    <p>
+        Compare this with:
+    </p>
+
+    <pre><code>int *p1, p2;</code></pre>
+
+    <p>
+        Here only <strong>p1</strong> is a pointer.
+        <strong>p2</strong> is an ordinary int.
+    </p>
+
+    <div class="tip-box">
+
+        ⭐ This is one reason typedef can make pointer declarations
+        easier to read.
+
+    </div>
+
+
+    <!-- 20.19 TYPEDEF ARRAY -->
+
+    <h3>20.19 typedef with Array</h3>
+
+    <pre><code>typedef int Marks[5];
+
+Marks studentMarks;
+
+studentMarks[0] = 90;</code></pre>
+
+    <p>
+        Here <strong>Marks</strong> represents an array of five ints.
+    </p>
+
+
+    <!-- 20.20 TYPEDEF FUNCTION POINTER -->
+
+    <h3>20.20 typedef with Function Pointer</h3>
+
+    <p>
+        Function pointers can be difficult to read.
+        typedef can make them simpler.
+    </p>
+
+    <pre><code>typedef int (*Operation)(int, int);</code></pre>
+
+    <p>
+        Now:
+    </p>
+
+    <pre><code>Operation op;</code></pre>
+
+    <p>
+        can represent a pointer to a function taking two ints
+        and returning an int.
+    </p>
+
+
+    <!-- 20.21 FUNCTION POINTER EXAMPLE -->
+
+    <h3>20.21 Complete Function Pointer Example</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+typedef int (*Operation)(int, int);
+
+int add(int a, int b)
+{
+    return a + b;
+}
+
+int main()
+{
+    Operation op = add;
+
+    printf("%d", op(10, 20));
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        30
+    </div>
+
+
+    <!-- 20.22 TYPEDEF VS DEFINE -->
+
+    <h3>20.22 typedef vs #define</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+                    <th>typedef</th>
+                    <th>#define</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Creates a type alias</td>
+                    <td>Preprocessor text substitution</td>
+                </tr>
+
+                <tr>
+                    <td>Understood by the compiler</td>
+                    <td>Processed before compilation</td>
+                </tr>
+
+                <tr>
+                    <td>Useful for types</td>
+                    <td>Useful for macros and constants</td>
+                </tr>
+
+                <tr>
+                    <td>Can make complex declarations easier</td>
+                    <td>Performs textual replacement</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 20.23 TYPEDEF VS VARIABLE -->
+
+    <h3>20.23 typedef Does Not Create a Variable</h3>
+
+    <pre><code>typedef int Number;</code></pre>
+
+    <p>
+        This does not create a variable.
+    </p>
+
+    <p>
+        It creates an alias named <strong>Number</strong>.
+    </p>
+
+    <pre><code>Number x = 10;</code></pre>
+
+    <p>
+        This statement creates the actual variable.
+    </p>
+
+
+    <!-- 20.24 ENUM VS TYPEDEF -->
+
+    <h3>20.24 enum vs typedef</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+                    <th>enum</th>
+                    <th>typedef</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Defines named integer constants</td>
+                    <td>Creates an alias for an existing type</td>
+                </tr>
+
+                <tr>
+                    <td>Useful for a fixed set of choices</td>
+                    <td>Useful for simplifying type declarations</td>
+                </tr>
+
+                <tr>
+                    <td>Example: RED, GREEN, BLUE</td>
+                    <td>Example: typedef int Number;</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 20.25 ENUM AND TYPEDEF TOGETHER -->
+
+    <h3>20.25 Using enum and typedef Together</h3>
+
+    <pre><code>typedef enum
+{
+    PENDING,
+    APPROVED,
+    REJECTED
+} Status;
+
+typedef struct
+{
+    int id;
+    Status status;
+} Application;</code></pre>
+
+    <p>
+        Now an application can have a meaningful status.
+    </p>
+
+    <pre><code>Application app;
+
+app.id = 1001;
+app.status = APPROVED;</code></pre>
+
+
+    <!-- 20.26 REAL LIFE EXAMPLE -->
+
+    <h3>20.26 Real-Life Student Example</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+typedef enum
+{
+    FAIL,
+    PASS
+} Result;
+
+typedef struct
+{
+    int id;
+    char name[50];
+    float marks;
+    Result result;
+} Student;
+
+int main()
+{
+    Student s = {101, "Venu", 78.5, PASS};
+
+    printf("ID = %d\n", s.id);
+    printf("Name = %s\n", s.name);
+    printf("Marks = %.2f\n", s.marks);
+
+    if(s.result == PASS)
+        printf("Result = PASS");
+    else
+        printf("Result = FAIL");
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        ID = 101
+        <br>
+        Name = Venu
+        <br>
+        Marks = 78.50
+        <br>
+        Result = PASS
+
+    </div>
+
+
+    <!-- 20.27 COMMON MISTAKES -->
+
+    <h3>20.27 Common Mistakes</h3>
+
+    <ul>
+
+        <li>
+            Assuming enum always occupies exactly 4 bytes.
+        </li>
+
+        <li>
+            Thinking typedef creates a completely new type.
+        </li>
+
+        <li>
+            Confusing typedef with #define.
+        </li>
+
+        <li>
+            Forgetting the semicolon after an enum or typedef
+            declaration.
+        </li>
+
+        <li>
+            Confusing an enum type with its individual enumerator
+            names.
+        </li>
+
+        <li>
+            Using confusing typedef names that hide pointer
+            or array behavior.
+        </li>
+
+    </ul>
+
+
+    <!-- 20.28 QUICK REVISION -->
+
+    <h3>20.28 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 <strong>enum</strong> → Named integer constants
+
+        <br><br>
+
+        📌 First enum value is normally <strong>0</strong>
+
+        <br><br>
+
+        📌 Enum values can be explicitly assigned
+
+        <br><br>
+
+        📌 <strong>typedef</strong> → Creates a type alias
+
+        <br><br>
+
+        📌 typedef does not create a new variable
+
+        <br><br>
+
+        📌 typedef is commonly used with structures
+
+        <br><br>
+
+        📌 typedef can simplify pointer declarations
+
+        <br><br>
+
+        📌 typedef can be used with enum, arrays and function pointers
+
+        <br><br>
+
+        📌 #define performs preprocessor text substitution
+
+    </div>
+
+
+    <!-- 20.29 MCQs -->
+
+    <h3>20.29 Quick MCQs</h3>
+
+    <ol>
+
+        <li>
+
+            What is enum used for?
+
+            <br><br>
+
+            A) Named integer constants
+
+            <br>
+
+            B) Dynamic memory
+
+            <br>
+
+            C) File handling
+
+            <br>
+
+            D) Pointer arithmetic
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What is the default value of the first enum constant?
+
+            <br><br>
+
+            A) 0
+
+            <br>
+
+            B) 1
+
+            <br>
+
+            C) -1
+
+            <br>
+
+            D) Undefined
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which keyword creates a type alias?
+
+            <br><br>
+
+            A) alias
+
+            <br>
+
+            B) typedef
+
+            <br>
+
+            C) type
+
+            <br>
+
+            D) define
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Does typedef create a new variable?
+
+            <br><br>
+
+            A) Yes
+
+            <br>
+
+            B) No
+
+            <br>
+
+            C) Only for pointers
+
+            <br>
+
+            D) Only for structures
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which is commonly used with typedef?
+
+            <br><br>
+
+            A) Structure
+
+            <br>
+
+            B) goto
+
+            <br>
+
+            C) switch only
+
+            <br>
+
+            D) printf
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which performs preprocessor text substitution?
+
+            <br><br>
+
+            A) typedef
+
+            <br>
+
+            B) #define
+
+            <br>
+
+            C) enum
+
+            <br>
+
+            D) struct
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which declaration creates an alias for int?
+
+            <br><br>
+
+            A) alias int Number;
+
+            <br>
+
+            B) typedef int Number;
+
+            <br>
+
+            C) define int Number;
+
+            <br>
+
+            D) enum int Number;
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which is a valid typedef pointer declaration?
+
+            <br><br>
+
+            A) typedef int* IntPtr;
+
+            <br>
+
+            B) pointer int IntPtr;
+
+            <br>
+
+            C) typedef pointer int;
+
+            <br>
+
+            D) int typedef* IntPtr;
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Can typedef be used with a function pointer?
+
+            <br><br>
+
+            A) Yes
+
+            <br>
+
+            B) No
+
+            <br>
+
+            C) Only in C++
+
+            <br>
+
+            D) Only with void functions
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which is the best reason to use enum?
+
+            <br><br>
+
+            A) To make fixed choices readable
+
+            <br>
+
+            B) To allocate memory dynamically
+
+            <br>
+
+            C) To open files
+
+            <br>
+
+            D) To create threads
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+    </ol>
+
+
+    <!-- 20.30 PRACTICE -->
+
+    <h3>20.30 Practice Problems</h3>
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+        Create an enum representing the seven days of the week.
+
+        <br><br>
+
+        <strong>Problem 2</strong>
+
+        <br>
+        Print the integer value of each day in an enum.
+
+        <br><br>
+
+        <strong>Problem 3</strong>
+
+        <br>
+        Create an enum for RED, YELLOW and GREEN traffic lights.
+
+        <br><br>
+
+        <strong>Problem 4</strong>
+
+        <br>
+        Use an enum with switch to display the day of the week.
+
+        <br><br>
+
+        <strong>Problem 5</strong>
+
+        <br>
+        Create an enum with custom values 10, 20 and 30.
+
+        <br><br>
+
+        <strong>Problem 6</strong>
+
+        <br>
+        Create an enum for student result: FAIL, PASS and DISTINCTION.
+
+        <br><br>
+
+        <strong>Problem 7</strong>
+
+        <br>
+        Create an enum representing user roles:
+        ADMIN, TEACHER and STUDENT.
+
+        <br><br>
+
+        <strong>Problem 8</strong>
+
+        <br>
+        Use typedef to create an alias for int.
+
+        <br><br>
+
+        <strong>Problem 9</strong>
+
+        <br>
+        Use typedef to create an alias for unsigned int.
+
+        <br><br>
+
+        <strong>Problem 10</strong>
+
+        <br>
+        Create a typedef structure for Student.
+
+        <br><br>
+
+        <strong>Problem 11</strong>
+
+        <br>
+        Create a typedef structure for Employee.
+
+        <br><br>
+
+        <strong>Problem 12</strong>
+
+        <br>
+        Create a typedef for an integer pointer.
+
+        <br><br>
+
+        <strong>Problem 13</strong>
+
+        <br>
+        Create a typedef for an array of 10 integers.
+
+        <br><br>
+
+        <strong>Problem 14</strong>
+
+        <br>
+        Create a typedef for a function pointer that adds two integers.
+
+        <br><br>
+
+        <strong>Problem 15</strong>
+
+        <br>
+        Create a Student structure containing an enum Result field.
+
+        <br><br>
+
+        <strong>Problem 16</strong>
+
+        <br>
+        Create a typedef enum representing account status:
+        ACTIVE, BLOCKED and CLOSED.
+
+        <br><br>
+
+        <strong>Problem 17</strong>
+
+        <br>
+        Create a typedef structure for a bank account and
+        use an enum for account status.
+
+        <br><br>
+
+        <strong>Problem 18</strong>
+
+        <br>
+        Create a typedef function pointer for multiplication
+        and division operations.
+
+        <br><br>
+
+        <strong>Problem 19</strong>
+
+        <br>
+        Create a Student Management structure using typedef,
+        enum and an array.
+
+        <br><br>
+
+        <strong>Problem 20</strong>
+
+        <br>
+        Create a complete Employee Management program using
+        typedef struct and enum for employee department and status.
+
+    </div>
+
+
+    <!-- 20.31 KEY TAKEAWAY -->
+
+    <h3>20.31 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 Remember:
+
+        <br><br>
+
+        <strong>enum → Give names to related integer constants.</strong>
+
+        <br><br>
+
+        <strong>typedef → Give an existing type a convenient alias.</strong>
+
+        <br><br>
+
+        <strong>enum + switch → Excellent combination for fixed choices.</strong>
+
+        <br><br>
+
+        <strong>typedef + struct → Cleaner structure declarations.</strong>
+
+        <br><br>
+
+        <strong>typedef + pointer → Can simplify pointer declarations.</strong>
+
+        <br><br>
+
+        <strong>typedef + function pointer → Makes complex declarations easier.</strong>
+
+        <br><br>
+
+        <strong>#define ≠ typedef.</strong>
 
     </div>
 
