@@ -189,7 +189,6 @@
             👉 Pointers
         </a>
 
-
         <a href="#structures">
             🏗️ Structures & Unions
         </a>
@@ -200,6 +199,8 @@
         <a href="#files">
             📁 File Handling
         </a>
+
+        <a href="#dynamic-memory">🧠 Dynamic Memory Allocation</a>
 
 
         <div class="sidebar-title">
@@ -21619,6 +21620,1494 @@ if(fp == NULL)
 
 </section>
 
+         <!-- ================================
+             Dynamic Memory Allocation
+        ================================= -->
+
+        <section id="dynamic-memory" class="content-card">
+
+    <h2>🧠 17. Dynamic Memory Allocation</h2>
+
+    <!-- 17.1 INTRODUCTION -->
+
+    <h3>17.1 What is Dynamic Memory Allocation?</h3>
+
+    <p>
+        Dynamic Memory Allocation allows a C program to request
+        memory during program execution.
+    </p>
+
+    <p>
+        Unlike fixed-size arrays, dynamically allocated memory
+        can be requested according to the actual requirements
+        of the program.
+    </p>
+
+    <div class="formula-box">
+
+        Program
+        <br>
+        ↓
+        <br>
+        Request Memory
+        <br>
+        ↓
+        <br>
+        Heap Memory
+        <br>
+        ↓
+        <br>
+        Use Memory
+        <br>
+        ↓
+        <br>
+        free()
+
+    </div>
+
+
+    <!-- 17.2 STATIC VS DYNAMIC -->
+
+    <h3>17.2 Static vs Dynamic Memory</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Static / Automatic Allocation</th>
+                    <th>Dynamic Allocation</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Size is usually determined before execution of that block</td>
+                    <td>Memory can be requested during execution</td>
+                </tr>
+
+                <tr>
+                    <td>Commonly used with fixed-size arrays and local variables</td>
+                    <td>Useful when the required size is known only at runtime</td>
+                </tr>
+
+                <tr>
+                    <td>Managed automatically for automatic variables</td>
+                    <td>Programmer explicitly manages allocated storage</td>
+                </tr>
+
+                <tr>
+                    <td>Does not use malloc()/calloc()</td>
+                    <td>Uses malloc(), calloc(), realloc() and free()</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 17.3 STACK AND HEAP -->
+
+    <h3>17.3 Stack and Heap Memory</h3>
+
+    <p>
+        Dynamic memory is generally allocated from the
+        <strong>heap</strong>.
+    </p>
+
+    <div class="memory-diagram">
+
+        <div class="memory-section">
+            <strong>Stack</strong>
+            <span>Local variables</span>
+            <span>Function call information</span>
+        </div>
+
+        <div class="memory-section">
+            <strong>Heap</strong>
+            <span>Dynamic memory</span>
+            <span>malloc / calloc / realloc</span>
+        </div>
+
+    </div>
+
+    <p>
+        The exact memory layout is implementation-dependent,
+        but the stack and heap are useful concepts for
+        understanding C memory management.
+    </p>
+
+
+    <!-- 17.4 MALLOC -->
+
+    <h3>17.4 malloc()</h3>
+
+    <p>
+        <strong>malloc()</strong> allocates a block of
+        uninitialized memory of the requested size.
+    </p>
+
+    <pre><code>#include &lt;stdlib.h&gt;
+
+int *ptr;
+
+ptr = malloc(5 * sizeof *ptr);</code></pre>
+
+    <p>
+        Here, memory is requested for five integers.
+    </p>
+
+
+    <!-- 17.5 MALLOC EXAMPLE -->
+
+    <h3>17.5 Example Using malloc()</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int *ptr;
+
+    ptr = malloc(5 * sizeof *ptr);
+
+    if(ptr == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
+
+    for(int i = 0; i &lt; 5; i++)
+    {
+        ptr[i] = (i + 1) * 10;
+    }
+
+    for(int i = 0; i &lt; 5; i++)
+    {
+        printf("%d ", ptr[i]);
+    }
+
+    free(ptr);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        10 20 30 40 50
+
+    </div>
+
+
+    <!-- 17.6 MALLOC INITIALIZATION -->
+
+    <h3>17.6 Does malloc() Initialize Memory?</h3>
+
+    <p>
+        No. The bytes returned by <strong>malloc()</strong>
+        have indeterminate values until your program writes
+        appropriate values into them.
+    </p>
+
+    <pre><code>int *ptr = malloc(5 * sizeof *ptr);</code></pre>
+
+    <p>
+        Do not assume the allocated integers are initialized
+        to zero.
+    </p>
+
+
+    <!-- 17.7 CALLOC -->
+
+    <h3>17.7 calloc()</h3>
+
+    <p>
+        <strong>calloc()</strong> allocates memory for multiple
+        elements and initializes the allocated bytes to zero.
+    </p>
+
+    <pre><code>int *ptr;
+
+ptr = calloc(5, sizeof *ptr);</code></pre>
+
+    <p>
+        The first argument specifies the number of elements.
+        The second specifies the size of each element.
+    </p>
+
+
+    <!-- 17.8 CALLOC EXAMPLE -->
+
+    <h3>17.8 Example Using calloc()</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int *ptr;
+
+    ptr = calloc(5, sizeof *ptr);
+
+    if(ptr == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
+
+    for(int i = 0; i &lt; 5; i++)
+    {
+        printf("%d ", ptr[i]);
+    }
+
+    free(ptr);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        0 0 0 0 0
+
+    </div>
+
+
+    <!-- 17.9 MALLOC VS CALLOC -->
+
+    <h3>17.9 malloc() vs calloc()</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>malloc()</th>
+                    <th>calloc()</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>One size argument</td>
+                    <td>Number of elements and element size</td>
+                </tr>
+
+                <tr>
+                    <td>Memory is not initialized to zero</td>
+                    <td>Allocated bytes are initialized to zero</td>
+                </tr>
+
+                <tr>
+                    <td>malloc(size)</td>
+                    <td>calloc(count, size)</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 17.10 REALLOC -->
+
+    <h3>17.10 realloc()</h3>
+
+    <p>
+        <strong>realloc()</strong> changes the size of a
+        previously allocated memory block.
+    </p>
+
+    <pre><code>ptr = realloc(ptr, 10 * sizeof *ptr);</code></pre>
+
+    <p>
+        The block may be moved to a different memory location.
+        Therefore, use the pointer returned by realloc().
+    </p>
+
+
+    <!-- 17.11 REALLOC EXAMPLE -->
+
+    <h3>17.11 Example Using realloc()</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int *ptr;
+
+    ptr = malloc(3 * sizeof *ptr);
+
+    if(ptr == NULL)
+        return 1;
+
+    for(int i = 0; i &lt; 3; i++)
+    {
+        ptr[i] = (i + 1) * 10;
+    }
+
+    int *temp = realloc(ptr, 5 * sizeof *ptr);
+
+    if(temp == NULL)
+    {
+        free(ptr);
+        return 1;
+    }
+
+    ptr = temp;
+
+    ptr[3] = 40;
+    ptr[4] = 50;
+
+    for(int i = 0; i &lt; 5; i++)
+    {
+        printf("%d ", ptr[i]);
+    }
+
+    free(ptr);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        10 20 30 40 50
+
+    </div>
+
+
+    <!-- 17.12 SAFE REALLOC -->
+
+    <h3>17.12 Safe Use of realloc()</h3>
+
+    <p>
+        Do not directly overwrite your only pointer with
+        <strong>realloc()</strong> if you need to handle
+        allocation failure safely.
+    </p>
+
+    <p>
+        Prefer a temporary pointer:
+    </p>
+
+    <pre><code>int *temp;
+
+temp = realloc(ptr, new_size);
+
+if(temp != NULL)
+{
+    ptr = temp;
+}
+else
+{
+    /* Original ptr is still valid */
+}</code></pre>
+
+
+    <!-- 17.13 FREE -->
+
+    <h3>17.13 free()</h3>
+
+    <p>
+        <strong>free()</strong> releases dynamically allocated
+        memory back to the implementation.
+    </p>
+
+    <pre><code>free(ptr);</code></pre>
+
+    <p>
+        After freeing memory, the pointer value becomes
+        indeterminate. If you keep the pointer variable,
+        assigning <strong>NULL</strong> to it can help prevent
+        accidental reuse.
+    </p>
+
+    <pre><code>free(ptr);
+ptr = NULL;</code></pre>
+
+
+    <!-- 17.14 MEMORY LAYOUT -->
+
+    <h3>17.14 Dynamic Memory Diagram</h3>
+
+    <div class="memory-diagram">
+
+        <div class="memory-section">
+
+            <strong>Pointer Variable</strong>
+
+            <span>ptr</span>
+
+            <span>↓</span>
+
+        </div>
+
+        <div class="memory-section">
+
+            <strong>Heap Memory</strong>
+
+            <span>[10]</span>
+
+            <span>[20]</span>
+
+            <span>[30]</span>
+
+            <span>[40]</span>
+
+            <span>[50]</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- 17.15 NULL CHECK -->
+
+    <h3>17.15 Checking for NULL</h3>
+
+    <p>
+        Dynamic allocation functions return a null pointer if
+        the allocation fails.
+    </p>
+
+    <pre><code>int *ptr = malloc(100 * sizeof *ptr);
+
+if(ptr == NULL)
+{
+    printf("Memory allocation failed");
+    return 1;
+}</code></pre>
+
+    <div class="tip-box">
+
+        📌 Always check the result of malloc(), calloc() and
+        realloc() before using the allocated memory.
+
+    </div>
+
+
+    <!-- 17.16 DYNAMIC ARRAY -->
+
+    <h3>17.16 Dynamic Array</h3>
+
+    <p>
+        Dynamic allocation is useful when the number of elements
+        is known only during program execution.
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int n;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &amp;n);
+
+    int *arr = malloc(n * sizeof *arr);
+
+    if(arr == NULL)
+        return 1;
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+    }
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+
+    free(arr);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 17.17 DYNAMIC ARRAY DIAGRAM -->
+
+    <h3>17.17 Dynamic Array Representation</h3>
+
+    <div class="memory-diagram">
+
+        <div class="memory-section">
+
+            <strong>arr</strong>
+
+            <span>↓</span>
+
+        </div>
+
+        <div class="memory-section">
+
+            <span>[10]</span>
+            <span>[20]</span>
+            <span>[30]</span>
+            <span>[40]</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- 17.18 DYNAMIC STRING -->
+
+    <h3>17.18 Dynamically Allocated String</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+    const char *text = "Hello";
+
+    char *str = malloc(strlen(text) + 1);
+
+    if(str == NULL)
+        return 1;
+
+    strcpy(str, text);
+
+    printf("%s", str);
+
+    free(str);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        Hello
+
+    </div>
+
+
+    <!-- 17.19 DYNAMIC STRUCTURE -->
+
+    <h3>17.19 Dynamic Structure</h3>
+
+    <p>
+        Structures can also be allocated dynamically.
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct Student
+{
+    int roll;
+    float marks;
+};
+
+int main()
+{
+    struct Student *s;
+
+    s = malloc(sizeof *s);
+
+    if(s == NULL)
+        return 1;
+
+    s-&gt;roll = 101;
+    s-&gt;marks = 85.5;
+
+    printf("Roll = %d\n", s-&gt;roll);
+    printf("Marks = %.2f\n", s-&gt;marks);
+
+    free(s);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 17.20 ARROW OPERATOR -->
+
+    <h3>17.20 Accessing Dynamic Structures</h3>
+
+    <p>
+        When a pointer points to a structure, the
+        <strong>-&gt;</strong> operator is used to access its
+        members.
+    </p>
+
+    <pre><code>s-&gt;roll = 101;
+s-&gt;marks = 85.5;</code></pre>
+
+    <p>
+        This is equivalent to:
+    </p>
+
+    <pre><code>(*s).roll = 101;
+(*s).marks = 85.5;</code></pre>
+
+
+    <!-- 17.21 DYNAMIC STRUCTURE ARRAY -->
+
+    <h3>17.21 Dynamic Array of Structures</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct Student
+{
+    int roll;
+    float marks;
+};
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    struct Student *students =
+        malloc(n * sizeof *students);
+
+    if(students == NULL)
+        return 1;
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        scanf("%d %f",
+              &amp;students[i].roll,
+              &amp;students[i].marks);
+    }
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        printf("%d %.2f\n",
+               students[i].roll,
+               students[i].marks);
+    }
+
+    free(students);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 17.22 DYNAMIC 2D ARRAY -->
+
+    <h3>17.22 Dynamic 2D Array</h3>
+
+    <p>
+        A two-dimensional array can also be allocated dynamically.
+        One simple method is to allocate one contiguous block.
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int rows = 3;
+    int cols = 4;
+
+    int *matrix =
+        malloc(rows * cols * sizeof *matrix);
+
+    if(matrix == NULL)
+        return 1;
+
+    for(int i = 0; i &lt; rows; i++)
+    {
+        for(int j = 0; j &lt; cols; j++)
+        {
+            matrix[i * cols + j] = i + j;
+        }
+    }
+
+    for(int i = 0; i &lt; rows; i++)
+    {
+        for(int j = 0; j &lt; cols; j++)
+        {
+            printf("%d ", matrix[i * cols + j]);
+        }
+
+        printf("\n");
+    }
+
+    free(matrix);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 17.23 MEMORY LEAK -->
+
+    <h3>17.23 Memory Leak</h3>
+
+    <p>
+        A <strong>memory leak</strong> occurs when dynamically
+        allocated memory is no longer reachable by the program
+        and has not been released.
+    </p>
+
+    <pre><code>int *ptr = malloc(100 * sizeof *ptr);
+
+/* ptr is lost without calling free() */
+
+ptr = NULL;</code></pre>
+
+    <div class="tip-box">
+
+        ⚠️ If dynamically allocated memory is no longer needed,
+        release it using free().
+
+    </div>
+
+
+    <!-- 17.24 DANGLING POINTER -->
+
+    <h3>17.24 Dangling Pointer</h3>
+
+    <p>
+        A dangling pointer is a pointer that refers to memory
+        whose lifetime has ended or that has already been freed.
+    </p>
+
+    <pre><code>int *ptr = malloc(sizeof *ptr);
+
+*ptr = 10;
+
+free(ptr);
+
+/* ptr should not be dereferenced here */</code></pre>
+
+    <p>
+        A common defensive practice is:
+    </p>
+
+    <pre><code>free(ptr);
+ptr = NULL;</code></pre>
+
+
+    <!-- 17.25 DOUBLE FREE -->
+
+    <h3>17.25 Double Free</h3>
+
+    <p>
+        Calling <strong>free()</strong> more than once on the
+        same allocation is invalid.
+    </p>
+
+    <pre><code>free(ptr);
+
+/* Do not do this again: */
+free(ptr);</code></pre>
+
+    <p>
+        Setting the pointer to <strong>NULL</strong> after
+        freeing can help avoid accidental repeated freeing,
+        because <strong>free(NULL)</strong> has no effect.
+    </p>
+
+
+    <!-- 17.26 USE AFTER FREE -->
+
+    <h3>17.26 Use-After-Free</h3>
+
+    <p>
+        Accessing memory after it has been released is invalid.
+    </p>
+
+    <pre><code>free(ptr);
+
+/* Invalid */
+printf("%d", *ptr);</code></pre>
+
+    <div class="tip-box">
+
+        ⚠️ Never read from or write through a pointer after
+        its allocated object has been freed.
+
+    </div>
+
+
+    <!-- 17.27 SIZEOF -->
+
+    <h3>17.27 Using sizeof() Correctly</h3>
+
+    <p>
+        Prefer using the pointed-to type when allocating memory.
+    </p>
+
+    <pre><code>int *ptr;
+
+ptr = malloc(10 * sizeof *ptr);</code></pre>
+
+    <p>
+        This style is easier to maintain if the pointer type
+        changes later.
+    </p>
+
+
+    <!-- 17.28 MEMORY ALLOCATION WORKFLOW -->
+
+    <h3>17.28 Dynamic Memory Workflow</h3>
+
+    <div class="formula-box">
+
+        Declare Pointer
+        <br>
+        ↓
+        <br>
+        malloc() / calloc()
+        <br>
+        ↓
+        <br>
+        Check NULL
+        <br>
+        ↓
+        <br>
+        Use Memory
+        <br>
+        ↓
+        <br>
+        realloc() if required
+        <br>
+        ↓
+        <br>
+        free()
+
+    </div>
+
+
+    <!-- 17.29 MALLOC CALLOC REALLOC FREE -->
+
+    <h3>17.29 Important Functions</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>malloc()</td>
+                    <td>Allocates uninitialized memory</td>
+                </tr>
+
+                <tr>
+                    <td>calloc()</td>
+                    <td>Allocates memory and initializes bytes to zero</td>
+                </tr>
+
+                <tr>
+                    <td>realloc()</td>
+                    <td>Changes the size of an allocation</td>
+                </tr>
+
+                <tr>
+                    <td>free()</td>
+                    <td>Releases allocated memory</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 17.30 COMMON MISTAKES -->
+
+    <h3>17.30 Common Dynamic Memory Mistakes</h3>
+
+    <ul>
+
+        <li>
+            Forgetting to check whether allocation returned NULL.
+        </li>
+
+        <li>
+            Forgetting to call free().
+        </li>
+
+        <li>
+            Accessing memory after free().
+        </li>
+
+        <li>
+            Freeing the same allocation twice.
+        </li>
+
+        <li>
+            Writing beyond the allocated block.
+        </li>
+
+        <li>
+            Losing the only pointer to allocated memory.
+        </li>
+
+        <li>
+            Using the wrong size in malloc() or calloc().
+        </li>
+
+        <li>
+            Overwriting the original pointer with realloc()
+            without considering allocation failure.
+        </li>
+
+    </ul>
+
+
+    <!-- 17.31 QUICK REVISION -->
+
+    <h3>17.31 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 <strong>malloc()</strong> → Allocates memory
+
+        <br><br>
+
+        📌 <strong>calloc()</strong> → Allocates and zero-initializes bytes
+
+        <br><br>
+
+        📌 <strong>realloc()</strong> → Resizes an allocation
+
+        <br><br>
+
+        📌 <strong>free()</strong> → Releases memory
+
+        <br><br>
+
+        📌 <strong>NULL</strong> → Indicates a null pointer
+
+        <br><br>
+
+        📌 <strong>Heap</strong> → Commonly used for dynamic storage
+
+        <br><br>
+
+        📌 <strong>Memory leak</strong> → Allocated memory is not released
+
+        <br><br>
+
+        📌 <strong>Dangling pointer</strong> → Pointer refers to
+        an object whose lifetime has ended
+
+        <br><br>
+
+        📌 <strong>Use-after-free</strong> → Accessing freed memory
+
+        <br><br>
+
+        📌 <strong>sizeof *ptr</strong> → Useful for type-safe allocation sizing
+
+    </div>
+
+
+    <!-- 17.32 MCQs -->
+
+    <h3>17.32 Quick MCQs</h3>
+
+    <ol>
+
+        <li>
+
+            Which function allocates dynamic memory?
+
+            <br><br>
+
+            A) malloc()
+
+            <br>
+
+            B) allocate()
+
+            <br>
+
+            C) memory()
+
+            <br>
+
+            D) new()
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which function releases dynamically allocated memory?
+
+            <br><br>
+
+            A) delete()
+
+            <br>
+
+            B) remove()
+
+            <br>
+
+            C) free()
+
+            <br>
+
+            D) release()
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which function allocates and zero-initializes the
+            allocated bytes?
+
+            <br><br>
+
+            A) malloc()
+
+            <br>
+
+            B) calloc()
+
+            <br>
+
+            C) realloc()
+
+            <br>
+
+            D) free()
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which function changes the size of an allocation?
+
+            <br><br>
+
+            A) malloc()
+
+            <br>
+
+            B) calloc()
+
+            <br>
+
+            C) realloc()
+
+            <br>
+
+            D) resize()
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Where is dynamically allocated storage commonly
+            obtained from?
+
+            <br><br>
+
+            A) Heap
+
+            <br>
+
+            B) Register
+
+            <br>
+
+            C) Code segment
+
+            <br>
+
+            D) Preprocessor
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What should be checked after malloc()?
+
+            <br><br>
+
+            A) EOF
+
+            <br>
+
+            B) NULL
+
+            <br>
+
+            C) void
+
+            <br>
+
+            D) zero
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What is a memory leak?
+
+            <br><br>
+
+            A) Using too little memory
+
+            <br>
+
+            B) Losing access to allocated memory without releasing it
+
+            <br>
+
+            C) Reading a file
+
+            <br>
+
+            D) Using a static variable
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What should you do after free(ptr) if you want to
+            make ptr a safe null pointer?
+
+            <br><br>
+
+            A) ptr = NULL
+
+            <br>
+
+            B) ptr = 1
+
+            <br>
+
+            C) ptr++
+
+            <br>
+
+            D) realloc(ptr)
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which function is declared in stdlib.h?
+
+            <br><br>
+
+            A) malloc()
+
+            <br>
+
+            B) printf()
+
+            <br>
+
+            C) strlen()
+
+            <br>
+
+            D) strcpy()
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which is a dangerous operation?
+
+            <br><br>
+
+            A) free(ptr)
+
+            <br>
+
+            B) ptr = NULL
+
+            <br>
+
+            C) Dereferencing ptr after free(ptr)
+
+            <br>
+
+            D) malloc()
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+    </ol>
+
+
+    <!-- 17.33 PRACTICE -->
+
+    <h3>17.33 Practice Problems</h3>
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+        Allocate memory dynamically for one integer and
+        store a value in it.
+
+        <br><br>
+
+        <strong>Problem 2</strong>
+
+        <br>
+        Dynamically allocate an array of n integers.
+
+        <br><br>
+
+        <strong>Problem 3</strong>
+
+        <br>
+        Read n numbers into a dynamically allocated array
+        and find their sum.
+
+        <br><br>
+
+        <strong>Problem 4</strong>
+
+        <br>
+        Find the largest element in a dynamically allocated array.
+
+        <br><br>
+
+        <strong>Problem 5</strong>
+
+        <br>
+        Find the smallest element in a dynamically allocated array.
+
+        <br><br>
+
+        <strong>Problem 6</strong>
+
+        <br>
+        Reverse a dynamically allocated array.
+
+        <br><br>
+
+        <strong>Problem 7</strong>
+
+        <br>
+        Use calloc() to create an array of integers and display
+        its initial values.
+
+        <br><br>
+
+        <strong>Problem 8</strong>
+
+        <br>
+        Use realloc() to increase the size of an integer array.
+
+        <br><br>
+
+        <strong>Problem 9</strong>
+
+        <br>
+        Use realloc() to reduce the size of an array.
+
+        <br><br>
+
+        <strong>Problem 10</strong>
+
+        <br>
+        Dynamically allocate memory for a string and store a
+        user-provided string.
+
+        <br><br>
+
+        <strong>Problem 11</strong>
+
+        <br>
+        Dynamically allocate a structure and access its members.
+
+        <br><br>
+
+        <strong>Problem 12</strong>
+
+        <br>
+        Dynamically allocate an array of structures.
+
+        <br><br>
+
+        <strong>Problem 13</strong>
+
+        <br>
+        Create a dynamically allocated 2D matrix.
+
+        <br><br>
+
+        <strong>Problem 14</strong>
+
+        <br>
+        Add two dynamically allocated matrices.
+
+        <br><br>
+
+        <strong>Problem 15</strong>
+
+        <br>
+        Find the transpose of a dynamically allocated matrix.
+
+        <br><br>
+
+        <strong>Problem 16</strong>
+
+        <br>
+        Demonstrate the difference between malloc() and calloc().
+
+        <br><br>
+
+        <strong>Problem 17</strong>
+
+        <br>
+        Write a program that safely handles malloc() failure.
+
+        <br><br>
+
+        <strong>Problem 18</strong>
+
+        <br>
+        Write a program demonstrating realloc() using a
+        temporary pointer.
+
+        <br><br>
+
+        <strong>Problem 19</strong>
+
+        <br>
+        Demonstrate how a memory leak can occur and explain
+        how to prevent it.
+
+        <br><br>
+
+        <strong>Problem 20</strong>
+
+        <br>
+        Create a dynamic Student Record Management System
+        using an array of structures.
+
+    </div>
+
+
+    <!-- 17.34 KEY TAKEAWAY -->
+
+    <h3>17.34 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 Remember:
+
+        <br><br>
+
+        <strong>malloc() → Allocate memory</strong>
+
+        <br><br>
+
+        <strong>calloc() → Allocate + zero-initialize bytes</strong>
+
+        <br><br>
+
+        <strong>realloc() → Resize allocation</strong>
+
+        <br><br>
+
+        <strong>free() → Release memory</strong>
+
+        <br><br>
+
+        <strong>NULL → Check allocation failure</strong>
+
+        <br><br>
+
+        <strong>Heap → Common area for dynamic storage</strong>
+
+        <br><br>
+
+        <strong>Memory Leak → Allocated memory not released</strong>
+
+        <br><br>
+
+        <strong>Dangling Pointer → Pointer to expired/freed object</strong>
+
+        <br><br>
+
+        <strong>Use-After-Free → Accessing freed memory</strong>
+
+    </div>
+
+</section>        
 
 
         <!-- ================================
