@@ -31774,11 +31774,7 @@ int main()
 
 </section>
 
-
-
-
         
-```html
 <!-- ================================
      PRACTICE
 ================================= -->
@@ -32902,7 +32898,1062 @@ function showPracticeLevel1()
 }
 
 </script>
-```
+
+
+<!-- =================================
+     LEVEL 2 — OPERATORS & CONDITIONS
+================================== -->
+
+<div id="practice-level-2">
+
+    <hr>
+
+    <h2>🟢 Level 2 — Operators &amp; Conditions</h2>
+
+    <p>
+        Practice relational, logical, conditional operators
+        and decision-making using <code>if</code>, <code>if-else</code>
+        and <code>switch</code>.
+    </p>
+
+
+    <!-- Problem 1 -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣ Positive, Negative or Zero</h3>
+
+        <p>
+            Write a C program to check whether a given number
+            is positive, negative or zero.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>-8</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Negative</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Compare the number with zero using <code>if-else</code>.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    if(n &gt; 0)
+        printf("Positive");
+    else if(n &lt; 0)
+        printf("Negative");
+    else
+        printf("Zero");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 2 -->
+
+    <div class="tip-box">
+
+        <h3>2️⃣ Even or Odd</h3>
+
+        <p>
+            Check whether a given integer is even or odd.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>24</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Even</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Use the modulus operator <code>%</code>.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    if(n % 2 == 0)
+        printf("Even");
+    else
+        printf("Odd");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 3 -->
+
+    <div class="tip-box">
+
+        <h3>3️⃣ Greater of Two Numbers</h3>
+
+        <p>
+            Find the greater of two numbers.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>25 18</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>25</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Compare both numbers using <code>&gt;</code>.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    if(a &gt; b)
+        printf("%d", a);
+    else
+        printf("%d", b);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 4 -->
+
+    <div class="tip-box">
+
+        <h3>4️⃣ Greatest of Three Numbers</h3>
+
+        <p>
+            Find the greatest among three integers.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>10 35 20</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>35</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Compare the numbers using multiple conditions.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b, c;
+
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    if(a &gt;= b &amp;&amp; a &gt;= c)
+        printf("%d", a);
+    else if(b &gt;= a &amp;&amp; b &gt;= c)
+        printf("%d", b);
+    else
+        printf("%d", c);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 5 -->
+
+    <div class="tip-box">
+
+        <h3>5️⃣ Divisible by 5</h3>
+
+        <p>
+            Check whether a number is divisible by 5.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>45</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Divisible by 5</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Check whether <code>n % 5 == 0</code>.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    if(n % 5 == 0)
+        printf("Divisible by 5");
+    else
+        printf("Not Divisible by 5");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 6 -->
+
+    <div class="tip-box">
+
+        <h3>6️⃣ Divisible by Both 3 and 5</h3>
+
+        <p>
+            Check whether a number is divisible by both 3 and 5.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>30</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Divisible by both 3 and 5</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Use the logical AND operator <code>&amp;&amp;</code>.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    if(n % 3 == 0 &amp;&amp; n % 5 == 0)
+        printf("Divisible by both 3 and 5");
+    else
+        printf("Not divisible by both 3 and 5");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 7 -->
+
+    <div class="tip-box">
+
+        <h3>7️⃣ Leap Year</h3>
+
+        <p>
+            Check whether a given year is a leap year.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>2024</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Leap Year</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                A year is a leap year if it is divisible by 400,
+                or divisible by 4 but not by 100.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int year;
+
+    scanf("%d", &amp;year);
+
+    if(year % 400 == 0 ||
+       (year % 4 == 0 &amp;&amp; year % 100 != 0))
+        printf("Leap Year");
+    else
+        printf("Not a Leap Year");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 8 -->
+
+    <div class="tip-box">
+
+        <h3>8️⃣ Vowel or Consonant</h3>
+
+        <p>
+            Check whether an alphabet is a vowel or consonant.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>e</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Vowel</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Check for <code>a, e, i, o, u</code>.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char ch;
+
+    scanf(" %c", &amp;ch);
+
+    if(ch == 'a' || ch == 'e' || ch == 'i' ||
+       ch == 'o' || ch == 'u' ||
+       ch == 'A' || ch == 'E' || ch == 'I' ||
+       ch == 'O' || ch == 'U')
+        printf("Vowel");
+    else
+        printf("Consonant");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 9 -->
+
+    <div class="tip-box">
+
+        <h3>9️⃣ Alphabet, Digit or Special Character</h3>
+
+        <p>
+            Determine whether a character is an alphabet,
+            digit or special character.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>7</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Digit</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use ASCII ranges for uppercase letters,
+                lowercase letters and digits.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char ch;
+
+    scanf(" %c", &amp;ch);
+
+    if((ch &gt;= 'A' &amp;&amp; ch &lt;= 'Z') ||
+       (ch &gt;= 'a' &amp;&amp; ch &lt;= 'z'))
+        printf("Alphabet");
+    else if(ch &gt;= '0' &amp;&amp; ch &lt;= '9')
+        printf("Digit");
+    else
+        printf("Special Character");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 10 -->
+
+    <div class="tip-box">
+
+        <h3>🔟 Eligible to Vote</h3>
+
+        <p>
+            Check whether a person is eligible to vote.
+            Assume the minimum age is 18.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>20</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Eligible to Vote</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Check whether age is greater than or equal to 18.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int age;
+
+    scanf("%d", &amp;age);
+
+    if(age &gt;= 18)
+        printf("Eligible to Vote");
+    else
+        printf("Not Eligible to Vote");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 11 -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣1️⃣ Absolute Value</h3>
+
+        <p>
+            Find the absolute value of an integer without using
+            the built-in <code>abs()</code> function.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>-25</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>25</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>If the number is negative, multiply it by -1.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    if(n &lt; 0)
+        n = -n;
+
+    printf("%d", n);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 12 -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣2️⃣ Largest Using Conditional Operator</h3>
+
+        <p>
+            Find the largest of two numbers using the
+            conditional operator <code>?:</code>.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>40 25</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>40</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Use <code>(a &gt; b) ? a : b</code>.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b, largest;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    largest = (a &gt; b) ? a : b;
+
+    printf("%d", largest);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 13 -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣3️⃣ Smallest Using Conditional Operator</h3>
+
+        <p>
+            Find the smallest of two numbers using the
+            conditional operator.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>40 25</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>25</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Use <code>(a &lt; b) ? a : b</code>.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b, smallest;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    smallest = (a &lt; b) ? a : b;
+
+    printf("%d", smallest);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 14 -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣4️⃣ Student Grade</h3>
+
+        <p>
+            Read marks and print the grade.
+        </p>
+
+        <p><strong>Rules:</strong></p>
+
+        <pre><code>90 - 100 → A
+80 - 89  → B
+70 - 79  → C
+60 - 69  → D
+Below 60 → F</code></pre>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>85</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Grade B</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>Check the highest range first using an if-else ladder.</p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int marks;
+
+    scanf("%d", &amp;marks);
+
+    if(marks &gt;= 90 &amp;&amp; marks &lt;= 100)
+        printf("Grade A");
+    else if(marks &gt;= 80)
+        printf("Grade B");
+    else if(marks &gt;= 70)
+        printf("Grade C");
+    else if(marks &gt;= 60)
+        printf("Grade D");
+    else
+        printf("Grade F");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 15 -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣5️⃣ Profit or Loss</h3>
+
+        <p>
+            Given cost price and selling price, determine whether
+            there is a profit, loss or no profit/no loss.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>500 650</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Profit = 150</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                If SP &gt; CP → Profit,
+                SP &lt; CP → Loss,
+                otherwise → No Profit No Loss.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int cp, sp;
+
+    scanf("%d %d", &amp;cp, &amp;sp);
+
+    if(sp &gt; cp)
+        printf("Profit = %d", sp - cp);
+    else if(cp &gt; sp)
+        printf("Loss = %d", cp - sp);
+    else
+        printf("No Profit No Loss");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 16 -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣6️⃣ Discount Calculator</h3>
+
+        <p>
+            Calculate the final price after applying a discount.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>1000 10</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Final Price = 900.00</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Discount = price × discount% / 100.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    float price, discount, finalPrice;
+
+    scanf("%f %f", &amp;price, &amp;discount);
+
+    finalPrice = price - (price * discount / 100);
+
+    printf("Final Price = %.2f", finalPrice);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 17 -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣7️⃣ Electricity Bill</h3>
+
+        <p>
+            Calculate an electricity bill based on units consumed.
+        </p>
+
+        <p><strong>Rates:</strong></p>
+
+        <pre><code>First 100 units  → ₹1.50/unit
+Next 100 units   → ₹2.00/unit
+Above 200 units  → ₹3.00/unit</code></pre>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>250</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Bill = 550.00</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Calculate each slab separately.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int units;
+    float bill;
+
+    scanf("%d", &amp;units);
+
+    if(units &lt;= 100)
+    {
+        bill = units * 1.50;
+    }
+    else if(units &lt;= 200)
+    {
+        bill = 100 * 1.50 +
+               (units - 100) * 2.00;
+    }
+    else
+    {
+        bill = 100 * 1.50 +
+               100 * 2.00 +
+               (units - 200) * 3.00;
+    }
+
+    printf("Bill = %.2f", bill);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 18 -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣8️⃣ Valid Triangle</h3>
+
+        <p>
+            Check whether three sides can form a valid triangle.
+        </p>
+
+        <p>
+            A triangle is valid when the sum of any two sides
+            is greater than the third side.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>3 4 5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Valid Triangle</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Check all three triangle inequalities.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b, c;
+
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    if(a + b &gt; c &amp;&amp;
+       b + c &gt; a &amp;&amp;
+       a + c &gt; b)
+        printf("Valid Triangle");
+    else
+        printf("Invalid Triangle");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 19 -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣9️⃣ Type of Triangle</h3>
+
+        <p>
+            Determine whether a triangle is Equilateral,
+            Isosceles or Scalene.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5 5 3</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Isosceles Triangle</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                First ensure the sides form a valid triangle,
+                then compare the sides.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a, b, c;
+
+    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+
+    if(a + b &lt;= c ||
+       b + c &lt;= a ||
+       a + c &lt;= b)
+    {
+        printf("Invalid Triangle");
+    }
+    else if(a == b &amp;&amp; b == c)
+    {
+        printf("Equilateral Triangle");
+    }
+    else if(a == b || b == c || a == c)
+    {
+        printf("Isosceles Triangle");
+    }
+    else
+    {
+        printf("Scalene Triangle");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- Problem 20 -->
+
+    <div class="tip-box">
+
+        <h3>2️⃣0️⃣ Simple Calculator Using switch</h3>
+
+        <p>
+            Write a C program that performs addition, subtraction,
+            multiplication and division using <code>switch</code>.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>20 * 5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>100</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Read two numbers and an operator, then use
+                <code>switch</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    float a, b;
+    char op;
+
+    scanf("%f %c %f", &amp;a, &amp;op, &amp;b);
+
+    switch(op)
+    {
+        case '+':
+            printf("%.2f", a + b);
+            break;
+
+        case '-':
+            printf("%.2f", a - b);
+            break;
+
+        case '*':
+            printf("%.2f", a * b);
+            break;
+
+        case '/':
+            if(b != 0)
+                printf("%.2f", a / b);
+            else
+                printf("Division by zero is not allowed");
+            break;
+
+        default:
+            printf("Invalid operator");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- LEVEL 2 COMPLETE -->
+
+    <div class="tip-box">
+
+        <h3>🎉 Level 2 Complete!</h3>
+
+        <p>
+            Excellent! You have completed
+            <strong>Operators &amp; Conditions</strong>.
+        </p>
+
+        <p>
+            Next:
+            <strong>🟢 Level 3 — Loops &amp; Number Problems</strong>
+        </p>
+
+    </div>
+
+</div>
+
 
 
 
