@@ -14170,46 +14170,1712 @@ for(int i = 0; i &lt; 3; i++)
              FUNCTIONS
         ================================= -->
 
-        <section
-            id="functions"
-            class="content-card">
+        <section id="functions" class="content-card">
 
-            <h2>
+    <h2>🔧 12. Functions</h2>
 
-                🧩 12. Functions
+    <!-- 12.1 INTRODUCTION -->
 
-            </h2>
+    <h3>12.1 What is a Function?</h3>
+
+    <p>
+        A function is a named block of code designed to
+        perform a specific task.
+    </p>
+
+    <div class="example-box">
+
+        Instead of writing one very large program,
+        we can divide it into smaller functions.
+
+        <br><br>
+
+        Example:
+
+        <br><br>
+
+        <strong>main()</strong>
+
+        <br>
+        ↓
+        <br>
+
+        calculateSum()
+
+        <br>
+        ↓
+        <br>
+
+        findMaximum()
+
+        <br>
+        ↓
+        <br>
+
+        printResult()
+
+    </div>
 
 
-            <p>
+    <!-- 12.2 WHY FUNCTIONS -->
 
-                Functions are reusable blocks of
-                code designed to perform a
-                particular task.
+    <h3>12.2 Why Do We Need Functions?</h3>
 
-            </p>
+    <ul>
+
+        <li>Functions make programs easier to understand.</li>
+
+        <li>They reduce code repetition.</li>
+
+        <li>They make debugging easier.</li>
+
+        <li>They improve code organization.</li>
+
+        <li>They allow code reuse.</li>
+
+        <li>Large problems can be divided into smaller problems.</li>
+
+    </ul>
+
+    <div class="tip-box">
+
+        💡 Think of a function as a small machine:
+
+        <br><br>
+
+        Input → Function → Output
+
+    </div>
 
 
-            <pre><code>
-int add(int a, int b)
+    <!-- 12.3 BASIC SYNTAX -->
+
+    <h3>12.3 Basic Function Syntax</h3>
+
+    <pre><code>return_type function_name(parameters)
 {
-    return a + b;
-}
+    // statements
 
+    return value;
+}</code></pre>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Part</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>return_type</td>
+                    <td>Type of value returned by function</td>
+                </tr>
+
+                <tr>
+                    <td>function_name</td>
+                    <td>Name of the function</td>
+                </tr>
+
+                <tr>
+                    <td>parameters</td>
+                    <td>Input values received by function</td>
+                </tr>
+
+                <tr>
+                    <td>statements</td>
+                    <td>Work performed by function</td>
+                </tr>
+
+                <tr>
+                    <td>return</td>
+                    <td>Sends a value back to caller</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 12.4 SIMPLE FUNCTION -->
+
+    <h3>12.4 Simple Function</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+void greet()
+{
+    printf("Hello!");
+}
 
 int main()
 {
-    int result;
+    greet();
 
-    result = add(10, 20);
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        Hello!
+
+    </div>
+
+
+    <!-- 12.5 FUNCTION CALL -->
+
+    <h3>12.5 Calling a Function</h3>
+
+    <p>
+        A function executes when it is called.
+    </p>
+
+    <pre><code>greet();</code></pre>
+
+    <div class="formula-box">
+
+        Function Definition
+
+        <br>
+        ↓
+        <br>
+
+        Function Call
+
+        <br>
+        ↓
+        <br>
+
+        Function Executes
+
+    </div>
+
+
+    <!-- 12.6 DECLARATION -->
+
+    <h3>12.6 Function Declaration / Prototype</h3>
+
+    <p>
+        A function prototype tells the compiler about
+        the function before it is used.
+    </p>
+
+    <pre><code>int add(int, int);</code></pre>
+
+    <p>
+        Complete example:
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int add(int, int);
+
+int main()
+{
+    int result = add(10, 20);
 
     printf("%d", result);
 
     return 0;
 }
-            </code></pre>
 
-        </section>
+int add(int a, int b)
+{
+    return a + b;
+}</code></pre>
+
+    <div class="output-box">
+
+        30
+
+    </div>
+
+
+    <!-- 12.7 FUNCTION DEFINITION -->
+
+    <h3>12.7 Function Definition</h3>
+
+    <pre><code>int add(int a, int b)
+{
+    return a + b;
+}</code></pre>
+
+    <p>
+        This contains the actual implementation of
+        the function.
+    </p>
+
+
+    <!-- 12.8 FUNCTION CALL -->
+
+    <h3>12.8 Function Call</h3>
+
+    <pre><code>int result = add(10, 20);</code></pre>
+
+    <p>
+        Here, <strong>10</strong> and <strong>20</strong>
+        are arguments passed to the function.
+    </p>
+
+
+    <!-- 12.9 PARAMETERS -->
+
+    <h3>12.9 Parameters and Arguments</h3>
+
+    <pre><code>int add(int a, int b)
+{
+    return a + b;
+}
+
+int result = add(10, 20);</code></pre>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Term</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Parameters</td>
+                    <td>a, b</td>
+                </tr>
+
+                <tr>
+                    <td>Arguments</td>
+                    <td>10, 20</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 12.10 RETURN VALUE -->
+
+    <h3>12.10 Function with Return Value</h3>
+
+    <pre><code>int square(int n)
+{
+    return n * n;
+}
+
+int main()
+{
+    int result = square(5);
+
+    printf("%d", result);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        25
+
+    </div>
+
+
+    <!-- 12.11 VOID -->
+
+    <h3>12.11 void Function</h3>
+
+    <p>
+        A <strong>void</strong> function does not return
+        a value.
+    </p>
+
+    <pre><code>void display()
+{
+    printf("Welcome to C");
+}</code></pre>
+
+
+    <!-- 12.12 NO PARAMETERS -->
+
+    <h3>12.12 Function Without Parameters</h3>
+
+    <pre><code>void message()
+{
+    printf("Hello World");
+}
+
+int main()
+{
+    message();
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.13 PARAMETERS NO RETURN -->
+
+    <h3>12.13 Parameters Without Return Value</h3>
+
+    <pre><code>void printSum(int a, int b)
+{
+    printf("%d", a + b);
+}
+
+int main()
+{
+    printSum(10, 20);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.14 NO PARAMETERS RETURN -->
+
+    <h3>12.14 No Parameters With Return Value</h3>
+
+    <pre><code>int getNumber()
+{
+    return 100;
+}
+
+int main()
+{
+    int x = getNumber();
+
+    printf("%d", x);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.15 FOUR TYPES -->
+
+    <h3>12.15 Four Common Types of Functions</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Parameters</th>
+                    <th>Return Value</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Type 1</td>
+                    <td>No</td>
+                    <td>No</td>
+                </tr>
+
+                <tr>
+                    <td>Type 2</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr>
+
+                <tr>
+                    <td>Type 3</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                </tr>
+
+                <tr>
+                    <td>Type 4</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 12.16 ADDITION -->
+
+    <h3>12.16 Add Two Numbers Using Function</h3>
+
+    <pre><code>int add(int a, int b)
+{
+    return a + b;
+}
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("%d", add(a, b));
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.17 MAXIMUM -->
+
+    <h3>12.17 Find Maximum Using Function</h3>
+
+    <pre><code>int maximum(int a, int b)
+{
+    if(a &gt; b)
+        return a;
+
+    return b;
+}
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("Maximum = %d", maximum(a, b));
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.18 EVEN ODD -->
+
+    <h3>12.18 Check Even or Odd Using Function</h3>
+
+    <pre><code>int isEven(int n)
+{
+    return n % 2 == 0;
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    if(isEven(n))
+        printf("Even");
+    else
+        printf("Odd");
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.19 POSITIVE -->
+
+    <h3>12.19 Check Positive, Negative or Zero</h3>
+
+    <pre><code>void checkNumber(int n)
+{
+    if(n &gt; 0)
+        printf("Positive");
+    else if(n &lt; 0)
+        printf("Negative");
+    else
+        printf("Zero");
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    checkNumber(n);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.20 PRIME -->
+
+    <h3>12.20 Check Prime Number Using Function</h3>
+
+    <pre><code>int isPrime(int n)
+{
+    if(n &lt; 2)
+        return 0;
+
+    for(int i = 2; i * i &lt;= n; i++)
+    {
+        if(n % i == 0)
+            return 0;
+    }
+
+    return 1;
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    if(isPrime(n))
+        printf("Prime");
+    else
+        printf("Not Prime");
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.21 FACTORIAL -->
+
+    <h3>12.21 Factorial Using Function</h3>
+
+    <pre><code>long long factorial(int n)
+{
+    long long fact = 1;
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        fact *= i;
+    }
+
+    return fact;
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("%lld", factorial(n));
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.22 GCD -->
+
+    <h3>12.22 GCD Using Function</h3>
+
+    <p>
+        The greatest common divisor can be calculated
+        efficiently using the Euclidean algorithm.
+    </p>
+
+    <pre><code>int gcd(int a, int b)
+{
+    while(b != 0)
+    {
+        int temp = b;
+
+        b = a % b;
+
+        a = temp;
+    }
+
+    return a;
+}
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("GCD = %d", gcd(a, b));
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.23 LCM -->
+
+    <h3>12.23 LCM Using Function</h3>
+
+    <pre><code>int gcd(int a, int b)
+{
+    while(b != 0)
+    {
+        int temp = b;
+
+        b = a % b;
+
+        a = temp;
+    }
+
+    return a;
+}
+
+long long lcm(int a, int b)
+{
+    if(a == 0 || b == 0)
+        return 0;
+
+    return (long long)a / gcd(a, b) * b;
+}
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("LCM = %lld", lcm(a, b));
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.24 RECURSION -->
+
+    <h3>12.24 What is Recursion?</h3>
+
+    <p>
+        Recursion occurs when a function calls itself.
+    </p>
+
+    <div class="formula-box">
+
+        Function
+
+        <br>
+        ↓
+        <br>
+
+        Calls itself
+
+        <br>
+        ↓
+        <br>
+
+        Smaller problem
+
+        <br>
+        ↓
+        <br>
+
+        Base case
+
+        <br>
+        ↓
+        <br>
+
+        Stop
+
+    </div>
+
+
+    <!-- 12.25 RECURSIVE FACTORIAL -->
+
+    <h3>12.25 Recursive Factorial</h3>
+
+    <pre><code>long long factorial(int n)
+{
+    if(n &lt;= 1)
+        return 1;
+
+    return n * factorial(n - 1);
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("%lld", factorial(n));
+
+    return 0;
+}</code></pre>
+
+    <div class="tip-box">
+
+        ⚠️ Every recursive function should have a
+        suitable base case to stop recursion.
+
+    </div>
+
+
+    <!-- 12.26 FIBONACCI -->
+
+    <h3>12.26 Recursive Fibonacci</h3>
+
+    <pre><code>int fibonacci(int n)
+{
+    if(n == 0)
+        return 0;
+
+    if(n == 1)
+        return 1;
+
+    return fibonacci(n - 1)
+         + fibonacci(n - 2);
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("%d", fibonacci(n));
+
+    return 0;
+}</code></pre>
+
+    <div class="tip-box">
+
+        💡 This simple recursive Fibonacci implementation
+        is useful for understanding recursion, but it is
+        inefficient for large n.
+
+    </div>
+
+
+    <!-- 12.27 SUM NATURAL -->
+
+    <h3>12.27 Sum of First N Natural Numbers</h3>
+
+    <pre><code>int sumN(int n)
+{
+    if(n == 0)
+        return 0;
+
+    return n + sumN(n - 1);
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("%d", sumN(n));
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.28 ARRAY FUNCTION -->
+
+    <h3>12.28 Passing an Array to a Function</h3>
+
+    <p>
+        An array can be passed to a function along with
+        its size.
+    </p>
+
+    <pre><code>int sumArray(int arr[], int n)
+{
+    int sum = 0;
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        sum += arr[i];
+    }
+
+    return sum;
+}
+
+int main()
+{
+    int arr[] = {10, 20, 30, 40, 50};
+
+    int n = 5;
+
+    printf("%d", sumArray(arr, n));
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.29 MAX ARRAY -->
+
+    <h3>12.29 Maximum Element Using Function</h3>
+
+    <pre><code>int maximum(int arr[], int n)
+{
+    int max = arr[0];
+
+    for(int i = 1; i &lt; n; i++)
+    {
+        if(arr[i] &gt; max)
+        {
+            max = arr[i];
+        }
+    }
+
+    return max;
+}
+
+int main()
+{
+    int arr[] = {10, 50, 20, 80, 30};
+
+    int n = 5;
+
+    printf("Maximum = %d",
+           maximum(arr, n));
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.30 STRING FUNCTION -->
+
+    <h3>12.30 Passing a String to a Function</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+void display(char str[])
+{
+    printf("%s", str);
+}
+
+int main()
+{
+    char name[] = "Venu";
+
+    display(name);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.31 SCOPE -->
+
+    <h3>12.31 Scope of Variables</h3>
+
+    <p>
+        Scope determines where a variable can be accessed.
+    </p>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Local variable</td>
+                    <td>Declared inside a function/block</td>
+                </tr>
+
+                <tr>
+                    <td>Global variable</td>
+                    <td>Declared outside functions</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 12.32 LOCAL -->
+
+    <h3>12.32 Local Variable</h3>
+
+    <pre><code>void test()
+{
+    int x = 10;
+
+    printf("%d", x);
+}</code></pre>
+
+    <p>
+        The variable <strong>x</strong> is local to
+        the function.
+    </p>
+
+
+    <!-- 12.33 GLOBAL -->
+
+    <h3>12.33 Global Variable</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int x = 100;
+
+void display()
+{
+    printf("%d", x);
+}
+
+int main()
+{
+    display();
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.34 STATIC -->
+
+    <h3>12.34 static Variable</h3>
+
+    <p>
+        A local static variable retains its stored value
+        between function calls.
+    </p>
+
+    <pre><code>void counter()
+{
+    static int count = 0;
+
+    count++;
+
+    printf("%d\n", count);
+}
+
+int main()
+{
+    counter();
+    counter();
+    counter();
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        1
+        <br>
+        2
+        <br>
+        3
+
+    </div>
+
+
+    <!-- 12.35 CALL BY VALUE -->
+
+    <h3>12.35 Call by Value</h3>
+
+    <p>
+        In C, ordinary function arguments are passed by value.
+        The function receives a copy of the argument.
+    </p>
+
+    <pre><code>void change(int x)
+{
+    x = 100;
+}
+
+int main()
+{
+    int a = 10;
+
+    change(a);
+
+    printf("%d", a);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        10
+
+    </div>
+
+    <div class="tip-box">
+
+        📌 The original variable is not changed by the
+        function in this example.
+
+    </div>
+
+
+    <!-- 12.36 MODIFY USING POINTER -->
+
+    <h3>12.36 Modifying a Variable Using a Pointer</h3>
+
+    <p>
+        To modify the caller's variable, we can pass
+        its address using a pointer.
+    </p>
+
+    <pre><code>void change(int *x)
+{
+    *x = 100;
+}
+
+int main()
+{
+    int a = 10;
+
+    change(&amp;a);
+
+    printf("%d", a);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        100
+
+    </div>
+
+
+    <!-- 12.37 SWAP -->
+
+    <h3>12.37 Swap Two Numbers Using Function</h3>
+
+    <pre><code>void swap(int *a, int *b)
+{
+    int temp = *a;
+
+    *a = *b;
+
+    *b = temp;
+}
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    swap(&amp;a, &amp;b);
+
+    printf("%d %d", a, b);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 12.38 FUNCTION CALL FLOW -->
+
+    <h3>12.38 How Function Calling Works</h3>
+
+    <div class="formula-box">
+
+        main()
+
+        <br>
+        ↓
+        <br>
+
+        call function
+
+        <br>
+        ↓
+        <br>
+
+        function receives arguments
+
+        <br>
+        ↓
+        <br>
+
+        function performs task
+
+        <br>
+        ↓
+        <br>
+
+        return result
+
+        <br>
+        ↓
+        <br>
+
+        main() continues
+
+    </div>
+
+
+    <!-- 12.39 FUNCTION DESIGN -->
+
+    <h3>12.39 How to Design a Good Function</h3>
+
+    <ol>
+
+        <li>Give the function one clear responsibility.</li>
+
+        <li>Use a meaningful function name.</li>
+
+        <li>Keep the function reasonably small.</li>
+
+        <li>Pass only the data the function needs.</li>
+
+        <li>Return a useful result when appropriate.</li>
+
+        <li>Avoid unnecessary global variables.</li>
+
+    </ol>
+
+
+    <!-- 12.40 PROBLEM SOLVING -->
+
+    <h3>12.40 Function-Based Problem Solving</h3>
+
+    <div class="formula-box">
+
+        Problem
+
+        <br>
+        ↓
+        <br>
+
+        Break into smaller tasks
+
+        <br>
+        ↓
+        <br>
+
+        Create functions
+
+        <br>
+        ↓
+        <br>
+
+        Call functions
+
+        <br>
+        ↓
+        <br>
+
+        Combine results
+
+    </div>
+
+    <div class="example-box">
+
+        <strong>Example:</strong>
+
+        Find the average of an array.
+
+        <br><br>
+
+        Instead of putting everything inside
+        <strong>main()</strong>:
+
+        <br><br>
+
+        readArray()
+
+        <br>
+
+        sumArray()
+
+        <br>
+
+        calculateAverage()
+
+        <br>
+
+        printResult()
+
+    </div>
+
+
+    <!-- 12.41 COMMON MISTAKES -->
+
+    <h3>12.41 Common Function Mistakes</h3>
+
+    <ul>
+
+        <li>
+            Calling a function before declaring it when
+            no suitable declaration is visible.
+        </li>
+
+        <li>
+            Using the wrong return type.
+        </li>
+
+        <li>
+            Forgetting to return a value from a non-void
+            function.
+        </li>
+
+        <li>
+            Passing the wrong number or type of arguments.
+        </li>
+
+        <li>
+            Forgetting that ordinary C arguments are
+            passed by value.
+        </li>
+
+        <li>
+            Creating recursion without a proper base case.
+        </li>
+
+        <li>
+            Using too many global variables.
+        </li>
+
+        <li>
+            Giving one function too many unrelated responsibilities.
+        </li>
+
+    </ul>
+
+
+    <!-- 12.42 QUICK REVISION -->
+
+    <h3>12.42 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 Function → Reusable block of code.
+
+        <br><br>
+
+        📌 Prototype → Function declaration.
+
+        <br><br>
+
+        📌 Parameters → Variables in function definition.
+
+        <br><br>
+
+        📌 Arguments → Actual values passed during the call.
+
+        <br><br>
+
+        📌 return → Sends a value back.
+
+        <br><br>
+
+        📌 void → No return value.
+
+        <br><br>
+
+        📌 Recursion → Function calling itself.
+
+        <br><br>
+
+        📌 Local variable → Limited to its scope.
+
+        <br><br>
+
+        📌 Global variable → Declared outside functions.
+
+        <br><br>
+
+        📌 static local variable → Retains its value
+        between calls.
+
+    </div>
+
+
+    <!-- 12.43 MCQs -->
+
+    <h3>12.43 Quick MCQs</h3>
+
+    <ol>
+
+        <li>
+
+            What is a function?
+
+            <br><br>
+
+            A) A variable
+
+            <br>
+
+            B) A reusable block of code
+
+            <br>
+
+            C) A data type
+
+            <br>
+
+            D) An operator
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which keyword indicates that a function
+            returns no value?
+
+            <br><br>
+
+            A) null
+
+            <br>
+
+            B) empty
+
+            <br>
+
+            C) void
+
+            <br>
+
+            D) zero
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What is recursion?
+
+            <br><br>
+
+            A) A loop
+
+            <br>
+
+            B) A function calling itself
+
+            <br>
+
+            C) A variable assignment
+
+            <br>
+
+            D) An array
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What should recursive functions normally
+            have to stop recursion?
+
+            <br><br>
+
+            A) Pointer
+
+            <br>
+
+            B) Array
+
+            <br>
+
+            C) Base case
+
+            <br>
+
+            D) Structure
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which keyword is used to send a value back
+            from a function?
+
+            <br><br>
+
+            A) break
+
+            <br>
+
+            B) return
+
+            <br>
+
+            C) continue
+
+            <br>
+
+            D) goto
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Ordinary C function arguments are generally
+            passed:
+
+            <br><br>
+
+            A) By value
+
+            <br>
+
+            B) By name
+
+            <br>
+
+            C) By class
+
+            <br>
+
+            D) By object
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+    </ol>
+
+
+    <!-- 12.44 PRACTICE -->
+
+    <h3>12.44 Practice Problems</h3>
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+
+        Create a function to print "Hello World".
+
+        <br><br>
+
+
+        <strong>Problem 2</strong>
+
+        <br>
+
+        Create a function to add two numbers.
+
+        <br><br>
+
+
+        <strong>Problem 3</strong>
+
+        <br>
+
+        Create a function to subtract two numbers.
+
+        <br><br>
+
+
+        <strong>Problem 4</strong>
+
+        <br>
+
+        Create a function to find the maximum of two numbers.
+
+        <br><br>
+
+
+        <strong>Problem 5</strong>
+
+        <br>
+
+        Check whether a number is even or odd using a function.
+
+        <br><br>
+
+
+        <strong>Problem 6</strong>
+
+        <br>
+
+        Check whether a number is positive, negative or zero.
+
+        <br><br>
+
+
+        <strong>Problem 7</strong>
+
+        <br>
+
+        Check whether a number is prime using a function.
+
+        <br><br>
+
+
+        <strong>Problem 8</strong>
+
+        <br>
+
+        Find factorial using a function.
+
+        <br><br>
+
+
+        <strong>Problem 9</strong>
+
+        <br>
+
+        Find GCD using a function.
+
+        <br><br>
+
+
+        <strong>Problem 10</strong>
+
+        <br>
+
+        Find LCM using a function.
+
+        <br><br>
+
+
+        <strong>Problem 11</strong>
+
+        <br>
+
+        Find the sum of first N natural numbers using recursion.
+
+        <br><br>
+
+
+        <strong>Problem 12</strong>
+
+        <br>
+
+        Find factorial using recursion.
+
+        <br><br>
+
+
+        <strong>Problem 13</strong>
+
+        <br>
+
+        Find the Nth Fibonacci number using recursion.
+
+        <br><br>
+
+
+        <strong>Problem 14</strong>
+
+        <br>
+
+        Find the sum of an array using a function.
+
+        <br><br>
+
+
+        <strong>Problem 15</strong>
+
+        <br>
+
+        Find the maximum element of an array using a function.
+
+        <br><br>
+
+
+        <strong>Problem 16</strong>
+
+        <br>
+
+        Find the minimum element of an array using a function.
+
+        <br><br>
+
+
+        <strong>Problem 17</strong>
+
+        <br>
+
+        Pass a string to a function and print it.
+
+        <br><br>
+
+
+        <strong>Problem 18</strong>
+
+        <br>
+
+        Check whether a string is a palindrome using a function.
+
+        <br><br>
+
+
+        <strong>Problem 19</strong>
+
+        <br>
+
+        Swap two numbers using a function and pointers.
+
+        <br><br>
+
+
+        <strong>Problem 20</strong>
+
+        <br>
+
+        Create a menu-driven calculator using separate
+        functions for addition, subtraction, multiplication
+        and division.
+
+    </div>
+
+
+    <!-- 12.45 KEY TAKEAWAY -->
+
+    <h3>12.45 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 The most important idea:
+
+        <br><br>
+
+        <strong>
+        Large Problem
+        → Break into Smaller Problems
+        → Create Functions
+        → Call Functions
+        → Combine Results
+        </strong>
+
+        <br><br>
+
+        Functions are the foundation for writing
+        clean, reusable and modular C programs.
+
+    </div>
+
+</section>
 
 
 
