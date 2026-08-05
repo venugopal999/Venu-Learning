@@ -15883,44 +15883,1580 @@ int main()
              POINTERS
         ================================= -->
 
-        <section
-            id="pointers"
-            class="content-card">
+       <section id="pointers" class="content-card">
 
-            <h2>
+    <h2>👉 13. Pointers</h2>
 
-                👉 13. Pointers
+    <!-- 13.1 INTRODUCTION -->
 
-            </h2>
+    <h3>13.1 What is a Pointer?</h3>
+
+    <p>
+        A pointer is a variable that stores the
+        <strong>memory address</strong> of another variable.
+    </p>
+
+    <pre><code>int x = 10;
+
+int *p = &amp;x;</code></pre>
+
+    <div class="formula-box">
+
+        x → stores 10
+
+        <br><br>
+
+        &amp;x → address of x
+
+        <br><br>
+
+        p → stores the address of x
+
+        <br><br>
+
+        *p → value stored at that address → 10
+
+    </div>
 
 
-            <p>
+    <!-- 13.2 WHY POINTERS -->
 
-                A pointer is a variable that stores
-                the memory address of another variable.
+    <h3>13.2 Why Do We Need Pointers?</h3>
 
-            </p>
+    <ul>
+
+        <li>To work directly with memory addresses.</li>
+
+        <li>To modify variables inside functions.</li>
+
+        <li>To efficiently work with arrays and strings.</li>
+
+        <li>To dynamically allocate memory.</li>
+
+        <li>To create data structures such as linked lists and trees.</li>
+
+        <li>To work with structures and system-level programming.</li>
+
+    </ul>
 
 
-            <pre><code>
-int x = 10;
+    <!-- 13.3 MEMORY -->
 
-int *p = &x;
+    <h3>13.3 Understanding Memory</h3>
 
-printf("%d", *p);
-            </code></pre>
+    <p>
+        Every variable is stored somewhere in computer memory.
+        That location has an address.
+    </p>
+
+    <div class="formula-box">
+
+        Variable
+
+        <br>
+        ↓
+        <br>
+
+        Memory Address
+
+        <br>
+        ↓
+        <br>
+
+        Stored Value
+
+    </div>
+
+    <pre><code>int x = 10;
+
+printf("Value = %d\n", x);
+printf("Address = %p\n", (void*)&amp;x);</code></pre>
+
+    <div class="tip-box">
+
+        💡 The actual memory address can be different every
+        time the program runs.
+
+    </div>
 
 
-            <div class="tip-box">
+    <!-- 13.4 ADDRESS OPERATOR -->
 
-                💡 Pointers are one of the most
-                important concepts in C and
-                Data Structures.
+    <h3>13.4 Address Operator &amp;</h3>
 
-            </div>
+    <p>
+        The <strong>&amp;</strong> operator gives the memory
+        address of a variable.
+    </p>
 
-        </section>
+    <pre><code>int x = 25;
 
+printf("%p", (void*)&amp;x);</code></pre>
+
+    <div class="formula-box">
+
+        x = 25
+
+        <br><br>
+
+        &amp;x = address of x
+
+    </div>
+
+
+    <!-- 13.5 POINTER DECLARATION -->
+
+    <h3>13.5 Pointer Declaration</h3>
+
+    <pre><code>int *p;</code></pre>
+
+    <p>
+        This declares <strong>p</strong> as a pointer to an
+        integer.
+    </p>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Declaration</th>
+                    <th>Pointer Points To</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>int *p;</td>
+                    <td>int</td>
+                </tr>
+
+                <tr>
+                    <td>char *p;</td>
+                    <td>char</td>
+                </tr>
+
+                <tr>
+                    <td>float *p;</td>
+                    <td>float</td>
+                </tr>
+
+                <tr>
+                    <td>double *p;</td>
+                    <td>double</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 13.6 INITIALIZATION -->
+
+    <h3>13.6 Pointer Initialization</h3>
+
+    <pre><code>int x = 10;
+
+int *p = &amp;x;</code></pre>
+
+    <div class="formula-box">
+
+        p
+
+        <br>
+        ↓
+        <br>
+
+        address of x
+
+        <br>
+        ↓
+        <br>
+
+        x = 10
+
+    </div>
+
+
+    <!-- 13.7 DEREFERENCE -->
+
+    <h3>13.7 Dereference Operator *</h3>
+
+    <p>
+        The <strong>*</strong> operator is used to access
+        the value stored at the address held by a pointer.
+    </p>
+
+    <pre><code>int x = 10;
+
+int *p = &amp;x;
+
+printf("%d", *p);</code></pre>
+
+    <div class="output-box">
+
+        10
+
+    </div>
+
+    <div class="formula-box">
+
+        p → address
+
+        <br><br>
+
+        *p → value at address
+
+    </div>
+
+
+    <!-- 13.8 BASIC EXAMPLE -->
+
+    <h3>13.8 Complete Pointer Example</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int x = 50;
+
+    int *p = &amp;x;
+
+    printf("Value of x = %d\n", x);
+
+    printf("Address of x = %p\n", (void*)&amp;x);
+
+    printf("Value stored in p = %p\n", (void*)p);
+
+    printf("Value using *p = %d\n", *p);
+
+    return 0;
+}</code></pre>
+
+    <div class="tip-box">
+
+        🎯 Remember:
+
+        <br><br>
+
+        <strong>&amp;x</strong> → address of x
+
+        <br>
+
+        <strong>p</strong> → stores address of x
+
+        <br>
+
+        <strong>*p</strong> → value of x
+
+    </div>
+
+
+    <!-- 13.9 MODIFY VALUE -->
+
+    <h3>13.9 Modifying a Variable Using a Pointer</h3>
+
+    <pre><code>int x = 10;
+
+int *p = &amp;x;
+
+*p = 100;
+
+printf("%d", x);</code></pre>
+
+    <div class="output-box">
+
+        100
+
+    </div>
+
+    <p>
+        Changing <strong>*p</strong> changes the original
+        variable because the pointer points to that variable.
+    </p>
+
+
+    <!-- 13.10 POINTER MEMORY DIAGRAM -->
+
+    <h3>13.10 Pointer Memory Diagram</h3>
+
+    <div class="formula-box">
+
+        x
+
+        <br>
+
+        ┌──────────────┐
+
+        <br>
+
+        │      10      │
+
+        <br>
+
+        └──────────────┘
+
+        <br>
+
+        Address: 1000
+
+        <br><br>
+
+        p
+
+        <br>
+
+        ┌──────────────┐
+
+        <br>
+
+        │     1000     │
+
+        <br>
+
+        └──────────────┘
+
+        <br>
+
+        Address: 2000
+
+        <br><br>
+
+        p → x
+
+    </div>
+
+    <p>
+        The actual addresses are only illustrative.
+        The important concept is that <strong>p stores
+        the address of x</strong>.
+    </p>
+
+
+    <!-- 13.11 POINTER TYPES -->
+
+    <h3>13.11 Pointer Types</h3>
+
+    <pre><code>int x = 10;
+char c = 'A';
+float f = 3.14f;
+
+int *p1 = &amp;x;
+char *p2 = &amp;c;
+float *p3 = &amp;f;</code></pre>
+
+    <p>
+        The pointer type should correspond to the type of
+        object it points to.
+    </p>
+
+
+    <!-- 13.12 NULL POINTER -->
+
+    <h3>13.12 NULL Pointer</h3>
+
+    <p>
+        A null pointer is a pointer that intentionally does
+        not point to a valid object.
+    </p>
+
+    <pre><code>int *p = NULL;</code></pre>
+
+    <p>
+        Before dereferencing a pointer, make sure it points
+        to a valid object.
+    </p>
+
+    <pre><code>if(p != NULL)
+{
+    printf("%d", *p);
+}</code></pre>
+
+    <div class="tip-box">
+
+        ⚠️ Never dereference a null pointer.
+
+    </div>
+
+
+    <!-- 13.13 POINTER AND ARRAY -->
+
+    <h3>13.13 Pointer and Array</h3>
+
+    <p>
+        The name of an array can be used in many expressions
+        as a pointer to its first element.
+    </p>
+
+    <pre><code>int arr[] = {10, 20, 30};
+
+printf("%d", *arr);</code></pre>
+
+    <div class="output-box">
+
+        10
+
+    </div>
+
+    <p>
+        <strong>arr</strong> refers to the first element in
+        this expression.
+    </p>
+
+
+    <!-- 13.14 ARRAY ACCESS -->
+
+    <h3>13.14 Accessing Array Using Pointer</h3>
+
+    <pre><code>int arr[] = {10, 20, 30, 40};
+
+int *p = arr;
+
+for(int i = 0; i &lt; 4; i++)
+{
+    printf("%d ", *(p + i));
+}</code></pre>
+
+    <div class="output-box">
+
+        10 20 30 40
+
+    </div>
+
+
+    <!-- 13.15 POINTER ARITHMETIC -->
+
+    <h3>13.15 Pointer Arithmetic</h3>
+
+    <p>
+        Pointers can be incremented and decremented.
+        The movement is based on the size of the pointed-to type.
+    </p>
+
+    <pre><code>int arr[] = {10, 20, 30};
+
+int *p = arr;
+
+printf("%d\n", *p);
+
+p++;
+
+printf("%d\n", *p);</code></pre>
+
+    <div class="output-box">
+
+        10
+        <br>
+        20
+
+    </div>
+
+
+    <!-- 13.16 POINTER ADDITION -->
+
+    <h3>13.16 Pointer Expressions</h3>
+
+    <pre><code>*(p + 0)
+*(p + 1)
+*(p + 2)</code></pre>
+
+    <div class="formula-box">
+
+        *(p + i) → element at index i
+
+    </div>
+
+
+    <!-- 13.17 POINTER DIFFERENCE -->
+
+    <h3>13.17 Pointer Difference</h3>
+
+    <p>
+        Pointers to elements of the same array can be
+        subtracted to determine the number of elements
+        between them.
+    </p>
+
+    <pre><code>int arr[] = {10, 20, 30, 40};
+
+int *p = &amp;arr[0];
+int *q = &amp;arr[3];
+
+printf("%td", q - p);</code></pre>
+
+    <div class="output-box">
+
+        3
+
+    </div>
+
+
+    <!-- 13.18 FUNCTION POINTER ARGUMENT -->
+
+    <h3>13.18 Passing Pointer to a Function</h3>
+
+    <pre><code>void change(int *p)
+{
+    *p = 100;
+}
+
+int main()
+{
+    int x = 10;
+
+    change(&amp;x);
+
+    printf("%d", x);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        100
+
+    </div>
+
+
+    <!-- 13.19 SWAP -->
+
+    <h3>13.19 Swap Two Numbers Using Pointers</h3>
+
+    <pre><code>void swap(int *a, int *b)
+{
+    int temp = *a;
+
+    *a = *b;
+
+    *b = temp;
+}
+
+int main()
+{
+    int x = 10;
+    int y = 20;
+
+    swap(&amp;x, &amp;y);
+
+    printf("%d %d", x, y);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        20 10
+
+    </div>
+
+
+    <!-- 13.20 POINTER AND STRING -->
+
+    <h3>13.20 Pointer and String</h3>
+
+    <pre><code>char str[] = "HELLO";
+
+char *p = str;
+
+while(*p != '\0')
+{
+    printf("%c ", *p);
+
+    p++;
+}</code></pre>
+
+    <div class="output-box">
+
+        H E L L O
+
+    </div>
+
+
+    <!-- 13.21 STRING LITERAL POINTER -->
+
+    <h3>13.21 Pointer to String Literal</h3>
+
+    <pre><code>const char *p = "Hello";
+
+printf("%s", p);</code></pre>
+
+    <p>
+        Using <strong>const char *</strong> communicates that
+        the characters of the string literal should not be modified
+        through the pointer.
+    </p>
+
+
+    <!-- 13.22 POINTER TO POINTER -->
+
+    <h3>13.22 Pointer to Pointer</h3>
+
+    <p>
+        A pointer can itself have an address, so another
+        pointer can store its address.
+    </p>
+
+    <pre><code>int x = 10;
+
+int *p = &amp;x;
+
+int **q = &amp;p;
+
+printf("%d\n", x);
+
+printf("%d\n", *p);
+
+printf("%d\n", **q);</code></pre>
+
+    <div class="output-box">
+
+        10
+        <br>
+        10
+        <br>
+        10
+
+    </div>
+
+    <div class="formula-box">
+
+        q → p → x
+
+        <br><br>
+
+        **q → value of x
+
+    </div>
+
+
+    <!-- 13.23 SIZEOF POINTER -->
+
+    <h3>13.23 sizeof Pointer</h3>
+
+    <pre><code>int *p;
+
+printf("%zu", sizeof(p));</code></pre>
+
+    <p>
+        The size of a pointer depends on the system and
+        implementation. It is not necessarily the same as
+        the size of the object it points to.
+    </p>
+
+
+    <!-- 13.24 DYNAMIC MEMORY -->
+
+    <h3>13.24 Dynamic Memory Allocation</h3>
+
+    <p>
+        Dynamic memory allows a program to request memory
+        during runtime.
+    </p>
+
+    <p>
+        The main functions are:
+    </p>
+
+    <ul>
+
+        <li><strong>malloc()</strong></li>
+
+        <li><strong>calloc()</strong></li>
+
+        <li><strong>realloc()</strong></li>
+
+        <li><strong>free()</strong></li>
+
+    </ul>
+
+    <p>
+        These functions are declared in
+        <strong>&lt;stdlib.h&gt;</strong>.
+    </p>
+
+
+    <!-- 13.25 MALLOC -->
+
+    <h3>13.25 malloc()</h3>
+
+    <p>
+        <strong>malloc()</strong> allocates a requested number
+        of bytes and returns a pointer to the allocated memory
+        if successful.
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int *p = malloc(5 * sizeof(int));
+
+    if(p == NULL)
+    {
+        return 1;
+    }
+
+    for(int i = 0; i &lt; 5; i++)
+    {
+        p[i] = (i + 1) * 10;
+    }
+
+    for(int i = 0; i &lt; 5; i++)
+    {
+        printf("%d ", p[i]);
+    }
+
+    free(p);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        10 20 30 40 50
+
+    </div>
+
+
+    <!-- 13.26 CALLOC -->
+
+    <h3>13.26 calloc()</h3>
+
+    <p>
+        <strong>calloc()</strong> allocates space for multiple
+        elements and initializes the allocated bytes to zero.
+    </p>
+
+    <pre><code>int *p = calloc(5, sizeof(int));
+
+if(p == NULL)
+{
+    return 1;
+}
+
+for(int i = 0; i &lt; 5; i++)
+{
+    printf("%d ", p[i]);
+}
+
+free(p);</code></pre>
+
+    <div class="output-box">
+
+        0 0 0 0 0
+
+    </div>
+
+
+    <!-- 13.27 REALLOC -->
+
+    <h3>13.27 realloc()</h3>
+
+    <p>
+        <strong>realloc()</strong> changes the size of a
+        previously allocated memory block.
+    </p>
+
+    <pre><code>int *p = malloc(3 * sizeof(int));
+
+if(p == NULL)
+{
+    return 1;
+}
+
+p[0] = 10;
+p[1] = 20;
+p[2] = 30;
+
+int *temp = realloc(p, 5 * sizeof(int));
+
+if(temp != NULL)
+{
+    p = temp;
+
+    p[3] = 40;
+    p[4] = 50;
+}
+
+free(p);</code></pre>
+
+    <div class="tip-box">
+
+        💡 Using a temporary pointer with realloc() helps
+        avoid losing the original allocation if realloc()
+        fails.
+
+    </div>
+
+
+    <!-- 13.28 FREE -->
+
+    <h3>13.28 free()</h3>
+
+    <p>
+        <strong>free()</strong> releases dynamically allocated
+        memory.
+    </p>
+
+    <pre><code>int *p = malloc(10 * sizeof(int));
+
+if(p != NULL)
+{
+    free(p);
+
+    p = NULL;
+}</code></pre>
+
+    <div class="tip-box">
+
+        ⚠️ Memory allocated dynamically should be released
+        when it is no longer needed.
+
+    </div>
+
+
+    <!-- 13.29 DANGLING -->
+
+    <h3>13.29 Dangling Pointer</h3>
+
+    <p>
+        A dangling pointer is a pointer that refers to an
+        object or memory region that is no longer valid.
+    </p>
+
+    <pre><code>int *p = malloc(sizeof(int));
+
+if(p != NULL)
+{
+    free(p);
+
+    p = NULL;
+}</code></pre>
+
+    <p>
+        Setting the pointer to <strong>NULL</strong> after
+        freeing helps avoid accidentally using the old address.
+    </p>
+
+
+    <!-- 13.30 WILD -->
+
+    <h3>13.30 Wild Pointer</h3>
+
+    <p>
+        A pointer that has not been initialized may contain
+        an indeterminate value and must not be dereferenced.
+    </p>
+
+    <pre><code>int *p;
+
+/* Do not do: *p = 10; */</code></pre>
+
+    <p>
+        Initialize pointers before using them.
+    </p>
+
+    <pre><code>int *p = NULL;</code></pre>
+
+
+    <!-- 13.31 POINTER CONSTANT -->
+
+    <h3>13.31 Pointer and const</h3>
+
+    <p>
+        <strong>const</strong> can be used in different
+        ways with pointers.
+    </p>
+
+    <pre><code>const int *p;</code></pre>
+
+    <p>
+        The pointed-to integer should not be modified
+        through <strong>p</strong>.
+    </p>
+
+    <pre><code>int *const p = &amp;x;</code></pre>
+
+    <p>
+        The pointer itself cannot be redirected to another
+        address after initialization.
+    </p>
+
+
+    <!-- 13.32 POINTER ARRAY -->
+
+    <h3>13.32 Array of Pointers</h3>
+
+    <pre><code>int a = 10;
+int b = 20;
+int c = 30;
+
+int *p[3] = {&amp;a, &amp;b, &amp;c};
+
+for(int i = 0; i &lt; 3; i++)
+{
+    printf("%d ", *p[i]);
+}</code></pre>
+
+    <div class="output-box">
+
+        10 20 30
+
+    </div>
+
+
+    <!-- 13.33 POINTER TO ARRAY -->
+
+    <h3>13.33 Pointer to an Array</h3>
+
+    <pre><code>int arr[3] = {10, 20, 30};
+
+int (*p)[3] = &amp;arr;
+
+printf("%d", (*p)[1]);</code></pre>
+
+    <div class="output-box">
+
+        20
+
+    </div>
+
+
+    <!-- 13.34 POINTER WITH STRUCTURE -->
+
+    <h3>13.34 Pointer with Structure</h3>
+
+    <pre><code>struct Student
+{
+    int age;
+};
+
+int main()
+{
+    struct Student s = {20};
+
+    struct Student *p = &amp;s;
+
+    printf("%d", p-&gt;age);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        20
+
+    </div>
+
+    <p>
+        The <strong>-&gt;</strong> operator is commonly used
+        to access structure members through a pointer.
+    </p>
+
+
+    <!-- 13.35 POINTER AND FUNCTIONS -->
+
+    <h3>13.35 Function Pointer Introduction</h3>
+
+    <p>
+        A function pointer stores the address of a function.
+    </p>
+
+    <pre><code>int add(int a, int b)
+{
+    return a + b;
+}
+
+int main()
+{
+    int (*fp)(int, int) = add;
+
+    printf("%d", fp(10, 20));
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+
+        30
+
+    </div>
+
+
+    <!-- 13.36 POINTER COMPARISON -->
+
+    <h3>13.36 Comparing Pointers</h3>
+
+    <p>
+        Pointers can be compared for equality or inequality.
+        Relational comparisons are meaningful when pointers
+        refer to elements of the same array.
+    </p>
+
+    <pre><code>int arr[3] = {10, 20, 30};
+
+int *p = &amp;arr[0];
+int *q = &amp;arr[0];
+
+if(p == q)
+{
+    printf("Same address");
+}</code></pre>
+
+
+    <!-- 13.37 POINTER AND 2D ARRAY -->
+
+    <h3>13.37 Pointer with 2D Array</h3>
+
+    <pre><code>int arr[2][3] =
+{
+    {10, 20, 30},
+    {40, 50, 60}
+};
+
+for(int i = 0; i &lt; 2; i++)
+{
+    for(int j = 0; j &lt; 3; j++)
+    {
+        printf("%d ", arr[i][j]);
+    }
+
+    printf("\n");
+}</code></pre>
+
+    <div class="output-box">
+
+        10 20 30
+        <br>
+        40 50 60
+
+    </div>
+
+
+    <!-- 13.38 POINTER FORMULA -->
+
+    <h3>13.38 Pointer Formula</h3>
+
+    <div class="formula-box">
+
+        <strong>int x = 10;</strong>
+
+        <br><br>
+
+        &amp;x → address of x
+
+        <br><br>
+
+        <strong>int *p = &amp;x;</strong>
+
+        <br><br>
+
+        p → address of x
+
+        <br><br>
+
+        *p → value of x
+
+        <br><br>
+
+        *p = 50 → changes x to 50
+
+    </div>
+
+
+    <!-- 13.39 COMMON MISTAKES -->
+
+    <h3>13.39 Common Pointer Mistakes</h3>
+
+    <ul>
+
+        <li>
+            Dereferencing an uninitialized pointer.
+        </li>
+
+        <li>
+            Dereferencing a NULL pointer.
+        </li>
+
+        <li>
+            Accessing memory after it has been freed.
+        </li>
+
+        <li>
+            Forgetting to free dynamically allocated memory.
+        </li>
+
+        <li>
+            Going outside the bounds of an array using pointers.
+        </li>
+
+        <li>
+            Using the wrong pointer type.
+        </li>
+
+        <li>
+            Confusing <strong>&amp;</strong> with
+            <strong>*</strong>.
+        </li>
+
+        <li>
+            Confusing <strong>p</strong> with
+            <strong>*p</strong>.
+        </li>
+
+    </ul>
+
+
+    <!-- 13.40 QUICK REVISION -->
+
+    <h3>13.40 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 Pointer → stores an address.
+
+        <br><br>
+
+        📌 <strong>&amp;x</strong> → address of x.
+
+        <br><br>
+
+        📌 <strong>*p</strong> → value at address stored in p.
+
+        <br><br>
+
+        📌 Pointer arithmetic is commonly used with arrays.
+
+        <br><br>
+
+        📌 Arrays and pointers are closely related,
+        but they are not identical concepts.
+
+        <br><br>
+
+        📌 Pointers allow functions to modify caller data
+        when addresses are passed.
+
+        <br><br>
+
+        📌 <strong>malloc()</strong> → dynamic allocation.
+
+        <br><br>
+
+        📌 <strong>calloc()</strong> → zero-initialized
+        allocation.
+
+        <br><br>
+
+        📌 <strong>realloc()</strong> → resize allocation.
+
+        <br><br>
+
+        📌 <strong>free()</strong> → release allocation.
+
+        <br><br>
+
+        📌 NULL pointer → intentionally points to no valid object.
+
+    </div>
+
+
+    <!-- 13.41 MCQs -->
+
+    <h3>13.41 Quick MCQs</h3>
+
+    <ol>
+
+        <li>
+
+            What does a pointer store?
+
+            <br><br>
+
+            A) Only integers
+
+            <br>
+
+            B) A memory address
+
+            <br>
+
+            C) A function name only
+
+            <br>
+
+            D) A keyword
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which operator obtains the address of a variable?
+
+            <br><br>
+
+            A) *
+
+            <br>
+
+            B) &amp;
+
+            <br>
+
+            C) %
+
+            <br>
+
+            D) #
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which operator dereferences a pointer?
+
+            <br><br>
+
+            A) *
+
+            <br>
+
+            B) &amp;
+
+            <br>
+
+            C) #
+
+            <br>
+
+            D) %
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What does NULL represent for a pointer?
+
+            <br><br>
+
+            A) It points to integer zero as an object
+
+            <br>
+
+            B) It intentionally points to no valid object
+
+            <br>
+
+            C) It always points to address 1
+
+            <br>
+
+            D) It is a string
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which function allocates dynamic memory?
+
+            <br><br>
+
+            A) printf()
+
+            <br>
+
+            B) malloc()
+
+            <br>
+
+            C) scanf()
+
+            <br>
+
+            D) strlen()
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which function releases dynamically allocated memory?
+
+            <br><br>
+
+            A) delete()
+
+            <br>
+
+            B) remove()
+
+            <br>
+
+            C) free()
+
+            <br>
+
+            D) clear()
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+    </ol>
+
+
+    <!-- 13.42 PRACTICE PROBLEMS -->
+
+    <h3>13.42 Practice Problems</h3>
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+
+        Print the value and address of a variable.
+
+        <br><br>
+
+
+        <strong>Problem 2</strong>
+
+        <br>
+
+        Access a variable's value using a pointer.
+
+        <br><br>
+
+
+        <strong>Problem 3</strong>
+
+        <br>
+
+        Modify a variable using a pointer.
+
+        <br><br>
+
+
+        <strong>Problem 4</strong>
+
+        <br>
+
+        Find the sum of two numbers using pointers.
+
+        <br><br>
+
+
+        <strong>Problem 5</strong>
+
+        <br>
+
+        Swap two numbers using pointers.
+
+        <br><br>
+
+
+        <strong>Problem 6</strong>
+
+        <br>
+
+        Find the maximum of two numbers using pointers.
+
+        <br><br>
+
+
+        <strong>Problem 7</strong>
+
+        <br>
+
+        Print all elements of an array using a pointer.
+
+        <br><br>
+
+
+        <strong>Problem 8</strong>
+
+        <br>
+
+        Find the sum of an array using pointer arithmetic.
+
+        <br><br>
+
+
+        <strong>Problem 9</strong>
+
+        <br>
+
+        Find the maximum element of an array using pointers.
+
+        <br><br>
+
+
+        <strong>Problem 10</strong>
+
+        <br>
+
+        Reverse an array using pointers.
+
+        <br><br>
+
+
+        <strong>Problem 11</strong>
+
+        <br>
+
+        Find the length of a string using a pointer.
+
+        <br><br>
+
+
+        <strong>Problem 12</strong>
+
+        <br>
+
+        Reverse a string using a pointer.
+
+        <br><br>
+
+
+        <strong>Problem 13</strong>
+
+        <br>
+
+        Count vowels in a string using a pointer.
+
+        <br><br>
+
+
+        <strong>Problem 14</strong>
+
+        <br>
+
+        Check whether a string is a palindrome using pointers.
+
+        <br><br>
+
+
+        <strong>Problem 15</strong>
+
+        <br>
+
+        Create a pointer to a pointer and print a variable's value.
+
+        <br><br>
+
+
+        <strong>Problem 16</strong>
+
+        <br>
+
+        Dynamically allocate an integer array using malloc().
+
+        <br><br>
+
+
+        <strong>Problem 17</strong>
+
+        <br>
+
+        Allocate an array using calloc() and print its initial values.
+
+        <br><br>
+
+
+        <strong>Problem 18</strong>
+
+        <br>
+
+        Resize a dynamically allocated array using realloc().
+
+        <br><br>
+
+
+        <strong>Problem 19</strong>
+
+        <br>
+
+        Create a structure and access its members using
+        a structure pointer.
+
+        <br><br>
+
+
+        <strong>Problem 20</strong>
+
+        <br>
+
+        Create a function pointer for addition and use it
+        to calculate the sum of two numbers.
+
+    </div>
+
+
+    <!-- 13.43 KEY TAKEAWAY -->
+
+    <h3>13.43 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 Remember this three-part rule:
+
+        <br><br>
+
+        <strong>&amp;x → Address of x</strong>
+
+        <br><br>
+
+        <strong>p → Address stored in p</strong>
+
+        <br><br>
+
+        <strong>*p → Value at that address</strong>
+
+        <br><br>
+
+        Once this becomes clear, pointers become
+        much easier to understand.
+
+    </div>
+
+</section>
 
 
         <!-- ================================
