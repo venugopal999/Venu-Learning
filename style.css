@@ -846,3 +846,57 @@ body {
     }
 
 }
+
+/* Union Memory Diagram */
+
+.union-memory-diagram {
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.union-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.union-memory-box {
+    border: 3px solid currentColor;
+    border-radius: 8px;
+    padding: 20px;
+    width: 280px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.union-shared-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.union-member {
+    border: 1px solid currentColor;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 7px 0;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.union-note {
+    margin-top: 15px;
+    font-size: 14px;
+    font-style: italic;
+}
+
+@media (max-width: 600px) {
+
+    .union-memory-box {
+        width: 90%;
+        max-width: 280px;
+    }
+
+}
