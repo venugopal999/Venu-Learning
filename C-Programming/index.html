@@ -11044,35 +11044,1521 @@ else
              ARRAYS
         ================================= -->
 
-        <section
-            id="arrays"
-            class="content-card">
+        <section id="arrays" class="content-card">
 
-            <h2>
+    <h2>📊 10. Arrays</h2>
 
-                📊 10. Arrays
+    <!-- INTRODUCTION -->
 
-            </h2>
+    <h3>10.1 What is an Array?</h3>
+
+    <p>
+        An array is a collection of elements of the
+        same data type stored in contiguous memory
+        locations.
+    </p>
+
+    <div class="example-box">
+
+        Suppose we want to store 5 marks:
+
+        <br><br>
+
+        80, 75, 90, 65, 88
+
+        <br><br>
+
+        Instead of creating five separate variables:
+
+        <br><br>
+
+        <code>mark1, mark2, mark3, mark4, mark5</code>
+
+        <br><br>
+
+        we can use one array:
+
+        <br><br>
+
+        <code>marks[5]</code>
+
+    </div>
 
 
-            <p>
+    <!-- WHY ARRAYS -->
 
-                An array stores multiple values
-                of the same data type in
-                contiguous memory locations.
+    <h3>10.2 Why Do We Need Arrays?</h3>
 
-            </p>
+    <p>
+        Arrays allow us to store and process multiple
+        values using a single variable name.
+    </p>
+
+    <pre><code>int marks[5];
+
+marks[0] = 80;
+marks[1] = 75;
+marks[2] = 90;
+marks[3] = 65;
+marks[4] = 88;</code></pre>
+
+    <div class="tip-box">
+
+        💡 Arrays are especially useful when we need
+        to process many values using loops.
+
+    </div>
 
 
-            <pre><code>
-int numbers[5];
+    <!-- INDEX -->
 
-numbers[0] = 10;
-numbers[1] = 20;
-numbers[2] = 30;
-            </code></pre>
+    <h3>10.3 Array Index</h3>
 
-        </section>
+    <p>
+        C arrays use <strong>zero-based indexing</strong>.
+        This means the first element has index 0.
+    </p>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>0</td>
+                    <td>80</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>75</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>90</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>65</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>88</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="formula-box">
+
+        First element → arr[0]
+
+        <br><br>
+
+        Second element → arr[1]
+
+        <br><br>
+
+        Last element → arr[n-1]
+
+    </div>
+
+
+    <!-- DECLARATION -->
+
+    <h3>10.4 Array Declaration</h3>
+
+    <div class="formula-box">
+
+        data_type array_name[size];
+
+    </div>
+
+    <h4>Examples</h4>
+
+    <pre><code>int numbers[10];
+
+float marks[5];
+
+char letters[26];
+
+double prices[20];</code></pre>
+
+
+    <!-- INITIALIZATION -->
+
+    <h3>10.5 Array Initialization</h3>
+
+    <pre><code>int numbers[5] = {10, 20, 30, 40, 50};</code></pre>
+
+    <p>
+        The compiler assigns the values to indexes
+        starting from 0.
+    </p>
+
+    <div class="formula-box">
+
+        numbers[0] = 10
+
+        <br>
+
+        numbers[1] = 20
+
+        <br>
+
+        numbers[2] = 30
+
+        <br>
+
+        numbers[3] = 40
+
+        <br>
+
+        numbers[4] = 50
+
+    </div>
+
+
+    <!-- SIZE OMIT -->
+
+    <h3>10.6 Initialization Without Specifying Size</h3>
+
+    <pre><code>int numbers[] = {10, 20, 30, 40, 50};</code></pre>
+
+    <p>
+        The compiler determines the size from the
+        number of initializers.
+    </p>
+
+
+    <!-- PARTIAL -->
+
+    <h3>10.7 Partial Initialization</h3>
+
+    <pre><code>int numbers[5] = {10, 20};</code></pre>
+
+    <p>
+        The remaining elements are initialized to zero
+        for this initialization form.
+    </p>
+
+    <div class="formula-box">
+
+        10  20  0  0  0
+
+    </div>
+
+
+    <!-- ACCESS -->
+
+    <h3>10.8 Accessing Array Elements</h3>
+
+    <pre><code>int numbers[5] = {10, 20, 30, 40, 50};
+
+printf("%d", numbers[2]);</code></pre>
+
+    <div class="output-box">
+
+        30
+
+    </div>
+
+
+    <!-- MODIFY -->
+
+    <h3>10.9 Modifying an Array Element</h3>
+
+    <pre><code>int numbers[5] = {10, 20, 30, 40, 50};
+
+numbers[2] = 100;
+
+printf("%d", numbers[2]);</code></pre>
+
+    <div class="output-box">
+
+        100
+
+    </div>
+
+
+    <!-- INPUT -->
+
+    <h3>10.10 Reading Array Elements</h3>
+
+    <p>
+        A loop is commonly used to read values into
+        an array.
+    </p>
+
+    <pre><code>int n;
+
+scanf("%d", &amp;n);
+
+int arr[n];
+
+for(int i = 0; i &lt; n; i++)
+{
+    scanf("%d", &amp;arr[i]);
+}</code></pre>
+
+
+    <!-- OUTPUT -->
+
+    <h3>10.11 Printing Array Elements</h3>
+
+    <pre><code>for(int i = 0; i &lt; n; i++)
+{
+    printf("%d ", arr[i]);
+}</code></pre>
+
+
+    <div class="formula-box">
+
+        Array + Loop
+
+        <br>
+
+        ↓
+
+        <br>
+
+        Traverse every element
+
+        <br>
+
+        ↓
+
+        <br>
+
+        Process the element
+
+    </div>
+
+
+    <!-- TRAVERSAL -->
+
+    <h3>10.12 Array Traversal</h3>
+
+    <p>
+        Traversing an array means visiting each element
+        one by one.
+    </p>
+
+    <pre><code>int arr[] = {10, 20, 30, 40, 50};
+
+int n = 5;
+
+for(int i = 0; i &lt; n; i++)
+{
+    printf("%d ", arr[i]);
+}</code></pre>
+
+
+    <!-- SUM -->
+
+    <h3>10.13 Sum of Array Elements</h3>
+
+    <pre><code>int n;
+int sum = 0;
+
+scanf("%d", &amp;n);
+
+int arr[n];
+
+for(int i = 0; i &lt; n; i++)
+{
+    scanf("%d", &amp;arr[i]);
+
+    sum += arr[i];
+}
+
+printf("Sum = %d", sum);</code></pre>
+
+    <div class="example-box">
+
+        <strong>Input:</strong>
+
+        <br>
+
+        5
+
+        <br>
+
+        10 20 30 40 50
+
+        <br><br>
+
+        <strong>Output:</strong>
+
+        <br>
+
+        Sum = 150
+
+    </div>
+
+
+    <!-- AVERAGE -->
+
+    <h3>10.14 Average of Array Elements</h3>
+
+    <pre><code>int n;
+int sum = 0;
+
+scanf("%d", &amp;n);
+
+int arr[n];
+
+for(int i = 0; i &lt; n; i++)
+{
+    scanf("%d", &amp;arr[i]);
+
+    sum += arr[i];
+}
+
+double average = (double)sum / n;
+
+printf("Average = %.2f", average);</code></pre>
+
+
+    <!-- MAX -->
+
+    <h3>10.15 Maximum Element</h3>
+
+    <pre><code>int n;
+
+scanf("%d", &amp;n);
+
+int arr[n];
+
+for(int i = 0; i &lt; n; i++)
+{
+    scanf("%d", &amp;arr[i]);
+}
+
+int max = arr[0];
+
+for(int i = 1; i &lt; n; i++)
+{
+    if(arr[i] &gt; max)
+    {
+        max = arr[i];
+    }
+}
+
+printf("Maximum = %d", max);</code></pre>
+
+    <div class="example-box">
+
+        <strong>Input:</strong>
+
+        <br>
+
+        5
+
+        <br>
+
+        10 45 20 80 30
+
+        <br><br>
+
+        <strong>Output:</strong>
+
+        <br>
+
+        Maximum = 80
+
+    </div>
+
+
+    <!-- MIN -->
+
+    <h3>10.16 Minimum Element</h3>
+
+    <pre><code>int min = arr[0];
+
+for(int i = 1; i &lt; n; i++)
+{
+    if(arr[i] &lt; min)
+    {
+        min = arr[i];
+    }
+}
+
+printf("Minimum = %d", min);</code></pre>
+
+
+    <!-- EVEN ODD -->
+
+    <h3>10.17 Count Even and Odd Elements</h3>
+
+    <pre><code>int even = 0;
+int odd = 0;
+
+for(int i = 0; i &lt; n; i++)
+{
+    if(arr[i] % 2 == 0)
+    {
+        even++;
+    }
+    else
+    {
+        odd++;
+    }
+}
+
+printf("Even = %d\n", even);
+printf("Odd = %d", odd);</code></pre>
+
+
+    <!-- SEARCH -->
+
+    <h3>10.18 Searching in an Array</h3>
+
+    <p>
+        Searching means checking whether a particular
+        value exists in the array.
+    </p>
+
+
+    <!-- LINEAR SEARCH -->
+
+    <h3>10.19 Linear Search</h3>
+
+    <p>
+        Linear search checks each element one by one
+        until the target is found or the array ends.
+    </p>
+
+    <pre><code>int key;
+int found = 0;
+
+scanf("%d", &amp;key);
+
+for(int i = 0; i &lt; n; i++)
+{
+    if(arr[i] == key)
+    {
+        found = 1;
+        break;
+    }
+}
+
+if(found)
+{
+    printf("Element Found");
+}
+else
+{
+    printf("Element Not Found");
+}</code></pre>
+
+
+    <div class="example-box">
+
+        <strong>Array:</strong>
+
+        <br>
+
+        10 20 30 40 50
+
+        <br><br>
+
+        <strong>Search:</strong>
+
+        <br>
+
+        30
+
+        <br><br>
+
+        <strong>Output:</strong>
+
+        <br>
+
+        Element Found
+
+    </div>
+
+
+    <!-- SEARCH INDEX -->
+
+    <h3>10.20 Find Position of an Element</h3>
+
+    <pre><code>int key;
+int position = -1;
+
+scanf("%d", &amp;key);
+
+for(int i = 0; i &lt; n; i++)
+{
+    if(arr[i] == key)
+    {
+        position = i;
+        break;
+    }
+}
+
+if(position != -1)
+{
+    printf("Index = %d", position);
+}
+else
+{
+    printf("Not Found");
+}</code></pre>
+
+
+    <!-- REVERSE -->
+
+    <h3>10.21 Reverse an Array</h3>
+
+    <pre><code>for(int i = n - 1; i &gt;= 0; i--)
+{
+    printf("%d ", arr[i]);
+}</code></pre>
+
+    <div class="example-box">
+
+        <strong>Input:</strong>
+
+        <br>
+
+        10 20 30 40 50
+
+        <br><br>
+
+        <strong>Output:</strong>
+
+        <br>
+
+        50 40 30 20 10
+
+    </div>
+
+
+    <!-- COPY -->
+
+    <h3>10.22 Copy One Array to Another</h3>
+
+    <pre><code>int arr2[n];
+
+for(int i = 0; i &lt; n; i++)
+{
+    arr2[i] = arr[i];
+}</code></pre>
+
+
+    <!-- POSITIVE -->
+
+    <h3>10.23 Count Positive, Negative and Zero</h3>
+
+    <pre><code>int positive = 0;
+int negative = 0;
+int zero = 0;
+
+for(int i = 0; i &lt; n; i++)
+{
+    if(arr[i] &gt; 0)
+    {
+        positive++;
+    }
+    else if(arr[i] &lt; 0)
+    {
+        negative++;
+    }
+    else
+    {
+        zero++;
+    }
+}
+
+printf("Positive = %d\n", positive);
+printf("Negative = %d\n", negative);
+printf("Zero = %d", zero);</code></pre>
+
+
+    <!-- SECOND LARGEST -->
+
+    <h3>10.24 Second Largest Element</h3>
+
+    <p>
+        Finding the second largest element is an
+        important problem-solving exercise.
+    </p>
+
+    <pre><code>int largest = arr[0];
+int second = arr[0];
+
+for(int i = 1; i &lt; n; i++)
+{
+    if(arr[i] &gt; largest)
+    {
+        second = largest;
+        largest = arr[i];
+    }
+    else if(arr[i] &gt; second &amp;&amp;
+            arr[i] != largest)
+    {
+        second = arr[i];
+    }
+}
+
+printf("Largest = %d\n", largest);
+printf("Second Largest = %d", second);</code></pre>
+
+    <div class="tip-box">
+
+        ⚠️ For a fully robust implementation,
+        the program should also handle cases where
+        there are fewer than two distinct values.
+
+    </div>
+
+
+    <!-- DUPLICATES -->
+
+    <h3>10.25 Find Duplicate Elements</h3>
+
+    <p>
+        Nested loops can be used to compare every
+        element with the elements after it.
+    </p>
+
+    <pre><code>for(int i = 0; i &lt; n; i++)
+{
+    for(int j = i + 1; j &lt; n; j++)
+    {
+        if(arr[i] == arr[j])
+        {
+            printf("%d ", arr[i]);
+            break;
+        }
+    }
+}</code></pre>
+
+
+    <!-- UNIQUE -->
+
+    <h3>10.26 Find Unique Elements</h3>
+
+    <p>
+        An element is unique if it appears only once
+        in the array.
+    </p>
+
+    <pre><code>for(int i = 0; i &lt; n; i++)
+{
+    int count = 0;
+
+    for(int j = 0; j &lt; n; j++)
+    {
+        if(arr[i] == arr[j])
+        {
+            count++;
+        }
+    }
+
+    if(count == 1)
+    {
+        printf("%d ", arr[i]);
+    }
+}</code></pre>
+
+
+    <!-- FREQUENCY -->
+
+    <h3>10.27 Frequency of an Element</h3>
+
+    <pre><code>int key;
+int count = 0;
+
+scanf("%d", &amp;key);
+
+for(int i = 0; i &lt; n; i++)
+{
+    if(arr[i] == key)
+    {
+        count++;
+    }
+}
+
+printf("Frequency = %d", count);</code></pre>
+
+
+    <!-- LARGEST SMALLEST -->
+
+    <h3>10.28 Largest and Smallest Together</h3>
+
+    <pre><code>int max = arr[0];
+int min = arr[0];
+
+for(int i = 1; i &lt; n; i++)
+{
+    if(arr[i] &gt; max)
+    {
+        max = arr[i];
+    }
+
+    if(arr[i] &lt; min)
+    {
+        min = arr[i];
+    }
+}
+
+printf("Maximum = %d\n", max);
+printf("Minimum = %d", min);</code></pre>
+
+
+    <!-- SWAP -->
+
+    <h3>10.29 Swapping Two Array Elements</h3>
+
+    <pre><code>int temp;
+
+temp = arr[i];
+
+arr[i] = arr[j];
+
+arr[j] = temp;</code></pre>
+
+
+    <!-- REVERSE IN PLACE -->
+
+    <h3>10.30 Reverse Array In-Place</h3>
+
+    <pre><code>int start = 0;
+int end = n - 1;
+
+while(start &lt; end)
+{
+    int temp = arr[start];
+
+    arr[start] = arr[end];
+
+    arr[end] = temp;
+
+    start++;
+    end--;
+}</code></pre>
+
+
+    <!-- SORTING INTRO -->
+
+    <h3>10.31 Introduction to Sorting</h3>
+
+    <p>
+        Sorting means arranging elements in a particular
+        order.
+    </p>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Order</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Ascending</td>
+                    <td>10 20 30 40 50</td>
+                </tr>
+
+                <tr>
+                    <td>Descending</td>
+                    <td>50 40 30 20 10</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- BUBBLE SORT -->
+
+    <h3>10.32 Bubble Sort</h3>
+
+    <p>
+        Bubble sort repeatedly compares adjacent
+        elements and swaps them if they are in
+        the wrong order.
+    </p>
+
+    <pre><code>for(int i = 0; i &lt; n - 1; i++)
+{
+    for(int j = 0; j &lt; n - 1 - i; j++)
+    {
+        if(arr[j] &gt; arr[j + 1])
+        {
+            int temp = arr[j];
+
+            arr[j] = arr[j + 1];
+
+            arr[j + 1] = temp;
+        }
+    }
+}</code></pre>
+
+
+    <!-- 2D ARRAY -->
+
+    <h3>10.33 Two-Dimensional Array</h3>
+
+    <p>
+        A two-dimensional array is commonly used
+        to represent rows and columns, such as a matrix.
+    </p>
+
+    <div class="formula-box">
+
+        data_type array_name[rows][columns];
+
+    </div>
+
+    <pre><code>int matrix[3][3];</code></pre>
+
+
+    <!-- 2D INPUT -->
+
+    <h3>10.34 Reading a Matrix</h3>
+
+    <pre><code>int rows, cols;
+
+scanf("%d %d", &amp;rows, &amp;cols);
+
+int matrix[rows][cols];
+
+for(int i = 0; i &lt; rows; i++)
+{
+    for(int j = 0; j &lt; cols; j++)
+    {
+        scanf("%d", &amp;matrix[i][j]);
+    }
+}</code></pre>
+
+
+    <!-- 2D OUTPUT -->
+
+    <h3>10.35 Printing a Matrix</h3>
+
+    <pre><code>for(int i = 0; i &lt; rows; i++)
+{
+    for(int j = 0; j &lt; cols; j++)
+    {
+        printf("%d ", matrix[i][j]);
+    }
+
+    printf("\n");
+}</code></pre>
+
+
+    <!-- MATRIX ADDITION -->
+
+    <h3>10.36 Matrix Addition</h3>
+
+    <p>
+        Two matrices can be added when they have
+        the same dimensions.
+    </p>
+
+    <pre><code>for(int i = 0; i &lt; rows; i++)
+{
+    for(int j = 0; j &lt; cols; j++)
+    {
+        result[i][j] =
+            matrix1[i][j] + matrix2[i][j];
+    }
+}</code></pre>
+
+
+    <!-- DIAGONAL -->
+
+    <h3>10.37 Main Diagonal Elements</h3>
+
+    <p>
+        In a square matrix, main diagonal elements
+        have equal row and column indexes.
+    </p>
+
+    <pre><code>for(int i = 0; i &lt; n; i++)
+{
+    printf("%d ", matrix[i][i]);
+}</code></pre>
+
+
+    <!-- ROW SUM -->
+
+    <h3>10.38 Row Sum</h3>
+
+    <pre><code>for(int i = 0; i &lt; rows; i++)
+{
+    int sum = 0;
+
+    for(int j = 0; j &lt; cols; j++)
+    {
+        sum += matrix[i][j];
+    }
+
+    printf("Row %d Sum = %d\n",
+           i + 1, sum);
+}</code></pre>
+
+
+    <!-- COLUMN SUM -->
+
+    <h3>10.39 Column Sum</h3>
+
+    <pre><code>for(int j = 0; j &lt; cols; j++)
+{
+    int sum = 0;
+
+    for(int i = 0; i &lt; rows; i++)
+    {
+        sum += matrix[i][j];
+    }
+
+    printf("Column %d Sum = %d\n",
+           j + 1, sum);
+}</code></pre>
+
+
+    <!-- ARRAY PROBLEM SOLVING -->
+
+    <h3>10.40 Array Problem-Solving Pattern</h3>
+
+    <div class="formula-box">
+
+        Step 1 → Read N
+
+        <br><br>
+
+        Step 2 → Read N elements
+
+        <br><br>
+
+        Step 3 → Traverse using a loop
+
+        <br><br>
+
+        Step 4 → Apply condition/calculation
+
+        <br><br>
+
+        Step 5 → Store the result if needed
+
+        <br><br>
+
+        Step 6 → Print the result
+
+    </div>
+
+
+    <h4>Example</h4>
+
+    <p>
+        Find the maximum element.
+    </p>
+
+    <div class="formula-box">
+
+        Input Array
+
+        <br>
+        ↓
+        <br>
+
+        Assume arr[0] is maximum
+
+        <br>
+        ↓
+        <br>
+
+        Compare remaining elements
+
+        <br>
+        ↓
+        <br>
+
+        Update maximum
+
+        <br>
+        ↓
+        <br>
+
+        Print maximum
+
+    </div>
+
+
+    <!-- COMMON MISTAKES -->
+
+    <h3>10.41 Common Array Mistakes</h3>
+
+    <ul>
+
+        <li>
+            Forgetting that array indexing starts from 0.
+        </li>
+
+        <li>
+            Accessing an index outside the valid range.
+        </li>
+
+        <li>
+            Using <strong>i &lt;= n</strong> instead of
+            <strong>i &lt; n</strong> while traversing.
+        </li>
+
+        <li>
+            Forgetting to initialize variables such as
+            sum, count or maximum.
+        </li>
+
+        <li>
+            Using an incorrect loop limit.
+        </li>
+
+        <li>
+            Confusing array index with array value.
+        </li>
+
+        <li>
+            Forgetting to check special cases such as
+            an empty or too-small input where applicable.
+        </li>
+
+    </ul>
+
+
+    <!-- QUICK REVISION -->
+
+    <h3>10.42 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 Array → Collection of same-type elements.
+
+        <br><br>
+
+        📌 Index starts at <strong>0</strong>.
+
+        <br><br>
+
+        📌 Last index → <strong>n - 1</strong>.
+
+        <br><br>
+
+        📌 Traversal → Visit every element.
+
+        <br><br>
+
+        📌 Searching → Find an element.
+
+        <br><br>
+
+        📌 Sorting → Arrange elements.
+
+        <br><br>
+
+        📌 2D array → Rows and columns.
+
+        <br><br>
+
+        📌 Arrays + Loops are fundamental to
+        problem solving.
+
+    </div>
+
+
+    <!-- MCQs -->
+
+    <h3>10.43 Quick MCQs</h3>
+
+    <ol>
+
+        <li>
+
+            What is the index of the first element
+            of a C array?
+
+            <br><br>
+
+            A) 0
+
+            <br>
+
+            B) 1
+
+            <br>
+
+            C) -1
+
+            <br>
+
+            D) 2
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What is the last index of an array
+            containing n elements?
+
+            <br><br>
+
+            A) n
+
+            <br>
+
+            B) n + 1
+
+            <br>
+
+            C) n - 1
+
+            <br>
+
+            D) 0
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which loop is commonly used to traverse
+            an array?
+
+            <br><br>
+
+            A) for
+
+            <br>
+
+            B) switch
+
+            <br>
+
+            C) if
+
+            <br>
+
+            D) goto
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which algorithm checks elements one by one
+            to find a target?
+
+            <br><br>
+
+            A) Binary search
+
+            <br>
+
+            B) Linear search
+
+            <br>
+
+            C) Merge sort
+
+            <br>
+
+            D) Selection sort
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which array represents rows and columns?
+
+            <br><br>
+
+            A) 1D array
+
+            <br>
+
+            B) 2D array
+
+            <br>
+
+            C) Pointer
+
+            <br>
+
+            D) Structure
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+    </ol>
+
+
+    <!-- PRACTICE -->
+
+    <h3>10.44 Practice Problems</h3>
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+
+        Read and print N array elements.
+
+        <br><br>
+
+
+        <strong>Problem 2</strong>
+
+        <br>
+
+        Find the sum of array elements.
+
+        <br><br>
+
+
+        <strong>Problem 3</strong>
+
+        <br>
+
+        Find the average of array elements.
+
+        <br><br>
+
+
+        <strong>Problem 4</strong>
+
+        <br>
+
+        Find the maximum element.
+
+        <br><br>
+
+
+        <strong>Problem 5</strong>
+
+        <br>
+
+        Find the minimum element.
+
+        <br><br>
+
+
+        <strong>Problem 6</strong>
+
+        <br>
+
+        Count even and odd elements.
+
+        <br><br>
+
+
+        <strong>Problem 7</strong>
+
+        <br>
+
+        Count positive, negative and zero elements.
+
+        <br><br>
+
+
+        <strong>Problem 8</strong>
+
+        <br>
+
+        Search for an element using linear search.
+
+        <br><br>
+
+
+        <strong>Problem 9</strong>
+
+        <br>
+
+        Find the position of an element.
+
+        <br><br>
+
+
+        <strong>Problem 10</strong>
+
+        <br>
+
+        Reverse an array.
+
+        <br><br>
+
+
+        <strong>Problem 11</strong>
+
+        <br>
+
+        Copy one array into another.
+
+        <br><br>
+
+
+        <strong>Problem 12</strong>
+
+        <br>
+
+        Find duplicate elements.
+
+        <br><br>
+
+
+        <strong>Problem 13</strong>
+
+        <br>
+
+        Find unique elements.
+
+        <br><br>
+
+
+        <strong>Problem 14</strong>
+
+        <br>
+
+        Find the frequency of a given element.
+
+        <br><br>
+
+
+        <strong>Problem 15</strong>
+
+        <br>
+
+        Find the second largest element.
+
+        <br><br>
+
+
+        <strong>Problem 16</strong>
+
+        <br>
+
+        Sort an array in ascending order.
+
+        <br><br>
+
+
+        <strong>Problem 17</strong>
+
+        <br>
+
+        Sort an array in descending order.
+
+        <br><br>
+
+
+        <strong>Problem 18</strong>
+
+        <br>
+
+        Find the sum of each row of a matrix.
+
+        <br><br>
+
+
+        <strong>Problem 19</strong>
+
+        <br>
+
+        Find the sum of each column of a matrix.
+
+        <br><br>
+
+
+        <strong>Problem 20</strong>
+
+        <br>
+
+        Print the main diagonal of a square matrix.
+
+    </div>
+
+
+    <!-- KEY TAKEAWAY -->
+
+    <h3>10.45 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 Remember the core array pattern:
+
+        <br><br>
+
+        <strong>
+        Array → Loop → Process → Result
+        </strong>
+
+        <br><br>
+
+        Once you understand this pattern,
+        many array problems become much easier.
+
+        <br><br>
+
+        Arrays are the foundation for:
+
+        <br><br>
+
+        Searching → Sorting → Strings →
+        Matrices → Data Structures → Algorithms
+
+    </div>
+
+</section>
 
 
 
