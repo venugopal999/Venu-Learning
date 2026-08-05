@@ -210,6 +210,8 @@
 
         <a href="#precedence">🧮 Operator Precedence & Associativity</a>
 
+        <a href="#storage-classes">💾 Storage Classes</a>
+
 
         <div class="sidebar-title">
 
@@ -29185,9 +29187,1316 @@ result = i;</code></pre>
 
 </section>
 
+        <!-- ================================
+             Storage Classes in C
+        ================================= -->
+
+        <section id="storage-classes" class="content-card">
+
+    <h2>💾 22. Storage Classes in C</h2>
+
+    <h3>22.1 What is a Storage Class?</h3>
+
+    <p>
+        A <strong>storage class</strong> in C specifies important
+        properties of a variable, such as its scope, lifetime,
+        visibility and storage behavior.
+    </p>
+
+    <p>
+        The commonly discussed storage-class specifiers in C are:
+    </p>
+
+    <ul>
+        <li><strong>auto</strong></li>
+        <li><strong>register</strong></li>
+        <li><strong>static</strong></li>
+        <li><strong>extern</strong></li>
+    </ul>
+
+
+    <h3>22.2 Main Properties</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Scope</td>
+                    <td>Where the variable can be accessed</td>
+                </tr>
+
+                <tr>
+                    <td>Lifetime</td>
+                    <td>How long the variable exists</td>
+                </tr>
+
+                <tr>
+                    <td>Linkage</td>
+                    <td>Whether the same name can refer to the same entity across scopes/files</td>
+                </tr>
+
+                <tr>
+                    <td>Storage</td>
+                    <td>How the implementation manages storage for the object</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <h3>22.3 auto Storage Class</h3>
+
+    <p>
+        <strong>auto</strong> is the default storage-class specifier
+        for local variables declared inside a block.
+    </p>
+
+    <pre><code>int main()
+{
+    auto int x = 10;
+
+    printf("%d", x);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        10
+    </div>
+
+    <p>
+        In normal C programming, the <code>auto</code> keyword is
+        rarely written explicitly because local variables are
+        automatic by default.
+    </p>
+
+    <pre><code>int x = 10;</code></pre>
+
+    <p>
+        is normally equivalent in storage-class behavior to:
+    </p>
+
+    <pre><code>auto int x = 10;</code></pre>
+
+
+    <h3>22.4 Scope of auto Variables</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int x = 10;
+
+    {
+        int y = 20;
+
+        printf("%d %d\n", x, y);
+    }
+
+    printf("%d", x);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        10 20
+        <br>
+        10
+    </div>
+
+    <p>
+        The variable <code>y</code> exists only within its block.
+    </p>
+
+
+    <h3>22.5 register Storage Class</h3>
+
+    <p>
+        The <strong>register</strong> keyword requests that the
+        implementation consider keeping a variable in a processor
+        register for potentially faster access.
+    </p>
+
+    <pre><code>register int count;</code></pre>
+
+    <p>
+        Modern compilers generally make their own optimization
+        decisions, so explicitly using <code>register</code> is
+        rarely necessary.
+    </p>
+
+
+    <h3>22.6 Example of register</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    register int i;
+
+    for(i = 0; i &lt; 5; i++)
+    {
+        printf("%d ", i);
+    }
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        0 1 2 3 4
+    </div>
+
+
+    <h3>22.7 Important Point About register</h3>
+
+    <div class="tip-box">
+
+        📌 <code>register</code> is a request to the implementation,
+        not a guarantee that the variable will actually be stored
+        in a CPU register.
+
+        <br><br>
+
+        📌 You cannot apply the address-of operator
+        <code>&amp;</code> to a variable declared with
+        <code>register</code>.
+
+    </div>
+
+    <pre><code>register int x = 10;
+
+/* &amp;x is not allowed */</code></pre>
+
+
+    <h3>22.8 static Storage Class</h3>
+
+    <p>
+        The <strong>static</strong> keyword has different effects
+        depending on where it is used.
+    </p>
+
+    <p>
+        For a local variable, static preserves its value between
+        function calls.
+    </p>
+
+    <pre><code>void counter()
+{
+    static int count = 0;
+
+    count++;
+
+    printf("%d\n", count);
+}</code></pre>
+
+
+    <h3>22.9 Static Local Variable</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+void counter()
+{
+    static int count = 0;
+
+    count++;
+
+    printf("%d\n", count);
+}
+
+int main()
+{
+    counter();
+    counter();
+    counter();
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        1
+        <br>
+        2
+        <br>
+        3
+    </div>
+
+    <p>
+        Unlike an ordinary automatic local variable, the static
+        local variable retains its stored value between calls.
+    </p>
+
+
+    <h3>22.10 Static Local Variable: Important Concept</h3>
+
+    <div class="formula-box">
+
+        First call → count = 1
+        <br>
+        Second call → count = 2
+        <br>
+        Third call → count = 3
+
+    </div>
+
+    <p>
+        The variable has <strong>block scope</strong>, but its
+        lifetime extends for the entire execution of the program.
+    </p>
+
+
+    <h3>22.11 Static Local vs Automatic Local</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Automatic Local</th>
+                    <th>Static Local</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Scope</td>
+                    <td>Block</td>
+                    <td>Block</td>
+                </tr>
+
+                <tr>
+                    <td>Lifetime</td>
+                    <td>During execution of the block/function invocation</td>
+                    <td>Entire program execution</td>
+                </tr>
+
+                <tr>
+                    <td>Retains value?</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                </tr>
+
+                <tr>
+                    <td>Default initialization</td>
+                    <td>Indeterminate if not initialized</td>
+                    <td>Zero-initialized</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <h3>22.12 Static Global Variable</h3>
+
+    <p>
+        A file-scope variable declared with <code>static</code>
+        has <strong>internal linkage</strong>.
+    </p>
+
+    <pre><code>static int total = 100;</code></pre>
+
+    <p>
+        Such a variable can be accessed by functions in the same
+        source file, but it is not available for external linkage
+        from another source file through that identifier.
+    </p>
+
+
+    <h3>22.13 Why Use a Static Global Variable?</h3>
+
+    <p>
+        It is useful when a file needs a private global variable
+        that should not be accessible through external linkage from
+        other source files.
+    </p>
+
+    <pre><code>static int fileCounter = 0;</code></pre>
+
+
+    <h3>22.14 extern Storage Class</h3>
+
+    <p>
+        The <strong>extern</strong> keyword declares an object or
+        function that has linkage to a definition elsewhere.
+    </p>
+
+    <p>
+        It is commonly used when sharing a global variable between
+        different source files.
+    </p>
+
+    <pre><code>extern int total;</code></pre>
+
+    <p>
+        This declaration does not itself provide a definition with
+        storage for <code>total</code>.
+    </p>
+
+
+    <h3>22.15 extern Example</h3>
+
+    <p><strong>File 1: main.c</strong></p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+extern int total;
+
+int main()
+{
+    printf("%d", total);
+
+    return 0;
+}</code></pre>
+
+    <p><strong>File 2: data.c</strong></p>
+
+    <pre><code>int total = 100;</code></pre>
+
+    <p>
+        When both files are compiled and linked together, the
+        declaration in <code>main.c</code> refers to the definition
+        in <code>data.c</code>.
+    </p>
+
+
+    <h3>22.16 extern Does Not Create a Second Variable</h3>
+
+    <pre><code>int total = 100;</code></pre>
+
+    <p>
+        This is the definition.
+    </p>
+
+    <pre><code>extern int total;</code></pre>
+
+    <p>
+        This is a declaration referring to an object with compatible
+        linkage and type.
+    </p>
+
+
+    <h3>22.17 Global Variable Without static</h3>
+
+    <pre><code>int total = 100;</code></pre>
+
+    <p>
+        A file-scope variable without <code>static</code> normally
+        has external linkage, unless another declaration changes
+        the linkage rules.
+    </p>
+
+
+    <h3>22.18 Four Storage-Class Keywords</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Keyword</th>
+                    <th>Typical Use</th>
+                    <th>Important Property</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>auto</td>
+                    <td>Local variables</td>
+                    <td>Automatic storage duration</td>
+                </tr>
+
+                <tr>
+                    <td>register</td>
+                    <td>Local variables</td>
+                    <td>Requests register-based optimization</td>
+                </tr>
+
+                <tr>
+                    <td>static</td>
+                    <td>Local/file-scope variables</td>
+                    <td>Static storage duration; file-scope static has internal linkage</td>
+                </tr>
+
+                <tr>
+                    <td>extern</td>
+                    <td>Referencing external definitions</td>
+                    <td>Declares an entity with linkage defined elsewhere</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <h3>22.19 Scope vs Lifetime</h3>
+
+    <p>
+        These two concepts are different.
+    </p>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Concept</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Scope</td>
+                    <td>Where a name can be used in the source code</td>
+                </tr>
+
+                <tr>
+                    <td>Lifetime</td>
+                    <td>How long the object exists during program execution</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <h3>22.20 Example: Scope vs Lifetime</h3>
+
+    <pre><code>void test()
+{
+    static int x = 10;
+
+    printf("%d", x);
+}</code></pre>
+
+    <p>
+        The name <code>x</code> has block scope, but the object
+        exists throughout program execution.
+    </p>
+
+
+    <h3>22.21 Static Variable Initialization</h3>
+
+    <p>
+        Objects with static storage duration are initialized before
+        program startup. If no initializer is provided, they are
+        initialized to zero (or the appropriate null value for
+        pointer types).
+    </p>
+
+    <pre><code>static int x;</code></pre>
+
+    <p>
+        Here <code>x</code> is initialized to:
+    </p>
+
+    <div class="output-box">
+        0
+    </div>
+
+
+    <h3>22.22 Automatic Variable Initialization</h3>
+
+    <p>
+        An automatic local variable that is declared without an
+        initializer has an indeterminate value. Reading such a
+        value before assigning a valid value leads to undefined
+        behavior.
+    </p>
+
+    <pre><code>void test()
+{
+    int x;
+
+    /* Do not read x before assigning a value */
+}</code></pre>
+
+
+    <h3>22.23 Static Counter Example</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+void visit()
+{
+    static int count = 0;
+
+    count++;
+
+    printf("Visited %d times\n", count);
+}
+
+int main()
+{
+    visit();
+    visit();
+    visit();
+    visit();
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        Visited 1 times
+        <br>
+        Visited 2 times
+        <br>
+        Visited 3 times
+        <br>
+        Visited 4 times
+    </div>
+
+
+    <h3>22.24 Static and Recursive Functions</h3>
+
+    <p>
+        A static local variable can be useful in recursive functions
+        when persistent state is intentionally required.
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+void countCalls()
+{
+    static int count = 0;
+
+    count++;
+
+    printf("%d ", count);
+}
+
+int main()
+{
+    countCalls();
+    countCalls();
+    countCalls();
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        1 2 3
+    </div>
+
+
+    <h3>22.25 Static Function</h3>
+
+    <p>
+        The <code>static</code> keyword can also be applied to a
+        function definition at file scope.
+    </p>
+
+    <pre><code>static void display()
+{
+    printf("Hello");
+}</code></pre>
+
+    <p>
+        Such a function has <strong>internal linkage</strong> and
+        cannot be referred to by name from another translation unit.
+    </p>
+
+
+    <h3>22.26 Internal vs External Linkage</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Linkage</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Internal linkage</td>
+                    <td>Name is limited to the current translation unit</td>
+                </tr>
+
+                <tr>
+                    <td>External linkage</td>
+                    <td>Name can refer to the same entity across translation units</td>
+                </tr>
+
+                <tr>
+                    <td>No linkage</td>
+                    <td>Name does not refer to an entity outside its scope</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <h3>22.27 Storage Duration</h3>
+
+    <p>
+        C also defines the concept of <strong>storage duration</strong>.
+    </p>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Storage Duration</th>
+                    <th>Typical Example</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Automatic</td>
+                    <td>Ordinary local variables</td>
+                </tr>
+
+                <tr>
+                    <td>Static</td>
+                    <td>Global variables and static local variables</td>
+                </tr>
+
+                <tr>
+                    <td>Allocated</td>
+                    <td>Memory obtained using malloc/calloc/realloc</td>
+                </tr>
+
+                <tr>
+                    <td>Thread</td>
+                    <td>Thread-local objects using _Thread_local</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <h3>22.28 Important Difference: static Local vs static Global</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>static Local</th>
+                    <th>static File-Scope</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Block scope</td>
+                    <td>File scope</td>
+                </tr>
+
+                <tr>
+                    <td>Retains value between function calls</td>
+                    <td>Exists throughout program execution</td>
+                </tr>
+
+                <tr>
+                    <td>Static storage duration</td>
+                    <td>Static storage duration</td>
+                </tr>
+
+                <tr>
+                    <td>Does not have linkage</td>
+                    <td>Internal linkage</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <h3>22.29 When Should You Use static?</h3>
+
+    <ul>
+
+        <li>
+            When a local variable must retain its value between
+            function calls.
+        </li>
+
+        <li>
+            When a file-scope variable should be private to its
+            source file.
+        </li>
+
+        <li>
+            When a helper function should have internal linkage.
+        </li>
+
+    </ul>
+
+
+    <h3>22.30 When Should You Use extern?</h3>
+
+    <ul>
+
+        <li>
+            When referring to a global object defined elsewhere.
+        </li>
+
+        <li>
+            When organizing a large C project into multiple source
+            files.
+        </li>
+
+        <li>
+            When sharing declarations through header files.
+        </li>
+
+    </ul>
+
+
+    <h3>22.31 Example with Header File</h3>
+
+    <p><strong>global.h</strong></p>
+
+    <pre><code>extern int total;</code></pre>
+
+    <p><strong>global.c</strong></p>
+
+    <pre><code>int total = 500;</code></pre>
+
+    <p><strong>main.c</strong></p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include "global.h"
+
+int main()
+{
+    printf("%d", total);
+
+    return 0;
+}</code></pre>
+
+    <div class="output-box">
+        500
+    </div>
+
+
+    <h3>22.32 Common Mistakes</h3>
+
+    <ul>
+
+        <li>
+            Thinking <code>static</code> always means "global".
+        </li>
+
+        <li>
+            Thinking <code>register</code> guarantees CPU-register
+            storage.
+        </li>
+
+        <li>
+            Reading an uninitialized automatic local variable.
+        </li>
+
+        <li>
+            Thinking <code>extern</code> creates a new variable.
+        </li>
+
+        <li>
+            Confusing scope with lifetime.
+        </li>
+
+        <li>
+            Forgetting that file-scope <code>static</code> gives
+            internal linkage.
+        </li>
+
+        <li>
+            Assuming an <code>extern</code> declaration is itself
+            a definition.
+        </li>
+
+    </ul>
+
+
+    <h3>22.33 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 <strong>auto</strong> → Default for ordinary local
+        variables.
+
+        <br><br>
+
+        📌 <strong>register</strong> → Requests register-oriented
+        optimization; compiler may ignore the request.
+
+        <br><br>
+
+        📌 <strong>static local</strong> → Retains value between
+        function calls.
+
+        <br><br>
+
+        📌 <strong>static file-scope</strong> → Internal linkage.
+
+        <br><br>
+
+        📌 <strong>extern</strong> → Declares an object/function
+        defined with appropriate linkage elsewhere.
+
+        <br><br>
+
+        📌 <strong>Scope</strong> → Where the name can be used.
+
+        <br><br>
+
+        📌 <strong>Lifetime</strong> → How long the object exists.
+
+        <br><br>
+
+        📌 <strong>Linkage</strong> → Whether declarations in
+        different scopes/files can refer to the same entity.
+
+    </div>
+
+
+    <h3>22.34 Quick MCQs</h3>
+
+    <ol>
+
+        <li>
+            Which storage class is the default for ordinary local
+            variables?
+            <br><br>
+            A) static
+            <br>
+            B) auto
+            <br>
+            C) extern
+            <br>
+            D) register
+            <br><br>
+            <strong>Answer: B</strong>
+        </li>
+
+        <br>
+
+        <li>
+            Which keyword allows a local variable to retain its
+            value between function calls?
+            <br><br>
+            A) auto
+            <br>
+            B) register
+            <br>
+            C) static
+            <br>
+            D) extern
+            <br><br>
+            <strong>Answer: C</strong>
+        </li>
+
+        <br>
+
+        <li>
+            Which keyword declares a reference to an object defined
+            elsewhere?
+            <br><br>
+            A) auto
+            <br>
+            B) static
+            <br>
+            C) register
+            <br>
+            D) extern
+            <br><br>
+            <strong>Answer: D</strong>
+        </li>
+
+        <br>
+
+        <li>
+            Which keyword can be used for a file-scope function to
+            give it internal linkage?
+            <br><br>
+            A) auto
+            <br>
+            B) static
+            <br>
+            C) register
+            <br>
+            D) extern
+            <br><br>
+            <strong>Answer: B</strong>
+        </li>
+
+        <br>
+
+        <li>
+            An uninitialized static-duration int object is initialized
+            to:
+            <br><br>
+            A) 1
+            <br>
+            B) -1
+            <br>
+            C) 0
+            <br>
+            D) Garbage
+            <br><br>
+            <strong>Answer: C</strong>
+        </li>
+
+        <br>
+
+        <li>
+            Which keyword does not guarantee that a variable will be
+            stored in a CPU register?
+            <br><br>
+            A) register
+            <br>
+            B) static
+            <br>
+            C) extern
+            <br>
+            D) auto
+            <br><br>
+            <strong>Answer: A</strong>
+        </li>
+
+        <br>
+
+        <li>
+            A static local variable has:
+            <br><br>
+            A) Block scope and static storage duration
+            <br>
+            B) File scope only
+            <br>
+            C) No scope
+            <br>
+            D) Automatic storage duration
+            <br><br>
+            <strong>Answer: A</strong>
+        </li>
+
+        <br>
+
+        <li>
+            Which concept describes how long an object exists?
+            <br><br>
+            A) Scope
+            <br>
+            B) Lifetime
+            <br>
+            C) Syntax
+            <br>
+            D) Precedence
+            <br><br>
+            <strong>Answer: B</strong>
+        </li>
+
+        <br>
+
+        <li>
+            File-scope static variables generally have:
+            <br><br>
+            A) External linkage
+            <br>
+            B) Internal linkage
+            <br>
+            C) No storage
+            <br>
+            D) Dynamic linkage
+            <br><br>
+            <strong>Answer: B</strong>
+        </li>
+
+        <br>
+
+        <li>
+            Does an extern declaration necessarily define a new
+            object?
+            <br><br>
+            A) Yes
+            <br>
+            B) No
+            <br>
+            C) Only for integers
+            <br>
+            D) Only inside functions
+            <br><br>
+            <strong>Answer: B</strong>
+        </li>
+
+    </ol>
+
+
+    <h3>22.35 Practice Problems</h3>
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+        <br>
+        Explain the purpose of the auto storage class.
+
+        <br><br>
+
+        <strong>Problem 2</strong>
+        <br>
+        Write a program using an automatic local variable.
+
+        <br><br>
+
+        <strong>Problem 3</strong>
+        <br>
+        Explain the purpose of register.
+
+        <br><br>
+
+        <strong>Problem 4</strong>
+        <br>
+        Write a program containing a register loop counter.
+
+        <br><br>
+
+        <strong>Problem 5</strong>
+        <br>
+        Explain why register does not guarantee CPU-register
+        allocation.
+
+        <br><br>
+
+        <strong>Problem 6</strong>
+        <br>
+        Write a function using a static local variable.
+
+        <br><br>
+
+        <strong>Problem 7</strong>
+        <br>
+        Write a program that counts how many times a function
+        is called using static.
+
+        <br><br>
+
+        <strong>Problem 8</strong>
+        <br>
+        Explain the difference between an automatic local variable
+        and a static local variable.
+
+        <br><br>
+
+        <strong>Problem 9</strong>
+        <br>
+        Create a file-scope static variable.
+
+        <br><br>
+
+        <strong>Problem 10</strong>
+        <br>
+        Explain internal linkage.
+
+        <br><br>
+
+        <strong>Problem 11</strong>
+        <br>
+        Explain the purpose of extern.
+
+        <br><br>
+
+        <strong>Problem 12</strong>
+        <br>
+        Create two C files and share a global variable using extern.
+
+        <br><br>
+
+        <strong>Problem 13</strong>
+        <br>
+        Explain the difference between scope and lifetime.
+
+        <br><br>
+
+        <strong>Problem 14</strong>
+        <br>
+        Predict the output of a program containing a static
+        counter function.
+
+        <br><br>
+
+        <strong>Problem 15</strong>
+        <br>
+        Identify whether a variable has automatic or static
+        storage duration.
+
+        <br><br>
+
+        <strong>Problem 16</strong>
+        <br>
+        Explain why reading an uninitialized automatic variable
+        is unsafe.
+
+        <br><br>
+
+        <strong>Problem 17</strong>
+        <br>
+        Explain the difference between static global and
+        static local variables.
+
+        <br><br>
+
+        <strong>Problem 18</strong>
+        <br>
+        Create a header file containing an extern declaration
+        and use it from another C file.
+
+        <br><br>
+
+        <strong>Problem 19</strong>
+        <br>
+        Create a static helper function that cannot be referenced
+        from another source file.
+
+        <br><br>
+
+        <strong>Problem 20</strong>
+        <br>
+        Create a small multi-file C project demonstrating
+        auto, register, static and extern.
+
+    </div>
+
+
+    <h3>22.36 Interview Questions</h3>
+
+    <div class="example-box">
+
+        <strong>Q1.</strong> What is a storage class?
+
+        <br><br>
+
+        <strong>Q2.</strong> What is the difference between scope
+        and lifetime?
+
+        <br><br>
+
+        <strong>Q3.</strong> Why is static local useful?
+
+        <br><br>
+
+        <strong>Q4.</strong> What is internal linkage?
+
+        <br><br>
+
+        <strong>Q5.</strong> What is external linkage?
+
+        <br><br>
+
+        <strong>Q6.</strong> Does register guarantee register storage?
+
+        <br><br>
+
+        <strong>Q7.</strong> What is the purpose of extern?
+
+        <br><br>
+
+        <strong>Q8.</strong> What is the difference between a
+        declaration and a definition?
+
+        <br><br>
+
+        <strong>Q9.</strong> What happens to a static local variable
+        after a function returns?
+
+        <br><br>
+
+        <strong>Q10.</strong> Why might static be used for a helper
+        function?
+
+    </div>
+
+
+    <h3>22.37 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 Remember:
+
+        <br><br>
+
+        <strong>auto → ordinary local variable.</strong>
+
+        <br><br>
+
+        <strong>register → optimization request.</strong>
+
+        <br><br>
+
+        <strong>static local → remembers its value.</strong>
+
+        <br><br>
+
+        <strong>static file-scope → private to the translation unit.</strong>
+
+        <br><br>
+
+        <strong>extern → refers to an entity with linkage defined
+        elsewhere.</strong>
+
+        <br><br>
+
+        <strong>Scope tells you WHERE a name can be used.</strong>
+
+        <br><br>
+
+        <strong>Lifetime tells you HOW LONG the object exists.</strong>
+
+        <br><br>
+
+        <strong>Linkage tells you whether declarations can refer
+        to the same entity.</strong>
+
+    </div>
+
+</section>     
+
         
-
-
         <!-- ================================
              PRACTICE
         ================================= -->
