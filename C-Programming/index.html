@@ -204,6 +204,8 @@
 
         <a href="#command-line">💻 Command Line Arguments</a>
 
+        <a href="#bitwise">🔢 Bitwise Programming</a>
+
 
         <div class="sidebar-title">
 
@@ -24510,6 +24512,1600 @@ int main(int argc, char *argv[])
         <br><br>
 
         <strong>Always check argc before accessing argv elements.</strong>
+
+    </div>
+
+</section>
+
+         <!-- ================================
+            Bitwise Programming
+        ================================= -->
+
+        <section id="bitwise" class="content-card">
+
+    <h2>🔢 19. Bitwise Programming</h2>
+
+    <!-- 19.1 INTRODUCTION -->
+
+    <h3>19.1 What is Bitwise Programming?</h3>
+
+    <p>
+        Bitwise programming operates directly on the individual
+        bits of an integer.
+    </p>
+
+    <p>
+        A bit can have only two values:
+        <strong>0</strong> or <strong>1</strong>.
+    </p>
+
+    <div class="formula-box">
+
+        Decimal Number
+        <br>
+        ↓
+        <br>
+        Binary Representation
+        <br>
+        ↓
+        <br>
+        Individual Bits
+        <br>
+        ↓
+        <br>
+        Bitwise Operation
+
+    </div>
+
+    <p>
+        Bitwise operations are commonly used in low-level
+        programming, embedded systems, networking, operating
+        systems and programming interviews.
+    </p>
+
+
+    <!-- 19.2 BINARY -->
+
+    <h3>19.2 Binary Representation</h3>
+
+    <p>
+        Computers internally represent integer values using
+        binary digits.
+    </p>
+
+    <div class="bit-row">
+
+        <div class="bit-box">1</div>
+        <div class="bit-box">0</div>
+        <div class="bit-box">1</div>
+        <div class="bit-box">0</div>
+        <div class="bit-box">0</div>
+        <div class="bit-box">1</div>
+        <div class="bit-box">1</div>
+        <div class="bit-box">0</div>
+
+    </div>
+
+    <p class="bit-label">
+        8-bit binary representation
+    </p>
+
+    <p>
+        For example:
+    </p>
+
+    <pre><code>10 = 00001010</code></pre>
+
+
+    <!-- 19.3 OPERATORS -->
+
+    <h3>19.3 Bitwise Operators</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Operator</th>
+                    <th>Name</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&amp;</td>
+                    <td>Bitwise AND</td>
+                    <td>Sets a bit to 1 only when both bits are 1</td>
+                </tr>
+
+                <tr>
+                    <td>|</td>
+                    <td>Bitwise OR</td>
+                    <td>Sets a bit to 1 when either bit is 1</td>
+                </tr>
+
+                <tr>
+                    <td>^</td>
+                    <td>Bitwise XOR</td>
+                    <td>Sets a bit to 1 when the bits are different</td>
+                </tr>
+
+                <tr>
+                    <td>~</td>
+                    <td>Bitwise NOT</td>
+                    <td>Flips each bit</td>
+                </tr>
+
+                <tr>
+                    <td>&lt;&lt;</td>
+                    <td>Left Shift</td>
+                    <td>Shifts bits to the left</td>
+                </tr>
+
+                <tr>
+                    <td>&gt;&gt;</td>
+                    <td>Right Shift</td>
+                    <td>Shifts bits to the right</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 19.4 AND -->
+
+    <h3>19.4 Bitwise AND (&amp;)</h3>
+
+    <p>
+        The AND operation produces 1 only when both corresponding
+        bits are 1.
+    </p>
+
+    <div class="bit-operation">
+
+        <div class="bit-line">
+            <span>  5</span>
+            <span>00000101</span>
+        </div>
+
+        <div class="bit-line">
+            <span>  3</span>
+            <span>00000011</span>
+        </div>
+
+        <div class="bit-line operator-line">
+            <span>5 &amp; 3</span>
+            <span>00000001</span>
+        </div>
+
+    </div>
+
+    <pre><code>int result = 5 &amp; 3;
+
+printf("%d", result);</code></pre>
+
+    <div class="output-box">
+
+        1
+
+    </div>
+
+
+    <!-- 19.5 AND TRUTH TABLE -->
+
+    <h3>19.5 AND Truth Table</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>A &amp; B</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 19.6 OR -->
+
+    <h3>19.6 Bitwise OR (|)</h3>
+
+    <p>
+        OR produces 1 when at least one corresponding bit is 1.
+    </p>
+
+    <div class="bit-operation">
+
+        <div class="bit-line">
+            <span>  5</span>
+            <span>00000101</span>
+        </div>
+
+        <div class="bit-line">
+            <span>  3</span>
+            <span>00000011</span>
+        </div>
+
+        <div class="bit-line operator-line">
+            <span>5 | 3</span>
+            <span>00000111</span>
+        </div>
+
+    </div>
+
+    <pre><code>int result = 5 | 3;
+
+printf("%d", result);</code></pre>
+
+    <div class="output-box">
+
+        7
+
+    </div>
+
+
+    <!-- 19.7 XOR -->
+
+    <h3>19.7 Bitwise XOR (^)</h3>
+
+    <p>
+        XOR produces 1 when the corresponding bits are different.
+    </p>
+
+    <div class="bit-operation">
+
+        <div class="bit-line">
+            <span>  5</span>
+            <span>00000101</span>
+        </div>
+
+        <div class="bit-line">
+            <span>  3</span>
+            <span>00000011</span>
+        </div>
+
+        <div class="bit-line operator-line">
+            <span>5 ^ 3</span>
+            <span>00000110</span>
+        </div>
+
+    </div>
+
+    <pre><code>int result = 5 ^ 3;
+
+printf("%d", result);</code></pre>
+
+    <div class="output-box">
+
+        6
+
+    </div>
+
+
+    <!-- 19.8 XOR TABLE -->
+
+    <h3>19.8 XOR Truth Table</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>A ^ B</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 19.9 NOT -->
+
+    <h3>19.9 Bitwise NOT (~)</h3>
+
+    <p>
+        The NOT operator flips every bit:
+        <strong>0 becomes 1</strong> and <strong>1 becomes 0</strong>.
+    </p>
+
+    <pre><code>int x = 5;
+
+printf("%d", ~x);</code></pre>
+
+    <p>
+        For signed integers, the exact decimal result of
+        <strong>~x</strong> depends on the integer representation.
+        On modern two's-complement systems, <strong>~5</strong>
+        is commonly <strong>-6</strong>.
+    </p>
+
+    <div class="tip-box">
+
+        📌 Remember:
+        <br><br>
+        ~x is commonly equal to -(x + 1) on two's-complement systems.
+
+    </div>
+
+
+    <!-- 19.10 LEFT SHIFT -->
+
+    <h3>19.10 Left Shift (&lt;&lt;)</h3>
+
+    <p>
+        The left-shift operator moves bits toward the left.
+    </p>
+
+    <pre><code>int x = 5;
+
+printf("%d", x &lt;&lt; 1);</code></pre>
+
+    <div class="bit-operation">
+
+        <div class="bit-line">
+            <span>5</span>
+            <span>00000101</span>
+        </div>
+
+        <div class="bit-line">
+            <span>5 &lt;&lt; 1</span>
+            <span>00001010</span>
+        </div>
+
+    </div>
+
+    <div class="output-box">
+
+        10
+
+    </div>
+
+    <p>
+        For a nonnegative value, shifting left by one position
+        corresponds to multiplying by 2 when the result is
+        representable.
+    </p>
+
+
+    <!-- 19.11 RIGHT SHIFT -->
+
+    <h3>19.11 Right Shift (&gt;&gt;)</h3>
+
+    <p>
+        The right-shift operator moves bits toward the right.
+    </p>
+
+    <pre><code>int x = 20;
+
+printf("%d", x &gt;&gt; 2);</code></pre>
+
+    <div class="bit-operation">
+
+        <div class="bit-line">
+            <span>20</span>
+            <span>00010100</span>
+        </div>
+
+        <div class="bit-line">
+            <span>20 &gt;&gt; 2</span>
+            <span>00000101</span>
+        </div>
+
+    </div>
+
+    <div class="output-box">
+
+        5
+
+    </div>
+
+
+    <!-- 19.12 SHIFT CAUTION -->
+
+    <h3>19.12 Important Shift Rules</h3>
+
+    <ul>
+
+        <li>
+            Shifting by a negative count is undefined behavior.
+        </li>
+
+        <li>
+            Shifting by a count greater than or equal to the width
+            of the promoted left operand is undefined behavior.
+        </li>
+
+        <li>
+            Left-shifting signed values requires care because
+            overflow can result in undefined behavior.
+        </li>
+
+        <li>
+            Right-shifting a negative signed integer is
+            implementation-defined.
+        </li>
+
+        <li>
+            For predictable bit manipulation, unsigned integers
+            are often preferable.
+        </li>
+
+    </ul>
+
+
+    <!-- 19.13 CHECK ODD EVEN -->
+
+    <h3>19.13 Check Odd or Even Using Bitwise AND</h3>
+
+    <p>
+        The least significant bit determines whether a
+        nonnegative integer is odd or even.
+    </p>
+
+    <pre><code>if(n &amp; 1)
+{
+    printf("Odd");
+}
+else
+{
+    printf("Even");
+}</code></pre>
+
+    <p>
+        Example:
+    </p>
+
+    <pre><code>7 = 00000111
+1 = 00000001
+
+7 &amp; 1 = 1</code></pre>
+
+    <div class="output-box">
+
+        Odd
+
+    </div>
+
+
+    <!-- 19.14 CHECK BIT -->
+
+    <h3>19.14 Check Whether a Bit is Set</h3>
+
+    <p>
+        To check bit position <strong>k</strong>, use:
+    </p>
+
+    <pre><code>if(n &amp; (1u &lt;&lt; k))
+{
+    printf("Bit is set");
+}
+else
+{
+    printf("Bit is not set");
+}</code></pre>
+
+    <p>
+        Example: check bit 2 of 5.
+    </p>
+
+    <pre><code>5 = 00000101
+
+1u &lt;&lt; 2 = 00000100
+
+5 &amp; 4 = 4</code></pre>
+
+    <div class="output-box">
+
+        Bit 2 is SET
+
+    </div>
+
+
+    <!-- 19.15 SET BIT -->
+
+    <h3>19.15 Set a Bit</h3>
+
+    <p>
+        Setting a bit means changing it to 1.
+    </p>
+
+    <pre><code>n = n | (1u &lt;&lt; k);</code></pre>
+
+    <p>
+        Short form:
+    </p>
+
+    <pre><code>n |= (1u &lt;&lt; k);</code></pre>
+
+    <p>
+        Example:
+    </p>
+
+    <pre><code>n = 8;       /* 1000 */
+k = 1;
+
+n |= (1u &lt;&lt; k);
+
+/* Result = 1010 = 10 */</code></pre>
+
+
+    <!-- 19.16 CLEAR BIT -->
+
+    <h3>19.16 Clear a Bit</h3>
+
+    <p>
+        Clearing a bit means changing it to 0.
+    </p>
+
+    <pre><code>n = n &amp; ~(1u &lt;&lt; k);</code></pre>
+
+    <p>
+        Short form:
+    </p>
+
+    <pre><code>n &amp;= ~(1u &lt;&lt; k);</code></pre>
+
+
+    <!-- 19.17 TOGGLE BIT -->
+
+    <h3>19.17 Toggle a Bit</h3>
+
+    <p>
+        Toggling changes:
+    </p>
+
+    <div class="formula-box">
+
+        0 → 1
+        <br>
+        1 → 0
+
+    </div>
+
+    <pre><code>n ^= (1u &lt;&lt; k);</code></pre>
+
+
+    <!-- 19.18 BIT MASK -->
+
+    <h3>19.18 Bit Mask</h3>
+
+    <p>
+        A bit mask is a value used to select or modify specific
+        bits.
+    </p>
+
+    <pre><code>1u &lt;&lt; k</code></pre>
+
+    <p>
+        creates a mask with bit <strong>k</strong> set.
+    </p>
+
+    <div class="bit-operation">
+
+        <div class="bit-line">
+            <span>1u &lt;&lt; 3</span>
+            <span>00001000</span>
+        </div>
+
+    </div>
+
+
+    <!-- 19.19 COUNT SET BITS -->
+
+    <h3>19.19 Count Set Bits</h3>
+
+    <p>
+        A simple method is to examine every bit.
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    unsigned int n;
+    int count = 0;
+
+    scanf("%u", &amp;n);
+
+    while(n != 0)
+    {
+        count += n &amp; 1u;
+        n &gt;&gt;= 1;
+    }
+
+    printf("Set bits = %d", count);
+
+    return 0;
+}</code></pre>
+
+    <p>
+        For example:
+    </p>
+
+    <pre><code>13 = 1101</code></pre>
+
+    <div class="output-box">
+
+        Set bits = 3
+
+    </div>
+
+
+    <!-- 19.20 KERNIGHAN -->
+
+    <h3>19.20 Efficient Set Bit Counting</h3>
+
+    <p>
+        Brian Kernighan's method repeatedly removes the lowest
+        set bit.
+    </p>
+
+    <pre><code>while(n != 0)
+{
+    n = n &amp; (n - 1);
+    count++;
+}</code></pre>
+
+    <p>
+        This performs one iteration for each set bit.
+    </p>
+
+
+    <!-- 19.21 POWER OF TWO -->
+
+    <h3>19.21 Check Whether a Number is a Power of 2</h3>
+
+    <p>
+        A positive power of two has exactly one set bit.
+    </p>
+
+    <pre><code>if(n &gt; 0 &amp;&amp; (n &amp; (n - 1)) == 0)
+{
+    printf("Power of 2");
+}
+else
+{
+    printf("Not a power of 2");
+}</code></pre>
+
+    <p>
+        Examples:
+    </p>
+
+    <div class="formula-box">
+
+        1 = 0001
+        <br>
+        2 = 0010
+        <br>
+        4 = 0100
+        <br>
+        8 = 1000
+
+    </div>
+
+
+    <!-- 19.22 CLEAR LOWEST SET BIT -->
+
+    <h3>19.22 Clear the Lowest Set Bit</h3>
+
+    <pre><code>n = n &amp; (n - 1);</code></pre>
+
+    <p>
+        This removes the lowest set bit from n.
+    </p>
+
+    <pre><code>n = 12;
+
+/*
+12 = 1100
+11 = 1011
+*/
+
+n &amp; (n - 1)
+
+/*
+1100
+1011
+----
+1000
+*/
+
+Result = 8</code></pre>
+
+
+    <!-- 19.23 FIND LOWEST SET BIT -->
+
+    <h3>19.23 Isolate the Lowest Set Bit</h3>
+
+    <pre><code>unsigned int lowest = n &amp; (~n + 1);</code></pre>
+
+    <p>
+        An equivalent common expression is:
+    </p>
+
+    <pre><code>unsigned int lowest = n &amp; -n;</code></pre>
+
+    <p>
+        For unsigned arithmetic, a useful portable formulation is
+        to work with unsigned values when doing bit manipulation.
+    </p>
+
+
+    <!-- 19.24 XOR SWAP -->
+
+    <h3>19.24 Swap Two Values Using XOR</h3>
+
+    <p>
+        XOR has the property:
+    </p>
+
+    <div class="formula-box">
+
+        A ^ A = 0
+        <br><br>
+        A ^ 0 = A
+
+    </div>
+
+    <pre><code>a = a ^ b;
+b = a ^ b;
+a = a ^ b;</code></pre>
+
+    <p>
+        However, in normal C programs a temporary variable is
+        usually clearer and safer.
+    </p>
+
+
+    <!-- 19.25 XOR UNIQUE -->
+
+    <h3>19.25 Find the Unique Element Using XOR</h3>
+
+    <p>
+        If every number occurs exactly twice except one number,
+        XOR can find the unique value.
+    </p>
+
+    <pre><code>int arr[] = {4, 1, 2, 1, 2};
+
+int result = 0;
+
+for(int i = 0; i &lt; 5; i++)
+{
+    result ^= arr[i];
+}
+
+printf("%d", result);</code></pre>
+
+    <div class="output-box">
+
+        4
+
+    </div>
+
+    <p>
+        Because:
+    </p>
+
+    <div class="formula-box">
+
+        1 ^ 1 = 0
+        <br>
+        2 ^ 2 = 0
+        <br>
+        0 ^ 4 = 4
+
+    </div>
+
+
+    <!-- 19.26 FLAGS -->
+
+    <h3>19.26 Using Bits as Flags</h3>
+
+    <p>
+        Individual bits can represent multiple yes/no settings
+        inside one integer.
+    </p>
+
+    <pre><code>#define READ_PERMISSION   (1u &lt;&lt; 0)
+#define WRITE_PERMISSION  (1u &lt;&lt; 1)
+#define EXEC_PERMISSION   (1u &lt;&lt; 2)
+
+unsigned int permissions = 0;
+
+permissions |= READ_PERMISSION;
+permissions |= WRITE_PERMISSION;</code></pre>
+
+    <p>
+        Now multiple independent flags are stored in one value.
+    </p>
+
+
+    <!-- 19.27 PRACTICAL PROGRAM -->
+
+    <h3>19.27 Set, Clear and Toggle a Bit</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    unsigned int n;
+    int k;
+
+    scanf("%u %d", &amp;n, &amp;k);
+
+    /* Set */
+    n |= (1u &lt;&lt; k);
+
+    printf("After set: %u\n", n);
+
+    /* Clear */
+    n &amp;= ~(1u &lt;&lt; k);
+
+    printf("After clear: %u\n", n);
+
+    /* Toggle */
+    n ^= (1u &lt;&lt; k);
+
+    printf("After toggle: %u\n", n);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 19.28 BINARY PRINT -->
+
+    <h3>19.28 Print Binary Representation</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+void printBinary(unsigned int n)
+{
+    unsigned int mask = 1u &lt;&lt;
+                         (sizeof(unsigned int) * 8 - 1);
+
+    while(mask != 0)
+    {
+        printf("%d", (n &amp; mask) != 0);
+
+        mask &gt;&gt;= 1;
+    }
+}
+
+int main()
+{
+    unsigned int n;
+
+    scanf("%u", &amp;n);
+
+    printBinary(n);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 19.29 BITWISE VS LOGICAL -->
+
+    <h3>19.29 Bitwise vs Logical Operators</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+                    <th>Bitwise</th>
+                    <th>Logical</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>&amp;</td>
+                    <td>&amp;&amp;</td>
+                </tr>
+
+                <tr>
+                    <td>|</td>
+                    <td>||</td>
+                </tr>
+
+                <tr>
+                    <td>^</td>
+                    <td>No logical XOR operator in C</td>
+                </tr>
+
+                <tr>
+                    <td>Works on individual bits</td>
+                    <td>Works with truth values</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="tip-box">
+
+        ⚠️ Do not confuse <strong>&amp;</strong> with
+        <strong>&amp;&amp;</strong>, or <strong>|</strong> with
+        <strong>||</strong>.
+
+    </div>
+
+
+    <!-- 19.30 COMMON MISTAKES -->
+
+    <h3>19.30 Common Bitwise Mistakes</h3>
+
+    <ul>
+
+        <li>
+            Confusing <strong>&amp;</strong> with
+            <strong>&amp;&amp;</strong>.
+        </li>
+
+        <li>
+            Confusing <strong>|</strong> with
+            <strong>||</strong>.
+        </li>
+
+        <li>
+            Forgetting operator precedence.
+        </li>
+
+        <li>
+            Using signed integers carelessly for shifts.
+        </li>
+
+        <li>
+            Shifting by an invalid amount.
+        </li>
+
+        <li>
+            Assuming right shift of negative signed values is
+            always the same on every implementation.
+        </li>
+
+        <li>
+            Forgetting to use parentheses in complex expressions.
+        </li>
+
+    </ul>
+
+
+    <!-- 19.31 OPERATOR PRECEDENCE -->
+
+    <h3>19.31 Important Operator Precedence</h3>
+
+    <p>
+        When writing bitwise expressions, parentheses improve
+        readability and reduce mistakes.
+    </p>
+
+    <pre><code>if((n &amp; (1u &lt;&lt; k)) != 0)
+{
+    printf("Set");
+}</code></pre>
+
+    <p>
+        Prefer this explicit form rather than relying on
+        remembering every precedence rule.
+    </p>
+
+
+    <!-- 19.32 QUICK REVISION -->
+
+    <h3>19.32 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 <strong>&amp;</strong> → AND
+
+        <br><br>
+
+        📌 <strong>|</strong> → OR
+
+        <br><br>
+
+        📌 <strong>^</strong> → XOR
+
+        <br><br>
+
+        📌 <strong>~</strong> → NOT
+
+        <br><br>
+
+        📌 <strong>&lt;&lt;</strong> → Left shift
+
+        <br><br>
+
+        📌 <strong>&gt;&gt;</strong> → Right shift
+
+        <br><br>
+
+        📌 <strong>n &amp; 1</strong> → Check least significant bit
+
+        <br><br>
+
+        📌 <strong>n | (1u &lt;&lt; k)</strong> → Set bit
+
+        <br><br>
+
+        📌 <strong>n &amp; ~(1u &lt;&lt; k)</strong> → Clear bit
+
+        <br><br>
+
+        📌 <strong>n ^ (1u &lt;&lt; k)</strong> → Toggle bit
+
+        <br><br>
+
+        📌 <strong>n &amp; (n - 1)</strong> → Remove lowest set bit
+
+        <br><br>
+
+        📌 <strong>n &amp; (n - 1) == 0</strong> → Power-of-two test
+        when n is positive
+
+    </div>
+
+
+    <!-- 19.33 MCQs -->
+
+    <h3>19.33 Quick MCQs</h3>
+
+    <ol>
+
+        <li>
+
+            Which operator performs bitwise AND?
+
+            <br><br>
+
+            A) &amp;
+
+            <br>
+
+            B) &amp;&amp;
+
+            <br>
+
+            C) |
+
+            <br>
+
+            D) ||
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which operator performs bitwise XOR?
+
+            <br><br>
+
+            A) &amp;
+
+            <br>
+
+            B) ^
+
+            <br>
+
+            C) ||
+
+            <br>
+
+            D) ~
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which operator flips bits?
+
+            <br><br>
+
+            A) &amp;
+
+            <br>
+
+            B) |
+
+            <br>
+
+            C) ^
+
+            <br>
+
+            D) ~
+
+            <br><br>
+
+            <strong>Answer: D</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What is 5 &amp; 3?
+
+            <br><br>
+
+            A) 1
+
+            <br>
+
+            B) 2
+
+            <br>
+
+            C) 7
+
+            <br>
+
+            D) 8
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What is 5 | 3?
+
+            <br><br>
+
+            A) 1
+
+            <br>
+
+            B) 6
+
+            <br>
+
+            C) 7
+
+            <br>
+
+            D) 8
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What is 5 ^ 3?
+
+            <br><br>
+
+            A) 1
+
+            <br>
+
+            B) 6
+
+            <br>
+
+            C) 7
+
+            <br>
+
+            D) 8
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which operator performs left shift?
+
+            <br><br>
+
+            A) &lt;&lt;
+
+            <br>
+
+            B) &gt;&gt;
+
+            <br>
+
+            C) &amp;
+
+            <br>
+
+            D) ^
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which expression checks whether bit k is set?
+
+            <br><br>
+
+            A) n &amp; (1u &lt;&lt; k)
+
+            <br>
+
+            B) n | k
+
+            <br>
+
+            C) n ^ k
+
+            <br>
+
+            D) n + k
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which expression sets bit k?
+
+            <br><br>
+
+            A) n &amp;= (1u &lt;&lt; k)
+
+            <br>
+
+            B) n |= (1u &lt;&lt; k)
+
+            <br>
+
+            C) n ^= ~(1u &lt;&lt; k)
+
+            <br>
+
+            D) n &gt;&gt;= k
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which expression removes the lowest set bit?
+
+            <br><br>
+
+            A) n | (n - 1)
+
+            <br>
+
+            B) n ^ (n - 1)
+
+            <br>
+
+            C) n &amp; (n - 1)
+
+            <br>
+
+            D) n + (n - 1)
+
+            <br><br>
+
+            <strong>Answer: C</strong>
+
+        </li>
+
+    </ol>
+
+
+    <!-- 19.34 PRACTICE -->
+
+    <h3>19.34 Practice Problems</h3>
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+        Find the result of bitwise AND for two integers.
+
+        <br><br>
+
+        <strong>Problem 2</strong>
+
+        <br>
+        Find the result of bitwise OR for two integers.
+
+        <br><br>
+
+        <strong>Problem 3</strong>
+
+        <br>
+        Find the result of bitwise XOR for two integers.
+
+        <br><br>
+
+        <strong>Problem 4</strong>
+
+        <br>
+        Find the bitwise NOT of an integer.
+
+        <br><br>
+
+        <strong>Problem 5</strong>
+
+        <br>
+        Perform left shift by one position.
+
+        <br><br>
+
+        <strong>Problem 6</strong>
+
+        <br>
+        Perform right shift by two positions.
+
+        <br><br>
+
+        <strong>Problem 7</strong>
+
+        <br>
+        Check whether a number is odd or even using bitwise AND.
+
+        <br><br>
+
+        <strong>Problem 8</strong>
+
+        <br>
+        Check whether the kth bit is set.
+
+        <br><br>
+
+        <strong>Problem 9</strong>
+
+        <br>
+        Set the kth bit.
+
+        <br><br>
+
+        <strong>Problem 10</strong>
+
+        <br>
+        Clear the kth bit.
+
+        <br><br>
+
+        <strong>Problem 11</strong>
+
+        <br>
+        Toggle the kth bit.
+
+        <br><br>
+
+        <strong>Problem 12</strong>
+
+        <br>
+        Count the number of set bits in an integer.
+
+        <br><br>
+
+        <strong>Problem 13</strong>
+
+        <br>
+        Count set bits using Brian Kernighan's algorithm.
+
+        <br><br>
+
+        <strong>Problem 14</strong>
+
+        <br>
+        Check whether a positive integer is a power of 2.
+
+        <br><br>
+
+        <strong>Problem 15</strong>
+
+        <br>
+        Find the unique element in an array where every other
+        element appears exactly twice.
+
+        <br><br>
+
+        <strong>Problem 16</strong>
+
+        <br>
+        Print the binary representation of an unsigned integer.
+
+        <br><br>
+
+        <strong>Problem 17</strong>
+
+        <br>
+        Swap two integers using XOR.
+
+        <br><br>
+
+        <strong>Problem 18</strong>
+
+        <br>
+        Implement a program to set, clear and toggle a selected bit.
+
+        <br><br>
+
+        <strong>Problem 19</strong>
+
+        <br>
+        Implement a permission system using bit flags.
+
+        <br><br>
+
+        <strong>Problem 20</strong>
+
+        <br>
+        Given an array in which every number appears twice except
+        two numbers, find the two numbers using bitwise operations.
+
+    </div>
+
+
+    <!-- 19.35 KEY TAKEAWAY -->
+
+    <h3>19.35 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 Remember:
+
+        <br><br>
+
+        <strong>AND (&amp;) → Select bits</strong>
+
+        <br><br>
+
+        <strong>OR (|) → Set bits</strong>
+
+        <br><br>
+
+        <strong>XOR (^) → Toggle / find differences</strong>
+
+        <br><br>
+
+        <strong>NOT (~) → Flip bits</strong>
+
+        <br><br>
+
+        <strong>Left Shift (&lt;&lt;) → Move bits left</strong>
+
+        <br><br>
+
+        <strong>Right Shift (&gt;&gt;) → Move bits right</strong>
+
+        <br><br>
+
+        <strong>n &amp; 1 → Check odd/even</strong>
+
+        <br><br>
+
+        <strong>n &amp; (n - 1) → Remove lowest set bit</strong>
+
+        <br><br>
+
+        <strong>1u &lt;&lt; k → Create a mask for bit k</strong>
 
     </div>
 
