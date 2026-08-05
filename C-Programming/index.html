@@ -38685,19 +38685,1165 @@ int main()
     </button>
 
 
-    <div id="practice-level-7" style="display:none;">
+   <!-- =================================
+     LEVEL 7 — FUNCTIONS & RECURSION
+================================== -->
 
-        <hr>
+<div id="practice-level-7" style="display:none;">
 
-        <h2>🟠 Level 7 — Functions &amp; Recursion</h2>
+    <hr>
 
-        <div class="tip-box">
-            🚧 <strong>Coming Next</strong>
-            <br><br>
-            Function-based and recursion problems.
-        </div>
+    <h2>🟠 Level 7 — Functions &amp; Recursion</h2>
+
+    <p>
+        Practice user-defined functions, parameters,
+        return values and recursion problems.
+    </p>
+
+
+    <!-- 1 -->
+    <div class="tip-box">
+
+        <h3>1️⃣ Add Two Numbers Using Function</h3>
+
+        <p>
+            Write a function to add two numbers and return the result.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>10 20</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>30</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Create a function <code>add()</code> that accepts two
+                integers and returns their sum.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int add(int a, int b)
+{
+    return a + b;
+}
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("%d", add(a, b));
+
+    return 0;
+}</code></pre>
+
+        </details>
 
     </div>
+
+
+    <!-- 2 -->
+    <div class="tip-box">
+
+        <h3>2️⃣ Find Maximum Using Function</h3>
+
+        <p>
+            Write a function to find the larger of two numbers.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>25 18</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>25</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Compare the two numbers inside the function.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int maximum(int a, int b)
+{
+    if(a &gt; b)
+        return a;
+
+    return b;
+}
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("%d", maximum(a, b));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 3 -->
+    <div class="tip-box">
+
+        <h3>3️⃣ Check Even or Odd Using Function</h3>
+
+        <p>
+            Write a function to check whether a number is even or odd.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>24</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Even</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use the remainder operator <code>%</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int isEven(int n)
+{
+    return n % 2 == 0;
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    if(isEven(n))
+        printf("Even");
+    else
+        printf("Odd");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 4 -->
+    <div class="tip-box">
+
+        <h3>4️⃣ Find Factorial Using Function</h3>
+
+        <p>
+            Write a function to find the factorial of a number.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>120</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Multiply all numbers from 1 to <code>n</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+long long factorial(int n)
+{
+    long long fact = 1;
+
+    for(int i = 1; i &lt;= n; i++)
+        fact *= i;
+
+    return fact;
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("%lld", factorial(n));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 5 -->
+    <div class="tip-box">
+
+        <h3>5️⃣ Check Prime Using Function</h3>
+
+        <p>
+            Write a function to check whether a number is prime.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>17</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Prime</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Check divisibility from <code>2</code> up to
+                <code>sqrt(n)</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int isPrime(int n)
+{
+    if(n &lt; 2)
+        return 0;
+
+    for(int i = 2; i * i &lt;= n; i++)
+    {
+        if(n % i == 0)
+            return 0;
+    }
+
+    return 1;
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    if(isPrime(n))
+        printf("Prime");
+    else
+        printf("Not Prime");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 6 -->
+    <div class="tip-box">
+
+        <h3>6️⃣ Reverse Number Using Function</h3>
+
+        <p>
+            Write a function to reverse a number.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>12345</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>54321</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Extract digits using <code>% 10</code> and build the
+                reversed number.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int reverseNumber(int n)
+{
+    int rev = 0;
+
+    while(n != 0)
+    {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+
+    return rev;
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("%d", reverseNumber(n));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 7 -->
+    <div class="tip-box">
+
+        <h3>7️⃣ Fibonacci Using Function</h3>
+
+        <p>
+            Write a function to print the first N Fibonacci numbers.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>7</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>0 1 1 2 3 5 8</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Keep two variables for the previous two Fibonacci
+                numbers.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+void fibonacci(int n)
+{
+    int a = 0, b = 1;
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        printf("%d", a);
+
+        if(i &lt; n - 1)
+            printf(" ");
+
+        int c = a + b;
+        a = b;
+        b = c;
+    }
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    fibonacci(n);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 8 -->
+    <div class="tip-box">
+
+        <h3>8️⃣ GCD Using Function</h3>
+
+        <p>
+            Find the greatest common divisor of two numbers.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>24 36</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>12</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use the Euclidean algorithm.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int gcd(int a, int b)
+{
+    while(b != 0)
+    {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    return a;
+}
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("%d", gcd(a, b));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 9 -->
+    <div class="tip-box">
+
+        <h3>9️⃣ Power Using Function</h3>
+
+        <p>
+            Calculate <code>a</code> raised to the power <code>b</code>
+            using a function.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>2 5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>32</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Multiply the base by itself <code>b</code> times.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int power(int a, int b)
+{
+    int result = 1;
+
+    for(int i = 1; i &lt;= b; i++)
+        result *= a;
+
+    return result;
+}
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("%d", power(a, b));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 10 -->
+    <div class="tip-box">
+
+        <h3>🔟 Factorial Using Recursion</h3>
+
+        <p>
+            Find the factorial of a number using recursion.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>120</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                The recursive relation is
+                <code>n! = n × (n-1)!</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+long long factorial(int n)
+{
+    if(n &lt;= 1)
+        return 1;
+
+    return n * factorial(n - 1);
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("%lld", factorial(n));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 11 -->
+    <div class="tip-box">
+
+        <h3>1️⃣1️⃣ Fibonacci Using Recursion</h3>
+
+        <p>
+            Find the Nth Fibonacci number using recursion.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>6</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>8</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use <code>fib(n) = fib(n-1) + fib(n-2)</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int fibonacci(int n)
+{
+    if(n &lt;= 1)
+        return n;
+
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("%d", fibonacci(n));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 12 -->
+    <div class="tip-box">
+
+        <h3>1️⃣2️⃣ Sum of Natural Numbers Using Recursion</h3>
+
+        <p>
+            Find the sum of the first N natural numbers using recursion.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>10</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>55</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use <code>sum(n) = n + sum(n-1)</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int sum(int n)
+{
+    if(n == 0)
+        return 0;
+
+    return n + sum(n - 1);
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("%d", sum(n));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 13 -->
+    <div class="tip-box">
+
+        <h3>1️⃣3️⃣ Sum of Digits Using Recursion</h3>
+
+        <p>
+            Find the sum of all digits of a number using recursion.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>12345</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>15</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Take the last digit using <code>% 10</code> and
+                recursively process the remaining number.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int sumDigits(int n)
+{
+    if(n == 0)
+        return 0;
+
+    return n % 10 + sumDigits(n / 10);
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("%d", sumDigits(n));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 14 -->
+    <div class="tip-box">
+
+        <h3>1️⃣4️⃣ Reverse a Number Using Recursion</h3>
+
+        <p>
+            Reverse a number using recursion.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>1234</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>4321</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use a helper function with a place-value multiplier.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int reverseHelper(int n, int rev)
+{
+    if(n == 0)
+        return rev;
+
+    return reverseHelper(n / 10,
+                         rev * 10 + n % 10);
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    printf("%d", reverseHelper(n, 0));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 15 -->
+    <div class="tip-box">
+
+        <h3>1️⃣5️⃣ Decimal to Binary Using Recursion</h3>
+
+        <p>
+            Convert a decimal number to binary using recursion.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>10</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>1010</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Recursively divide the number by 2 and print the
+                remainder while returning.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+void binary(int n)
+{
+    if(n &gt; 1)
+        binary(n / 2);
+
+    printf("%d", n % 2);
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    binary(n);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 16 -->
+    <div class="tip-box">
+
+        <h3>1️⃣6️⃣ Find Maximum in Array Using Function</h3>
+
+        <p>
+            Write a function to find the largest element in an array.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+10 25 7 40 18</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>40</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Pass the array and its size to the function.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int maximum(int arr[], int n)
+{
+    int max = arr[0];
+
+    for(int i = 1; i &lt; n; i++)
+    {
+        if(arr[i] &gt; max)
+            max = arr[i];
+    }
+
+    return max;
+}
+
+int main()
+{
+    int n, arr[100];
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    printf("%d", maximum(arr, n));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 17 -->
+    <div class="tip-box">
+
+        <h3>1️⃣7️⃣ Count Even and Odd Using Function</h3>
+
+        <p>
+            Count the number of even and odd elements in an array.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>6
+1 2 3 4 5 6</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Even: 3
+Odd: 3</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Create separate functions for counting even and odd
+                elements.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int countEven(int arr[], int n)
+{
+    int count = 0;
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        if(arr[i] % 2 == 0)
+            count++;
+    }
+
+    return count;
+}
+
+int countOdd(int arr[], int n)
+{
+    int count = 0;
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        if(arr[i] % 2 != 0)
+            count++;
+    }
+
+    return count;
+}
+
+int main()
+{
+    int n, arr[100];
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    printf("Even: %d\n", countEven(arr, n));
+    printf("Odd: %d", countOdd(arr, n));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 18 -->
+    <div class="tip-box">
+
+        <h3>1️⃣8️⃣ Check Palindrome Using Function</h3>
+
+        <p>
+            Check whether a number is a palindrome using a function.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>1221</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Palindrome</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Reverse the number and compare it with the original.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int isPalindrome(int n)
+{
+    int original = n;
+    int reverse = 0;
+
+    while(n != 0)
+    {
+        reverse = reverse * 10 + n % 10;
+        n /= 10;
+    }
+
+    return original == reverse;
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    if(isPalindrome(n))
+        printf("Palindrome");
+    else
+        printf("Not Palindrome");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 19 -->
+    <div class="tip-box">
+
+        <h3>1️⃣9️⃣ LCM Using Function</h3>
+
+        <p>
+            Find the least common multiple of two numbers.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>12 18</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>36</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use the relationship
+                <code>LCM × GCD = a × b</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int gcd(int a, int b)
+{
+    while(b != 0)
+    {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    return a;
+}
+
+int lcm(int a, int b)
+{
+    return (a / gcd(a, b)) * b;
+}
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    printf("%d", lcm(a, b));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 20 -->
+    <div class="tip-box">
+
+        <h3>2️⃣0️⃣ Tower of Hanoi</h3>
+
+        <p>
+            Solve the Tower of Hanoi problem using recursion.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>3</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Move disk 3 from A to C
+Move disk 1 from B to A
+Move disk 2 from B to C
+Move disk 1 from A to C</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Move N-1 disks to the auxiliary rod, move the largest
+                disk, then move N-1 disks to the destination rod.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+void hanoi(int n, char source, char auxiliary, char destination)
+{
+    if(n == 1)
+    {
+        printf("Move disk 1 from %c to %c\n",
+               source, destination);
+        return;
+    }
+
+    hanoi(n - 1, source, destination, auxiliary);
+
+    printf("Move disk %d from %c to %c\n",
+           n, source, destination);
+
+    hanoi(n - 1, auxiliary, source, destination);
+}
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    hanoi(n, 'A', 'B', 'C');
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <div class="tip-box">
+
+        <h3>🎉 Level 7 Complete!</h3>
+
+        <p>
+            Excellent! You have completed
+            <strong>Level 7 — Functions &amp; Recursion</strong>.
+        </p>
+
+        <p>
+            Next:
+            <strong>Level 8 — Pointers &amp; Dynamic Memory</strong>.
+        </p>
+
+    </div>
+
+</div>
 
     <button
         class="primary-button practice-level-button"
@@ -38708,19 +39854,1213 @@ int main()
     </button>
 
 
-    <div id="practice-level-8" style="display:none;">
+  <!-- =================================
+     LEVEL 8 — POINTERS & DYNAMIC MEMORY
+================================== -->
 
-        <hr>
+<div id="practice-level-8" style="display:none;">
 
-        <h2>🟠 Level 8 — Pointers</h2>
+    <hr>
 
-        <div class="tip-box">
-            🚧 <strong>Coming Next</strong>
-            <br><br>
-            Pointer-based programming problems.
-        </div>
+    <h2>🔴 Level 8 — Pointers &amp; Dynamic Memory</h2>
+
+    <p>
+        Practice pointers, pointer arithmetic, arrays with pointers,
+        dynamic memory allocation and memory management.
+    </p>
+
+
+    <!-- 1 -->
+    <div class="tip-box">
+
+        <h3>1️⃣ Print Value Using Pointer</h3>
+
+        <p>
+            Store a number in a variable and print its value using a pointer.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>25</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>25</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Store the address of the variable in a pointer and
+                use the dereference operator <code>*</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+    int *p;
+
+    scanf("%d", &amp;n);
+
+    p = &amp;n;
+
+    printf("%d", *p);
+
+    return 0;
+}</code></pre>
+
+        </details>
 
     </div>
+
+
+    <!-- 2 -->
+    <div class="tip-box">
+
+        <h3>2️⃣ Change Value Using Pointer</h3>
+
+        <p>
+            Change the value of a variable using a pointer.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>10</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>50</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Assign a new value through the dereferenced pointer.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+    int *p;
+
+    scanf("%d", &amp;n);
+
+    p = &amp;n;
+
+    *p = 50;
+
+    printf("%d", n);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 3 -->
+    <div class="tip-box">
+
+        <h3>3️⃣ Swap Two Numbers Using Pointers</h3>
+
+        <p>
+            Swap two numbers using a function and pointers.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>10 20</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>20 10</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Pass the addresses of both variables to the function.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+void swap(int *a, int *b)
+{
+    int temp = *a;
+
+    *a = *b;
+    *b = temp;
+}
+
+int main()
+{
+    int a, b;
+
+    scanf("%d %d", &amp;a, &amp;b);
+
+    swap(&amp;a, &amp;b);
+
+    printf("%d %d", a, b);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 4 -->
+    <div class="tip-box">
+
+        <h3>4️⃣ Sum Array Using Pointer</h3>
+
+        <p>
+            Find the sum of array elements using pointer arithmetic.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+10 20 30 40 50</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>150</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Access elements using <code>*(p + i)</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, arr[100];
+    int *p = arr;
+    int sum = 0;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    for(int i = 0; i &lt; n; i++)
+        sum += *(p + i);
+
+    printf("%d", sum);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 5 -->
+    <div class="tip-box">
+
+        <h3>5️⃣ Find Maximum Using Pointer</h3>
+
+        <p>
+            Find the largest element in an array using pointers.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+12 45 7 30 20</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>45</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Compare values obtained through pointer arithmetic.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, arr[100];
+    int *p;
+    int max;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    p = arr;
+    max = *p;
+
+    for(int i = 1; i &lt; n; i++)
+    {
+        if(*(p + i) &gt; max)
+            max = *(p + i);
+    }
+
+    printf("%d", max);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 6 -->
+    <div class="tip-box">
+
+        <h3>6️⃣ Reverse Array Using Pointers</h3>
+
+        <p>
+            Reverse an array using pointers.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+1 2 3 4 5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>5 4 3 2 1</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use two pointers: one at the beginning and one at
+                the end of the array.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, arr[100];
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    int *left = arr;
+    int *right = arr + n - 1;
+
+    while(left &lt; right)
+    {
+        int temp = *left;
+
+        *left = *right;
+        *right = temp;
+
+        left++;
+        right--;
+    }
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        printf("%d", arr[i]);
+
+        if(i &lt; n - 1)
+            printf(" ");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 7 -->
+    <div class="tip-box">
+
+        <h3>7️⃣ Count Array Elements Using Pointers</h3>
+
+        <p>
+            Count the number of elements in an array using pointers.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>6
+10 20 30 40 50 60</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>6</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Move a pointer from the first element until the end
+                pointer is reached.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, arr[100];
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    int *start = arr;
+    int *end = arr + n;
+
+    printf("%ld", end - start);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 8 -->
+    <div class="tip-box">
+
+        <h3>8️⃣ Dynamically Allocate an Array</h3>
+
+        <p>
+            Allocate memory dynamically for N integers and print their sum.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+10 20 30 40 50</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>150</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use <code>malloc()</code> to allocate memory and
+                <code>free()</code> after use.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int n;
+    int *arr;
+    int sum = 0;
+
+    scanf("%d", &amp;n);
+
+    arr = malloc(n * sizeof(int));
+
+    if(arr == NULL)
+        return 1;
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+        sum += arr[i];
+    }
+
+    printf("%d", sum);
+
+    free(arr);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 9 -->
+    <div class="tip-box">
+
+        <h3>9️⃣ Find Average Using Dynamic Memory</h3>
+
+        <p>
+            Dynamically allocate an array and find its average.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>4
+10 20 30 40</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>25.00</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Store the values using <code>malloc()</code> and divide
+                the sum by N.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int n;
+    int *arr;
+    int sum = 0;
+
+    scanf("%d", &amp;n);
+
+    arr = malloc(n * sizeof(int));
+
+    if(arr == NULL)
+        return 1;
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;arr[i]);
+        sum += arr[i];
+    }
+
+    printf("%.2f", (float)sum / n);
+
+    free(arr);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 10 -->
+    <div class="tip-box">
+
+        <h3>🔟 calloc() for Array</h3>
+
+        <p>
+            Dynamically allocate an array using <code>calloc()</code>
+            and display its initial values.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>0 0 0 0 0</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                <code>calloc()</code> initializes allocated memory to zero.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int n;
+    int *arr;
+
+    scanf("%d", &amp;n);
+
+    arr = calloc(n, sizeof(int));
+
+    if(arr == NULL)
+        return 1;
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        printf("%d", arr[i]);
+
+        if(i &lt; n - 1)
+            printf(" ");
+    }
+
+    free(arr);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 11 -->
+    <div class="tip-box">
+
+        <h3>1️⃣1️⃣ Resize Array Using realloc()</h3>
+
+        <p>
+            Create an array of N elements and increase its size
+            to M elements using <code>realloc()</code>.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>3
+10 20 30
+5
+40 50</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>10 20 30 40 50</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use <code>realloc()</code> to increase the allocated memory.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int n, m;
+    int *arr;
+
+    scanf("%d", &amp;n);
+
+    arr = malloc(n * sizeof(int));
+
+    if(arr == NULL)
+        return 1;
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    scanf("%d", &amp;m);
+
+    arr = realloc(arr, m * sizeof(int));
+
+    if(arr == NULL)
+        return 1;
+
+    for(int i = n; i &lt; m; i++)
+        scanf("%d", &amp;arr[i]);
+
+    for(int i = 0; i &lt; m; i++)
+    {
+        printf("%d", arr[i]);
+
+        if(i &lt; m - 1)
+            printf(" ");
+    }
+
+    free(arr);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 12 -->
+    <div class="tip-box">
+
+        <h3>1️⃣2️⃣ Find Sum Using Pointer Function</h3>
+
+        <p>
+            Pass an array to a function using a pointer and find its sum.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>4
+5 10 15 20</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>50</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use <code>int *arr</code> as the function parameter.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int sum(int *arr, int n)
+{
+    int total = 0;
+
+    for(int i = 0; i &lt; n; i++)
+        total += *(arr + i);
+
+    return total;
+}
+
+int main()
+{
+    int n, arr[100];
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    printf("%d", sum(arr, n));
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 13 -->
+    <div class="tip-box">
+
+        <h3>1️⃣3️⃣ Swap Array Elements Using Pointers</h3>
+
+        <p>
+            Swap two elements of an array using pointers.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+10 20 30 40 50
+1 4</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>10 50 30 40 20</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Pass the addresses of the two selected elements.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+void swap(int *a, int *b)
+{
+    int temp = *a;
+
+    *a = *b;
+    *b = temp;
+}
+
+int main()
+{
+    int n, arr[100];
+    int x, y;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    scanf("%d %d", &amp;x, &amp;y);
+
+    swap(&amp;arr[x], &amp;arr[y]);
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        printf("%d", arr[i]);
+
+        if(i &lt; n - 1)
+            printf(" ");
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 14 -->
+    <div class="tip-box">
+
+        <h3>1️⃣4️⃣ Find String Length Using Pointer</h3>
+
+        <p>
+            Find the length of a string using a character pointer.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>Hello</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>5</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Move the pointer until <code>'\0'</code> is found.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    char *p;
+    int length = 0;
+
+    scanf("%99s", str);
+
+    p = str;
+
+    while(*p != '\0')
+    {
+        length++;
+        p++;
+    }
+
+    printf("%d", length);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 15 -->
+    <div class="tip-box">
+
+        <h3>1️⃣5️⃣ Reverse String Using Pointer</h3>
+
+        <p>
+            Reverse a string using pointers.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>hello</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>olleh</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Find the last character and move the pointer backwards.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    char str[100];
+    char *p;
+    int length = 0;
+
+    scanf("%99s", str);
+
+    while(str[length] != '\0')
+        length++;
+
+    p = str + length - 1;
+
+    while(p &gt;= str)
+    {
+        printf("%c", *p);
+        p--;
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 16 -->
+    <div class="tip-box">
+
+        <h3>1️⃣6️⃣ Dynamic Memory for Multiple Numbers</h3>
+
+        <p>
+            Allocate memory dynamically and find the largest number.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+15 42 8 31 20</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>42</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Allocate memory using <code>malloc()</code> and
+                traverse the array using a pointer.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int n;
+    int *arr;
+    int max;
+
+    scanf("%d", &amp;n);
+
+    arr = malloc(n * sizeof(int));
+
+    if(arr == NULL)
+        return 1;
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    max = *arr;
+
+    for(int i = 1; i &lt; n; i++)
+    {
+        if(*(arr + i) &gt; max)
+            max = *(arr + i);
+    }
+
+    printf("%d", max);
+
+    free(arr);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 17 -->
+    <div class="tip-box">
+
+        <h3>1️⃣7️⃣ Dynamic Memory for String</h3>
+
+        <p>
+            Dynamically allocate memory for a string and print it.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>Programming</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Programming</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Allocate enough memory for the characters plus
+                the null character.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    char *str;
+
+    str = malloc(100 * sizeof(char));
+
+    if(str == NULL)
+        return 1;
+
+    scanf("%99s", str);
+
+    printf("%s", str);
+
+    free(str);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 18 -->
+    <div class="tip-box">
+
+        <h3>1️⃣8️⃣ Pointer to Pointer</h3>
+
+        <p>
+            Use a pointer to pointer to access the value of a variable.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>100</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>100</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use <code>int **pp</code> and dereference it twice.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+    int *p;
+    int **pp;
+
+    scanf("%d", &amp;n);
+
+    p = &amp;n;
+    pp = &amp;p;
+
+    printf("%d", **pp);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 19 -->
+    <div class="tip-box">
+
+        <h3>1️⃣9️⃣ Dynamic Matrix</h3>
+
+        <p>
+            Dynamically allocate memory for a matrix and print it.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>2 3
+1 2 3
+4 5 6</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>1 2 3
+4 5 6</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Allocate memory for rows and then allocate memory
+                for each row.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main()
+{
+    int rows, cols;
+    int **matrix;
+
+    scanf("%d %d", &amp;rows, &amp;cols);
+
+    matrix = malloc(rows * sizeof(int *));
+
+    if(matrix == NULL)
+        return 1;
+
+    for(int i = 0; i &lt; rows; i++)
+        matrix[i] = malloc(cols * sizeof(int));
+
+    for(int i = 0; i &lt; rows; i++)
+    {
+        for(int j = 0; j &lt; cols; j++)
+            scanf("%d", &amp;matrix[i][j]);
+    }
+
+    for(int i = 0; i &lt; rows; i++)
+    {
+        for(int j = 0; j &lt; cols; j++)
+        {
+            printf("%d", matrix[i][j]);
+
+            if(j &lt; cols - 1)
+                printf(" ");
+        }
+
+        printf("\n");
+    }
+
+    for(int i = 0; i &lt; rows; i++)
+        free(matrix[i]);
+
+    free(matrix);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 20 -->
+    <div class="tip-box">
+
+        <h3>2️⃣0️⃣ Find Second Largest Using Pointers</h3>
+
+        <p>
+            Find the second largest element using pointer arithmetic.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>5
+10 40 20 50 30</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>40</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Maintain the largest and second largest values while
+                traversing the array.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;limits.h&gt;
+
+int main()
+{
+    int n, arr[100];
+    int largest = INT_MIN;
+    int second = INT_MIN;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+        scanf("%d", &amp;arr[i]);
+
+    for(int *p = arr; p &lt; arr + n; p++)
+    {
+        if(*p &gt; largest)
+        {
+            second = largest;
+            largest = *p;
+        }
+        else if(*p &gt; second &amp;&amp; *p != largest)
+        {
+            second = *p;
+        }
+    }
+
+    printf("%d", second);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <div class="tip-box">
+
+        <h3>🎉 Level 8 Complete!</h3>
+
+        <p>
+            Excellent! You have completed
+            <strong>Level 8 — Pointers &amp; Dynamic Memory</strong>.
+        </p>
+
+        <p>
+            Next:
+            <strong>Level 9 — Structures, Unions &amp; File Handling</strong>.
+        </p>
+
+    </div>
+
+</div>
+    
 
     <button
         class="primary-button practice-level-button"
@@ -38731,19 +41071,1338 @@ int main()
     </button>
 
 
-    <div id="practice-level-9" style="display:none;">
+  <!-- =================================
+     LEVEL 9 — STRUCTURES, UNIONS & FILE HANDLING
+================================== -->
 
-        <hr>
+<div id="practice-level-9" style="display:none;">
 
-        <h2>🟠 Level 9 — Structures &amp; Unions</h2>
+    <hr>
 
-        <div class="tip-box">
-            🚧 <strong>Coming Next</strong>
-            <br><br>
-            Structure and union practice problems.
-        </div>
+    <h2>🏆 Level 9 — Structures, Unions &amp; File Handling</h2>
+
+    <p>
+        Practice structures, arrays of structures, structure pointers,
+        unions and file handling concepts through practical problems.
+    </p>
+
+
+    <!-- 1 -->
+    <div class="tip-box">
+
+        <h3>1️⃣ Store Student Details Using Structure</h3>
+
+        <p>
+            Create a structure to store a student's roll number,
+            name and marks.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>101
+Ravi
+85</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>101 Ravi 85</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Create a structure containing roll number, name and marks.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    float marks;
+};
+
+int main()
+{
+    struct Student s;
+
+    scanf("%d", &amp;s.roll);
+    scanf("%49s", s.name);
+    scanf("%f", &amp;s.marks);
+
+    printf("%d %s %.0f",
+           s.roll, s.name, s.marks);
+
+    return 0;
+}</code></pre>
+
+        </details>
 
     </div>
+
+
+    <!-- 2 -->
+    <div class="tip-box">
+
+        <h3>2️⃣ Find Student with Highest Marks</h3>
+
+        <p>
+            Store details of N students and find the student
+            with the highest marks.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>3
+101 Ravi 80
+102 Sita 92
+103 Arun 85</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Sita 92</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use an array of structures and keep track of the
+                highest marks.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    int marks;
+};
+
+int main()
+{
+    int n;
+    struct Student s[100];
+    int maxIndex = 0;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        scanf("%d %49s %d",
+              &amp;s[i].roll,
+              s[i].name,
+              &amp;s[i].marks);
+    }
+
+    for(int i = 1; i &lt; n; i++)
+    {
+        if(s[i].marks &gt; s[maxIndex].marks)
+            maxIndex = i;
+    }
+
+    printf("%s %d",
+           s[maxIndex].name,
+           s[maxIndex].marks);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 3 -->
+    <div class="tip-box">
+
+        <h3>3️⃣ Average Marks Using Structure</h3>
+
+        <p>
+            Calculate the average marks of N students.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>3
+80
+90
+70</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>80.00</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Store the marks in a structure and calculate their sum.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int marks;
+};
+
+int main()
+{
+    int n;
+    struct Student s[100];
+    int sum = 0;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        scanf("%d", &amp;s[i].marks);
+        sum += s[i].marks;
+    }
+
+    printf("%.2f", (float)sum / n);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 4 -->
+    <div class="tip-box">
+
+        <h3>4️⃣ Structure Pointer</h3>
+
+        <p>
+            Access structure members using a structure pointer.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>101 Ravi 85</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>101 Ravi 85</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use the arrow operator <code>-&gt;</code> with a
+                structure pointer.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    int marks;
+};
+
+int main()
+{
+    struct Student s;
+    struct Student *p = &amp;s;
+
+    scanf("%d %49s %d",
+          &amp;p-&gt;roll,
+          p-&gt;name,
+          &amp;p-&gt;marks);
+
+    printf("%d %s %d",
+           p-&gt;roll,
+           p-&gt;name,
+           p-&gt;marks);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 5 -->
+    <div class="tip-box">
+
+        <h3>5️⃣ Employee Salary</h3>
+
+        <p>
+            Store employee details using a structure and calculate
+            the annual salary.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>101
+Ravi
+25000</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>300000</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Annual salary is monthly salary multiplied by 12.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+struct Employee
+{
+    int id;
+    char name[50];
+    int salary;
+};
+
+int main()
+{
+    struct Employee e;
+
+    scanf("%d", &amp;e.id);
+    scanf("%49s", e.name);
+    scanf("%d", &amp;e.salary);
+
+    printf("%d", e.salary * 12);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 6 -->
+    <div class="tip-box">
+
+        <h3>6️⃣ Search Student by Roll Number</h3>
+
+        <p>
+            Search for a student using the roll number.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>3
+101 Ravi 80
+102 Sita 90
+103 Arun 85
+102</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Sita 90</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Traverse the array of structures and compare roll numbers.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    int marks;
+};
+
+int main()
+{
+    int n, search;
+    struct Student s[100];
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        scanf("%d %49s %d",
+              &amp;s[i].roll,
+              s[i].name,
+              &amp;s[i].marks);
+    }
+
+    scanf("%d", &amp;search);
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        if(s[i].roll == search)
+        {
+            printf("%s %d",
+                   s[i].name,
+                   s[i].marks);
+            return 0;
+        }
+    }
+
+    printf("Student Not Found");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 7 -->
+    <div class="tip-box">
+
+        <h3>7️⃣ Sort Students by Marks</h3>
+
+        <p>
+            Sort student records according to marks in descending order.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>3
+101 Ravi 70
+102 Sita 90
+103 Arun 80</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Sita 90
+Arun 80
+Ravi 70</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use selection sort or bubble sort on the structure array.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    int marks;
+};
+
+int main()
+{
+    int n;
+    struct Student s[100];
+
+    scanf("%d", &amp;n);
+
+    for(int i = 0; i &lt; n; i++)
+    {
+        scanf("%d %49s %d",
+              &amp;s[i].roll,
+              s[i].name,
+              &amp;s[i].marks);
+    }
+
+    for(int i = 0; i &lt; n - 1; i++)
+    {
+        for(int j = i + 1; j &lt; n; j++)
+        {
+            if(s[i].marks &lt; s[j].marks)
+            {
+                struct Student temp = s[i];
+                s[i] = s[j];
+                s[j] = temp;
+            }
+        }
+    }
+
+    for(int i = 0; i &lt; n; i++)
+        printf("%s %d\n", s[i].name, s[i].marks);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 8 -->
+    <div class="tip-box">
+
+        <h3>8️⃣ Nested Structure</h3>
+
+        <p>
+            Create a student structure containing a nested address structure.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>101
+Ravi
+Hyderabad</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>101 Ravi Hyderabad</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Define one structure inside another structure.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+struct Address
+{
+    char city[50];
+};
+
+struct Student
+{
+    int roll;
+    char name[50];
+    struct Address address;
+};
+
+int main()
+{
+    struct Student s;
+
+    scanf("%d", &amp;s.roll);
+    scanf("%49s", s.name);
+    scanf("%49s", s.address.city);
+
+    printf("%d %s %s",
+           s.roll,
+           s.name,
+           s.address.city);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 9 -->
+    <div class="tip-box">
+
+        <h3>9️⃣ Union Memory Concept</h3>
+
+        <p>
+            Create a union containing an integer, float and character.
+            Store one value and display it.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>25</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>25</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Union members share the same memory location.
+                Only the most recently stored member should be read.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+union Data
+{
+    int i;
+    float f;
+    char c;
+};
+
+int main()
+{
+    union Data d;
+
+    scanf("%d", &amp;d.i);
+
+    printf("%d", d.i);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 10 -->
+    <div class="tip-box">
+
+        <h3>🔟 Write Data to a File</h3>
+
+        <p>
+            Write a message into a text file.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>Hello C</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Data written successfully</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Open the file using <code>fopen()</code> with
+                write mode <code>"w"</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char str[100];
+
+    fgets(str, sizeof(str), stdin);
+
+    fp = fopen("data.txt", "w");
+
+    if(fp == NULL)
+    {
+        printf("File Error");
+        return 1;
+    }
+
+    fputs(str, fp);
+
+    fclose(fp);
+
+    printf("Data written successfully");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 11 -->
+    <div class="tip-box">
+
+        <h3>1️⃣1️⃣ Read Data from a File</h3>
+
+        <p>
+            Read and display the contents of a text file.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>data.txt contains:
+Hello C Programming</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Hello C Programming</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Open the file using <code>"r"</code> mode and use
+                <code>fgets()</code> to read it.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char str[200];
+
+    fp = fopen("data.txt", "r");
+
+    if(fp == NULL)
+    {
+        printf("File Not Found");
+        return 1;
+    }
+
+    while(fgets(str, sizeof(str), fp) != NULL)
+        printf("%s", str);
+
+    fclose(fp);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 12 -->
+    <div class="tip-box">
+
+        <h3>1️⃣2️⃣ Count Characters in a File</h3>
+
+        <p>
+            Count the number of characters stored in a text file.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>data.txt:
+Hello</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>5</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Read one character at a time using <code>fgetc()</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+    int count = 0;
+
+    fp = fopen("data.txt", "r");
+
+    if(fp == NULL)
+        return 1;
+
+    while((ch = fgetc(fp)) != EOF)
+        count++;
+
+    fclose(fp);
+
+    printf("%d", count);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 13 -->
+    <div class="tip-box">
+
+        <h3>1️⃣3️⃣ Count Lines in a File</h3>
+
+        <p>
+            Count the number of lines in a text file.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>data.txt:
+Line 1
+Line 2
+Line 3</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>3</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Count newline characters. Also handle a final line
+                that does not end with a newline.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int ch;
+    int lines = 0;
+    int last = '\n';
+
+    fp = fopen("data.txt", "r");
+
+    if(fp == NULL)
+        return 1;
+
+    while((ch = fgetc(fp)) != EOF)
+    {
+        if(ch == '\n')
+            lines++;
+
+        last = ch;
+    }
+
+    if(last != '\n')
+        lines++;
+
+    fclose(fp);
+
+    printf("%d", lines);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 14 -->
+    <div class="tip-box">
+
+        <h3>1️⃣4️⃣ Copy One File to Another</h3>
+
+        <p>
+            Copy the contents of one file into another file.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>source.txt:
+Hello C</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>destination.txt:
+Hello C</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Open the source in read mode and destination in write mode.
+                Copy characters one by one.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *source, *destination;
+    int ch;
+
+    source = fopen("source.txt", "r");
+    destination = fopen("destination.txt", "w");
+
+    if(source == NULL || destination == NULL)
+        return 1;
+
+    while((ch = fgetc(source)) != EOF)
+        fputc(ch, destination);
+
+    fclose(source);
+    fclose(destination);
+
+    printf("File copied successfully");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 15 -->
+    <div class="tip-box">
+
+        <h3>1️⃣5️⃣ Append Data to a File</h3>
+
+        <p>
+            Add new text to the end of an existing file.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>Welcome</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Data appended successfully</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Open the file using append mode <code>"a"</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    char str[100];
+
+    fgets(str, sizeof(str), stdin);
+
+    fp = fopen("data.txt", "a");
+
+    if(fp == NULL)
+        return 1;
+
+    fputs(str, fp);
+
+    fclose(fp);
+
+    printf("Data appended successfully");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 16 -->
+    <div class="tip-box">
+
+        <h3>1️⃣6️⃣ Store Student Record in File</h3>
+
+        <p>
+            Store a student's roll number, name and marks in a file.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>101 Ravi 85</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Student record saved</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use <code>fprintf()</code> to write formatted data
+                into the file.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int roll, marks;
+    char name[50];
+
+    scanf("%d %49s %d",
+          &amp;roll, name, &amp;marks);
+
+    fp = fopen("student.txt", "w");
+
+    if(fp == NULL)
+        return 1;
+
+    fprintf(fp, "%d %s %d\n",
+            roll, name, marks);
+
+    fclose(fp);
+
+    printf("Student record saved");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 17 -->
+    <div class="tip-box">
+
+        <h3>1️⃣7️⃣ Read Student Record from File</h3>
+
+        <p>
+            Read a student's record from a file and display it.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>student.txt:
+101 Ravi 85</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>101 Ravi 85</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use <code>fscanf()</code> to read formatted data.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int roll, marks;
+    char name[50];
+
+    fp = fopen("student.txt", "r");
+
+    if(fp == NULL)
+        return 1;
+
+    fscanf(fp, "%d %49s %d",
+           &amp;roll, name, &amp;marks);
+
+    printf("%d %s %d",
+           roll, name, marks);
+
+    fclose(fp);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 18 -->
+    <div class="tip-box">
+
+        <h3>1️⃣8️⃣ Count Students in File</h3>
+
+        <p>
+            Count the number of student records stored in a file.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>student.txt:
+101 Ravi 80
+102 Sita 90
+103 Arun 85</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>3</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Read one complete record at a time using
+                <code>fscanf()</code>.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    FILE *fp;
+    int roll, marks;
+    char name[50];
+    int count = 0;
+
+    fp = fopen("student.txt", "r");
+
+    if(fp == NULL)
+        return 1;
+
+    while(fscanf(fp, "%d %49s %d",
+                 &amp;roll, name, &amp;marks) == 3)
+    {
+        count++;
+    }
+
+    fclose(fp);
+
+    printf("%d", count);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 19 -->
+    <div class="tip-box">
+
+        <h3>1️⃣9️⃣ Binary File Using Structure</h3>
+
+        <p>
+            Store a structure in a binary file using
+            <code>fwrite()</code>.
+        </p>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>101 Ravi 85</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Record stored successfully</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use <code>fwrite()</code> to write the entire structure
+                into the binary file.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    int marks;
+};
+
+int main()
+{
+    FILE *fp;
+    struct Student s;
+
+    scanf("%d %49s %d",
+          &amp;s.roll,
+          s.name,
+          &amp;s.marks);
+
+    fp = fopen("student.dat", "wb");
+
+    if(fp == NULL)
+        return 1;
+
+    fwrite(&amp;s, sizeof(s), 1, fp);
+
+    fclose(fp);
+
+    printf("Record stored successfully");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- 20 -->
+    <div class="tip-box">
+
+        <h3>2️⃣0️⃣ Student Management Mini Project</h3>
+
+        <p>
+            Create a menu-driven student management system using
+            structures and file handling.
+        </p>
+
+        <p>
+            The program should support:
+        </p>
+
+        <ul>
+            <li>Add student</li>
+            <li>Display students</li>
+            <li>Search student</li>
+            <li>Update student</li>
+            <li>Delete student</li>
+            <li>Exit</li>
+        </ul>
+
+        <p><strong>Input:</strong></p>
+        <pre><code>1
+101
+Ravi
+85</code></pre>
+
+        <p><strong>Output:</strong></p>
+        <pre><code>Student added successfully</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+            <p>
+                Use a structure for student information, functions
+                for each operation and a file to permanently store
+                the records.
+            </p>
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+struct Student
+{
+    int roll;
+    char name[50];
+    int marks;
+};
+
+void addStudent()
+{
+    FILE *fp;
+    struct Student s;
+
+    fp = fopen("students.dat", "ab");
+
+    if(fp == NULL)
+    {
+        printf("File Error\n");
+        return;
+    }
+
+    printf("Enter Roll Number: ");
+    scanf("%d", &amp;s.roll);
+
+    printf("Enter Name: ");
+    scanf("%49s", s.name);
+
+    printf("Enter Marks: ");
+    scanf("%d", &amp;s.marks);
+
+    fwrite(&amp;s, sizeof(s), 1, fp);
+
+    fclose(fp);
+
+    printf("Student added successfully\n");
+}
+
+void displayStudents()
+{
+    FILE *fp;
+    struct Student s;
+
+    fp = fopen("students.dat", "rb");
+
+    if(fp == NULL)
+    {
+        printf("No records found\n");
+        return;
+    }
+
+    while(fread(&amp;s, sizeof(s), 1, fp) == 1)
+    {
+        printf("Roll: %d\n", s.roll);
+        printf("Name: %s\n", s.name);
+        printf("Marks: %d\n\n", s.marks);
+    }
+
+    fclose(fp);
+}
+
+int main()
+{
+    int choice;
+
+    do
+    {
+        printf("1. Add Student\n");
+        printf("2. Display Students\n");
+        printf("3. Exit\n");
+
+        scanf("%d", &amp;choice);
+
+        switch(choice)
+        {
+            case 1:
+                addStudent();
+                break;
+
+            case 2:
+                displayStudents();
+                break;
+
+            case 3:
+                printf("Exiting...");
+                break;
+
+            default:
+                printf("Invalid choice\n");
+        }
+
+    } while(choice != 3);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <div class="tip-box">
+
+        <h3>🎉 Level 9 Complete!</h3>
+
+        <p>
+            Excellent! You have completed
+            <strong>Level 9 — Structures, Unions &amp; File Handling</strong>.
+        </p>
+
+        <p>
+            🎯 You have now completed the complete
+            <strong>C Programming Practice Course</strong>.
+        </p>
+
+        <p>
+            Next:
+            <strong>DSA Course</strong> 🚀
+        </p>
+
+    </div>
+
+</div>
 
     <button
         class="primary-button practice-level-button"
