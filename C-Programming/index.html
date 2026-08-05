@@ -33862,26 +33862,1274 @@ int main()
 
     </button>
 
+<!-- =================================
+     LEVEL 3 — LOOPS & NUMBER PROBLEMS
+================================== -->
 
-    <div id="practice-level-3" style="display:none;">
+<div id="practice-level-3" style="display:none;">
 
-        <hr>
+    <hr>
 
-        <h2>🟢 Level 3 — Loops &amp; Number Problems</h2>
+    <h2>🟢 Level 3 — Loops &amp; Number Problems</h2>
 
-        <div class="tip-box">
+    <p>
+        Practice <code>for</code>, <code>while</code>,
+        <code>do-while</code> loops and important
+        number-based programming problems.
+    </p>
 
-            🚧 <strong>Coming Next</strong>
 
-            <br><br>
+    <!-- =================================
+         PROBLEM 1
+    ================================== -->
 
-            This level will contain problems based on
-            <code>for</code>, <code>while</code> and
-            <code>do-while</code> loops.
+    <div class="tip-box">
 
-        </div>
+        <h3>1️⃣ Print Numbers from 1 to N</h3>
+
+        <p>
+            Write a C program to print all numbers from
+            <strong>1 to N</strong>.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>1 2 3 4 5</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Start the loop from 1 and continue until
+                the number reaches N.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        printf("%d ", i);
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
 
     </div>
+
+
+    <!-- =================================
+         PROBLEM 2
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>2️⃣ Print Numbers from N to 1</h3>
+
+        <p>
+            Write a C program to print numbers from
+            <strong>N to 1</strong>.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>5 4 3 2 1</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Start from N and decrease the value by 1
+                in every iteration.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = n; i &gt;= 1; i--)
+    {
+        printf("%d ", i);
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 3
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>3️⃣ Print Even Numbers from 1 to N</h3>
+
+        <p>
+            Print all even numbers between 1 and N.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>10</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>2 4 6 8 10</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                A number is even when
+                <code>number % 2 == 0</code>.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        if(i % 2 == 0)
+        {
+            printf("%d ", i);
+        }
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 4
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>4️⃣ Print Odd Numbers from 1 to N</h3>
+
+        <p>
+            Print all odd numbers between 1 and N.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>10</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>1 3 5 7 9</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                A number is odd when
+                <code>number % 2 != 0</code>.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        if(i % 2 != 0)
+        {
+            printf("%d ", i);
+        }
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 5
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>5️⃣ Sum of Numbers from 1 to N</h3>
+
+        <p>
+            Find the sum of all numbers from 1 to N.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>15</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Start <code>sum</code> with 0 and add each
+                number during the loop.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, sum = 0;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        sum = sum + i;
+    }
+
+    printf("%d", sum);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 6
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>6️⃣ Sum of Even Numbers from 1 to N</h3>
+
+        <p>
+            Find the sum of all even numbers between
+            1 and N.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>10</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>30</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Check whether each number is even before
+                adding it to the sum.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, sum = 0;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        if(i % 2 == 0)
+        {
+            sum += i;
+        }
+    }
+
+    printf("%d", sum);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 7
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>7️⃣ Sum of Odd Numbers from 1 to N</h3>
+
+        <p>
+            Find the sum of all odd numbers between
+            1 and N.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>10</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>25</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Add only numbers for which
+                <code>number % 2 != 0</code>.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, sum = 0;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        if(i % 2 != 0)
+        {
+            sum += i;
+        }
+    }
+
+    printf("%d", sum);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 8
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>8️⃣ Multiplication Table</h3>
+
+        <p>
+            Print the multiplication table of a given number
+            up to 10.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+5 x 5 = 25
+5 x 6 = 30
+5 x 7 = 35
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Run a loop from 1 to 10.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= 10; i++)
+    {
+        printf("%d x %d = %d\n",
+               n, i, n * i);
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 9
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>9️⃣ Count Digits of a Number</h3>
+
+        <p>
+            Count the number of digits in an integer.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>12345</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>5</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Repeatedly divide the number by 10 until
+                it becomes zero.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, count = 0;
+
+    scanf("%d", &amp;n);
+
+    if(n == 0)
+    {
+        count = 1;
+    }
+    else
+    {
+        while(n != 0)
+        {
+            n = n / 10;
+            count++;
+        }
+    }
+
+    printf("%d", count);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 10
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>🔟 Sum of Digits</h3>
+
+        <p>
+            Find the sum of all digits of a number.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>12345</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>15</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Use <code>% 10</code> to get the last digit
+                and <code>/ 10</code> to remove it.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, sum = 0;
+
+    scanf("%d", &amp;n);
+
+    while(n != 0)
+    {
+        sum += n % 10;
+        n /= 10;
+    }
+
+    printf("%d", sum);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 11
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣1️⃣ Reverse a Number</h3>
+
+        <p>
+            Reverse the digits of a given number.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>12345</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>54321</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Extract the last digit and add it to
+                <code>reverse</code>.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, reverse = 0;
+
+    scanf("%d", &amp;n);
+
+    while(n != 0)
+    {
+        reverse = reverse * 10 + n % 10;
+        n /= 10;
+    }
+
+    printf("%d", reverse);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 12
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣2️⃣ Palindrome Number</h3>
+
+        <p>
+            Check whether a number is a palindrome.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>121</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>Palindrome</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Reverse the number and compare it with
+                the original number.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, original, reverse = 0;
+
+    scanf("%d", &amp;n);
+
+    original = n;
+
+    while(n != 0)
+    {
+        reverse = reverse * 10 + n % 10;
+        n /= 10;
+    }
+
+    if(original == reverse)
+        printf("Palindrome");
+    else
+        printf("Not Palindrome");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 13
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣3️⃣ Product of Digits</h3>
+
+        <p>
+            Find the product of all digits of a number.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>1234</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>24</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Start <code>product</code> with 1 and multiply
+                each extracted digit.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, product = 1;
+
+    scanf("%d", &amp;n);
+
+    while(n != 0)
+    {
+        product *= n % 10;
+        n /= 10;
+    }
+
+    printf("%d", product);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 14
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣4️⃣ First and Last Digit</h3>
+
+        <p>
+            Find the first and last digit of a number.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>12345</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>First = 1
+Last = 5</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Last digit is obtained using <code>% 10</code>.
+                Keep dividing by 10 to find the first digit.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, first, last;
+
+    scanf("%d", &amp;n);
+
+    last = n % 10;
+
+    while(n &gt;= 10)
+    {
+        n /= 10;
+    }
+
+    first = n;
+
+    printf("First = %d\n", first);
+    printf("Last = %d", last);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 15
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣5️⃣ Count Even and Odd Digits</h3>
+
+        <p>
+            Count the number of even and odd digits
+            in a given number.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>123456</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>Even Digits = 3
+Odd Digits = 3</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Extract each digit and check
+                <code>digit % 2</code>.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, digit;
+    int even = 0, odd = 0;
+
+    scanf("%d", &amp;n);
+
+    while(n != 0)
+    {
+        digit = n % 10;
+
+        if(digit % 2 == 0)
+            even++;
+        else
+            odd++;
+
+        n /= 10;
+    }
+
+    printf("Even Digits = %d\n", even);
+    printf("Odd Digits = %d", odd);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 16
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣6️⃣ Armstrong Number</h3>
+
+        <p>
+            Check whether a three-digit number is an
+            Armstrong number.
+        </p>
+
+        <p>
+            An Armstrong number is a number equal to the
+            sum of the cubes of its digits.
+        </p>
+
+        <p><strong>Example:</strong></p>
+
+        <pre><code>153 = 1³ + 5³ + 3³
+    = 1 + 125 + 27
+    = 153</code></pre>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>153</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>Armstrong Number</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Extract each digit and add
+                <code>digit * digit * digit</code>.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, original, digit;
+    int sum = 0;
+
+    scanf("%d", &amp;n);
+
+    original = n;
+
+    while(n != 0)
+    {
+        digit = n % 10;
+
+        sum += digit * digit * digit;
+
+        n /= 10;
+    }
+
+    if(sum == original)
+        printf("Armstrong Number");
+    else
+        printf("Not Armstrong Number");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 17
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣7️⃣ Prime Number</h3>
+
+        <p>
+            Check whether a given number is prime.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>29</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>Prime Number</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                A prime number has exactly two factors:
+                1 and itself.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n, count = 0;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        if(n % i == 0)
+        {
+            count++;
+        }
+    }
+
+    if(count == 2)
+        printf("Prime Number");
+    else
+        printf("Not Prime Number");
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 18
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣8️⃣ Prime Numbers in a Range</h3>
+
+        <p>
+            Print all prime numbers between two given numbers.
+        </p>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>10 30</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>11 13 17 19 23 29</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Use one loop for the range and another loop
+                to check whether each number is prime.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int start, end;
+
+    scanf("%d %d", &amp;start, &amp;end);
+
+    for(int n = start; n &lt;= end; n++)
+    {
+        int count = 0;
+
+        if(n &gt; 1)
+        {
+            for(int i = 1; i &lt;= n; i++)
+            {
+                if(n % i == 0)
+                {
+                    count++;
+                }
+            }
+
+            if(count == 2)
+            {
+                printf("%d ", n);
+            }
+        }
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 19
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>1️⃣9️⃣ Fibonacci Series</h3>
+
+        <p>
+            Print the first N terms of the Fibonacci series.
+        </p>
+
+        <p>
+            Fibonacci series:
+        </p>
+
+        <pre><code>0 1 1 2 3 5 8 13 ...</code></pre>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>8</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>0 1 1 2 3 5 8 13</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                The next term is the sum of the previous
+                two terms.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+    int a = 0, b = 1, next;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        printf("%d ", a);
+
+        next = a + b;
+        a = b;
+        b = next;
+    }
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         PROBLEM 20
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>2️⃣0️⃣ Factorial of a Number</h3>
+
+        <p>
+            Find the factorial of a given number.
+        </p>
+
+        <p>
+            Factorial:
+        </p>
+
+        <pre><code>5! = 5 × 4 × 3 × 2 × 1 = 120</code></pre>
+
+        <p><strong>Input:</strong></p>
+
+        <pre><code>5</code></pre>
+
+        <p><strong>Output:</strong></p>
+
+        <pre><code>120</code></pre>
+
+        <details>
+            <summary>💡 Hint</summary>
+
+            <p>
+                Start <code>factorial = 1</code> and multiply
+                it by every number from 1 to N.
+            </p>
+
+        </details>
+
+        <details>
+            <summary>✅ Solution</summary>
+
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n;
+    long long factorial = 1;
+
+    scanf("%d", &amp;n);
+
+    for(int i = 1; i &lt;= n; i++)
+    {
+        factorial *= i;
+    }
+
+    printf("%lld", factorial);
+
+    return 0;
+}</code></pre>
+
+        </details>
+
+    </div>
+
+
+    <!-- =================================
+         LEVEL 3 COMPLETION
+    ================================== -->
+
+    <div class="tip-box">
+
+        <h3>🎉 Level 3 Complete!</h3>
+
+        <p>
+            Excellent! You have completed
+            <strong>Level 3 — Loops &amp; Number Problems</strong>.
+        </p>
+
+        <p>
+            You are now ready for:
+            <strong>Level 4 — Pattern Programs</strong>.
+        </p>
+
+    </div>
+
+</div>
+
+
 
     <button
         class="primary-button practice-level-button"
