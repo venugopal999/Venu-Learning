@@ -43874,19 +43874,1079 @@ return 0;
     </button>
 
 
-    <div id="practice-level-11" style="display:none;">
+    <!-- =================================
+     LEVEL 11 — COMMAND LINE & BITWISE
+================================== -->
 
-        <hr>
+<div id="practice-level-11" style="display:none;">
 
-        <h2>🔵 Level 11 — Bitwise Programming</h2>
 
-        <div class="tip-box">
-            🚧 <strong>Coming Next</strong>
-            <br><br>
-            Bitwise operators and bit manipulation problems.
-        </div>
+<hr>
 
-    </div>
+<h2>🟠 Level 11 — Command Line Arguments &amp; Bitwise Programming</h2>
+
+<p>
+    Practice command line arguments and bitwise operations
+    including AND, OR, XOR, NOT, left shift, right shift,
+    bit checking, setting, clearing and toggling.
+</p>
+
+
+<!-- 1 -->
+<div class="tip-box">
+
+    <h3>1️⃣ Read Command Line Argument</h3>
+
+    <p>
+        Write a C program to read and print a command line argument.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>./program Venu</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>Venu</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Command line arguments are stored in
+            <code>argv[]</code>. The first user argument is
+            <code>argv[1]</code>.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main(int argc, char *argv[])
+{
+if(argc > 1)
+printf("%s", argv[1]);
+
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 2 -->
+<div class="tip-box">
+
+    <h3>2️⃣ Count Command Line Arguments</h3>
+
+    <p>
+        Count the number of arguments supplied through
+        the command line.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>./program C Java Python</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>3</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            <code>argc</code> contains the total number of
+            arguments including the program name.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main(int argc, char *argv[])
+{
+printf("%d", argc - 1);
+
+
+return 0;
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 3 -->
+<div class="tip-box">
+
+    <h3>3️⃣ Add Two Command Line Numbers</h3>
+
+    <p>
+        Read two integers through command line arguments
+        and print their sum.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>./program 10 20</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>30</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Convert the strings in <code>argv[]</code> to integers
+            using <code>atoi()</code>.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+if(argc != 3)
+return 0;
+
+
+int a = atoi(argv[1]);
+int b = atoi(argv[2]);
+
+printf("%d", a + b);
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 4 -->
+<div class="tip-box">
+
+    <h3>4️⃣ Find Largest Command Line Number</h3>
+
+    <p>
+        Read three integers through command line arguments
+        and find the largest number.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>./program 25 10 40</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>40</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Convert the arguments to integers and compare them.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+if(argc != 4)
+return 0;
+
+
+int a = atoi(argv[1]);
+int b = atoi(argv[2]);
+int c = atoi(argv[3]);
+
+int max = a;
+
+if(b &gt; max)
+    max = b;
+
+if(c &gt; max)
+    max = c;
+
+printf("%d", max);
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 5 -->
+<div class="tip-box">
+
+    <h3>5️⃣ Bitwise AND</h3>
+
+    <p>
+        Perform bitwise AND operation on two integers.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>12 10</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>8</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use the <code>&amp;</code> operator.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+int a, b;
+
+
+scanf("%d %d", &amp;a, &amp;b);
+
+printf("%d", a &amp; b);
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 6 -->
+<div class="tip-box">
+
+    <h3>6️⃣ Bitwise OR</h3>
+
+    <p>
+        Perform bitwise OR operation on two integers.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>12 10</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>14</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use the bitwise OR operator <code>|</code>.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+int a, b;
+
+
+scanf("%d %d", &amp;a, &amp;b);
+
+printf("%d", a | b);
+
+return 0;
+
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 7 -->
+<div class="tip-box">
+
+    <h3>7️⃣ Bitwise XOR</h3>
+
+    <p>
+        Perform bitwise XOR operation on two integers.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>12 10</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>6</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use the bitwise XOR operator <code>^</code>.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+int a, b;
+
+
+scanf("%d %d", &amp;a, &amp;b);
+
+printf("%d", a ^ b);
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 8 -->
+<div class="tip-box">
+
+    <h3>8️⃣ Bitwise NOT</h3>
+
+    <p>
+        Find the bitwise NOT of a given integer.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>5</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>-6</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use the bitwise NOT operator <code>~</code>.
+            For signed integers, <code>~n</code> equals <code>-n-1</code>.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+int n;
+
+
+scanf("%d", &amp;n);
+
+printf("%d", ~n);
+
+return 0;
+
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 9 -->
+<div class="tip-box">
+
+    <h3>9️⃣ Left Shift</h3>
+
+    <p>
+        Perform a left shift operation on an integer.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>5 2</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>20</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use the <code>&lt;&lt;</code> operator.
+            Shifting left by 2 positions multiplies a positive
+            integer by 4 when no overflow occurs.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+int n, shift;
+
+
+scanf("%d %d", &amp;n, &amp;shift);
+
+printf("%d", n &lt;&lt; shift);
+
+return 0;
+
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 10 -->
+<div class="tip-box">
+
+    <h3>🔟 Right Shift</h3>
+
+    <p>
+        Perform a right shift operation on an integer.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>20 2</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>5</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use the <code>&gt;&gt;</code> operator.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+int n, shift;
+
+
+scanf("%d %d", &amp;n, &amp;shift);
+
+printf("%d", n &gt;&gt; shift);
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 11 -->
+<div class="tip-box">
+
+    <h3>1️⃣1️⃣ Check Whether a Number is Even Using Bitwise</h3>
+
+    <p>
+        Check whether a number is even or odd using
+        a bitwise operator.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>18</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>Even</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            The least significant bit of an even number is 0.
+            Use <code>n &amp; 1</code>.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+int n;
+
+
+scanf("%d", &amp;n);
+
+if((n &amp; 1) == 0)
+    printf("Even");
+else
+    printf("Odd");
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 12 -->
+<div class="tip-box">
+
+    <h3>1️⃣2️⃣ Check a Specific Bit</h3>
+
+    <p>
+        Check whether the K-th bit of a number is set.
+        Consider the least significant bit as bit 0.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>10 1</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>Set</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use the expression
+            <code>n &amp; (1 &lt;&lt; k)</code>.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+int n, k;
+
+
+scanf("%d %d", &amp;n, &amp;k);
+
+if(n &amp; (1 &lt;&lt; k))
+    printf("Set");
+else
+    printf("Not Set");
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 13 -->
+<div class="tip-box">
+
+    <h3>1️⃣3️⃣ Set the K-th Bit</h3>
+
+    <p>
+        Set the K-th bit of a number to 1.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>8 1</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>10</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use OR with <code>1 &lt;&lt; k</code>.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+int n, k;
+
+
+scanf("%d %d", &amp;n, &amp;k);
+
+n = n | (1 &lt;&lt; k);
+
+printf("%d", n);
+
+return 0;
+
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 14 -->
+<div class="tip-box">
+
+    <h3>1️⃣4️⃣ Clear the K-th Bit</h3>
+
+    <p>
+        Clear the K-th bit of a number.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>10 1</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>8</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use AND with the complement of
+            <code>1 &lt;&lt; k</code>.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+int n, k;
+
+
+scanf("%d %d", &amp;n, &amp;k);
+
+n = n &amp; ~(1 &lt;&lt; k);
+
+printf("%d", n);
+
+return 0;
+```
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 15 -->
+<div class="tip-box">
+
+    <h3>1️⃣5️⃣ Toggle the K-th Bit</h3>
+
+    <p>
+        Toggle the K-th bit of a number.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>10 1</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>8</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            XOR with <code>1 &lt;&lt; k</code> toggles the selected bit.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+int n, k;
+
+
+scanf("%d %d", &amp;n, &amp;k);
+
+n = n ^ (1 &lt;&lt; k);
+
+printf("%d", n);
+
+return 0;
+
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 16 -->
+<div class="tip-box">
+
+    <h3>1️⃣6️⃣ Count Set Bits</h3>
+
+    <p>
+        Count the number of 1 bits in the binary
+        representation of a positive integer.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>13</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>3</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Repeatedly check the least significant bit using
+            <code>n &amp; 1</code> and then right shift the number.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+unsigned int n;
+int count = 0;
+
+scanf("%u", &amp;n);
+
+while(n &gt; 0)
+{
+    count += n &amp; 1;
+    n = n &gt;&gt; 1;
+}
+
+printf("%d", count);
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 17 -->
+<div class="tip-box">
+
+    <h3>1️⃣7️⃣ Check Power of Two</h3>
+
+    <p>
+        Check whether a positive integer is a power of 2
+        using bitwise operations.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>16</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>Power of 2</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            A positive power of two has exactly one set bit.
+            Use <code>n &amp; (n - 1)</code>.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+unsigned int n;
+
+
+scanf("%u", &amp;n);
+
+if(n &gt; 0 &amp;&amp; (n &amp; (n - 1)) == 0)
+    printf("Power of 2");
+else
+    printf("Not Power of 2");
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 18 -->
+<div class="tip-box">
+
+    <h3>1️⃣8️⃣ Find the Unique Element</h3>
+
+    <p>
+        Every element in an array appears twice except one.
+        Find the element that appears only once.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>5
+
+
+4 1 2 1 2</code></pre>
+
+
+    <p><strong>Output:</strong></p>
+    <pre><code>4</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            XOR has the useful property that
+            <code>x ^ x = 0</code> and <code>x ^ 0 = x</code>.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+int n;
+int result = 0;
+
+scanf("%d", &amp;n);
+
+for(int i = 0; i &lt; n; i++)
+{
+    int x;
+    scanf("%d", &amp;x);
+
+    result = result ^ x;
+}
+
+printf("%d", result);
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 19 -->
+<div class="tip-box">
+
+    <h3>1️⃣9️⃣ Swap Two Numbers Using XOR</h3>
+
+    <p>
+        Swap two integer values without using a third variable,
+        using XOR.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>10 20</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>20 10</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use three XOR operations:
+            <code>a = a ^ b</code>,
+            <code>b = a ^ b</code>,
+            <code>a = a ^ b</code>.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+int a, b;
+
+
+scanf("%d %d", &amp;a, &amp;b);
+
+a = a ^ b;
+b = a ^ b;
+a = a ^ b;
+
+printf("%d %d", a, b);
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 20 -->
+<div class="tip-box">
+
+    <h3>2️⃣0️⃣ Reverse Bits of an 8-bit Number</h3>
+
+    <p>
+        Reverse the bits of an 8-bit unsigned number.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>13</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>176</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Process 8 bits one at a time. Take the last bit
+            of the input and append it to the result from the left.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+unsigned int n;
+unsigned int result = 0;
+
+scanf("%u", &amp;n);
+
+for(int i = 0; i &lt; 8; i++)
+{
+    result = (result &lt;&lt; 1) | (n &amp; 1);
+    n = n &gt;&gt; 1;
+}
+
+printf("%u", result);
+
+return 0;
+
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<div class="tip-box">
+
+    <h3>🎉 Level 11 Complete!</h3>
+
+    <p>
+        Excellent! You have completed
+        <strong>Level 11 — Command Line Arguments &amp; Bitwise Programming</strong>.
+    </p>
+
+    <p>
+        You have practiced <strong>argc, argv, atoi(),
+        bitwise AND, OR, XOR, NOT, shifts, set/clear/toggle
+        bits, counting set bits and XOR-based problems.</strong>
+    </p>
+
+    <p>
+        Next:
+        <strong>Level 12</strong>.
+    </p>
+
+</div>
+
+</div>
+
 
     <button
         class="primary-button practice-level-button"
