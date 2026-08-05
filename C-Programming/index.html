@@ -42413,19 +42413,1457 @@ int main()
     </button>
 
 
-    <div id="practice-level-10" style="display:none;">
+<!-- =================================
+     LEVEL 10 — FILES & DYNAMIC MEMORY
+================================== -->
 
-        <hr>
+<div id="practice-level-10" style="display:none;">
 
-        <h2>🔵 Level 10 — Files &amp; Dynamic Memory</h2>
 
-        <div class="tip-box">
-            🚧 <strong>Coming Next</strong>
-            <br><br>
-            File handling and dynamic memory problems.
-        </div>
+<hr>
 
-    </div>
+<h2>🔴 Level 10 — Files &amp; Dynamic Memory</h2>
+
+<p>
+    Practice file handling and dynamic memory allocation
+    using fopen(), fclose(), fprintf(), fscanf(),
+    malloc(), calloc(), realloc() and free().
+</p>
+
+
+<!-- 1 -->
+<div class="tip-box">
+
+    <h3>1️⃣ Create and Write to a File</h3>
+
+    <p>
+        Create a file and write a message into it.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>Hello C Programming</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>Data written successfully</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use <code>fopen()</code> with <code>"w"</code> mode
+            and <code>fprintf()</code> to write data.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+FILE *fp;
+char str[100];
+
+
+fgets(str, sizeof(str), stdin);
+
+fp = fopen("data.txt", "w");
+
+if(fp == NULL)
+{
+    printf("File cannot be opened");
+    return 0;
+}
+
+fprintf(fp, "%s", str);
+
+fclose(fp);
+
+printf("Data written successfully");
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 2 -->
+<div class="tip-box">
+
+    <h3>2️⃣ Read Data from a File</h3>
+
+    <p>
+        Read and display the contents of a text file.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>data.txt contains:
+
+Hello C</code></pre>
+
+
+    <p><strong>Output:</strong></p>
+    <pre><code>Hello C</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Open the file using <code>"r"</code> mode and
+            use <code>fgets()</code> to read the contents.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+FILE *fp;
+char str[200];
+
+
+fp = fopen("data.txt", "r");
+
+if(fp == NULL)
+{
+    printf("File not found");
+    return 0;
+}
+
+while(fgets(str, sizeof(str), fp) != NULL)
+{
+    printf("%s", str);
+}
+
+fclose(fp);
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 3 -->
+<div class="tip-box">
+
+    <h3>3️⃣ Count Characters in a File</h3>
+
+    <p>
+        Count the number of characters present in a text file.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>data.txt:
+
+
+Hello</code></pre>
+
+
+    <p><strong>Output:</strong></p>
+    <pre><code>5</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Read the file character by character using
+            <code>fgetc()</code> and increment a counter.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+FILE *fp;
+int ch;
+int count = 0;
+
+
+fp = fopen("data.txt", "r");
+
+if(fp == NULL)
+{
+    printf("File not found");
+    return 0;
+}
+
+while((ch = fgetc(fp)) != EOF)
+{
+    count++;
+}
+
+fclose(fp);
+
+printf("%d", count);
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 4 -->
+<div class="tip-box">
+
+    <h3>4️⃣ Count Lines in a File</h3>
+
+    <p>
+        Count the number of lines present in a text file.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>data.txt:
+
+
+Hello
+World
+C Programming</code></pre>
+
+
+    <p><strong>Output:</strong></p>
+    <pre><code>3</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Count every newline character. Also handle a file
+            whose final line does not end with a newline.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+int main()
+{
+FILE *fp;
+int ch;
+int lines = 0;
+int last = '\n';
+
+
+fp = fopen("data.txt", "r");
+
+if(fp == NULL)
+{
+    printf("File not found");
+    return 0;
+}
+
+while((ch = fgetc(fp)) != EOF)
+{
+    if(ch == '\n')
+        lines++;
+
+    last = ch;
+}
+
+if(last != '\n')
+    lines++;
+
+fclose(fp);
+
+printf("%d", lines);
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 5 -->
+<div class="tip-box">
+
+    <h3>5️⃣ Count Words in a File</h3>
+
+    <p>
+        Count the number of words present in a text file.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>data.txt:
+
+C programming is easy</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>4</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Track whether you are currently inside a word.
+            Use whitespace to identify word boundaries.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+#include <ctype.h>
+
+int main()
+{
+FILE *fp;
+int ch;
+int words = 0;
+int inWord = 0;
+
+fp = fopen("data.txt", "r");
+
+if(fp == NULL)
+{
+    printf("File not found");
+    return 0;
+}
+
+while((ch = fgetc(fp)) != EOF)
+{
+    if(isspace(ch))
+    {
+        inWord = 0;
+    }
+    else if(!inWord)
+    {
+        words++;
+        inWord = 1;
+    }
+}
+
+fclose(fp);
+
+printf("%d", words);
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 6 -->
+<div class="tip-box">
+
+    <h3>6️⃣ Copy One File to Another</h3>
+
+    <p>
+        Copy the contents of one text file into another file.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>source.txt:
+
+Hello C Programming</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>Data copied successfully</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Open the source file in read mode and destination
+            file in write mode. Copy characters using fgetc()
+            and fputc().
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+FILE *source;
+FILE *destination;
+
+int ch;
+
+source = fopen("source.txt", "r");
+
+if(source == NULL)
+{
+    printf("Source file not found");
+    return 0;
+}
+
+destination = fopen("copy.txt", "w");
+
+if(destination == NULL)
+{
+    fclose(source);
+    printf("Destination file cannot be opened");
+    return 0;
+}
+
+while((ch = fgetc(source)) != EOF)
+{
+    fputc(ch, destination);
+}
+
+fclose(source);
+fclose(destination);
+
+printf("Data copied successfully");
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 7 -->
+<div class="tip-box">
+
+    <h3>7️⃣ Append Data to a File</h3>
+
+    <p>
+        Add new text to the end of an existing file
+        without deleting its old contents.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>data.txt:
+
+Hello
+
+New input:
+World</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>Hello
+
+World</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Open the file using <code>"a"</code> mode.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+FILE *fp;
+char str[100];
+
+fgets(str, sizeof(str), stdin);
+
+fp = fopen("data.txt", "a");
+
+if(fp == NULL)
+{
+    printf("File cannot be opened");
+    return 0;
+}
+
+fprintf(fp, "%s", str);
+
+fclose(fp);
+
+printf("Data appended successfully");
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 8 -->
+<div class="tip-box">
+
+    <h3>8️⃣ Search for a Word in a File</h3>
+
+    <p>
+        Search whether a given word is present in a text file.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>data.txt:
+
+C programming is powerful
+
+Search:
+programming</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>Found</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Read words using <code>fscanf()</code> and compare
+            each word with the search word using strcmp().
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+#include <string.h>
+
+int main()
+{
+FILE *fp;
+char word[100];
+char search[100];
+
+fp = fopen("data.txt", "r");
+
+if(fp == NULL)
+{
+    printf("File not found");
+    return 0;
+}
+
+scanf("%99s", search);
+
+while(fscanf(fp, "%99s", word) == 1)
+{
+    if(strcmp(word, search) == 0)
+    {
+        printf("Found");
+        fclose(fp);
+        return 0;
+    }
+}
+
+fclose(fp);
+
+printf("Not Found");
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 9 -->
+<div class="tip-box">
+
+    <h3>9️⃣ Count a Character in a File</h3>
+
+    <p>
+        Count how many times a given character occurs
+        in a text file.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>data.txt:
+        
+programming
+
+Search:
+g</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>2</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Read each character using fgetc() and compare
+            it with the requested character.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+FILE *fp;
+int ch;
+char search;
+int count = 0;
+
+fp = fopen("data.txt", "r");
+
+if(fp == NULL)
+{
+    printf("File not found");
+    return 0;
+}
+
+scanf(" %c", &amp;search);
+
+while((ch = fgetc(fp)) != EOF)
+{
+    if(ch == search)
+        count++;
+}
+
+fclose(fp);
+
+printf("%d", count);
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 10 -->
+<div class="tip-box">
+
+    <h3>🔟 Store Numbers in a File</h3>
+
+    <p>
+        Read N integers and store them in a file.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>5
+
+10 20 30 40 50</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>Numbers stored successfully</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Open a file in write mode and use fprintf()
+            to store each number.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+FILE *fp;
+int n, x;
+
+scanf("%d", &amp;n);
+
+fp = fopen("numbers.txt", "w");
+
+if(fp == NULL)
+{
+    printf("File cannot be opened");
+    return 0;
+}
+
+for(int i = 0; i &lt; n; i++)
+{
+    scanf("%d", &amp;x);
+    fprintf(fp, "%d ", x);
+}
+
+fclose(fp);
+
+printf("Numbers stored successfully");
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 11 -->
+<div class="tip-box">
+
+    <h3>1️⃣1️⃣ Read Numbers from a File and Find Sum</h3>
+
+    <p>
+        Read integers from a file and calculate their sum.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>numbers.txt:
+
+10 20 30 40 50</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>150</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use fscanf() to read integers until EOF.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main()
+{
+FILE *fp;
+int x;
+int sum = 0;
+
+fp = fopen("numbers.txt", "r");
+
+if(fp == NULL)
+{
+    printf("File not found");
+    return 0;
+}
+
+while(fscanf(fp, "%d", &amp;x) == 1)
+{
+    sum += x;
+}
+
+fclose(fp);
+
+printf("%d", sum);
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 12 -->
+<div class="tip-box">
+
+    <h3>1️⃣2️⃣ Allocate Memory Using malloc()</h3>
+
+    <p>
+        Dynamically allocate memory for N integers using
+        <code>malloc()</code> and print them.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>5
+
+10 20 30 40 50</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>10 20 30 40 50</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use <code>malloc(n * sizeof(int))</code> to allocate
+            memory and release it using <code>free()</code>.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+#include <stdlib.h>
+
+int main()
+{
+int n;
+
+scanf("%d", &amp;n);
+
+int *a = malloc(n * sizeof(int));
+
+if(a == NULL)
+{
+    printf("Memory allocation failed");
+    return 0;
+}
+
+for(int i = 0; i &lt; n; i++)
+    scanf("%d", &amp;a[i]);
+
+for(int i = 0; i &lt; n; i++)
+    printf("%d ", a[i]);
+
+free(a);
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 13 -->
+<div class="tip-box">
+
+    <h3>1️⃣3️⃣ Sum of Dynamically Allocated Array</h3>
+
+    <p>
+        Dynamically allocate an integer array and find
+        the sum of its elements.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>5
+
+10 20 30 40 50</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>150</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Allocate memory using malloc() and traverse
+            the array normally using its pointer.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+#include <stdlib.h>
+
+int main()
+{
+int n;
+int sum = 0;
+
+scanf("%d", &amp;n);
+
+int *a = malloc(n * sizeof(int));
+
+if(a == NULL)
+    return 0;
+
+for(int i = 0; i &lt; n; i++)
+{
+    scanf("%d", &amp;a[i]);
+    sum += a[i];
+}
+
+printf("%d", sum);
+
+free(a);
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 14 -->
+<div class="tip-box">
+
+    <h3>1️⃣4️⃣ Allocate Memory Using calloc()</h3>
+
+    <p>
+        Allocate memory for N integers using
+        <code>calloc()</code> and display the initial values.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>5</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>0 0 0 0 0</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            calloc() initializes allocated memory to zero.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+#include <stdlib.h>
+
+int main()
+{
+int n;
+
+```
+scanf("%d", &amp;n);
+
+int *a = calloc(n, sizeof(int));
+
+if(a == NULL)
+{
+    printf("Memory allocation failed");
+    return 0;
+}
+
+for(int i = 0; i &lt; n; i++)
+    printf("%d ", a[i]);
+
+free(a);
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 15 -->
+<div class="tip-box">
+
+    <h3>1️⃣5️⃣ Resize Memory Using realloc()</h3>
+
+    <p>
+        Allocate memory for N integers and increase the
+        array size to M using <code>realloc()</code>.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>3
+
+10 20 30
+5
+40 50</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>10 20 30 40 50</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            First allocate N integers using malloc().
+            Then use realloc() to increase the size to M.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+#include <stdlib.h>
+
+int main()
+{
+int n, m;
+
+scanf("%d", &amp;n);
+
+int *a = malloc(n * sizeof(int));
+
+if(a == NULL)
+    return 0;
+
+for(int i = 0; i &lt; n; i++)
+    scanf("%d", &amp;a[i]);
+
+scanf("%d", &amp;m);
+
+int *temp = realloc(a, m * sizeof(int));
+
+if(temp == NULL)
+{
+    free(a);
+    return 0;
+}
+
+a = temp;
+
+for(int i = n; i &lt; m; i++)
+    scanf("%d", &amp;a[i]);
+
+for(int i = 0; i &lt; m; i++)
+    printf("%d ", a[i]);
+
+free(a);
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 16 -->
+<div class="tip-box">
+
+    <h3>1️⃣6️⃣ Find Largest Element Using Dynamic Memory</h3>
+
+    <p>
+        Dynamically allocate an array and find its largest element.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>5
+
+10 45 20 67 30</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>67</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Store the values in dynamically allocated memory
+            and maintain the maximum value while traversing.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+#include <stdlib.h>
+
+int main()
+{
+int n;
+
+scanf("%d", &amp;n);
+
+int *a = malloc(n * sizeof(int));
+
+if(a == NULL)
+    return 0;
+
+for(int i = 0; i &lt; n; i++)
+    scanf("%d", &amp;a[i]);
+
+int max = a[0];
+
+for(int i = 1; i &lt; n; i++)
+{
+    if(a[i] &gt; max)
+        max = a[i];
+}
+
+printf("%d", max);
+
+free(a);
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 17 -->
+<div class="tip-box">
+
+    <h3>1️⃣7️⃣ Reverse Dynamically Allocated Array</h3>
+
+    <p>
+        Dynamically allocate an array and reverse its elements.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>5
+
+10 20 30 40 50</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>50 40 30 20 10</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use two indexes: one from the beginning and
+            one from the end.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+#include <stdlib.h>
+
+int main()
+{
+int n;
+
+scanf("%d", &amp;n);
+
+int *a = malloc(n * sizeof(int));
+
+if(a == NULL)
+    return 0;
+
+for(int i = 0; i &lt; n; i++)
+    scanf("%d", &amp;a[i]);
+
+int start = 0;
+int end = n - 1;
+
+while(start &lt; end)
+{
+    int temp = a[start];
+    a[start] = a[end];
+    a[end] = temp;
+
+    start++;
+    end--;
+}
+
+for(int i = 0; i &lt; n; i++)
+    printf("%d ", a[i]);
+
+free(a);
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 18 -->
+<div class="tip-box">
+
+    <h3>1️⃣8️⃣ Dynamically Allocate a String</h3>
+
+    <p>
+        Dynamically allocate memory for a string and
+        display the entered string.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>Programming</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>Programming</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Allocate enough memory for the string and its
+            null character using malloc().
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+char temp[100];
+
+fgets(temp, sizeof(temp), stdin);
+
+temp[strcspn(temp, "\n")] = '\0';
+
+char *str = malloc((strlen(temp) + 1) * sizeof(char));
+
+if(str == NULL)
+    return 0;
+
+strcpy(str, temp);
+
+printf("%s", str);
+
+free(str);
+
+return 0;
+
+}</code></pre>
+
+    </details>
+
+</div>
+
+
+<!-- 19 -->
+<div class="tip-box">
+
+    <h3>1️⃣9️⃣ Dynamic Memory with Structure</h3>
+
+    <p>
+        Dynamically allocate memory for N students using
+        structures and display their details.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>2
+
+Ravi 85
+Sita 92</code></pre>
+
+    <p><strong>Output:</strong></p>
+    <pre><code>Ravi 85
+
+Sita 92</code></pre>
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Use malloc() with sizeof(struct Student)
+            to create an array of structures dynamically.
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+#include <stdlib.h>
+
+struct Student
+{
+char name[50];
+int marks;
+};
+
+int main()
+{
+int n;
+
+scanf("%d", &amp;n);
+
+struct Student *s =
+    malloc(n * sizeof(struct Student));
+
+if(s == NULL)
+    return 0;
+
+for(int i = 0; i &lt; n; i++)
+{
+    scanf("%49s %d", s[i].name, &amp;s[i].marks);
+}
+
+for(int i = 0; i &lt; n; i++)
+{
+    printf("%s %d\n",
+           s[i].name,
+           s[i].marks);
+}
+
+free(s);
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<!-- 20 -->
+<div class="tip-box">
+
+    <h3>2️⃣0️⃣ Student Records Using File and Dynamic Memory</h3>
+
+    <p>
+        Dynamically allocate memory for student records,
+        store them in a file and then read and display them.
+    </p>
+
+    <p><strong>Input:</strong></p>
+    <pre><code>2
+
+
+Ravi 85
+Sita 92</code></pre>
+
+
+    <p><strong>Output:</strong></p>
+    <pre><code>Ravi 85
+
+
+Sita 92</code></pre>
+
+
+    <details>
+        <summary>💡 Hint</summary>
+        <p>
+            Allocate the student array using malloc().
+            Write the records using fprintf(), then reopen
+            the file and read them using fscanf().
+        </p>
+    </details>
+
+    <details>
+        <summary>✅ Solution</summary>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+
+#include <stdlib.h>
+
+struct Student
+{
+char name[50];
+int marks;
+};
+
+int main()
+{
+int n;
+
+scanf("%d", &amp;n);
+
+struct Student *s =
+    malloc(n * sizeof(struct Student));
+
+if(s == NULL)
+    return 0;
+
+for(int i = 0; i &lt; n; i++)
+{
+    scanf("%49s %d",
+          s[i].name,
+          &amp;s[i].marks);
+}
+
+FILE *fp = fopen("students.txt", "w");
+
+if(fp == NULL)
+{
+    free(s);
+    return 0;
+}
+
+for(int i = 0; i &lt; n; i++)
+{
+    fprintf(fp, "%s %d\n",
+            s[i].name,
+            s[i].marks);
+}
+
+fclose(fp);
+
+free(s);
+
+fp = fopen("students.txt", "r");
+
+if(fp == NULL)
+    return 0;
+
+struct Student temp;
+
+while(fscanf(fp, "%49s %d",
+             temp.name,
+             &amp;temp.marks) == 2)
+{
+    printf("%s %d\n",
+           temp.name,
+           temp.marks);
+}
+
+fclose(fp);
+
+return 0;
+
+
+}</code></pre>
+
+
+    </details>
+
+</div>
+
+
+<div class="tip-box">
+
+    <h3>🎉 Level 10 Complete!</h3>
+
+    <p>
+        Excellent! You have completed
+        <strong>Level 10 — Files &amp; Dynamic Memory</strong>.
+    </p>
+
+    <p>
+        You have practiced file creation, reading, writing,
+        appending, searching, file statistics, malloc(),
+        calloc(), realloc(), free() and dynamic structures.
+    </p>
+
+    <p>
+        Next:
+        <strong>Level 11</strong>.
+    </p>
+
+</div>
+
+</div>
+
 
     <button
         class="primary-button practice-level-button"
