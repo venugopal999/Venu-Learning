@@ -202,6 +202,8 @@
 
         <a href="#dynamic-memory">🧠 Dynamic Memory Allocation</a>
 
+        <a href="#command-line">💻 Command Line Arguments</a>
+
 
         <div class="sidebar-title">
 
@@ -23107,7 +23109,1413 @@ ptr = malloc(10 * sizeof *ptr);</code></pre>
 
     </div>
 
-</section>        
+</section>    
+
+        <!-- ================================
+             Dynamic Memory Allocation
+        ================================= -->
+
+        <section id="command-line" class="content-card">
+
+    <h2>💻 18. Command Line Arguments</h2>
+
+    <!-- 18.1 INTRODUCTION -->
+
+    <h3>18.1 What are Command Line Arguments?</h3>
+
+    <p>
+        Command line arguments are values supplied to a C program
+        when the program is started from a command line or terminal.
+    </p>
+
+    <p>
+        They allow a program to receive input without using
+        <strong>scanf()</strong> during execution.
+    </p>
+
+    <div class="formula-box">
+
+        Command Line
+        <br>
+        ↓
+        <br>
+        Program + Arguments
+        <br>
+        ↓
+        <br>
+        main(argc, argv)
+        <br>
+        ↓
+        <br>
+        Program Processing
+
+    </div>
+
+    <p>
+        Example:
+    </p>
+
+    <pre><code>program.exe 10 20 30</code></pre>
+
+    <p>
+        Here <strong>10</strong>, <strong>20</strong> and
+        <strong>30</strong> are command line arguments.
+    </p>
+
+
+    <!-- 18.2 MAIN FUNCTION -->
+
+    <h3>18.2 main() with Command Line Arguments</h3>
+
+    <p>
+        A common form of the main function is:
+    </p>
+
+    <pre><code>int main(int argc, char *argv[])
+{
+    return 0;
+}</code></pre>
+
+    <p>
+        The two parameters are:
+    </p>
+
+    <ul>
+
+        <li>
+            <strong>argc</strong> → argument count
+        </li>
+
+        <li>
+            <strong>argv</strong> → argument vector, an array of
+            pointers to the argument strings
+        </li>
+
+    </ul>
+
+
+    <!-- 18.3 ARGC -->
+
+    <h3>18.3 argc - Argument Count</h3>
+
+    <p>
+        <strong>argc</strong> contains the number of command-line
+        arguments, including the program name.
+    </p>
+
+    <p>
+        Example:
+    </p>
+
+    <pre><code>program.exe 10 20</code></pre>
+
+    <p>
+        The value of <strong>argc</strong> is:
+    </p>
+
+    <div class="output-box">
+
+        argc = 3
+
+    </div>
+
+    <p>
+        Why 3?
+    </p>
+
+    <div class="formula-box">
+
+        Program name → 1
+        <br>
+        10 → 1
+        <br>
+        20 → 1
+        <br><br>
+        Total = 3
+
+    </div>
+
+
+    <!-- 18.4 ARGV -->
+
+    <h3>18.4 argv - Argument Vector</h3>
+
+    <p>
+        <strong>argv</strong> is an array of strings containing
+        the command-line arguments.
+    </p>
+
+    <pre><code>program.exe 10 20</code></pre>
+
+    <div class="memory-diagram">
+
+        <div class="memory-section">
+
+            <strong>argv[0]</strong>
+
+            <span>program.exe</span>
+
+        </div>
+
+        <div class="memory-section">
+
+            <strong>argv[1]</strong>
+
+            <span>10</span>
+
+        </div>
+
+        <div class="memory-section">
+
+            <strong>argv[2]</strong>
+
+            <span>20</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- 18.5 BASIC PROGRAM -->
+
+    <h3>18.5 Display Command Line Arguments</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[])
+{
+    printf("Argument count = %d\n\n", argc);
+
+    for(int i = 0; i &lt; argc; i++)
+    {
+        printf("argv[%d] = %s\n", i, argv[i]);
+    }
+
+    return 0;
+}</code></pre>
+
+    <p>
+        Suppose the program is executed as:
+    </p>
+
+    <pre><code>program.exe Hello 123 C</code></pre>
+
+    <div class="output-box">
+
+        Argument count = 4
+        <br><br>
+
+        argv[0] = program.exe
+        <br>
+        argv[1] = Hello
+        <br>
+        argv[2] = 123
+        <br>
+        argv[3] = C
+
+    </div>
+
+
+    <!-- 18.6 ARGUMENTS ARE STRINGS -->
+
+    <h3>18.6 Important: Command Line Arguments are Strings</h3>
+
+    <p>
+        All command-line arguments are received as strings.
+    </p>
+
+    <pre><code>program.exe 10 20</code></pre>
+
+    <p>
+        Therefore:
+    </p>
+
+    <pre><code>argv[1]</code></pre>
+
+    <p>
+        contains the string:
+    </p>
+
+    <pre><code>"10"</code></pre>
+
+    <p>
+        It is not automatically an integer.
+    </p>
+
+    <div class="tip-box">
+
+        📌 If you need numeric calculations, convert the
+        argument string to a number first.
+
+    </div>
+
+
+    <!-- 18.7 ATOI -->
+
+    <h3>18.7 Converting Strings to Integers - atoi()</h3>
+
+    <p>
+        The <strong>atoi()</strong> function converts a string
+        representing an integer into an <strong>int</strong>.
+    </p>
+
+    <pre><code>#include &lt;stdlib.h&gt;
+
+int num;
+
+num = atoi(argv[1]);</code></pre>
+
+    <p>
+        Example:
+    </p>
+
+    <pre><code>program.exe 25</code></pre>
+
+    <pre><code>int num = atoi(argv[1]);</code></pre>
+
+    <p>
+        Now:
+    </p>
+
+    <div class="output-box">
+
+        num = 25
+
+    </div>
+
+
+    <!-- 18.8 ADD TWO NUMBERS -->
+
+    <h3>18.8 Add Two Command Line Numbers</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char *argv[])
+{
+    if(argc != 3)
+    {
+        printf("Usage: program number1 number2");
+        return 1;
+    }
+
+    int a = atoi(argv[1]);
+    int b = atoi(argv[2]);
+
+    printf("Sum = %d", a + b);
+
+    return 0;
+}</code></pre>
+
+    <p>
+        Example:
+    </p>
+
+    <pre><code>program.exe 10 20</code></pre>
+
+    <div class="output-box">
+
+        Sum = 30
+
+    </div>
+
+
+    <!-- 18.9 SUBTRACTION -->
+
+    <h3>18.9 Subtract Two Numbers</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char *argv[])
+{
+    if(argc != 3)
+    {
+        printf("Usage: program number1 number2");
+        return 1;
+    }
+
+    int a = atoi(argv[1]);
+    int b = atoi(argv[2]);
+
+    printf("Difference = %d", a - b);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 18.10 MULTIPLICATION -->
+
+    <h3>18.10 Multiply Two Numbers</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char *argv[])
+{
+    if(argc != 3)
+    {
+        printf("Usage: program number1 number2");
+        return 1;
+    }
+
+    int a = atoi(argv[1]);
+    int b = atoi(argv[2]);
+
+    printf("Product = %d", a * b);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 18.11 DIVISION -->
+
+    <h3>18.11 Divide Two Numbers</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char *argv[])
+{
+    if(argc != 3)
+    {
+        printf("Usage: program number1 number2");
+        return 1;
+    }
+
+    int a = atoi(argv[1]);
+    int b = atoi(argv[2]);
+
+    if(b == 0)
+    {
+        printf("Division by zero is not allowed");
+        return 1;
+    }
+
+    printf("Quotient = %d", a / b);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 18.12 SUM MULTIPLE -->
+
+    <h3>18.12 Sum of Multiple Command Line Numbers</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char *argv[])
+{
+    int sum = 0;
+
+    for(int i = 1; i &lt; argc; i++)
+    {
+        sum += atoi(argv[i]);
+    }
+
+    printf("Sum = %d", sum);
+
+    return 0;
+}</code></pre>
+
+    <p>
+        Example:
+    </p>
+
+    <pre><code>program.exe 10 20 30 40</code></pre>
+
+    <div class="output-box">
+
+        Sum = 100
+
+    </div>
+
+
+    <!-- 18.13 LARGEST -->
+
+    <h3>18.13 Find the Largest Command Line Number</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char *argv[])
+{
+    if(argc &lt; 2)
+    {
+        printf("Provide at least one number");
+        return 1;
+    }
+
+    int largest = atoi(argv[1]);
+
+    for(int i = 2; i &lt; argc; i++)
+    {
+        int value = atoi(argv[i]);
+
+        if(value &gt; largest)
+        {
+            largest = value;
+        }
+    }
+
+    printf("Largest = %d", largest);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 18.14 SMALLEST -->
+
+    <h3>18.14 Find the Smallest Command Line Number</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char *argv[])
+{
+    if(argc &lt; 2)
+    {
+        printf("Provide at least one number");
+        return 1;
+    }
+
+    int smallest = atoi(argv[1]);
+
+    for(int i = 2; i &lt; argc; i++)
+    {
+        int value = atoi(argv[i]);
+
+        if(value &lt; smallest)
+        {
+            smallest = value;
+        }
+    }
+
+    printf("Smallest = %d", smallest);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 18.15 AVERAGE -->
+
+    <h3>18.15 Average of Command Line Numbers</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char *argv[])
+{
+    if(argc &lt; 2)
+    {
+        printf("Provide at least one number");
+        return 1;
+    }
+
+    double sum = 0;
+
+    for(int i = 1; i &lt; argc; i++)
+    {
+        sum += atoi(argv[i]);
+    }
+
+    double average = sum / (argc - 1);
+
+    printf("Average = %.2f", average);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 18.16 STRTOL -->
+
+    <h3>18.16 strtol() - Safer Integer Conversion</h3>
+
+    <p>
+        <strong>atoi()</strong> is simple, but it provides limited
+        error reporting. For more robust programs,
+        <strong>strtol()</strong> can be used.
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;limits.h&gt;
+
+int main(int argc, char *argv[])
+{
+    if(argc != 2)
+    {
+        printf("Usage: program number");
+        return 1;
+    }
+
+    char *end;
+    long value;
+
+    errno = 0;
+
+    value = strtol(argv[1], &amp;end, 10);
+
+    if(end == argv[1] || *end != '\0')
+    {
+        printf("Invalid integer");
+        return 1;
+    }
+
+    if(errno == ERANGE ||
+       value &lt; INT_MIN ||
+       value &gt; INT_MAX)
+    {
+        printf("Integer out of range");
+        return 1;
+    }
+
+    printf("Number = %ld", value);
+
+    return 0;
+}</code></pre>
+
+
+    <!-- 18.17 CHARACTER ARGUMENT -->
+
+    <h3>18.17 Passing a Character or Word</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[])
+{
+    if(argc != 2)
+    {
+        printf("Usage: program name");
+        return 1;
+    }
+
+    printf("Hello %s!", argv[1]);
+
+    return 0;
+}</code></pre>
+
+    <p>
+        Example:
+    </p>
+
+    <pre><code>program.exe Venu</code></pre>
+
+    <div class="output-box">
+
+        Hello Venu!
+
+    </div>
+
+
+    <!-- 18.18 MULTIPLE WORDS -->
+
+    <h3>18.18 Arguments Containing Spaces</h3>
+
+    <p>
+        If an argument contains spaces, the shell normally
+        separates it into multiple arguments unless it is quoted.
+    </p>
+
+    <pre><code>program.exe "Venu Gopal"</code></pre>
+
+    <p>
+        Here:
+    </p>
+
+    <pre><code>argv[1]</code></pre>
+
+    <div class="output-box">
+
+        Venu Gopal
+
+    </div>
+
+
+    <!-- 18.19 ARGUMENT DIAGRAM -->
+
+    <h3>18.19 Command Line Argument Diagram</h3>
+
+    <div class="memory-diagram">
+
+        <div class="memory-section">
+
+            <strong>Command Line</strong>
+
+            <span>program.exe 10 20</span>
+
+        </div>
+
+        <div class="memory-section">
+
+            <strong>argc</strong>
+
+            <span>3</span>
+
+        </div>
+
+        <div class="memory-section">
+
+            <strong>argv[0]</strong>
+
+            <span>program.exe</span>
+
+        </div>
+
+        <div class="memory-section">
+
+            <strong>argv[1]</strong>
+
+            <span>10</span>
+
+        </div>
+
+        <div class="memory-section">
+
+            <strong>argv[2]</strong>
+
+            <span>20</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- 18.20 COMMAND LINE VS SCANF -->
+
+    <h3>18.20 Command Line Arguments vs scanf()</h3>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+                    <th>scanf()</th>
+                    <th>Command Line Arguments</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Input is entered while program runs</td>
+                    <td>Input is supplied when program starts</td>
+                </tr>
+
+                <tr>
+                    <td>Reads typed input from standard input</td>
+                    <td>Reads strings from argc/argv</td>
+                </tr>
+
+                <tr>
+                    <td>Useful for interactive programs</td>
+                    <td>Useful for scripts and command-line tools</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- 18.21 ARGUMENT COUNT CHECK -->
+
+    <h3>18.21 Checking the Number of Arguments</h3>
+
+    <p>
+        A program should check whether the required arguments
+        have been provided before accessing them.
+    </p>
+
+    <pre><code>if(argc != 3)
+{
+    printf("Usage: program number1 number2");
+    return 1;
+}</code></pre>
+
+    <div class="tip-box">
+
+        ⚠️ Never access argv[1], argv[2], etc. unless the
+        corresponding argument is known to exist.
+
+    </div>
+
+
+    <!-- 18.22 SIMPLE CALCULATOR -->
+
+    <h3>18.22 Command Line Calculator</h3>
+
+    <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(int argc, char *argv[])
+{
+    if(argc != 4)
+    {
+        printf("Usage: program number operator number");
+        return 1;
+    }
+
+    int a = atoi(argv[1]);
+    int b = atoi(argv[3]);
+
+    char op = argv[2][0];
+
+    switch(op)
+    {
+        case '+':
+            printf("Result = %d", a + b);
+            break;
+
+        case '-':
+            printf("Result = %d", a - b);
+            break;
+
+        case '*':
+            printf("Result = %d", a * b);
+            break;
+
+        case '/':
+            if(b == 0)
+            {
+                printf("Division by zero is not allowed");
+                return 1;
+            }
+
+            printf("Result = %d", a / b);
+            break;
+
+        default:
+            printf("Invalid operator");
+    }
+
+    return 0;
+}</code></pre>
+
+    <p>
+        Example:
+    </p>
+
+    <pre><code>program.exe 10 + 20</code></pre>
+
+    <div class="output-box">
+
+        Result = 30
+
+    </div>
+
+
+    <!-- 18.23 FILE NAME ARGUMENT -->
+
+    <h3>18.23 Passing a File Name</h3>
+
+    <p>
+        Command-line arguments are often useful for supplying
+        file names.
+    </p>
+
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main(int argc, char *argv[])
+{
+    if(argc != 2)
+    {
+        printf("Usage: program filename");
+        return 1;
+    }
+
+    FILE *fp = fopen(argv[1], "r");
+
+    if(fp == NULL)
+    {
+        printf("Unable to open file");
+        return 1;
+    }
+
+    printf("File opened successfully");
+
+    fclose(fp);
+
+    return 0;
+}</code></pre>
+
+    <p>
+        Example:
+    </p>
+
+    <pre><code>program.exe data.txt</code></pre>
+
+
+    <!-- 18.24 COMMON MISTAKES -->
+
+    <h3>18.24 Common Mistakes</h3>
+
+    <ul>
+
+        <li>
+            Forgetting that <strong>argv</strong> contains strings.
+        </li>
+
+        <li>
+            Using argv[1] without checking argc.
+        </li>
+
+        <li>
+            Performing arithmetic directly on strings.
+        </li>
+
+        <li>
+            Forgetting to convert numeric arguments.
+        </li>
+
+        <li>
+            Assuming the program name is not counted in argc.
+        </li>
+
+        <li>
+            Using atoi() when detailed input validation is required.
+        </li>
+
+        <li>
+            Forgetting that arguments containing spaces may need
+            quoting in the command shell.
+        </li>
+
+    </ul>
+
+
+    <!-- 18.25 QUICK REVISION -->
+
+    <h3>18.25 Quick Revision</h3>
+
+    <div class="tip-box">
+
+        📌 <strong>argc</strong> → Number of command-line arguments,
+        including the program name
+
+        <br><br>
+
+        📌 <strong>argv</strong> → Array of argument strings
+
+        <br><br>
+
+        📌 <strong>argv[0]</strong> → Usually the program name
+
+        <br><br>
+
+        📌 <strong>argv[1]</strong> → First user-supplied argument
+
+        <br><br>
+
+        📌 <strong>atoi()</strong> → Simple string-to-int conversion
+
+        <br><br>
+
+        📌 <strong>strtol()</strong> → More robust integer conversion
+
+        <br><br>
+
+        📌 <strong>argc &amp; argv</strong> → Used to receive
+        command-line input
+
+    </div>
+
+
+    <!-- 18.26 MCQs -->
+
+    <h3>18.26 Quick MCQs</h3>
+
+    <ol>
+
+        <li>
+
+            What does argc represent?
+
+            <br><br>
+
+            A) Argument count
+
+            <br>
+
+            B) Argument character
+
+            <br>
+
+            C) Array count
+
+            <br>
+
+            D) Character count
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What does argv represent?
+
+            <br><br>
+
+            A) Argument vector
+
+            <br>
+
+            B) Argument value
+
+            <br>
+
+            C) Array variable
+
+            <br>
+
+            D) Automatic variable
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which argument normally contains the program name?
+
+            <br><br>
+
+            A) argv[0]
+
+            <br>
+
+            B) argv[1]
+
+            <br>
+
+            C) argv[2]
+
+            <br>
+
+            D) argc
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            If a program is run as:
+
+            <br><br>
+
+            <code>program.exe 10 20</code>
+
+            <br><br>
+
+            what is argc?
+
+            <br><br>
+
+            A) 2
+
+            <br>
+
+            B) 3
+
+            <br>
+
+            C) 10
+
+            <br>
+
+            D) 20
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            What type of data does argv contain?
+
+            <br><br>
+
+            A) Integer values
+
+            <br>
+
+            B) Character strings
+
+            <br>
+
+            C) Floating-point values only
+
+            <br>
+
+            D) Structures
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which function can convert a string to int?
+
+            <br><br>
+
+            A) atoi()
+
+            <br>
+
+            B) itoa()
+
+            <br>
+
+            C) stringtoint()
+
+            <br>
+
+            D) convert()
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which function provides more robust integer conversion
+            and error handling?
+
+            <br><br>
+
+            A) atoi()
+
+            <br>
+
+            B) strtol()
+
+            <br>
+
+            C) printf()
+
+            <br>
+
+            D) scanf()
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which header declares atoi() and strtol()?
+
+            <br><br>
+
+            A) stdio.h
+
+            <br>
+
+            B) stdlib.h
+
+            <br>
+
+            C) string.h
+
+            <br>
+
+            D) math.h
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Which should be checked before using argv[2]?
+
+            <br><br>
+
+            A) EOF
+
+            <br>
+
+            B) argc
+
+            <br>
+
+            C) NULL
+
+            <br>
+
+            D) sizeof
+
+            <br><br>
+
+            <strong>Answer: B</strong>
+
+        </li>
+
+        <br>
+
+        <li>
+
+            Command line arguments are most directly useful for:
+
+            <br><br>
+
+            A) Supplying startup input to a program
+
+            <br>
+
+            B) Declaring variables
+
+            <br>
+
+            C) Creating loops
+
+            <br>
+
+            D) Defining structures
+
+            <br><br>
+
+            <strong>Answer: A</strong>
+
+        </li>
+
+    </ol>
+
+
+    <!-- 18.27 PRACTICE -->
+
+    <h3>18.27 Practice Problems</h3>
+
+    <div class="example-box">
+
+        <strong>Problem 1</strong>
+
+        <br>
+        Write a program to display all command-line arguments.
+
+        <br><br>
+
+        <strong>Problem 2</strong>
+
+        <br>
+        Display argc and every argv element with its index.
+
+        <br><br>
+
+        <strong>Problem 3</strong>
+
+        <br>
+        Write a program to print the first command-line argument.
+
+        <br><br>
+
+        <strong>Problem 4</strong>
+
+        <br>
+        Add two numbers supplied through command-line arguments.
+
+        <br><br>
+
+        <strong>Problem 5</strong>
+
+        <br>
+        Subtract two command-line numbers.
+
+        <br><br>
+
+        <strong>Problem 6</strong>
+
+        <br>
+        Multiply two command-line numbers.
+
+        <br><br>
+
+        <strong>Problem 7</strong>
+
+        <br>
+        Divide two command-line numbers safely.
+
+        <br><br>
+
+        <strong>Problem 8</strong>
+
+        <br>
+        Find the sum of n command-line numbers.
+
+        <br><br>
+
+        <strong>Problem 9</strong>
+
+        <br>
+        Find the average of n command-line numbers.
+
+        <br><br>
+
+        <strong>Problem 10</strong>
+
+        <br>
+        Find the largest command-line number.
+
+        <br><br>
+
+        <strong>Problem 11</strong>
+
+        <br>
+        Find the smallest command-line number.
+
+        <br><br>
+
+        <strong>Problem 12</strong>
+
+        <br>
+        Count how many command-line arguments are even numbers.
+
+        <br><br>
+
+        <strong>Problem 13</strong>
+
+        <br>
+        Count positive and negative command-line numbers.
+
+        <br><br>
+
+        <strong>Problem 14</strong>
+
+        <br>
+        Create a command-line calculator using +, -, * and /.
+
+        <br><br>
+
+        <strong>Problem 15</strong>
+
+        <br>
+        Accept a student's name and marks through command-line
+        arguments and display them.
+
+        <br><br>
+
+        <strong>Problem 16</strong>
+
+        <br>
+        Accept a file name through the command line and open it.
+
+        <br><br>
+
+        <strong>Problem 17</strong>
+
+        <br>
+        Count the number of command-line arguments excluding
+        the program name.
+
+        <br><br>
+
+        <strong>Problem 18</strong>
+
+        <br>
+        Find the longest command-line string.
+
+        <br><br>
+
+        <strong>Problem 19</strong>
+
+        <br>
+        Convert command-line numbers using strtol() and validate
+        invalid input.
+
+        <br><br>
+
+        <strong>Problem 20</strong>
+
+        <br>
+        Create a command-line Student Result program that accepts
+        a student's name and marks in three subjects and displays
+        total, average and grade.
+
+    </div>
+
+
+    <!-- 18.28 KEY TAKEAWAY -->
+
+    <h3>18.28 Key Takeaway</h3>
+
+    <div class="tip-box">
+
+        🎯 Remember:
+
+        <br><br>
+
+        <strong>argc → How many arguments?</strong>
+
+        <br><br>
+
+        <strong>argv → What are the arguments?</strong>
+
+        <br><br>
+
+        <strong>argv[0] → Usually program name</strong>
+
+        <br><br>
+
+        <strong>argv[1] → First user argument</strong>
+
+        <br><br>
+
+        <strong>atoi() → Simple string → int</strong>
+
+        <br><br>
+
+        <strong>strtol() → Robust string → integer conversion</strong>
+
+        <br><br>
+
+        <strong>Always check argc before accessing argv elements.</strong>
+
+    </div>
+
+</section>
+
+        
 
 
         <!-- ================================
