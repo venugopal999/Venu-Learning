@@ -16182,42 +16182,48 @@ printf("%d", x);</code></pre>
 
     <!-- 13.10 POINTER MEMORY DIAGRAM -->
 
-   <h3>13.10 Pointer Memory Diagram</h3>
+   ```html
+<h3>13.10 Pointer Memory Diagram</h3>
 
-<div class="pointer-diagram">
+<div class="pointer-memory-diagram">
 
-    <div class="memory-item">
-        <div class="memory-label">x</div>
+    <div class="pointer-memory-box">
 
-        <div class="memory-box">
-            <span>10</span>
+        <div class="pm-title">x</div>
+
+        <div class="pm-box">
+            10
         </div>
 
-        <div class="memory-address">
+        <div class="pm-address">
             Address: 1000
         </div>
+
     </div>
 
 
-    <div class="pointer-arrow">
-        ▲
-        <span>p points to x</span>
+    <div class="pm-connection">
+        <div class="pm-line">──────────────►</div>
+        <div class="pm-text">p points to x</div>
     </div>
 
 
-    <div class="memory-item">
-        <div class="memory-label">p</div>
+    <div class="pointer-memory-box">
 
-        <div class="memory-box">
-            <span>1000</span>
+        <div class="pm-title">p</div>
+
+        <div class="pm-box">
+            1000
         </div>
 
-        <div class="memory-address">
+        <div class="pm-address">
             Address: 2000
         </div>
+
     </div>
 
 </div>
+
 
 <div class="tip-box">
 
@@ -16229,22 +16235,23 @@ printf("%d", x);</code></pre>
 
     <br>
 
+    <strong>&amp;x</strong> gives the address of <strong>x</strong>.
+
+    <br>
+
     <strong>p</strong> stores the address of <strong>x</strong>.
 
     <br>
 
     <strong>*p</strong> gives the value stored at that address → <strong>10</strong>.
 
-    <br>
-
-    <strong>&amp;x</strong> gives the address of <strong>x</strong>.
-
     <br><br>
 
     The addresses <strong>1000</strong> and <strong>2000</strong>
-    are only examples. Actual memory addresses will be different.
+    are only illustrative. Actual memory addresses are different.
 
 </div>
+```
 
     <!-- 13.11 POINTER TYPES -->
 
