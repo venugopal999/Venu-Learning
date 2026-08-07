@@ -3385,3 +3385,22 @@ body {
     }
 
 }
+
+/* =========================================
+   CODEBHAVYA HEADER LOGO
+   ========================================= */
+
+.top-header .logo {
+    display: flex;
+    align-items: center;
+    height: 58px;
+    flex-shrink: 0;
+}
+
+.top-header .logo img {
+    display: block;
+    width: 190px;
+    height: auto;
+    max-height: 58px;
+    object-fit: contain;
+}
