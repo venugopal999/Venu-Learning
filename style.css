@@ -3316,3 +3316,72 @@ body {
     display: block;
     object-fit: contain;
 }
+
+/* =========================================
+   FINAL HEADER LOGO ALIGNMENT
+   ========================================= */
+
+.top-header {
+    display: flex;
+    align-items: center;
+}
+
+
+/* Logo container */
+
+.top-header .logo {
+    display: flex;
+    align-items: center;
+
+    height: 52px;
+
+    flex-shrink: 0;
+}
+
+
+/* Logo image */
+
+.top-header .logo img {
+    display: block;
+
+    width: 145px;
+    height: 52px;
+
+    object-fit: contain;
+    object-position: left center;
+}
+
+
+/* Navigation alignment */
+
+.top-header .top-nav {
+    display: flex;
+    align-items: center;
+}
+
+
+/* Desktop */
+
+@media (min-width: 769px) {
+
+    .top-header .logo {
+        margin-right: 25px;
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .top-header .logo {
+        height: 48px;
+    }
+
+    .top-header .logo img {
+        width: 140px;
+        height: 48px;
+    }
+
+}
