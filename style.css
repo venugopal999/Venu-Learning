@@ -2494,3 +2494,29 @@ body {
     }
 
 }
+
+/* =========================================
+   CODEBHAVYA BRAND COLOR CONSISTENCY
+   ========================================= */
+
+:root {
+    --codebhavya-code-blue: #B8D8F0;
+}
+
+
+/* Header Code */
+
+.logo .logo-code {
+    color: var(--codebhavya-code-blue) !important;
+    -webkit-text-fill-color: var(--codebhavya-code-blue) !important;
+}
+
+
+/* Hero Code */
+
+.codebhavya-hero .hero-code {
+    color: var(--codebhavya-code-blue) !important;
+    -webkit-text-fill-color: var(--codebhavya-code-blue) !important;
+
+    background: none !important;
+}
