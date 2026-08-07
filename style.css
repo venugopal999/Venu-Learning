@@ -2251,3 +2251,64 @@ body {
 <h1 class="hero-brand">
     <span class="hero-code">Code</span><span class="hero-bhavya">Bhavya</span>
 </h1>
+
+/* =========================================
+   FINAL CODEBHAVYA HERO BRAND FIX
+   ========================================= */
+
+.codebhavya-hero h1.hero-brand {
+    font-family: Georgia, "Times New Roman", serif !important;
+    font-size: 58px !important;
+    font-weight: 700 !important;
+    color: #F8FAFC !important;
+}
+
+
+/* CODE */
+
+.codebhavya-hero h1.hero-brand .hero-code {
+    color: #F8FAFC !important;
+
+    background: none !important;
+
+    -webkit-text-fill-color: #F8FAFC !important;
+}
+
+
+/* BHAVYA */
+
+.codebhavya-hero h1.hero-brand .hero-bhavya {
+    background: linear-gradient(
+        90deg,
+        #D4AF37,
+        #F5D76E,
+        #D4AF37
+    ) !important;
+
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+
+    -webkit-text-fill-color: transparent !important;
+
+    color: transparent !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .codebhavya-hero h1.hero-brand {
+        font-size: 44px !important;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .codebhavya-hero h1.hero-brand {
+        font-size: 38px !important;
+    }
+
+}
