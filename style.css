@@ -2605,3 +2605,75 @@ body {
 
     color: transparent !important;
 }
+
+/* ================= FOOTER ================= */
+
+.footer {
+    margin-top: 50px;
+    padding: 40px 8% 20px;
+    text-align: center;
+}
+
+
+.footer-brand h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+
+.footer-brand p {
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    text-align: left;
+    flex-wrap: wrap;
+}
+
+
+.footer-section {
+    min-width: 150px;
+}
+
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+
+.footer-section a {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+
+.footer-bottom {
+    margin-top: 35px;
+    padding-top: 15px;
+}
+
+
+.footer-bottom p {
+    font-size: 14px;
+}
+
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+    .footer-container{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:30px;
+    }
+
+}
