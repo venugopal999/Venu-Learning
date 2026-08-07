@@ -2571,3 +2571,37 @@ body {
 .footer-copy {
     color: #94A3B8;
 }
+
+/* =========================================
+   FINAL FOOTER BRAND COLOR FIX
+   ========================================= */
+
+/* Code = Light Blue */
+.footer-brand .footer-code {
+    color: #B8D8F0 !important;
+
+    background: none !important;
+
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+
+    -webkit-text-fill-color: #B8D8F0 !important;
+}
+
+
+/* Bhavya = Gold */
+.footer-brand .footer-bhavya {
+    background: linear-gradient(
+        90deg,
+        #D4AF37,
+        #F5D76E,
+        #D4AF37
+    ) !important;
+
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+
+    -webkit-text-fill-color: transparent !important;
+
+    color: transparent !important;
+}
