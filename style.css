@@ -2740,3 +2740,293 @@ body {
     font-size: 16px !important;
     margin-bottom: 35px !important;
 }
+
+/* =========================================
+   CODEBHAVYA PROFESSIONAL FOOTER
+   ========================================= */
+
+.footer {
+    background: #08131F;
+
+    color: #FFFFFF;
+
+    padding: 55px 30px 0;
+
+    margin-top: 0;
+}
+
+
+/* Main footer */
+
+.footer-container {
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1.2fr 1fr;
+
+    gap: 45px;
+
+    padding-bottom: 45px;
+}
+
+
+/* =========================================
+   BRAND SECTION
+   ========================================= */
+
+.footer-brand-section {
+    max-width: 350px;
+}
+
+
+.footer-brand {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+
+/* Code */
+
+.footer-brand .footer-code {
+    color: #B8D8F0 !important;
+
+    background: none !important;
+
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+
+    -webkit-text-fill-color: #B8D8F0 !important;
+}
+
+
+/* Bhavya */
+
+.footer-brand .footer-bhavya {
+    background: linear-gradient(
+        90deg,
+        #D4AF37,
+        #F5D76E,
+        #D4AF37
+    );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    color: transparent;
+}
+
+
+/* Tagline */
+
+.footer-tagline {
+    color: #D4AF37;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    margin-bottom: 12px;
+}
+
+
+/* Description */
+
+.footer-description {
+    color: #94A3B8;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   FOOTER COLUMNS
+   ========================================= */
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+
+.footer-column h3 {
+    color: #FFFFFF;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 17px;
+
+    margin: 3px 0 18px;
+
+    position: relative;
+}
+
+
+/* Small gold line */
+
+.footer-column h3::after {
+    content: "";
+
+    display: block;
+
+    width: 28px;
+
+    height: 2px;
+
+    background: #D4AF37;
+
+    margin-top: 7px;
+}
+
+
+.footer-column a {
+    color: #94A3B8;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    margin-bottom: 11px;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.footer-column a:hover {
+    color: #F5D76E;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================
+   FOOTER BOTTOM
+   ========================================= */
+
+.footer-bottom {
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    padding: 20px 0;
+
+    border-top: 1px solid
+        rgba(255, 255, 255, 0.10);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.footer-bottom p {
+    color: #64748B;
+
+    font-size: 12px;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .footer-container {
+        grid-template-columns:
+            1.5fr 1fr 1fr;
+
+        gap: 35px;
+    }
+
+    .footer-brand-section {
+        grid-column: 1 / -1;
+
+        max-width: 600px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .footer {
+        padding: 45px 22px 0;
+    }
+
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding-bottom: 35px;
+    }
+
+
+    .footer-brand-section {
+        grid-column: auto;
+
+        max-width: 100%;
+    }
+
+
+    .footer-column h3 {
+        margin-bottom: 14px;
+    }
+
+
+    .footer-bottom {
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+
+        padding: 18px 0;
+    }
+
+}
