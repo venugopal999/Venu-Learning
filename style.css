@@ -1612,3 +1612,196 @@ body {
     }
 
 }
+
+/* =========================================
+   CODEBHAVYA LEARNING JOURNEY
+   ========================================= */
+
+.approach-description {
+    color: #CBD5E1;
+    max-width: 650px;
+    margin: 0 auto 45px;
+    font-size: 16px;
+}
+
+
+/* Journey container */
+
+.learning-journey {
+    max-width: 1050px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Individual step */
+
+.journey-step {
+    width: 220px;
+    min-height: 235px;
+
+    padding: 20px 15px;
+
+    text-align: center;
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.journey-step:hover {
+    transform: translateY(-6px);
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-color: #D4AF37;
+}
+
+
+/* Number */
+
+.journey-number {
+    color: #D4AF37;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+
+/* Icon */
+
+.journey-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #F8F3E4;
+
+    font-size: 27px;
+}
+
+
+/* Heading */
+
+.journey-step h3 {
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Description */
+
+.journey-step p {
+    color: #CBD5E1;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+/* Connecting line */
+
+.journey-line {
+    width: 45px;
+
+    height: 2px;
+
+    background: #D4AF37;
+
+    position: relative;
+
+    flex-shrink: 0;
+}
+
+
+/* Arrow */
+
+.journey-line::after {
+    content: "";
+
+    position: absolute;
+
+    right: -1px;
+
+    top: -4px;
+
+    width: 8px;
+    height: 8px;
+
+    border-top: 2px solid #D4AF37;
+    border-right: 2px solid #D4AF37;
+
+    transform: rotate(45deg);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 950px) {
+
+    .learning-journey {
+        flex-wrap: wrap;
+
+        gap: 20px;
+    }
+
+    .journey-line {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .learning-journey {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    .journey-step {
+        width: 100%;
+
+        max-width: 350px;
+    }
+
+}
