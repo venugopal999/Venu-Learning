@@ -1845,23 +1845,6 @@ body {
 }
 
 
-/* Small elegant separation */
-
-.logo-code::after {
-    content: "";
-    display: inline-block;
-
-    width: 4px;
-    height: 4px;
-
-    background: #D4AF37;
-
-    border-radius: 50%;
-
-    margin: 0 3px 5px 1px;
-}
-
-
 /* Mobile */
 
 @media (max-width: 600px) {
