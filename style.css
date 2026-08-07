@@ -2520,3 +2520,54 @@ body {
 
     background: none !important;
 }
+
+/* =========================================
+   CODEBHAVYA FOOTER BRAND
+   ========================================= */
+
+.footer-brand {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+
+/* Code */
+
+.footer-code {
+    color: #B8D8F0 !important;
+}
+
+
+/* Bhavya */
+
+.footer-bhavya {
+    background: linear-gradient(
+        90deg,
+        #D4AF37,
+        #F5D76E,
+        #D4AF37
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    color: transparent;
+}
+
+
+/* Footer tagline */
+
+.footer-tagline {
+    color: #CBD5E1;
+}
+
+
+/* Copyright */
+
+.footer-copy {
+    color: #94A3B8;
+}
