@@ -1805,3 +1805,69 @@ body {
     }
 
 }
+
+/* =========================================
+   CODEBHAVYA PREMIUM BRAND
+   ========================================= */
+
+.logo {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 29px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+}
+
+
+/* Code */
+
+.logo-code {
+    color: #F8FAFC;
+}
+
+
+/* Bhavya */
+
+.logo-bhavya {
+    background: linear-gradient(
+        90deg,
+        #D4AF37,
+        #F5D76E,
+        #D4AF37
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+
+    font-weight: 700;
+}
+
+
+/* Small elegant separation */
+
+.logo-code::after {
+    content: "";
+    display: inline-block;
+
+    width: 4px;
+    height: 4px;
+
+    background: #D4AF37;
+
+    border-radius: 50%;
+
+    margin: 0 3px 5px 1px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .logo {
+        font-size: 25px;
+    }
+
+}
