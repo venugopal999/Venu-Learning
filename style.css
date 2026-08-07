@@ -2312,3 +2312,185 @@ body {
     }
 
 }
+
+/* =========================================
+   CODEBHAVYA JOURNEY CARD UNIFORMITY
+   ========================================= */
+
+.learning-journey {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+/* All four cards exactly same size */
+
+.journey-step {
+    width: 220px;
+    height: 245px;
+    min-width: 220px;
+    min-height: 245px;
+
+    box-sizing: border-box;
+
+    padding: 20px 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+/* Number */
+
+.journey-number {
+    height: 18px;
+
+    margin-bottom: 10px;
+
+    flex-shrink: 0;
+}
+
+
+/* Icon */
+
+.journey-icon {
+    width: 58px;
+    height: 58px;
+
+    margin-bottom: 14px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #F8F3E4;
+
+    font-size: 27px;
+}
+
+
+/* Heading area */
+
+.journey-step h3 {
+    height: 28px;
+
+    margin: 0 0 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #FFFFFF;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 21px;
+}
+
+
+/* Description area */
+
+.journey-step p {
+    height: 68px;
+
+    margin: 0;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    color: #CBD5E1;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* Connecting arrows */
+
+.journey-line {
+    width: 42px;
+    height: 2px;
+
+    flex-shrink: 0;
+
+    background: #D4AF37;
+
+    position: relative;
+}
+
+
+/* =========================================
+   HOVER
+   ========================================= */
+
+.journey-step:hover {
+    transform: translateY(-6px);
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border-color: #D4AF37;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 950px) {
+
+    .learning-journey {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .journey-line {
+        display: none;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .learning-journey {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .journey-step {
+        width: 100%;
+        max-width: 350px;
+
+        min-width: 0;
+    }
+
+}
