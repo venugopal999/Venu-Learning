@@ -2689,7 +2689,7 @@ body {
 
 /* Force the text-fill effects to render properly in the footer */
 .footer-brand .logo-code {
-    color: #F8FAFC !important;
+    color: #B8D8F0 !important;
     -webkit-text-fill-color: #F8FAFC !important;
 }
 
