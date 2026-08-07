@@ -2677,3 +2677,31 @@ body {
     }
 
 }
+
+/* Ensure the footer brand matches the header perfectly */
+.footer-brand .logo {
+    font-family: Georgia, "Times New Roman", serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.2px !important;
+    display: inline-block;
+    margin-bottom: 8px; /* Matches your footer's spacing layout */
+}
+
+/* Force the text-fill effects to render properly in the footer */
+.footer-brand .logo-code {
+    color: #F8FAFC !important;
+    -webkit-text-fill-color: #F8FAFC !important;
+}
+
+.footer-brand .logo-bhavya {
+    background: linear-gradient(
+        90deg,
+        #D4AF37,
+        #F5D76E,
+        #D4AF37
+    ) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+}
