@@ -3299,3 +3299,20 @@ body {
     }
 
 }
+
+/* =========================================
+   CODEBHAVYA MAIN LOGO IMAGE
+   ========================================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 170px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
