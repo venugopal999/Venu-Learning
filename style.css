@@ -4083,7 +4083,7 @@ body {
     background: #08131F;
     color: #FFFFFF;
     margin-top: 60px;
-    padding: 55px 30px 0;
+    padding: 40px 30px 0;
     box-sizing: border-box;
 }
 
@@ -4094,9 +4094,9 @@ body {
 
     display: grid;
     grid-template-columns: 2fr 1fr 1.2fr 1fr;
-    gap: 45px;
+    gap: 35px;
 
-    padding-bottom: 45px;
+    padding-bottom: 30px;
 }
 
 .footer-brand-section {
@@ -4173,7 +4173,7 @@ body {
 
     border-top: 1px solid rgba(255,255,255,0.10);
 
-    padding: 18px 0 20px;
+    padding: 14px 0 16px;
 
     display: flex;
     justify-content: space-between;
