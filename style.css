@@ -3404,3 +3404,307 @@ body {
     max-height: 58px;
     object-fit: contain;
 }
+
+/* =========================================
+   CODEBHAVYA MATHEMATICS PAGE
+   ========================================= */
+
+
+/* -----------------------------------------
+   SUBJECT HERO
+----------------------------------------- */
+
+.subject-hero {
+    margin-bottom: 30px;
+}
+
+.subject-label,
+.section-label {
+    display: inline-block;
+
+    color: #D4AF37;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 8px;
+}
+
+.subject-hero .page-title {
+    margin-bottom: 12px;
+}
+
+.subject-hero .page-description {
+    max-width: 750px;
+
+    margin-bottom: 0;
+}
+
+
+/* -----------------------------------------
+   SECTION
+----------------------------------------- */
+
+.content-section {
+    margin: 35px 0;
+}
+
+.section-heading {
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    margin: 4px 0 8px;
+}
+
+.section-heading p {
+    margin: 0;
+
+    color: #64748B;
+
+    line-height: 1.7;
+}
+
+
+/* -----------------------------------------
+   TOPIC GRID
+----------------------------------------- */
+
+.topic-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+
+    margin-top: 22px;
+}
+
+
+/* -----------------------------------------
+   TOPIC CARD
+----------------------------------------- */
+
+.topic-card {
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 14px;
+
+    padding: 26px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 255px;
+
+    box-shadow:
+        0 5px 18px rgba(15, 23, 42, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.topic-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #B8D8F0;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.10);
+}
+
+
+/* -----------------------------------------
+   TOPIC ICON
+----------------------------------------- */
+
+.topic-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #F1F7FC;
+
+    font-size: 25px;
+
+    margin-bottom: 16px;
+}
+
+
+/* -----------------------------------------
+   TOPIC TITLE
+----------------------------------------- */
+
+.topic-card h3 {
+    color: #0F172A;
+
+    font-size: 19px;
+
+    margin: 0 0 10px;
+}
+
+
+/* -----------------------------------------
+   TOPIC DESCRIPTION
+----------------------------------------- */
+
+.topic-card p {
+    color: #64748B;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+
+    margin: 0 0 20px;
+}
+
+
+/* -----------------------------------------
+   TOPIC BUTTON
+----------------------------------------- */
+
+.topic-card .primary-button {
+    align-self: flex-start;
+
+    margin-top: auto;
+
+    text-decoration: none;
+}
+
+
+/* -----------------------------------------
+   LEARNING METHOD
+----------------------------------------- */
+
+.learning-method {
+    margin-top: 35px;
+}
+
+
+.learning-method h2 {
+    margin-top: 4px;
+
+    margin-bottom: 22px;
+}
+
+
+.learning-steps {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+.learning-step {
+    background: #F8FAFC;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 10px;
+
+    padding: 16px 12px;
+
+    min-height: 100px;
+}
+
+
+.learning-step > span {
+    display: block;
+
+    color: #D4AF37;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 9px;
+}
+
+
+.learning-step strong {
+    color: #334155;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* -----------------------------------------
+   SIDEBAR PART B
+----------------------------------------- */
+
+.sidebar-part-b {
+    margin-top: 22px;
+}
+
+
+/* -----------------------------------------
+   TABLET
+----------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .topic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-steps {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* -----------------------------------------
+   MOBILE
+----------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .subject-hero {
+        margin-bottom: 24px;
+    }
+
+    .topic-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .topic-card {
+        padding: 22px;
+
+        min-height: 230px;
+    }
+
+    .learning-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-step {
+        min-height: auto;
+    }
+
+}
