@@ -4234,3 +4234,204 @@ body {
     }
 
 }
+
+/* =========================================
+   CODEBHAVYA - C PROGRAMMING SIDEBAR
+   ========================================= */
+
+.sidebar {
+    width: 280px;
+
+    background: #FFFFFF;
+
+    border-right: 1px solid #E2E8F0;
+
+    padding: 24px 14px;
+
+    position: sticky;
+
+    top: 72px;
+
+    height: calc(100vh - 72px);
+
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+
+    scrollbar-color: #CBD5E1 transparent;
+}
+
+
+/* Sidebar scrollbar */
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   SIDEBAR MAIN TITLE
+   ========================================= */
+
+.sidebar > .sidebar-title:first-child {
+    font-size: 17px;
+
+    color: #0D1B2A;
+
+    text-transform: none;
+
+    font-weight: 700;
+
+    padding: 12px 14px;
+
+    margin-bottom: 16px;
+
+    border-radius: 10px;
+
+    background: #F8FAFC;
+
+    border-left: 4px solid #D4AF37;
+}
+
+
+/* =========================================
+   SECTION HEADINGS
+   ========================================= */
+
+.sidebar .sidebar-title {
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    color: #64748B;
+
+    text-transform: uppercase;
+
+    padding: 8px 12px;
+
+    margin-top: 20px;
+
+    margin-bottom: 7px;
+
+    border-bottom: 1px solid #E8EEF5;
+}
+
+
+/* =========================================
+   SIDEBAR LINKS
+   ========================================= */
+
+.sidebar a {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 42px;
+
+    padding: 9px 12px;
+
+    margin: 3px 0;
+
+    border-radius: 8px;
+
+    color: #334155;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    line-height: 1.45;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Hover */
+
+.sidebar a:hover {
+    background: #F1F7FC;
+
+    color: #0F5E9C;
+
+    transform: translateX(2px);
+}
+
+
+/* Active */
+
+.sidebar a.active {
+    background: #EAF4FC;
+
+    color: #0F5E9C;
+
+    font-weight: 700;
+
+    border-left: 3px solid #D4AF37;
+
+    padding-left: 9px;
+}
+
+
+/* =========================================
+   PRACTICE SECTION
+   ========================================= */
+
+.sidebar .sidebar-title:last-of-type {
+    margin-top: 28px;
+}
+
+.sidebar a[href="#practice"] {
+    background: #FFF9E8;
+
+    color: #8A6500;
+
+    font-weight: 600;
+
+    border: 1px solid #F0DF9A;
+}
+
+.sidebar a[href="#practice"]:hover {
+    background: #FFF3C4;
+
+    color: #6F5200;
+
+    transform: translateX(2px);
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 240px;
+
+        padding: 20px 10px;
+    }
+
+    .sidebar a {
+        font-size: 13px;
+
+        min-height: 40px;
+
+        padding: 8px 10px;
+    }
+
+}
