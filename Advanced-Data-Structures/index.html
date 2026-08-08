@@ -1,526 +1,1593 @@
-```html
+html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Advanced Data Structures | CodeBhavya</title>
 
-    <link rel="stylesheet" href="ads-style.css">
+    <link rel="icon"
+          type="image/png"
+          href="../images/codebhavya-icon-32.png">
+
+    <!-- COMMON CODEBHAVYA CSS -->
+    <link rel="stylesheet"
+          href="../style.css">
+
 </head>
+
 
 <body>
 
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container header-content">
 
-            <a href="../index.html" class="logo">
-                CodeBhavya
+<!-- ============================
+     HEADER
+============================= -->
+
+<header class="site-header">
+
+    <div class="header-container">
+
+
+        <!-- LOGO -->
+
+        <a href="../index.html"
+           class="logo">
+
+            <span class="logo-code">
+                Code
+            </span><span class="logo-bhavya">
+                Bhavya
+            </span>
+
+        </a>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="main-nav">
+
+            <a href="../index.html">
+                Home
             </a>
 
-            <nav class="navbar">
-                <a href="../index.html">Home</a>
-                <a href="../Maths/index.html">Maths</a>
-                <a href="../C/index.html">C</a>
-                <a href="index.html" class="active">ADS</a>
-                <a href="../Python/index.html">Python</a>
-                <a href="../AI-ML/index.html">AI & ML</a>
-                <a href="../Practice/index.html">Practice</a>
-            </nav>
+            <a href="../Maths/index.html">
+                Maths
+            </a>
+
+            <a href="../C-Programming/index.html">
+                C
+            </a>
+
+            <a href="../Data-Structures/index.html">
+                DSA
+            </a>
+
+            <a href="index.html"
+               class="active">
+                ADS
+            </a>
+
+            <a href="../Python/index.html">
+                Python
+            </a>
+
+            <a href="../AI-ML/index.html">
+                AI & ML
+            </a>
+
+            <a href="../Placement/index.html">
+                Placement
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- ============================
+     PAGE LAYOUT
+============================= -->
+
+<div class="page-layout">
+
+
+
+<!-- ============================
+     SIDEBAR
+============================= -->
+
+<aside class="sidebar">
+
+
+    <div class="sidebar-title">
+        Advanced Data Structures
+    </div>
+
+
+    <input
+        type="text"
+        id="topicSearch"
+        class="search-box"
+        placeholder="🔍 Search topics..."
+        onkeyup="searchTopics()"
+    >
+
+
+
+    <!-- DSA FUNDAMENTALS -->
+
+    <div class="sidebar-title">
+        DSA Fundamentals
+    </div>
+
+
+    <a href="searching.html">
+        🔍 Searching
+    </a>
+
+
+    <a href="sorting.html">
+        🔄 Sorting
+    </a>
+
+
+    <a href="linked-list.html">
+        🔗 Linked List
+    </a>
+
+
+    <a href="stack.html">
+        📚 Stack
+    </a>
+
+
+    <a href="queue.html">
+        🚶 Queue
+    </a>
+
+
+    <a href="trees.html">
+        🌳 Trees
+    </a>
+
+
+    <a href="graphs.html">
+        🕸️ Graphs
+    </a>
+
+
+
+    <!-- UNIT I -->
+
+    <div class="sidebar-title sidebar-part-b">
+        Unit I
+    </div>
+
+
+    <a href="performance-analysis.html">
+        📊 Performance Analysis
+    </a>
+
+
+    <a href="disjoint-sets.html">
+        🔗 Disjoint Sets
+    </a>
+
+
+    <a href="sparse-matrices.html">
+        🧮 Sparse Matrices
+    </a>
+
+
+    <a href="string-pattern-matching.html">
+        🔤 String Pattern Matching
+    </a>
+
+
+
+    <!-- UNIT II -->
+
+    <div class="sidebar-title sidebar-part-b">
+        Unit II
+    </div>
+
+
+    <a href="advanced-sorting.html">
+        ⚡ Advanced Sorting
+    </a>
+
+
+    <a href="advanced-searching.html">
+        🎯 Advanced Searching
+    </a>
+
+
+
+    <!-- UNIT III -->
+
+    <div class="sidebar-title sidebar-part-b">
+        Unit III
+    </div>
+
+
+    <a href="balanced-bst.html">
+        🌲 Balanced BSTs
+    </a>
+
+
+    <a href="digital-search-trees.html">
+        🔤 Digital Search Trees
+    </a>
+
+
+
+    <!-- UNIT IV -->
+
+    <div class="sidebar-title sidebar-part-b">
+        Unit IV
+    </div>
+
+
+    <a href="multiway-search-trees.html">
+        🌳 Multiway Search Trees
+    </a>
+
+
+    <a href="heaps.html">
+        ⛰️ Heaps
+    </a>
+
+
+
+    <!-- UNIT V -->
+
+    <div class="sidebar-title sidebar-part-b">
+        Unit V
+    </div>
+
+
+    <a href="hashing.html">
+        #️⃣ Hashing
+    </a>
+
+
+    <a href="files.html">
+        📁 Files & File Organization
+    </a>
+
+
+
+    <!-- ADDITIONAL -->
+
+    <div class="sidebar-title sidebar-part-b">
+        Advanced Practice
+    </div>
+
+
+    <a href="advanced-graphs.html">
+        🧠 Advanced Graph Algorithms
+    </a>
+
+
+    <a href="placement-problems.html">
+        🎯 Placement Problems
+    </a>
+
+
+</aside>
+
+
+
+<!-- ============================
+     MAIN CONTENT
+============================= -->
+
+<main class="main-content">
+
+
+
+<!-- ============================
+     PAGE INTRO
+============================= -->
+
+<section class="subject-hero">
+
+    <span class="subject-label">
+        CODEBHAVYA • DATA STRUCTURES
+    </span>
+
+
+    <h1 class="page-title">
+        🧠 Advanced Data Structures
+    </h1>
+
+
+    <p class="page-description">
+        Learn Data Structures and Advanced Data Structures
+        from fundamentals to advanced concepts with
+        algorithms, examples, implementations and
+        problem-solving techniques.
+    </p>
+
+</section>
+
+
+
+<!-- ============================
+     WELCOME
+============================= -->
+
+<section class="content-card">
+
+    <h2>
+        📚 Welcome to Advanced Data Structures
+    </h2>
+
+
+    <p>
+        This section is designed to help students build
+        a strong foundation in Data Structures and
+        gradually move towards advanced data structures
+        and algorithms.
+    </p>
+
+
+    <p>
+        Each topic contains detailed concepts,
+        algorithms, examples, C implementations,
+        time and space complexity, important points,
+        practice questions and detailed solutions.
+    </p>
+
+
+    <p>
+        Start with the DSA fundamentals and then
+        progress through the five units of Advanced
+        Data Structures.
+    </p>
+
+</section>
+
+
+
+<!-- ============================
+     DSA FUNDAMENTALS
+============================= -->
+
+<section class="content-section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                DSA FUNDAMENTALS
+            </span>
+
+
+            <h2>
+                Data Structures Foundation
+            </h2>
+
+
+            <p>
+                Build a strong foundation before moving
+                into advanced data structures.
+            </p>
 
         </div>
-    </header>
 
+    </div>
 
-    <!-- Main Content -->
-    <main>
 
-        <!-- Page Heading -->
-        <section class="page-hero">
-            <div class="container">
 
-                <p class="section-label">LEARN • PRACTICE • GROW</p>
+    <div class="topic-grid">
 
-                <h1>Advanced Data Structures</h1>
 
-                <p>
-                    Learn Data Structures and Advanced Data Structures
-                    from fundamentals to advanced concepts with clear
-                    explanations, algorithms, examples and problem solving.
-                </p>
 
-            </div>
-        </section>
+        <!-- SEARCHING -->
 
+        <article class="topic-card">
 
-        <!-- DSA Fundamentals -->
-        <section class="topics-section">
-
-            <div class="container">
-
-                <div class="section-heading">
-                    <span>PART A</span>
-                    <h2>DSA Fundamentals</h2>
-                    <p>
-                        Build a strong foundation before moving into
-                        Advanced Data Structures.
-                    </p>
-                </div>
-
-
-                <div class="topic-grid">
-
-                    <a href="searching.html" class="topic-card">
-                        <div class="topic-number">01</div>
-                        <div class="topic-icon">🔍</div>
-                        <h3>Searching</h3>
-                        <p>
-                            Linear Search, Binary Search and
-                            important searching problems.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="sorting.html" class="topic-card">
-                        <div class="topic-number">02</div>
-                        <div class="topic-icon">🔄</div>
-                        <h3>Sorting</h3>
-                        <p>
-                            Bubble, Selection, Insertion, Merge,
-                            Quick and Heap Sort.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="linked-list.html" class="topic-card">
-                        <div class="topic-number">03</div>
-                        <div class="topic-icon">🔗</div>
-                        <h3>Linked List</h3>
-                        <p>
-                            Singly, Doubly, Circular Linked Lists
-                            and important problems.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="stack.html" class="topic-card">
-                        <div class="topic-number">04</div>
-                        <div class="topic-icon">📚</div>
-                        <h3>Stack</h3>
-                        <p>
-                            Stack operations, implementation and
-                            practical applications.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="queue.html" class="topic-card">
-                        <div class="topic-number">05</div>
-                        <div class="topic-icon">🚶</div>
-                        <h3>Queue</h3>
-                        <p>
-                            Queue, Circular Queue, Deque and
-                            Priority Queue.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="trees.html" class="topic-card">
-                        <div class="topic-number">06</div>
-                        <div class="topic-icon">🌳</div>
-                        <h3>Trees</h3>
-                        <p>
-                            Binary Trees, Traversals, BST and
-                            tree-based problem solving.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="graphs.html" class="topic-card">
-                        <div class="topic-number">07</div>
-                        <div class="topic-icon">🕸️</div>
-                        <h3>Graphs</h3>
-                        <p>
-                            Graph representation, BFS, DFS and
-                            fundamental graph problems.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- UNIT I -->
-        <section class="topics-section alternate">
-
-            <div class="container">
-
-                <div class="section-heading">
-                    <span>UNIT – I</span>
-                    <h2>Foundations of Advanced Data Structures</h2>
-                    <p>
-                        Analyze algorithms and learn fundamental advanced
-                        data structures and pattern matching techniques.
-                    </p>
-                </div>
-
-
-                <div class="topic-grid">
-
-                    <a href="performance-analysis.html" class="topic-card">
-                        <div class="topic-number">08</div>
-                        <div class="topic-icon">📊</div>
-                        <h3>Performance Analysis</h3>
-                        <p>
-                            Time complexity, space complexity and
-                            asymptotic notation.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="disjoint-sets.html" class="topic-card">
-                        <div class="topic-number">09</div>
-                        <div class="topic-icon">🔗</div>
-                        <h3>Disjoint Sets</h3>
-                        <p>
-                            Representation, Make-Set, Find, Union,
-                            Path Compression and applications.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="sparse-matrices.html" class="topic-card">
-                        <div class="topic-number">10</div>
-                        <div class="topic-icon">🧮</div>
-                        <h3>Sparse Matrices</h3>
-                        <p>
-                            Array representation, operations and
-                            row-major and column-major mapping.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="string-pattern-matching.html" class="topic-card">
-                        <div class="topic-number">11</div>
-                        <div class="topic-icon">🔤</div>
-                        <h3>String Pattern Matching</h3>
-                        <p>
-                            Brute Force, KMP, Boyer-Moore and
-                            Rabin-Karp algorithms.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- UNIT II -->
-        <section class="topics-section">
-
-            <div class="container">
-
-                <div class="section-heading">
-                    <span>UNIT – II</span>
-                    <h2>Advanced Sorting & Searching</h2>
-                    <p>
-                        Learn efficient comparison-based,
-                        non-comparison-based sorting and advanced
-                        searching techniques.
-                    </p>
-                </div>
-
-
-                <div class="topic-grid">
-
-                    <a href="advanced-sorting.html" class="topic-card">
-                        <div class="topic-number">12</div>
-                        <div class="topic-icon">⚡</div>
-                        <h3>Advanced Sorting</h3>
-                        <p>
-                            Merge Sort, Quick Sort, Shell Sort,
-                            Tree Sort, Counting Sort, Radix Sort
-                            and Bucket Sort.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="advanced-searching.html" class="topic-card">
-                        <div class="topic-number">13</div>
-                        <div class="topic-icon">🎯</div>
-                        <h3>Advanced Searching</h3>
-                        <p>
-                            Interpolation, Jump, Fibonacci and
-                            Skip List searching.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- UNIT III -->
-        <section class="topics-section alternate">
-
-            <div class="container">
-
-                <div class="section-heading">
-                    <span>UNIT – III</span>
-                    <h2>Advanced Search Trees</h2>
-                    <p>
-                        Study balanced binary search trees and
-                        digital search structures.
-                    </p>
-                </div>
-
-
-                <div class="topic-grid">
-
-                    <a href="balanced-bst.html" class="topic-card">
-                        <div class="topic-number">14</div>
-                        <div class="topic-icon">🌲</div>
-                        <h3>Balanced BSTs</h3>
-                        <p>
-                            AVL Trees, Red-Black Trees and
-                            Splay Trees.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="digital-search-trees.html" class="topic-card">
-                        <div class="topic-number">15</div>
-                        <div class="topic-icon">🔤</div>
-                        <h3>Digital Search Trees</h3>
-                        <p>
-                            Standard Tries, Binary Tries,
-                            Patricia Tries and Suffix Tries.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- UNIT IV -->
-        <section class="topics-section">
-
-            <div class="container">
-
-                <div class="section-heading">
-                    <span>UNIT – IV</span>
-                    <h2>Multiway Trees & Heaps</h2>
-                    <p>
-                        Explore multiway search trees and advanced
-                        heap data structures.
-                    </p>
-                </div>
-
-
-                <div class="topic-grid">
-
-                    <a href="multiway-search-trees.html" class="topic-card">
-                        <div class="topic-number">16</div>
-                        <div class="topic-icon">🌳</div>
-                        <h3>Multiway Search Trees</h3>
-                        <p>
-                            B-Trees, 2-3 Trees, B* Trees and
-                            B+ Trees.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="heaps.html" class="topic-card">
-                        <div class="topic-number">17</div>
-                        <div class="topic-icon">⛰️</div>
-                        <h3>Heaps</h3>
-                        <p>
-                            Binary, Binomial and Fibonacci Heaps,
-                            comparisons and applications.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- UNIT V -->
-        <section class="topics-section alternate">
-
-            <div class="container">
-
-                <div class="section-heading">
-                    <span>UNIT – V</span>
-                    <h2>Hashing & Files</h2>
-                    <p>
-                        Learn hashing techniques, collision resolution,
-                        file organization and indexing.
-                    </p>
-                </div>
-
-
-                <div class="topic-grid">
-
-                    <a href="hashing.html" class="topic-card">
-                        <div class="topic-number">18</div>
-                        <div class="topic-icon">#️⃣</div>
-                        <h3>Hashing</h3>
-                        <p>
-                            Hash tables, hash functions and
-                            collision resolution techniques.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="files.html" class="topic-card">
-                        <div class="topic-number">19</div>
-                        <div class="topic-icon">📁</div>
-                        <h3>Files & File Organization</h3>
-                        <p>
-                            Data hierarchy, file attributes,
-                            text and binary files, organization
-                            and indexing.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Additional Topics -->
-        <section class="topics-section">
-
-            <div class="container">
-
-                <div class="section-heading">
-                    <span>ADVANCED PROBLEM SOLVING</span>
-                    <h2>Advanced Graphs & Placement</h2>
-                    <p>
-                        Apply data structures and algorithms to
-                        advanced problems and placement preparation.
-                    </p>
-                </div>
-
-
-                <div class="topic-grid">
-
-                    <a href="advanced-graphs.html" class="topic-card">
-                        <div class="topic-number">20</div>
-                        <div class="topic-icon">🧠</div>
-                        <h3>Advanced Graph Algorithms</h3>
-                        <p>
-                            Minimum Spanning Tree, shortest paths,
-                            topological sorting and advanced graph problems.
-                        </p>
-                        <span>Start Learning →</span>
-                    </a>
-
-
-                    <a href="placement-problems.html" class="topic-card">
-                        <div class="topic-number">21</div>
-                        <div class="topic-icon">🎯</div>
-                        <h3>Placement Problems</h3>
-                        <p>
-                            Interview-oriented problems covering
-                            DSA and Advanced Data Structures.
-                        </p>
-                        <span>Practice Now →</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- Footer -->
-    <footer class="site-footer">
-
-        <div class="container footer-content">
-
-            <div class="footer-brand">
-                <h2>CodeBhavya</h2>
-                <p>From Learning to Limitless Possibilities.</p>
+            <div class="topic-icon">
+                🔍
             </div>
 
 
-            <div class="footer-links">
-
-                <div>
-                    <h3>Quick Links</h3>
-                    <a href="../index.html">Home</a>
-                    <a href="../Maths/index.html">Maths</a>
-                    <a href="../C/index.html">C Programming</a>
-                </div>
+            <h3>
+                Searching
+            </h3>
 
 
-                <div>
-                    <h3>Learning</h3>
-                    <a href="index.html">Advanced Data Structures</a>
-                    <a href="../Python/index.html">Python</a>
-                    <a href="../AI-ML/index.html">AI & Machine Learning</a>
-                </div>
+            <p>
+                Learn Linear Search, Binary Search
+                and important searching techniques
+                and problems.
+            </p>
 
 
-                <div>
-                    <h3>Practice</h3>
-                    <a href="../Practice/index.html">Practice Problems</a>
-                    <a href="../Practice/index.html">Problem Solving</a>
-                </div>
+            <a href="searching.html"
+               class="primary-button">
 
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <!-- SORTING -->
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🔄
+            </div>
+
+
+            <h3>
+                Sorting
+            </h3>
+
+
+            <p>
+                Learn fundamental sorting algorithms
+                including Bubble, Selection, Insertion,
+                Merge, Quick and Heap Sort.
+            </p>
+
+
+            <a href="sorting.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <!-- LINKED LIST -->
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🔗
+            </div>
+
+
+            <h3>
+                Linked List
+            </h3>
+
+
+            <p>
+                Learn Singly, Doubly and Circular
+                Linked Lists with operations and
+                problem solving.
+            </p>
+
+
+            <a href="linked-list.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <!-- STACK -->
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                📚
+            </div>
+
+
+            <h3>
+                Stack
+            </h3>
+
+
+            <p>
+                Learn stack operations, implementation,
+                applications, expression conversion
+                and evaluation.
+            </p>
+
+
+            <a href="stack.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <!-- QUEUE -->
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🚶
+            </div>
+
+
+            <h3>
+                Queue
+            </h3>
+
+
+            <p>
+                Learn Queue, Circular Queue, Deque
+                and Priority Queue with applications.
+            </p>
+
+
+            <a href="queue.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <!-- TREES -->
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🌳
+            </div>
+
+
+            <h3>
+                Trees
+            </h3>
+
+
+            <p>
+                Learn Binary Trees, Tree Traversals,
+                Binary Search Trees and tree-based
+                problems.
+            </p>
+
+
+            <a href="trees.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <!-- GRAPHS -->
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🕸️
+            </div>
+
+
+            <h3>
+                Graphs
+            </h3>
+
+
+            <p>
+                Learn graph representation, BFS,
+                DFS, connected components, cycle
+                detection and graph problems.
+            </p>
+
+
+            <a href="graphs.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================
+     UNIT I
+============================= -->
+
+<section class="content-section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                UNIT – I
+            </span>
+
+
+            <h2>
+                Foundations of Advanced Data Structures
+            </h2>
+
+
+            <p>
+                Study algorithm performance, disjoint sets,
+                sparse matrices and string pattern matching.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="topic-grid">
+
+
+
+        <!-- PERFORMANCE -->
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                📊
+            </div>
+
+
+            <h3>
+                Performance Analysis
+            </h3>
+
+
+            <p>
+                Learn time complexity, space complexity
+                and asymptotic notations including
+                Big-O, Big-Ω and Big-Θ.
+            </p>
+
+
+            <a href="performance-analysis.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <!-- DISJOINT SETS -->
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🔗
+            </div>
+
+
+            <h3>
+                Disjoint Sets
+            </h3>
+
+
+            <p>
+                Learn representation and operations
+                including Make-Set, Find, Union and
+                Path Compression.
+            </p>
+
+
+            <a href="disjoint-sets.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <!-- SPARSE MATRICES -->
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🧮
+            </div>
+
+
+            <h3>
+                Sparse Matrices
+            </h3>
+
+
+            <p>
+                Learn array representation, operations
+                and row-major and column-major
+                memory mappings.
+            </p>
+
+
+            <a href="sparse-matrices.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <!-- STRING MATCHING -->
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🔤
+            </div>
+
+
+            <h3>
+                String Pattern Matching
+            </h3>
+
+
+            <p>
+                Learn Brute Force, KMP, Boyer-Moore
+                and Rabin-Karp pattern matching
+                algorithms.
+            </p>
+
+
+            <a href="string-pattern-matching.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================
+     UNIT II
+============================= -->
+
+<section class="content-section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                UNIT – II
+            </span>
+
+
+            <h2>
+                Advanced Sorting & Searching
+            </h2>
+
+
+            <p>
+                Study comparison-based, non-comparison-based
+                sorting and advanced searching techniques.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="topic-grid">
+
+
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                ⚡
+            </div>
+
+
+            <h3>
+                Advanced Sorting
+            </h3>
+
+
+            <p>
+                Learn Merge Sort, Quick Sort, Shell Sort,
+                Tree Sort, Counting Sort, Radix Sort
+                and Bucket Sort.
+            </p>
+
+
+            <a href="advanced-sorting.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🎯
+            </div>
+
+
+            <h3>
+                Advanced Searching
+            </h3>
+
+
+            <p>
+                Learn Interpolation Search, Jump Search,
+                Fibonacci Search and Skip List Search.
+            </p>
+
+
+            <a href="advanced-searching.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================
+     UNIT III
+============================= -->
+
+<section class="content-section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                UNIT – III
+            </span>
+
+
+            <h2>
+                Advanced Search Trees
+            </h2>
+
+
+            <p>
+                Learn balanced binary search trees and
+                digital search tree structures.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="topic-grid">
+
+
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🌲
+            </div>
+
+
+            <h3>
+                Balanced Binary Search Trees
+            </h3>
+
+
+            <p>
+                Learn AVL Trees, Red-Black Trees
+                and Splay Trees with their operations
+                and rotations.
+            </p>
+
+
+            <a href="balanced-bst.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🔤
+            </div>
+
+
+            <h3>
+                Digital Search Trees
+            </h3>
+
+
+            <p>
+                Learn Standard Tries, Binary Tries,
+                Patricia Tries and Suffix Tries.
+            </p>
+
+
+            <a href="digital-search-trees.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================
+     UNIT IV
+============================= -->
+
+<section class="content-section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                UNIT – IV
+            </span>
+
+
+            <h2>
+                Multiway Search Trees & Heaps
+            </h2>
+
+
+            <p>
+                Study multiway search trees and advanced
+                heap data structures.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="topic-grid">
+
+
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🌳
+            </div>
+
+
+            <h3>
+                Multiway Search Trees
+            </h3>
+
+
+            <p>
+                Learn B-Trees, B-Tree ADT, 2-3 Trees,
+                B* Trees and B+ Trees.
+            </p>
+
+
+            <a href="multiway-search-trees.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                ⛰️
+            </div>
+
+
+            <h3>
+                Heaps
+            </h3>
+
+
+            <p>
+                Learn Binary Heaps, Binomial Heaps,
+                Fibonacci Heaps, comparisons and
+                applications.
+            </p>
+
+
+            <a href="heaps.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================
+     UNIT V
+============================= -->
+
+<section class="content-section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                UNIT – V
+            </span>
+
+
+            <h2>
+                Hashing & Files
+            </h2>
+
+
+            <p>
+                Learn hash tables, hash functions,
+                collision resolution, file organization
+                and indexing.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="topic-grid">
+
+
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                #️⃣
+            </div>
+
+
+            <h3>
+                Hashing
+            </h3>
+
+
+            <p>
+                Learn hash tables, hash functions,
+                open addressing and closed addressing
+                collision resolution.
+            </p>
+
+
+            <a href="hashing.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                📁
+            </div>
+
+
+            <h3>
+                Files & File Organization
+            </h3>
+
+
+            <p>
+                Learn data hierarchy, file attributes,
+                text and binary files, file organization
+                and indexing.
+            </p>
+
+
+            <a href="files.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================
+     ADVANCED PRACTICE
+============================= -->
+
+<section class="content-section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                ADVANCED PRACTICE
+            </span>
+
+
+            <h2>
+                Problem Solving & Placement
+            </h2>
+
+
+            <p>
+                Apply your knowledge to advanced graph
+                algorithms and placement-oriented problems.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="topic-grid">
+
+
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🧠
+            </div>
+
+
+            <h3>
+                Advanced Graph Algorithms
+            </h3>
+
+
+            <p>
+                Learn Minimum Spanning Trees, shortest
+                paths, topological sorting and advanced
+                graph problems.
+            </p>
+
+
+            <a href="advanced-graphs.html"
+               class="primary-button">
+
+                Start Learning
+
+            </a>
+
+        </article>
+
+
+
+        <article class="topic-card">
+
+            <div class="topic-icon">
+                🎯
+            </div>
+
+
+            <h3>
+                Placement Problems
+            </h3>
+
+
+            <p>
+                Practice interview-oriented problems
+                covering Data Structures and Advanced
+                Data Structures.
+            </p>
+
+
+            <a href="placement-problems.html"
+               class="primary-button">
+
+                Practice Now
+
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================
+     HOW TO LEARN
+============================= -->
+
+<section class="content-card learning-method">
+
+
+    <span class="section-label">
+        LEARNING METHOD
+    </span>
+
+
+    <h2>
+        🧠 How to Learn ADS
+    </h2>
+
+
+
+    <div class="learning-steps">
+
+
+        <div class="learning-step">
+
+            <span>
+                01
+            </span>
+
+            <div>
+                <strong>
+                    Understand the concept.
+                </strong>
             </div>
 
         </div>
 
 
-        <div class="footer-bottom">
-            <p>© 2026 CodeBhavya. All Rights Reserved.</p>
-            <p>From Learning to Limitless Possibilities.</p>
+
+        <div class="learning-step">
+
+            <span>
+                02
+            </span>
+
+            <div>
+                <strong>
+                    Study the algorithm and data structure.
+                </strong>
+            </div>
+
         </div>
 
-    </footer>
+
+
+        <div class="learning-step">
+
+            <span>
+                03
+            </span>
+
+            <div>
+                <strong>
+                    Understand the implementation.
+                </strong>
+            </div>
+
+        </div>
+
+
+
+        <div class="learning-step">
+
+            <span>
+                04
+            </span>
+
+            <div>
+                <strong>
+                    Solve examples and practice problems.
+                </strong>
+            </div>
+
+        </div>
+
+
+
+        <div class="learning-step">
+
+            <span>
+                05
+            </span>
+
+            <div>
+                <strong>
+                    Practice placement-level problems.
+                </strong>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+</div>
+
+
+
+<!-- ============================
+     FOOTER
+============================= -->
+
+<footer class="site-footer">
+
+
+<div class="footer-container">
+
+
+    <!-- BRAND -->
+
+    <div class="footer-brand-section">
+
+        <div class="footer-brand">
+
+            <span class="footer-code">
+                Code
+            </span><span class="footer-bhavya">
+                Bhavya
+            </span>
+
+        </div>
+
+
+        <p class="footer-tagline">
+            From Learning to Limitless Possibilities.
+        </p>
+
+
+        <p class="footer-description">
+            Learn, practice, build and grow with
+            structured learning resources.
+        </p>
+
+    </div>
+
+
+
+    <!-- QUICK LINKS -->
+
+    <div class="footer-column">
+
+        <h3>
+            Quick Links
+        </h3>
+
+
+        <a href="../index.html">
+            Home
+        </a>
+
+
+        <a href="../Maths/index.html">
+            Maths
+        </a>
+
+
+        <a href="../C-Programming/">
+            C Programming
+        </a>
+
+    </div>
+
+
+
+    <!-- LEARNING -->
+
+    <div class="footer-column">
+
+        <h3>
+            Learning
+        </h3>
+
+
+        <a href="../Data-Structures/">
+            Data Structures & DSA
+        </a>
+
+
+        <a href="../Python/">
+            Python
+        </a>
+
+
+        <a href="../AI-ML/">
+            AI & Machine Learning
+        </a>
+
+    </div>
+
+
+
+    <!-- PRACTICE -->
+
+    <div class="footer-column">
+
+        <h3>
+            Practice
+        </h3>
+
+
+        <a href="placement-problems.html">
+            ADS Placement Problems
+        </a>
+
+
+        <a href="#">
+            Problem Solving
+        </a>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- FOOTER BOTTOM -->
+
+<div class="footer-bottom">
+
+    <p>
+        © 2026 CodeBhavya. All Rights Reserved.
+    </p>
+
+
+    <p>
+        From Learning to Limitless Possibilities.
+    </p>
+
+</div>
+
+
+</footer>
+
+
+
+<!-- ============================
+     SEARCH SCRIPT
+============================= -->
+
+<script>
+
+function searchTopics() {
+
+    const input =
+        document.getElementById("topicSearch");
+
+    const filter =
+        input.value.toLowerCase();
+
+    const links =
+        document.querySelectorAll(
+            ".sidebar a"
+        );
+
+
+    links.forEach(function(link) {
+
+        const text =
+            link.textContent.toLowerCase();
+
+
+        if (text.includes(filter)) {
+
+            link.style.display = "";
+
+        } else {
+
+            link.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
 
 </body>
-</html>
-```
 
+</html>
