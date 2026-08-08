@@ -4435,3 +4435,10 @@ body {
     }
 
 }
+
+.main-logo {
+    height: 42px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
