@@ -3968,3 +3968,108 @@ body {
     }
 
 }
+
+/* =========================================
+   CODEBHAVYA - C PRACTICE
+   ========================================= */
+
+.practice-header {
+    margin-bottom: 30px;
+}
+
+.practice-header h2 {
+    margin: 4px 0 10px;
+}
+
+.practice-header > p {
+    color: #64748B;
+
+    line-height: 1.7;
+
+    max-width: 750px;
+
+    margin-bottom: 24px;
+}
+
+
+/* Practice feature row */
+
+.practice-intro {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-top: 20px;
+}
+
+
+.practice-feature {
+    background: #F8FAFC;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 120px;
+}
+
+
+.practice-feature > span {
+    color: #D4AF37;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 10px;
+}
+
+
+.practice-feature strong {
+    color: #0F172A;
+
+    font-size: 16px;
+
+    margin-bottom: 7px;
+}
+
+
+.practice-feature small {
+    color: #64748B;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+    .practice-intro {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .practice-intro {
+        grid-template-columns: 1fr;
+    }
+
+}
